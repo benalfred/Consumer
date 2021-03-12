@@ -1,0 +1,25 @@
+@media all and (min-width: 720px) {
+  .dell {
+    width: 115%;
+  }
+  .line-text p{
+    margin: 0px 22px 0px;
+  }
+}
+
+@media all and (max-width: 520px)  {
+  .btn-sacademyy {
+    margin: 0px 0px 23px;
+    margin-left: -28px;
+  }
+  .btn-academyy{
+    margin-left: -28px;
+  }
+  .sectors {
+    position: absolute;
+    display: none;
+  }
+  .line {
+    display: none;
+  }
+}
