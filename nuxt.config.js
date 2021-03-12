@@ -5,7 +5,6 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-
         target: "static",
         meta: [
             { charset: 'utf-8' },
@@ -26,6 +25,7 @@ export default {
     css: [
         '~/assets/css/responsive.css',
         '~/assets/css/style.css',
+        'aos/dist/aos.css',
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

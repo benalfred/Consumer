@@ -1,16 +1,22 @@
 <template>
   <div class="">
       <b-container class="line-text mt-5">
-        <div class="d-lg-flex text-center justify-content-center text-header">
+        <div class="d-lg-flex text-center d-none d-sm-block justify-content-center text-header">
           <p>
             <nuxt-link to="/" class="text-decoration-none">Technology</nuxt-link>
           </p>
-          <p>Banking</p>
-          <p>Fashion</p>
-          <p>Economy</p>
-          <p>Fifth</p>
-          <p>Sixth</p>
-          <p>Others</p>
+          <p data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="650">Banking</p>
+          <p data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="700">Fashion</p>
+          <p data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="750">Economy</p>
+          <p data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="800">Fifth</p>
+          <p data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="850">Sixth</p>
+          <p data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="900">Others</p>
         </div>
         <b-row class="text-center justify-content-center pt-2">
           <h2>Explore what Nigerians are saying</h2>
@@ -20,11 +26,15 @@
       <div class="px-lg-5">
       <b-container style="background: #000000;" class="mt-5 mb-5">
         <b-row class="">
-          <b-col md="6" class="px-4 pt-5 pl-4 pl-lg-5">
+
+          <b-col md="6" class="px-4 pt-5 pl-4 pl-lg-5" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="50">
               <h3 class="pt-5 h3">Technology</h3>
               <p class="h3_p">at its very best</p>
           </b-col>
-          <b-col md="6" class="pr-5">
+
+          <b-col md="6" class="pr-5" data-aos="fade-right" data-aos-offset="30"
+                       data-aos-delay="100">
               <img src="~/assets/images/laptop.png"  class="img-fluid" alt="">
           </b-col>
         </b-row>
@@ -40,8 +50,9 @@
                <div class="mr-5 mt-4 line" style=" width: 755px; border-radius:79px; position: absolute; background-color: #656565; height: 1px"></div>
           </b-col>
         </b-row>
-        <div class="row media mt-1 ">
-          <b-media class="pt-1 col-md-2 b-media">
+        <div class="row media mt-1">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="650">
           <template #aside>
             <img src="~/assets/images/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -50,7 +61,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="700">
           <template #aside>
             <img src="~/assets/images/Ellipse1.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -59,7 +71,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="750">
           <template #aside>
             <img src="~/assets/images/Ellipse2.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -68,7 +81,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="800">
           <template #aside>
             <img src="~/assets/images/Ellipse3.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -77,7 +91,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="900">
           <template #aside>
             <img src="~/assets/images/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -86,7 +101,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="950">
           <template #aside>
             <img src="~/assets/images/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -108,7 +124,8 @@
         </b-row>
 
         <div class="row media1 mt-1">
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="700">
           <template #aside>
             <img src="~/assets/images/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -117,7 +134,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="750">
           <template #aside>
             <img src="~/assets/images/gtb.png" width="38" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -126,7 +144,8 @@
           </div>
           </b-media>
 
-           <b-media class="pt-1 col-md-2 b-media">
+           <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="800">
           <template #aside>
             <img src="~/assets/images/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -135,7 +154,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="850">
           <template #aside>
             <img src="~/assets/images/gtb.png" width="38" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -144,7 +164,8 @@
           </div>
           </b-media>
 
-          <b-media class="pt-1 col-md-2 b-media">
+          <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="900">
           <template #aside>
             <img src="~/assets/images/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -153,7 +174,8 @@
           </div>
           </b-media>
 
-           <b-media class="pt-1 col-md-2 b-media">
+           <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="950">
           <template #aside>
             <img src="~/assets/images/gtb.png" width="38" class="img-fluid rounded-circle ellipse" alt="">
           </template>
@@ -174,7 +196,8 @@
           </b-col>
         </b-row>
 
-        <div class="row media1 mt-1">
+        <div class="row media1 mt-1"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="700">
           <b-media class="pt-1 col-md-2 b-media">
           <template #aside>
             <img src="~/assets/images/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
@@ -258,8 +281,21 @@
 </template>
 
 <script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+export default {
 
+      mounted() {
+          AOS.init({
+          offset: 100,
+          duration: 1000
+        })
+      }
+
+
+}
 </script>
+
 
 <style>
 .btn-sacademyy {

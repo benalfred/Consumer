@@ -8,6 +8,15 @@
       <b-navbar-toggle target="nav-collapse" class="toggle"></b-navbar-toggle>
 
       <b-collapse  id="nav-collapse" is-nav class="isnav">
+         <b-navbar-nav class="ml-auto d-lg-none pl-5 text-white text-header is-nav">
+           <b-nav-item v-scroll-to="'#products'" class="mr-3">Technology</b-nav-item>
+          <b-nav-item v-scroll-to="'#products'" class="mr-3">Banking</b-nav-item>
+          <b-nav-item  v-scroll-to="'#features'" class="mr-3">Fashion</b-nav-item>
+          <b-nav-item  v-scroll-to="'#about'" class="mr-3">Economy</b-nav-item>
+          <b-nav-item  v-scroll-to="'#conatact'" class="mr-3">Fifth</b-nav-item>
+          <b-nav-item  v-scroll-to="'#conatact'" class="mr-3">Sixth</b-nav-item>
+          <b-nav-item  v-scroll-to="'#conatact'" class="mr-3">Others</b-nav-item>
+        </b-navbar-nav>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto text-header">
@@ -71,4 +80,8 @@ header {
   padding: 0px 10px 0px;
 }
 
+.is-nav {
+  position: relative;
+  left: -45px;
+}
 </style>

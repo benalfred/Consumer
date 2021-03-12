@@ -3,10 +3,13 @@
       <div class="px-5">
       <b-container>
         <b-row>
-          <b-col md="7" class="mt-5">
+          <b-col md="7" class="mt-5" data-aos="fade-left" data-aos-offset="30"
+                       data-aos-delay="700">
               <img src="~/assets/images/Logo.png" class="img-fluid " alt="">
-              <h4 class="h4 pt-5">About CONSUMMERHALLA</h4>
-              <p class="consumer-text pt-3">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <h4 class="h4 pt-5" data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="750">About CONSUMERHALLA</h4>
+              <p class="consumer-text pt-3" data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="800">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
               <div class="row mt-5 ml-1 icons_">
               <div class="icons">
                 <img src="~/assets/images/facebook.png" width="15" class="img-fluid " alt="">
@@ -47,9 +50,21 @@
   </div>
 </template>
 
+
 <script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 export default {
+
+      mounted() {
+          AOS.init({
+          offset: 100,
+          duration: 1000
+        })
+      }
+
 
 }
 </script>
+
 
