@@ -82,6 +82,6 @@ header {
 
 .is-nav {
   position: relative;
-  left: -45px;
+  left: ;
 }
 </style>
