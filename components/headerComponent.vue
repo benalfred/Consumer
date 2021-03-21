@@ -1,31 +1,24 @@
 <template>
-  <header class=" shadow-sm p-2 mb-4 bg-white rounded">
-    <b-navbar class="container text-white" toggleable="lg">
+  <header >
+    <b-navbar toggleable="lg">
+      <div class="container">
       <b-navbar-brand to="/">
-        <img src="~/assets/images/Logo.png" class="img-fluid " alt="">
+        <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
       </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse" class="toggle"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse  id="nav-collapse" is-nav class="isnav">
-         <b-navbar-nav class="ml-auto d-lg-none pl-5 text-white text-header is-nav">
-           <b-nav-item v-scroll-to="'#products'" class="mr-3">Technology</b-nav-item>
-          <b-nav-item v-scroll-to="'#products'" class="mr-3">Banking</b-nav-item>
-          <b-nav-item  v-scroll-to="'#features'" class="mr-3">Fashion</b-nav-item>
-          <b-nav-item  v-scroll-to="'#about'" class="mr-3">Economy</b-nav-item>
-          <b-nav-item  v-scroll-to="'#conatact'" class="mr-3">Fifth</b-nav-item>
-          <b-nav-item  v-scroll-to="'#conatact'" class="mr-3">Sixth</b-nav-item>
-          <b-nav-item  v-scroll-to="'#conatact'" class="mr-3">Others</b-nav-item>
-        </b-navbar-nav>
+      <b-collapse id="nav-collapse" is-nav>
+
 
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto text-header">
-          <b-nav-item to="" class="pr-4">join</b-nav-item>
-          <div class="login">
-          <b-nav-item to="" class="pr-1">Login <img src="~/assets/images/vector.png" class="img-fluid " alt=""></b-nav-item>
-          </div>
+        <b-navbar-nav class="ml-auto">
+          <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
+          <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
+          <a href="/login" class="btn btn-sacademy" role="button">Join Us</a>
         </b-navbar-nav>
-      </b-collapse>
+      </b-collapse><!--        -->
+      </div>
     </b-navbar>
   </header>
 </template>
@@ -56,32 +49,39 @@
   }
 </script>
 
-<style>
-
+<style scoped>
 .btn-sacademy {
+    background-color:  #E57718
+ !important;
     color: #fff !important;
-    border-radius: 50px;
-    background-color: #3671E9;
-    padding: 7px 20px 6px;
+    border-color: #EF4323 !important;
 }
 
-/* .navbar-light .navbar-nav .nav-link {
-  color: white!important;
-} */
-
-header {
-  position: relative;
+.navbar {
+    position: fixed;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    z-index: 1000;
 }
 
-
-.login {
-  background: rgba(229, 119, 24, 0.2);
-  border-radius: 50px;
-  padding: 0px 10px 0px;
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+    box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
 }
 
-.is-nav {
-  position: relative;
-  left: ;
+.sticky+.content {
+    padding-top: 102px;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 </style>

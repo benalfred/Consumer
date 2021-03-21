@@ -13,7 +13,23 @@ export default {
         ],
 
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+           {
+              rel: 'stylesheet',
+              href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
+            },
         ]
     },
 
@@ -25,11 +41,13 @@ export default {
     css: [
         '~/assets/css/responsive.css',
         '~/assets/css/style.css',
-        'aos/dist/aos.css',
+        'aos/dist/aos.css'
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+      { src: '~/plugins/main.js',mode:'client' },
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
