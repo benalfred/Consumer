@@ -15,6 +15,28 @@
         <b-navbar-nav class="ml-auto">
           <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
           <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
+          <b-navbar-nav class="mr-5">
+             <b-nav-item-dropdown
+            id="my-nav-dropdown"
+            text="Technology"
+            toggle-class="nav-link-custom"
+            left
+          >
+
+            <b-dropdown-item to="/fullstackplcs-automation">Banking</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/fullstackmobile">Fashion</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/load">Economy</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/load">Fifth</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/load">Sixth</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/load">Others</b-dropdown-item>
+          </b-nav-item-dropdown>
+          </b-navbar-nav>
+
           <a href="/login" class="btn btn-sacademy" role="button">Join Us</a>
         </b-navbar-nav>
       </b-collapse><!--        -->

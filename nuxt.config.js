@@ -30,6 +30,10 @@ export default {
               rel: 'stylesheet',
               href: 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
             },
+           {
+              rel: 'stylesheet',
+              href: 'https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+            },
         ]
     },
 

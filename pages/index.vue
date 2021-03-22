@@ -15,17 +15,20 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About</h2>
-          <p>About CONSUMMERHALLA</p>
+          <h2 data-aos="fade-right" data-aos-offset="30"
+                       data-aos-delay="750">About</h2>
+          <p data-aos="fade-right" data-aos-offset="30"
+                       data-aos-delay="780">About CONSUMMERHALLA</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
             <img src="~/assets/img/about.jpg" class="img-fluid" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="800">
             <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-            <p class="font-italic">
+            <p class="">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.
             </p>
@@ -51,7 +54,7 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Why Choose Mentor?</h3>
+              <h3>Why Choose Consumer?</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
                 Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
@@ -94,7 +97,7 @@
     </section><!-- End Why Us Section -->
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features"  data-aos="fade-up">
+    <!-- <section id="features" class="features"  data-aos="fade-up">
       <div class="container" >
 
         <div class="row">
@@ -173,7 +176,7 @@
         </div>
 
       </div>
-    </section><!-- End Features Section -->
+    </section>End Features Section -->
 
     <!-- ======= Popular Courses Section ======= -->
     <section id="popular-courses" class="courses" data-aos="fade-up">
@@ -281,7 +284,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <img src="~/assets/img/GTBANK.png" class="img-fluid" alt="">
-             
+
             </div>
           </div>
 
@@ -304,6 +307,30 @@
       </div>
     </section><!-- End Trainers Section -->
 
+    <section style="background: #373737; margin-top: 50px" class=" pt-5 mb-5 pb-5">
+      <b-container>
+          <b-row>
+            <b-col md="12">
+              <h3 class="h3_ text-center">Share your own opinion and earn up to <span style="color: #E57718;">100 points </span> to get a gift </h3>
+              <p class="text-header text-center text-white pt-3">You can refer people to share their opinions and earn points</p>
+            </b-col>
+          </b-row>
+
+          <div class="ml-4 pl-5 mt-3 row text-header">
+            <b-col md="10" class="justify-content-center ml-lg-5 mb-3 pl-lg-5">
+              <a href="/contact-us" class="btn btn-sacademyy pt-2 ml-lg-3" role="button">Share your Opinion</a>
+              <a href="/contact-us" class="btn btn-sacademyy pt-2 ml-lg-5" role="button">Share your Opinion</a>
+            </b-col>
+
+            <b-col md="12" class="mt-4 ml-lg-5 pl-lg-5">
+              <div class="ml-lg-5 pl-lg-5">
+                <a href="/contact-us" class="btn btn-academyy pt-2 ml-lg-5" role="button">Share your Opinion</a>
+              </div>
+            </b-col>
+          </div>
+      </b-container>
+      </section>
+
   </main><!-- End #main -->
 
   </div>
@@ -322,4 +349,36 @@ export default {
       }
 }
 </script>
+
+<style scoped>
+.btn-sacademyy {
+    color: #fff !important;
+    border-radius: 50px;
+    background-color:  #656565;
+    padding: 5px 50px 6px;
+}
+.btn-academyy {
+    color: #fff !important;
+    border-radius: 50px;
+    background-color:  #E57718;
+    padding: 5px 50px 6px;
+}
+.text-header {
+font-family: 'Poppins', sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+}
+.h3_ {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 54px;
+  text-align: center;
+  color: #FFFFFF;
+}
+</style>
 
