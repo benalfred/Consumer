@@ -297,7 +297,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="~/assets/img/GTBANK.png" class="img-fluid" alt="">
+              <img src="~/assets/img/GTBank.png" class="img-fluid" alt="">
 
             </div>
           </div>
