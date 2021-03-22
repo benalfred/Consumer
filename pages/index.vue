@@ -186,86 +186,66 @@
           <h2 style="color: #E57718; ">Technology</h2>
         </div>
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        <div class="row media mt-1">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="650">
+          <template #aside>
+            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Dell</p>
+          </div>
+          </b-media>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="course-item">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="700">
+          <template #aside>
+            <img src="~/assets/img/Ellipse1.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Fanafrik</p>
+          </div>
+          </b-media>
 
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Web Development</h4>
-                  <p class="price">$169</p>
-                </div>
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="750">
+          <template #aside>
+            <img src="~/assets/img/Ellipse2.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">hp</p>
+          </div>
+          </b-media>
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="~/assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                    <span>Antonio</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="800">
+          <template #aside>
+            <img src="~/assets/img/Ellipse3.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Lorem</p>
+          </div>
+          </b-media>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="course-item">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="900">
+          <template #aside>
+            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Ipsum</p>
+          </div>
+          </b-media>
 
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Marketing</h4>
-                  <p class="price">$250</p>
-                </div>
-
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="~/assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-                    <span>Lana</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="course-item">
-
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Content</h4>
-                  <p class="price">$180</p>
-                </div>
-
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="~/assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-                    <span>Brandon</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
+          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="950">
+          <template #aside>
+            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Ipsum</p>
+          </div>
+          </b-media>
         </div>
 
       </div>
@@ -280,28 +260,66 @@
 
         </div>
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="~/assets/img/GTBANK.png" class="img-fluid" alt="">
-
-            </div>
+        <div class="row media1 mt-1">
+          <b-media class="pt-1 col-md-2 b-media" data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="700">
+          <template #aside>
+            <img src="~/assets/img/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Zenith Bank</p>
           </div>
+          </b-media>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="~/assets/img/Zenithbank.png" class="img-fluid" alt="">
-
-            </div>
+          <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="750">
+          <template #aside>
+            <img src="~/assets/img/gtb.png" width="38" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">GT Bank</p>
           </div>
+          </b-media>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="~/assets/img/GTBANK.png" class="img-fluid" alt="">
-
-            </div>
+           <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="800">
+          <template #aside>
+            <img src="~/assets/img/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Zenith Bank</p>
           </div>
+          </b-media>
 
+          <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="850">
+          <template #aside>
+            <img src="~/assets/img/gtb.png" width="38" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">GT Bank</p>
+          </div>
+          </b-media>
+
+          <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="900">
+          <template #aside>
+            <img src="~/assets/img/zenith.png" width="37" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Zenith Bank</p>
+          </div>
+          </b-media>
+
+           <b-media class="pt-1 col-md-2 b-media"  data-aos="fade-up" data-aos-offset="30"
+                       data-aos-delay="950">
+          <template #aside>
+            <img src="~/assets/img/gtb.png" width="38" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">GT Bank</p>
+          </div>
+          </b-media>
         </div>
 
       </div>
@@ -316,14 +334,14 @@
             </b-col>
           </b-row>
 
-          <div class="ml-4 pl-5 mt-3 row text-header">
+          <div class="ml-4 pl-5 mt-3 row text-header btnshift">
             <b-col md="10" class="justify-content-center ml-lg-5 mb-3 pl-lg-5">
               <a href="/contact-us" class="btn btn-sacademyy pt-2 ml-lg-3" role="button">Share your Opinion</a>
               <a href="/contact-us" class="btn btn-sacademyy pt-2 ml-lg-5" role="button">Share your Opinion</a>
             </b-col>
 
-            <b-col md="12" class="mt-4 ml-lg-5 pl-lg-5">
-              <div class="ml-lg-5 pl-lg-5">
+            <b-col md="12" class="mt-4 ml-md-5 pl-md-5">
+              <div class="ml-md-5 pl-md-5">
                 <a href="/contact-us" class="btn btn-academyy pt-2 ml-lg-5" role="button">Share your Opinion</a>
               </div>
             </b-col>
@@ -351,6 +369,27 @@ export default {
 </script>
 
 <style scoped>
+.dell {
+  background: #E5E5E5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 50px 50px 0px;
+  padding: 6px 0px 6px;
+}
+
+.ellipse {
+  position: absolute;
+  left: 20px;
+}
+
+.b-media {
+  margin: 0px;
+}
+
+.media1 img {
+  background: #FFDFC4;
+  padding: 3px 7px 5px;
+}
+
 .btn-sacademyy {
     color: #fff !important;
     border-radius: 50px;
@@ -379,6 +418,14 @@ letter-spacing: 0em;
   line-height: 54px;
   text-align: center;
   color: #FFFFFF;
+}
+
+@media screen and (min-width: 1100px) {
+  .btnshift {
+    position: relative;
+    left: 100px;
+    padding-bottom: 10px;
+  }
 }
 </style>
 
