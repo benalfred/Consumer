@@ -1,14 +1,14 @@
 <template>
   <div>
     <section class="pb-5">
-      <b-container class="mt-3 pb-5 px-5 ml-5">
+      <b-container class="mt-3 pb-5 px-5 ml-lg-5">
         <div class=" mb-4">
          <h3 class="text-white ml-lg-5 pl-lg-5 pb-5">Join the community today to share your opinions!</h3>
         </div>
 
         <b-row>
           <b-col md="6" class=" mb-5 ml-md-5">
-        <div class="login-form">
+        <div class="login-form login-form_">
          <div class="contact-form avenir pt-4 small raleway">
            <h3 class="text-center font-weight-bold mb-4 pb-2 pt-2">Login</h3>
             <b-form  @submit.prevent="sendEmail">
@@ -127,7 +127,15 @@ section {
   opacity: 1;
   width: 85%;
   padding: 10px 43px 20px;
-   
+
+}
+
+@media screen and (max-width: 500px) {
+  .login-form_ {
+      width: 135%;
+    padding: 10px 43px 20px;
+    margin-left: -45px;
+  }
 }
 
 .log {
