@@ -7,7 +7,7 @@
         </div>
 
         <b-row>
-          <b-col md="6" class=" mb-5">
+          <b-col md="6" class=" mb-5 ml-md-5">
         <div class="login-form">
          <div class="contact-form avenir pt-4 small raleway">
            <h3 class="text-center font-weight-bold mb-4 pb-2 pt-2">Login</h3>
@@ -127,7 +127,7 @@ section {
   opacity: 1;
   width: 85%;
   padding: 10px 43px 20px;
-   margin-left: 50px;
+   
 }
 
 .log {
