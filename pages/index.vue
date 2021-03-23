@@ -283,11 +283,9 @@
                   <b-card-body>
                     <!-- <b-card-text>I start opened because <code>visible</code> is <code>true</code></b-card-text> -->
                     <b-card-text>
-          Our training is focused on 3 months of theories, class based assignments & practicals.
-                       With additional 3 months of <code>Project Based Training</code> where students will be
-                    subjected to real life project environment in the following companies, <code><a href="https://devnode.ng/" target="_blank">DevNode.ng</a></code>
+                      {{text}}
+                       <code><a href="https://devnode.ng/" target="_blank">DevNode.ng</a></code>
                     and <code><a href="https://madesoftautomation.com/" target="_blank">MadesoftAutomation.com</a></code>
-
                     </b-card-text>
 
 
@@ -303,9 +301,7 @@
                 <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
                   <b-card-body>
                     <b-card-text>
-                      We Adopt a school type approach where theories will be blended with practicals. Our <code>LMS (Learning Management System)</code>
-                      is deployed in the cloud to aid this approach. Also we provide a <code>Library Portal</code> loaded with tech related books and
-                      study materials for student research and private studies.
+                      {{text}}
                     </b-card-text>
 
                   </b-card-body>
@@ -318,8 +314,8 @@
                 </b-card-header>
                 <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                   <b-card-body>
-                    <b-card-text>We offer blended training where theories are thought in classes via  our <code><a href="#" target="_blank">Virtual platform Meetvend.com</a></code>
-                      and practicals are done physically in our training centers.
+                    <b-card-text>
+                      {{text}}
                     </b-card-text>
 
                   </b-card-body>
@@ -332,10 +328,8 @@
                 </b-card-header>
                 <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
                   <b-card-body>
-                    <b-card-text>We offer our graduates project based experience in the course of their training via
-                      <code><a href="#" target="_blank">DevNode</a></code>
-                    and <code><a href="#" target="_blank">Madesoft Automation</a></code>
-                    respectively depending on the course taken as such we can guarantee their work experience to potential employer.
+                    <b-card-text>
+                      {{text}}
                     </b-card-text>
                   </b-card-body>
                 </b-collapse>
@@ -456,13 +450,13 @@
       </div>
     </section>
 
-  <div class="mt-5">>
+  <div class="mt-5 mb-5">
    <div id="footer" class="footer mt-5 p-5">
      <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
-            <h4>Our Newsletter</h4>
+            <h4 class="pb-3">Our Newsletter</h4>
             <p>Share your own opinion and earn up to <span style="color: #E57718;">100 points </span> to get a gift</p>
 
           </div>
@@ -598,10 +592,7 @@ export default {
           richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
           brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
           tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-          assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-          wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-          vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-          synth nesciunt you probably haven't heard of them accusamus labore VHS.
+          assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
         `
       }
     }
