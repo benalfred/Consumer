@@ -37,7 +37,7 @@
           </b-nav-item-dropdown>
           </b-navbar-nav>
 
-          <a href="/login" class="btn btn-sacademy mt-2" role="button">Join Us</a>
+          <nuxt-link to="/login" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
         </b-navbar-nav>
       </b-collapse><!--        -->
       </div>
