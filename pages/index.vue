@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
           <h1 data-aos="fade-up">Explore what Nigerians are saying</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">We conumerHalla are team of talented people making things easy for you with idea</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">We consumerHalla are team of talented people making things easy for you with Our idea</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
               <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -256,79 +256,9 @@
     </section>End Features Section -->
 
     <!-- ======= Popular Courses Section ======= -->
-    <section id="popular-courses" class="courses" data-aos="fade-up">
-      <div class="container" >
+  <!-- End Popular Courses Section -->
 
-        <div class="section-title">
-          <h2 style="color: #E57718; ">Technology</h2>
-        </div>
-
-        <div class="row media mt-1">
-          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
-                       data-aos-delay="650">
-          <template #aside>
-            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
-          </template>
-          <div class="">
-          <p class="text-header dell text-left pl-5">Dell</p>
-          </div>
-          </b-media>
-
-          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
-                       data-aos-delay="700">
-          <template #aside>
-            <img src="~/assets/img/Ellipse1.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
-          </template>
-          <div class="">
-          <p class="text-header dell text-left pl-5">Fanafrik</p>
-          </div>
-          </b-media>
-
-          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
-                       data-aos-delay="750">
-          <template #aside>
-            <img src="~/assets/img/Ellipse2.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
-          </template>
-          <div class="">
-          <p class="text-header dell text-left pl-5">hp</p>
-          </div>
-          </b-media>
-
-          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
-                       data-aos-delay="800">
-          <template #aside>
-            <img src="~/assets/img/Ellipse3.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
-          </template>
-          <div class="">
-          <p class="text-header dell text-left pl-5">Lorem</p>
-          </div>
-          </b-media>
-
-          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
-                       data-aos-delay="900">
-          <template #aside>
-            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
-          </template>
-          <div class="">
-          <p class="text-header dell text-left pl-5">Ipsum</p>
-          </div>
-          </b-media>
-
-          <b-media class="pt-1 col-md-2 b-media" data-aos="zoom-in" data-aos-offset="30"
-                       data-aos-delay="950">
-          <template #aside>
-            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
-          </template>
-          <div class="">
-          <p class="text-header dell text-left pl-5">Ipsum</p>
-          </div>
-          </b-media>
-        </div>
-
-      </div>
-    </section><!-- End Popular Courses Section -->
-
-          <section class="py-5 ">
+     <section class="py-5 ">
       <div class="container">
         <div class="d-flex justify-content-end">
           <div>
@@ -420,8 +350,134 @@
       </div>
     </section>
 
+     <!-- <section id="popular-courses" class="courses" data-aos="fade-up">
+      <div class="container" >
+
+        <div class="section-title">
+          <h2 style="color: #E57718; ">Technology</h2>
+        </div>
+
+        <div class="row media mt-1">
+          <b-media class="pt-1 col-md-4 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="650">
+          <template #aside>
+            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Dell</p>
+          </div>
+          </b-media>
+
+          <b-media class="pt-1 col-md-4 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="700">
+          <template #aside>
+            <img src="~/assets/img/Ellipse1.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Fanafrik</p>
+          </div>
+          </b-media>
+
+          <b-media class="pt-1 col-md-4 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="750">
+          <template #aside>
+            <img src="~/assets/img/Ellipse2.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">hp</p>
+          </div>
+          </b-media>
+
+          <b-media class="pt-1 col-md-4 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="800">
+          <template #aside>
+            <img src="~/assets/img/Ellipse3.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Lorem</p>
+          </div>
+          </b-media>
+
+          <b-media class="pt-1 col-md-4 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="900">
+          <template #aside>
+            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Ipsum</p>
+          </div>
+          </b-media>
+
+          <b-media class="pt-1 col-md-4 b-media" data-aos="zoom-in" data-aos-offset="30"
+                       data-aos-delay="950">
+          <template #aside>
+            <img src="~/assets/img/Ellipse.png" width="33" class="img-fluid rounded-circle ellipse" alt="">
+          </template>
+          <div class="">
+          <p class="text-header dell text-left pl-5">Ipsum</p>
+          </div>
+          </b-media>
+        </div>
+
+      </div>
+    </section> -->
+
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="~/assets/img/gtb.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="~/assets/img/zenith.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="~/assets/img/gtb.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="~/assets/img/zenith.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="~/assets/img/gtb.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="~/assets/img/zenith.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  <div class="mt-5">>
+   <div id="footer" class="footer mt-5 p-5">
+     <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h4>Our Newsletter</h4>
+            <p>Share your own opinion and earn up to <span style="color: #E57718;">100 points </span> to get a gift</p>
+
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Share your Opinion">
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+   </div>
     <!-- ======= Trainers Section ======= -->
-    <section id="trainers" class="trainers">
+    <!-- <section id="trainers" class="trainers">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -492,9 +548,9 @@
         </div>
 
       </div>
-    </section><!-- End Trainers Section -->
+    </section>End Trainers Section -->
 
-    <section style="background: #373737; margin-top: 50px" class=" pt-5 mb-5 pb-5">
+    <!-- <section style="background: #373737; margin-top: 50px" class="container pt-5 mb-5 pb-5">
       <b-container>
           <b-row>
             <b-col md="12">
@@ -516,7 +572,7 @@
             </b-col>
           </div>
       </b-container>
-      </section>
+      </section> -->
 
   </main><!-- End #main -->
 

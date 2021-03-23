@@ -22,6 +22,18 @@ export default {
               rel: 'stylesheet',
               href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'
             },
+            {
+              rel: 'stylesheet',
+              href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
+            },
            {
               rel: 'stylesheet',
               href: 'https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css'
