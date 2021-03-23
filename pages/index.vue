@@ -1,100 +1,177 @@
 <template>
   <div>
-      <section id="hero" class="d-flex  justify-content-center align-items-center">
-    <div class="container position-relative " data-aos="zoom-in" data-aos-delay="100">
-      <h1>Explore what <br> Nigerians are saying</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
-      <a href="courses.html" class="btn-get-started">Get Started</a>
-    </div>
+      <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Explore what Nigerians are saying</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">We conumerHalla are team of talented people making things easy for you with idea</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Get Started</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="~/assets/img/heroimg.png" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+
+
   </section><!-- End Hero -->
 
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+      <!-- <section id="about" class="about">
+
       <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
 
-        <div class="section-title">
-          <h2 data-aos="fade-right" data-aos-offset="30"
-                       data-aos-delay="750">About</h2>
-          <p data-aos="fade-right" data-aos-offset="30"
-                       data-aos-delay="780">About CONSUMMERHALLA</p>
-        </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Who We Are</h3>
+              <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat corrupti reprehenderit.</h2>
+              <p>
+                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Read More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
             <img src="~/assets/img/about.jpg" class="img-fluid" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-up" data-aos-offset="30"
-                       data-aos-delay="800">
-            <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-            <p class="">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
 
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            </p>
-            <a href="about.html" class="learn-more-btn">Learn More</a>
-          </div>
         </div>
-
       </div>
-    </section><!-- End About Section -->
+
+    </section>End About Section -->
 
 
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
+      <section id="values" class="values">
       <div class="container" data-aos="fade-up">
 
+        <header class="section-header">
+          <h2>Our Values</h2>
+          <p>Odit est perspiciatis laborum et dicta</p>
+        </header>
+
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>Why Choose Consumer?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
+          <div class="col-lg-4">
+            <div class="box_" data-aos="fade-up" data-aos-delay="200">
+              <img src="~/assets/img/values-1.png" class="img-fluid" alt="">
+              <h3>Ad cupiditate sed est odio</h3>
+              <p>Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
             </div>
           </div>
-          <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box_" data-aos="fade-up" data-aos-delay="400">
+              <img src="~/assets/img/values-2.png" class="img-fluid" alt="">
+              <h3>Voluptatem voluptatum alias</h3>
+              <p>Repudiandae amet nihil natus in distinctio suscipit id. Doloremque ducimus ea sit non.</p>
+            </div>
           </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box_" data-aos="fade-up" data-aos-delay="600">
+              <img src="~/assets/img/values-3.png" class="img-fluid" alt="">
+              <h3>Fugit cupiditate alias nobis.</h3>
+              <p>Quam rem vitae est autem molestias explicabo debitis sint.
+                <span style="color: #E57718;" class="font-weight-bold">Vero aliquid quidem commodi.</span>
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
+
+    </section>
+    <!-- End value Section -->
+
+     <section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Features</h2>
+          <p>Technology at it very best</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <img src="~/assets/img/features.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
+            <div class="row align-self-center gy-4">
+
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>We Are Fast </h3>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>We Are Trusted</h3>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>We Respond Fast </h3>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>We listen</h3>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>We are always available</h3>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="700">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>We Are Consumer Halla.</h3>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div> <!-- / row -->
+
+
+      </div>
+
+    </section>
 
     <!-- ======= Features Section ======= -->
     <!-- <section id="features" class="features"  data-aos="fade-up">
@@ -251,6 +328,98 @@
       </div>
     </section><!-- End Popular Courses Section -->
 
+          <section class="py-5 ">
+      <div class="container">
+        <div class="d-flex justify-content-end">
+          <div>
+            <h3 data-aos="fade-left" data-aos-offset="30" class="font-weight">What We Offer You</h3>
+            <div data-aos="fade-left" data-aos-offset="50" class="d-flex justify-content-end">
+              <div
+                style="width: 100px; border-radius:79px; margin-bottom: 1rem; background-color: #E57718; height: 8px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="n-shadow my-5">
+          <div class="row">
+            <div class="mb-lg-0 d-flex align-items-center order-1 order-lg-0">
+              <div class="p-4">
+
+                 <div class="accordion" role="tablist">
+              <b-card no-body class="mb-1">
+                <b-card-header header-tag="header" class="p-1" role="tab">
+                  <b-button block v-b-toggle.accordion-1 variant="light">Real Life Project Environment</b-button>
+                </b-card-header>
+                <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+                  <b-card-body>
+                    <!-- <b-card-text>I start opened because <code>visible</code> is <code>true</code></b-card-text> -->
+                    <b-card-text>
+          Our training is focused on 3 months of theories, class based assignments & practicals.
+                       With additional 3 months of <code>Project Based Training</code> where students will be
+                    subjected to real life project environment in the following companies, <code><a href="https://devnode.ng/" target="_blank">DevNode.ng</a></code>
+                    and <code><a href="https://madesoftautomation.com/" target="_blank">MadesoftAutomation.com</a></code>
+
+                    </b-card-text>
+
+
+
+                  </b-card-body>
+                </b-collapse>
+              </b-card>
+
+              <b-card no-body class="mb-1">
+                <b-card-header header-tag="header" class="p-1" role="tab">
+                  <b-button block v-b-toggle.accordion-2 variant="light">School Based Training</b-button>
+                </b-card-header>
+                <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
+                  <b-card-body>
+                    <b-card-text>
+                      We Adopt a school type approach where theories will be blended with practicals. Our <code>LMS (Learning Management System)</code>
+                      is deployed in the cloud to aid this approach. Also we provide a <code>Library Portal</code> loaded with tech related books and
+                      study materials for student research and private studies.
+                    </b-card-text>
+
+                  </b-card-body>
+                </b-collapse>
+              </b-card>
+
+              <b-card no-body class="mb-1">
+                <b-card-header header-tag="header" class="p-1" role="tab">
+                  <b-button block v-b-toggle.accordion-3 variant="light">Flexibility </b-button>
+                </b-card-header>
+                <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
+                  <b-card-body>
+                    <b-card-text>We offer blended training where theories are thought in classes via  our <code><a href="#" target="_blank">Virtual platform Meetvend.com</a></code>
+                      and practicals are done physically in our training centers.
+                    </b-card-text>
+
+                  </b-card-body>
+                </b-collapse>
+              </b-card>
+
+              <b-card no-body class="mb-1">
+                <b-card-header header-tag="header" class="p-1" role="tab">
+                  <b-button block v-b-toggle.accordion-4 variant="light">Guaranteed Work Experience</b-button>
+                </b-card-header>
+                <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
+                  <b-card-body>
+                    <b-card-text>We offer our graduates project based experience in the course of their training via
+                      <code><a href="#" target="_blank">DevNode</a></code>
+                    and <code><a href="#" target="_blank">Madesoft Automation</a></code>
+                    respectively depending on the course taken as such we can guarantee their work experience to potential employer.
+                    </b-card-text>
+                  </b-card-body>
+                </b-collapse>
+              </b-card>
+
+            </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======= Trainers Section ======= -->
     <section id="trainers" class="trainers">
       <div class="container" data-aos="fade-up">
@@ -260,7 +429,7 @@
 
         </div>
 
-        <div class="row media1 mt-1">
+        <div class="row media1">
           <b-media class="pt-1 col-md-2 b-media" data-aos="fade-up" data-aos-offset="30"
                        data-aos-delay="700">
           <template #aside>
@@ -364,11 +533,55 @@ export default {
           offset: 100,
           duration: 1000
         })
+      },
+
+        data() {
+      return {
+        text: `
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+          richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+          brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+          tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+          assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+          wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+          vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+          synth nesciunt you probably haven't heard of them accusamus labore VHS.
+        `
       }
+    }
 }
 </script>
 
 <style scoped>
+.values .box_ {
+  padding: 30px;
+  box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);
+  text-align: center;
+  transition: 0.3s;
+  height: 100%;
+}
+
+.values .box_ img {
+  padding: 30px 50px;
+  transition: 0.5s;
+  transform: scale(1.1);
+}
+
+.values .box_ h3 {
+  font-size: 24px;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.values .box_:hover {
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+}
+
+.values .box_:hover img {
+  transform: scale(1);
+}
+
 .dell {
   background: #E5E5E5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -394,13 +607,13 @@ export default {
     color: #fff !important;
     border-radius: 50px;
     background-color:  #656565;
-    padding: 5px 50px 6px;
+    padding: 4px 50px 7px;
 }
 .btn-academyy {
     color: #fff !important;
     border-radius: 50px;
     background-color:  #E57718;
-    padding: 5px 50px 6px;
+    padding: 4px 50px 7px;
 }
 .text-header {
 font-family: 'Poppins', sans-serif;

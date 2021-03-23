@@ -74,9 +74,13 @@
 <style scoped>
 .btn-sacademy {
     background-color:  #E57718
- !important;
+    !important;
     color: #fff !important;
-    border-color: #EF4323 !important;
+    transition: 0.5s;
+    border-color: #E57718 !important;
+    font-size: 15px;
+    padding: 8px 25px;
+
 }
 
 .navbar {
