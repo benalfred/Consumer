@@ -153,10 +153,10 @@
               <h3 data-aos="fade-left" data-aos-offset="30" class="font-weight">
                 What We Offer You
               </h3>
-              <div data-aos="fade-left"
-                data-aos-offset="50"
-                class="d-flex justify-content-end">
                <div
+               data-aos="fade-left"
+                data-aos-offset="50"
+                class="d-flex justify-content-end"
                   style="
                     width: 100px;
                     border-radius: 79px;
@@ -165,7 +165,6 @@
                     height: 8px;
                   "
                 ></div>
-              </div>
 
             </div>
           </div>
