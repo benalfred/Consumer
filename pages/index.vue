@@ -153,10 +153,10 @@
               <h3 data-aos="fade-left" data-aos-offset="30" class="font-weight">
                 What We Offer You
               </h3>
-               <div
-                data-aos="fade-left"
+              <div data-aos="fade-left"
                 data-aos-offset="50"
-                class="d-flex justify-content-end"
+                class="d-flex justify-content-end">
+               <div
                   style="
                     width: 100px;
                     border-radius: 79px;
@@ -165,13 +165,12 @@
                     height: 8px;
                   "
                 ></div>
+              </div>
 
             </div>
           </div>
+
           <div class="n-shadow my-5">
-            <div class="row">
-              <div class="mb-lg-0 d-flex align-items-center order-1 order-lg-0">
-                <div class="p-4">
                   <div class="accordion" role="tablist">
                     <b-card no-body class="mb-1">
                       <b-card-header header-tag="header" class="p-1" role="tab">
@@ -265,55 +264,35 @@
                     </b-card>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
- 
 
 
-    <div class="container">
-        <h2 class="tech">Technology</h2>
-    </div>
-    <section id="clients" class="clients clients_ mt-2 section-bg">
-      <div class="container">
-        <div class="row">
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col1" data-aos="zoom-in">
-            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
-          </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col2" data-aos="zoom-in">
-            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
-          </div>
+    <!-- <div class="container">
+        <h2 class="bank">Banking</h2>
+          <div data-aos="fade-right" data-aos-offset="50" class="d-flex justify-content-start">
+              <div
+                style="width: 90px; border-radius:79px; margin-bottom: 1rem; background-color: #E57718; height: 8px"></div>
+            </div>
+    </div> -->
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col3" data-aos="zoom-in">
-            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
-          </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col4" data-aos="zoom-in">
-            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
-          </div>
 
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col5" data-aos="zoom-in">
-            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col6" data-aos="zoom-in">
-            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-    </section>
     <div class="container">
         <h2 class="tech">Banking</h2>
+          <div data-aos="fade-right" data-aos-offset="50" class="d-flex justify-content-start">
+              <div
+                style="width: 90px; border-radius:79px; margin-bottom: 1rem; background-color: #E57718; height: 8px"></div>
+            </div>
     </div>
-      <section id="clients" class="clients mb-5 section-bg">
+
+      <section id="clients" class="clients  mb-5 section-bg">
         <carousel
+        class="container"
           :autoplay="true"
           :nav="false"
           :autoplayTimeout="800"
@@ -354,6 +333,48 @@
           />
         </carousel>
       </section>
+
+
+
+       <div class="container">
+        <h2 class="tech mt-5">Technology</h2>
+        <div data-aos="fade-right" data-aos-offset="50" class="d-flex justify-content-start">
+              <div
+                style="width: 100px; border-radius:79px; margin-bottom: 1rem; background-color: #E57718; height: 8px"></div>
+            </div>
+       </div>
+
+        <section id="clients" class="clients clients_ mt-2 section-bg">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col1" data-aos="zoom-in">
+                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+              </div>
+
+              <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col2" data-aos="zoom-in">
+                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+              </div>
+
+              <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col3" data-aos="zoom-in">
+                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+              </div>
+
+              <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col4" data-aos="zoom-in">
+                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+              </div>
+
+              <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col5" data-aos="zoom-in">
+                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+              </div>
+
+              <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col6" data-aos="zoom-in">
+                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+              </div>
+
+            </div>
+          </div>
+        </section>
 
       <div class="mt-5 mb-5">
         <div id="footer" class="footer mt-5 p-5">

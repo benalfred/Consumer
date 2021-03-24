@@ -16,6 +16,7 @@
            <b-nav-item to="#" class="mr-2 pt-2">Banking</b-nav-item>
           <b-nav-item to="#" class="pt-2 mr-2">Fashion</b-nav-item>
           <b-nav-item to="#" class="pt-2 mr-2">Economy</b-nav-item>
+          <b-nav-item to="#" class="pt-2 mr-2">Fifth</b-nav-item>
           <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
           <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
           <b-navbar-nav class="mr-5 mt-2">
@@ -27,10 +28,6 @@
           >
 
 
-            <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-item to="/load">Fifth</b-dropdown-item>
-            <b-dropdown-divider></b-dropdown-divider>
             <b-dropdown-item to="/load">Sixth</b-dropdown-item>
             <b-dropdown-divider></b-dropdown-divider>
             <b-dropdown-item to="/load">Others</b-dropdown-item>
@@ -72,9 +69,17 @@
 </script>
 
 <style scoped>
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #E57718;
+}
+
+
 .btn-sacademy {
-    background-color:  #E57718
-    !important;
+    background-color:  #E57718 !important;
     color: #fff !important;
     transition: 0.5s;
     border-color: #E57718 !important;
