@@ -10,7 +10,7 @@
               for you with Our idea
             </h2>
             <div data-aos="fade-up" data-aos-delay="600">
-              <div class="text-center text-lg-start">
+              <div class="text-lg-start">
                 <a
                   href="#about"
                   class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
@@ -349,27 +349,27 @@
             <div class="row">
 
               <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col1" data-aos="zoom-in">
-                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+                <img src="~/assets/img/Dell.png" class="img-fluid" alt="">
               </div>
 
               <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col2" data-aos="zoom-in">
-                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+                <img src="~/assets/img/Dell.png" class="img-fluid" alt="">
               </div>
 
               <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col3" data-aos="zoom-in">
-                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+                <img src="~/assets/img/Dell.png" class="img-fluid" alt="">
               </div>
 
               <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col4" data-aos="zoom-in">
-                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+                <img src="~/assets/img/Dell.png" class="img-fluid" alt="">
               </div>
 
               <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col5" data-aos="zoom-in">
-                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+                <img src="~/assets/img/Dell.png" class="img-fluid" alt="">
               </div>
 
               <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col6" data-aos="zoom-in">
-                <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+                <img src="~/assets/img/Dell.png" class="img-fluid" alt="">
               </div>
 
             </div>
