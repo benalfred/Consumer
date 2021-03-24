@@ -40,17 +40,16 @@
         <div class="container" data-aos="fade-up">
           <header class="section-header">
             <h2>Our Values</h2>
-            <p>Odit est perspiciatis laborum et dicta</p>
+            <p>No 1 advocacy platform in nigeria</p>
           </header>
 
           <div class="row">
             <div class="col-lg-4">
               <div class="box_" data-aos="fade-up" data-aos-delay="200">
                 <img src="~/assets/img/values-1.png" class="img-fluid" alt="" />
-                <h3>Ad cupiditate sed est odio</h3>
+                <h3>Relationship</h3>
                 <p>
-                  Eum ad dolor et. Autem aut fugiat debitis voluptatem
-                  consequuntur sit. Et veritatis id.
+                 Consumerhalla values and helps you strengthen existing business relationships between brands and consumers.
                 </p>
               </div>
             </div>
@@ -58,10 +57,9 @@
             <div class="col-lg-4 mt-4 mt-lg-0">
               <div class="box_" data-aos="fade-up" data-aos-delay="400">
                 <img src="~/assets/img/values-2.png" class="img-fluid" alt="" />
-                <h3>Voluptatem voluptatum alias</h3>
+                <h3>Business growth or publishing</h3>
                 <p>
-                  Repudiandae amet nihil natus in distinctio suscipit id.
-                  Doloremque ducimus ea sit non.
+                 Consumerhalla values and helps you grow your business by Publishing/Advert through different avenues the platform offers
                 </p>
               </div>
             </div>
@@ -69,11 +67,11 @@
             <div class="col-lg-4 mt-4 mt-lg-0">
               <div class="box_" data-aos="fade-up" data-aos-delay="600">
                 <img src="~/assets/img/values-3.png" class="img-fluid" alt="" />
-                <h3>Fugit cupiditate alias nobis.</h3>
+                <h3>Your voice is our topmost priority</h3>
                 <p>
-                  Quam rem vitae est autem molestias explicabo debitis sint.
+              Quick resolution of complaint and issues are our top most priority.
                   <span style="color: #e57718" class="font-weight-bold"
-                    >Vero aliquid quidem commodi.</span
+                    > At Consumer Halla, we make your voice count</span
                   >
                 </p>
               </div>
@@ -153,6 +151,7 @@
               <h3 data-aos="fade-left" data-aos-offset="30" class="font-weight">
                 What We Offer You
               </h3>
+              <div>
                <div
                data-aos="fade-left"
                 data-aos-offset="50"
@@ -165,6 +164,7 @@
                     height: 8px;
                   "
                 ></div>
+              </div>
 
             </div>
           </div>
@@ -174,7 +174,7 @@
                     <b-card no-body class="mb-1">
                       <b-card-header header-tag="header" class="p-1" role="tab">
                         <b-button block v-b-toggle.accordion-1 variant="light"
-                          >Real Life Project Environment</b-button
+                          >Real Time Advert Of Your Product For Business Growth</b-button
                         >
                       </b-card-header>
                       <b-collapse
@@ -188,16 +188,16 @@
                           <b-card-text>
                             {{ text }}
                             <code
-                              ><a href="https://devnode.ng/" target="_blank"
-                                >DevNode.ng</a
+                              ><nuxt-link to="/" target="_blank"
+                                >Advert</nuxt-link
                               ></code
                             >
                             and
                             <code
-                              ><a
-                                href="https://madesoftautomation.com/"
+                              ><nuxt-link
+                                to="/"
                                 target="_blank"
-                                >MadesoftAutomation.com</a
+                                >Advertise Your Product</nuxt-link
                               ></code
                             >
                           </b-card-text>
@@ -208,7 +208,7 @@
                     <b-card no-body class="mb-1">
                       <b-card-header header-tag="header" class="p-1" role="tab">
                         <b-button block v-b-toggle.accordion-2 variant="light"
-                          >School Based Training</b-button
+                          >Latest Deals Best suited for you</b-button
                         >
                       </b-card-header>
                       <b-collapse
@@ -246,7 +246,7 @@
                     <b-card no-body class="mb-1">
                       <b-card-header header-tag="header" class="p-1" role="tab">
                         <b-button block v-b-toggle.accordion-4 variant="light"
-                          >Guaranteed Work Experience</b-button
+                          >Guaranteed User Experience</b-button
                         >
                       </b-card-header>
                       <b-collapse
