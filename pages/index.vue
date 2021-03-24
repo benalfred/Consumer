@@ -1,7 +1,6 @@
 <template>
   <div>
       <section id="hero" class="hero d-flex align-items-center">
-
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -173,90 +172,7 @@
 
     </section>
 
-    <!-- ======= Features Section ======= -->
-    <!-- <section id="features" class="features"  data-aos="fade-up">
-      <div class="container" >
 
-        <div class="row">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Lorem Ipsum</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">Dolor Sitema</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Sed perspiciatis</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Magni Dolores</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Nemo Enim</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Eiusmod Tempor</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Midela Teren</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Pira Neve</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Dirada Pack</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Moton Ideal</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-base-station-line" style="color: #ff5828;"></i>
-              <h3><a href="">Verdo Park</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-              <h3><a href="">Flavor Nivelanda</a></h3>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>End Features Section -->
-
-    <!-- ======= Popular Courses Section ======= -->
-  <!-- End Popular Courses Section -->
 
      <section class="py-5 ">
       <div class="container">
@@ -269,12 +185,9 @@
             </div>
           </div>
         </div>
-        <div class="n-shadow my-5">
-          <div class="row">
-            <div class="mb-lg-0 d-flex align-items-center order-1 order-lg-0">
-              <div class="p-4">
 
-                 <div class="accordion" role="tablist">
+        <div class="n-shadow my-5">
+            <div class="accordion" role="tablist">
               <b-card no-body class="mb-1">
                 <b-card-header header-tag="header" class="p-1" role="tab">
                   <b-button block v-b-toggle.accordion-1 variant="light">Real Life Project Environment</b-button>
@@ -284,12 +197,7 @@
                     <!-- <b-card-text>I start opened because <code>visible</code> is <code>true</code></b-card-text> -->
                     <b-card-text>
                       {{text}}
-                       <code><a href="https://devnode.ng/" target="_blank">DevNode.ng</a></code>
-                    and <code><a href="https://madesoftautomation.com/" target="_blank">MadesoftAutomation.com</a></code>
                     </b-card-text>
-
-
-
                   </b-card-body>
                 </b-collapse>
               </b-card>
@@ -303,7 +211,6 @@
                     <b-card-text>
                       {{text}}
                     </b-card-text>
-
                   </b-card-body>
                 </b-collapse>
               </b-card>
@@ -317,7 +224,6 @@
                     <b-card-text>
                       {{text}}
                     </b-card-text>
-
                   </b-card-body>
                 </b-collapse>
               </b-card>
@@ -334,12 +240,7 @@
                   </b-card-body>
                 </b-collapse>
               </b-card>
-
             </div>
-
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -416,9 +317,11 @@
       </div>
     </section> -->
 
-    <section id="clients" class="clients section-bg">
+    <div class="container">
+        <h2 class="bank">Banking</h2>
+    </div>
+    <section id="clients" class="clients mb-5 section-bg">
       <div class="container">
-
         <div class="row">
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
@@ -443,6 +346,42 @@
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
             <img src="~/assets/img/zenith.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="container">
+        <h2 class="tech">Technology</h2>
+    </div>
+    <section id="clients" class="clients clients_ mt-2 section-bg">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col1" data-aos="zoom-in">
+            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col2" data-aos="zoom-in">
+            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col3" data-aos="zoom-in">
+            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col4" data-aos="zoom-in">
+            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col5" data-aos="zoom-in">
+            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center col6" data-aos="zoom-in">
+            <img src="~/assets/img/dell.png" class="img-fluid" alt="">
           </div>
 
         </div>
@@ -600,6 +539,47 @@ export default {
 </script>
 
 <style scoped>
+.col1 img{
+  border-radius: 50px;
+  background: #0083CA;
+  padding: 6px 5px 6px;
+}
+.col2 img{
+  border-radius: 50px;
+  background: #F1138B 87%;
+  padding: 6px 5px 6px;
+}
+.col3 img{
+  background: #626D73;
+  padding: 6px 5px 6px;
+  border-radius: 50px;
+}
+.col3 img{
+  background: #626D73;
+  padding: 6px 5px 6px;
+  border-radius: 50px;
+}
+.col3 img{
+   background: #E57718;
+  padding: 6px 5px 6px;
+  border-radius: 50px;
+}
+.col4 img{
+  background: #626D73;
+  padding: 6px 5px 6px;
+  border-radius: 50px;
+}
+.col5 img{
+ background: #0083CA;
+  padding: 6px 5px 6px;
+  border-radius: 50px;
+}
+.col6 img{
+  background: #626D73;
+  padding: 6px 5px 6px;
+  border-radius: 50px;
+}
+
 .values .box_ {
   padding: 30px;
   box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);

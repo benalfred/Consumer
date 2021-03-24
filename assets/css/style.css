@@ -31,6 +31,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
 
+.bank,
+.tech {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -1709,7 +1716,7 @@ color: #E57718;
 
 .clients {
   padding: 15px 0;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .clients img {
@@ -1717,7 +1724,7 @@ color: #E57718;
   transition: all 0.4s ease-in-out;
   display: inline-block;
   padding: 15px 0;
-
+  /* filter: grayscale(100); */
 }
 
 .clients img:hover {
