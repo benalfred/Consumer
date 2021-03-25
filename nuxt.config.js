@@ -46,6 +46,22 @@ export default {
               rel: 'stylesheet',
               href: 'https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
             },
+           {
+              rel: 'stylesheet',
+              href: 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://fonts.googleapis.com/css2?family=Poppins&display=swap'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://fonts.googleapis.com/css2?family=Poppins&display=swap'
+            },
+           {
+              rel: 'stylesheet',
+              href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'
+            },
         ]
     },
 
