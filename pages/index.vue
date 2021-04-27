@@ -147,7 +147,7 @@
       <section class="py-5">
         <div class="container">
           <div class="d-flex justify-content-end">
-              
+
           <div>
             <h3 data-aos="fade-left" data-aos-offset="30">What We Offer You</h3>
             <div data-aos="fade-left" data-aos-offset="50" class="d-flex justify-content-end">
@@ -490,6 +490,7 @@
       </section> -->
     </main>
     <!-- End #main -->
+    <footer />
   </div>
 </template>
 
@@ -497,12 +498,14 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
+import footer from '~/components/footer';
 export default {
   components: {
     carousel: () =>
       process.client
         ? import("vue-owl-carousel")
         : Promise.resolve({ render: (h) => h("div") }),
+        footer
   },
   mounted() {
     AOS.init({

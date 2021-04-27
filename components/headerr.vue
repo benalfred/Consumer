@@ -16,7 +16,7 @@
            <b-nav-item to="/accountSetup1" class="mr-2 pt-2">Account</b-nav-item>
           <b-nav-item to="/accountSetup2" class="pt-2 mr-2">Fashion</b-nav-item>
           <b-nav-item to="/congratsUser1" class="pt-2 mr-2">Economy</b-nav-item>
-          <b-nav-item to="#" class="pt-2 mr-2">Fifth</b-nav-item>
+          <b-nav-item to="/accountSetupinitiated" class="pt-2 mr-2">Fifth</b-nav-item>
           <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
           <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
           <b-navbar-nav class="mr-5 mt-2">
@@ -95,7 +95,7 @@
     transition: all .5s ease-in-out;
     width: 100%;
     z-index: 1000;
-
+    background-color: #fff;
 
 }
 

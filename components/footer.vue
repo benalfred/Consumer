@@ -6,7 +6,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            
+
            <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
           </div>
 
@@ -138,8 +138,9 @@
 <script>
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-export default {
 
+export default {
+  name: "footer",
       mounted() {
           AOS.init({
           offset: 100,
