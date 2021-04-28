@@ -1,16 +1,16 @@
 <template>
   <div>
     <section class="pb-2">
-      <b-container class="mt-3 pb-5 px-5 ml-lg-5">
-        <div class=" mb-4">
-         <h3 class="text-white text-center ml-lg-5 pb-5">Join the community today to share your opinions!</h3>
+      <b-container class="mt-3 pb-5 px-5">
+        <div class=" mb-4 mx-0 justify-content-center">
+         <h3 class="text-white text-center  pb-5 h3">Join the community today to share your opinions!</h3>
         </div>
 
-        <b-row class="ml-lg-5">
-          <b-col md="6" class=" mb-5 ml-md-5 ml-lg-5">
-        <div class="login-form login-form_ ml-lg-5">
+        <b-row class=" justify-content-center ml-lg-5">
+        <b-col md="6" class=" mb-5  d-flex justify-content-center ">
+        <div class="login-form login-form_ ">
          <div class="contact-form avenir pt-4 small raleway">
-           <h3 class="text-center font-weight-bold mb-4 pb-2 pt-2">Join now</h3>
+           <h3 class="text-center font-weight-bold mb-4 pb-3 pt-3">Join now</h3>
             <b-form  @submit.prevent="sendEmail">
               <b-form-group>
                 <b-form-input placeholder="first name" name="user_name" type="text" id="full-name">
@@ -36,6 +36,10 @@
                 <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Join with email</button>
               </b-form-group>
 
+              <div class="text-center pt-2">
+                <p class="terms">Already have an account? <a href="/login" class="a">Login in</a></p>
+              </div>
+
 
 
               <!-- <div class="d-flex justify-content-end">
@@ -50,8 +54,8 @@
         </div>
         </b-col>
 
-        <b-col class="ml-2 mt-5 bmedia ml-lg-2">
-          <div class="mb-5">
+        <b-col md="6" class="mt-5 bmedia">
+          <div class="mb-5 mt-3">
           <b-media>
             <template #aside>
               <img src="~/assets/img/Rectangle.png" class="img-fluid pt-3" alt="">
@@ -103,6 +107,23 @@ export default {
 </script>
 
 <style scoped>
+.a {
+  color: #E57718!important;
+  font-weight: bold;
+}
+
+.h3 {
+  font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 33px;
+line-height: 54px;
+}
+
+.contact-form h3 {
+  font-size: 19px;
+}
+
 .bmedia p{
   font-size: 20px;
 }
@@ -114,12 +135,12 @@ section {
 }
   .contact-form input, .contact-form textarea, .contact-form .form-control:focus {
   font-size: 15px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: white;
   color:  #000;
   border-radius: 0;
-  border: none;
+  border: 1px solid #A0A0A0;
   border-radius: 8px;
-  padding: 1.7rem 1rem;
+  padding: 1.4rem 1rem;
   margin: 0px 0px 8px;
 }
 
@@ -152,7 +173,7 @@ opacity: 1;
     box-shadow: 0px 20px 20px #00000026;
     opacity: 1;
     width: 100%;
-    padding: 17px 0px 17px;
+    padding: 11px 0px 11px;
     border: 0;
     border-radius: 25px;
 }

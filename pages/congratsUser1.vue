@@ -2,7 +2,7 @@
   <div>
     <section>
       <b-container>
-        <b-row class="mt-5 pt-1">
+        <b-row class="mt-5 pt-1 mx-0 justify-content-center">
           <b-col md="12" class="text-center mt-5 pt-5">
               <h2 class="text-white font-weight-bold">Congratulations User 1</h2>
               <p class="pt-5 text-white">Your acoount has been successfully created. <br class="d-none d-sm-block">
@@ -48,7 +48,7 @@ section {
 
 @media screen and (min-width: 700px) {
   .newpost_ {
-    margin-left: 369px;
+
   }
 }
 

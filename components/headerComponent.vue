@@ -28,9 +28,9 @@
           >
 
 
-            <b-dropdown-item to="/load">Sixth</b-dropdown-item>
+            <b-dropdown-item to="/login">Sixth</b-dropdown-item>
             <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-item to="/load">Others</b-dropdown-item>
+            <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
           </b-nav-item-dropdown>
           </b-navbar-nav>
 

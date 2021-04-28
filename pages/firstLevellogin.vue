@@ -4,7 +4,7 @@
       <b-container class="mt-3">
         <b-row class="mx-0 justify-content-center">
           <b-col md="5" class=" mb-5">
-        <div class="login-form login-form_ ">
+        <div class="login-form login-form_ pb-5">
          <div class="contact-form avenir pt-4 small raleway">
            <h3 class="text-center font-weight-bold mb-4 pb-4 pt-4">Login to your account</h3>
             <b-form  @submit.prevent="sendEmail">
@@ -19,17 +19,9 @@
                 </b-form-input>
               </b-form-group>
 
-              <b-form-group class="newpost">
-                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Join with email</button>
+              <b-form-group class="newpost mb-5 pb-5">
+                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Continue</button>
               </b-form-group>
-
-            <div class="text-center pt-2 pb-4">
-              <a href="#" class="text-dark">forgot password</a>
-            </div>
-
-              <div class="text-center pt-2">
-                <p class="terms">Dont have an account? <a href="/join" class="a">join here</a></p>
-              </div>
 
 
               <!-- <div class="d-flex justify-content-end">
@@ -78,7 +70,7 @@ section {
   border-radius: 0;
   border: 1px solid #A0A0A0;
   border-radius: 8px;
-  padding: 1.7rem 1rem;
+  padding: 1.4rem 1rem;
   margin: 0px 0px 8px;
 }
 
@@ -114,7 +106,7 @@ opacity: 1;
     box-shadow: 0px 20px 20px #00000026;
     opacity: 1;
     width: 100%;
-    padding: 13px 0px 13px;
+    padding: 12px 0px 12px;
     border: 0;
     border-radius: 25px;
 }

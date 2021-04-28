@@ -3,8 +3,8 @@
     <section class="pb-5">
       <b-container class="mt-5 pb-5 px-5">
 
-        <b-row class="ml-lg-5">
-          <b-col md="7" class=" mb-5 ml-lg-5">
+        <b-row class="mx-0 justify-content-center">
+          <b-col md="6" class=" mb-5">
         <div class="login-form login-form_ ">
          <div class="contact-form avenir pt-4 small raleway">
            <h3 class="text-center font-weight-bold mb-4 pb-2 pt-2">Create Password</h3>
@@ -69,12 +69,12 @@ section {
 }
   .contact-form input, .contact-form textarea, .contact-form .form-control:focus {
   font-size: 15px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: white;
   color:  #000;
-  border-radius: 8;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid #A0A0A0;
   padding: 1.7rem 1rem;
-  margin: 0px 0px 8px;
+  margin: 0px 0px 20px;
 }
 
 .next {
@@ -87,14 +87,14 @@ section {
   border-radius: 10px;
   box-shadow: 0px 30px 30px #00000026;
   opacity: 1;
-  width: 85%;
-  padding: 10px 43px 20px;
+
+  padding: 10px 33px 20px;
 
 }
 
 @media screen and (max-width: 500px) {
   .login-form_ {
-      width: 135%;
+      width: 140%;
     padding: 10px 43px 20px;
     margin-left: -45px;
   }
@@ -102,7 +102,7 @@ section {
 
 @media screen and (min-width: 900px) {
   .login-form_ {
-    margin-left: 160px;
+
   }
 }
 
