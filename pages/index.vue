@@ -12,7 +12,7 @@
             <div data-aos="fade-up" data-aos-delay="600">
               <div class="text-lg-start">
                 <a
-                  href="#about"
+                  href="/join"
                   class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
                 >
                   <span>Get Started</span>

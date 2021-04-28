@@ -5,13 +5,13 @@
         <b-row class="mt-5 pt-1">
           <b-col md="12" class="text-center mt-5 pt-5">
               <h2 class="text-white font-weight-bold">Congratulations User 1</h2>
-              <p class="pt-5 text-white">Your acoount has been successfully created. <br>
+              <p class="pt-5 text-white">Your acoount has been successfully created. <br class="d-none d-sm-block">
               Click the button below to login with your newly created password.</p>
           </b-col>
 
 
-          <b-col md="4" class="newpost_ mt-5 pt-5">
-              <b-form-group class="newpost mt-5">
+          <b-col md="4" class="newpost_ mt-4 pt-5">
+              <b-form-group class="newpost mt-3">
                 <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Join with email</button>
               </b-form-group>
           </b-col>
