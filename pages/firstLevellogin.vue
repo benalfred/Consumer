@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    <section class="bg">
-      <b-container class="mt-3">
+    <section class="bg mt-3">
+      <b-container class="mt-5">
         <b-row class="mx-0 justify-content-center">
           <b-col md="5" class=" mb-5">
         <div class="login-form login-form_ pb-5">
