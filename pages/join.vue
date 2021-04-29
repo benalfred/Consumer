@@ -3,7 +3,7 @@
     <section class="pb-2">
       <b-container class="mt-3 pb-5 px-5">
         <div class=" mb-4 mx-0 justify-content-center">
-         <h3 class="text-white text-center  pb-5 h3">Join the community today to share your opinions!</h3>
+         <h3 class="text-white text-center  pb-5 h3" data-aos="fade-in">Join the community today to share your opinions!</h3>
         </div>
 
         <b-row class=" justify-content-center ml-lg-5">
@@ -56,7 +56,7 @@
 
         <b-col md="6" class="mt-5 bmedia">
           <div class="mb-5 mt-3">
-          <b-media>
+          <b-media data-aos="fade-right" data-aos-delay="50">
             <template #aside>
               <img src="~/assets/img/Rectangle.png" class="img-fluid pt-3" alt="">
             </template>
@@ -69,7 +69,7 @@
         </div>
 
           <div class="mb-5">
-          <b-media>
+          <b-media data-aos="fade-right" data-aos-delay="150">
             <template #aside>
               <img src="~/assets/img/Rectangle.png" class="img-fluid pt-2" alt="">
             </template>
@@ -82,7 +82,7 @@
         </div>
 
           <div class="mb-5">
-          <b-media>
+          <b-media data-aos="fade-right" data-aos-delay="300">
             <template #aside>
               <img src="~/assets/img/Rectangle.png" class="img-fluid pt-2" alt="">
             </template>

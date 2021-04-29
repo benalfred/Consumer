@@ -13,12 +13,12 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-           <b-nav-item to="/accountSetup1" class="mr-2 pt-2">Account</b-nav-item>
+
+           <!-- <b-nav-item to="/accountSetup1" class="mr-2 pt-2">Account</b-nav-item>
           <b-nav-item to="/accountSetup2" class="pt-2 mr-2">Fashion</b-nav-item>
           <b-nav-item to="/congratsUser1" class="pt-2 mr-2">Economy</b-nav-item>
           <b-nav-item to="/accountSetupinitiated" class="pt-2 mr-2">Fifth</b-nav-item>
-          <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
-          <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
+
           <b-navbar-nav class="mr-5 mt-2">
              <b-nav-item-dropdown
             id="my-nav-dropdown"
@@ -32,8 +32,8 @@
             <b-dropdown-divider></b-dropdown-divider>
             <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
           </b-nav-item-dropdown>
-          </b-navbar-nav>
-
+          </b-navbar-nav> -->
+            
           <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
         </b-navbar-nav>
       </b-collapse><!--        -->

@@ -4,7 +4,7 @@
       <b-container class="mt-3">
         <b-row class="mx-0 justify-content-center">
           <b-col md="5" class=" mb-5">
-        <div class="login-form login-form_ ">
+        <div class="login-form login-form_ " data-aos="fade-up">
          <div class="contact-form avenir pt-4 small raleway">
            <h3 class="text-center font-weight-bold mb-4 pb-4 pt-4">Login to your account</h3>
             <b-form  @submit.prevent="sendEmail">
