@@ -1,0 +1,331 @@
+<template>
+  <header >
+    <b-navbar toggleable="lg">
+      <div class="container">
+      <b-navbar-brand to="/">
+        <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
+      </b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+
+        <b-navbar-nav class="mx-auto">
+           <ul class="nav-list  pl-lg-5" id="s" :class="{ open: hamburgerClicked }">
+
+
+                        <li class="" style="list-style: none;">
+                            <n-link class="sub navigation-link" event="" to="#"
+                            >
+                                <span class="" style="border-radius: 16px;">Products</span>
+
+                            </n-link>
+                            <ul class="sub-menu">
+                                <li @click="oneMenuOpen">
+                                    <span class="sub">Account
+                                        <font-awesome-icon icon="caret-down"/>
+                                    </span>
+                                    <ul class="sub-menu" :class="{ submenuoneopen: oneOpen}">
+                                        <!--                                        <nuxt-link to="/products/wellness">-->
+                                        <!--                                            <li>Wellness</li>-->
+                                        <!--                                        </nuxt-link>-->
+                                        <nuxt-link class="sub" to="/accountSetup1">
+                                            <li>Setup</li>
+                                        </nuxt-link>
+                                    </ul>
+                                </li>
+                                <li class="" @click="twoMenuOpen">
+                                    <span class="sub">Fashion
+                                        <font-awesome-icon icon="caret-down"/>
+                                    </span>
+                                    <ul class="sub-menu" :class="{ submenutwoopen: twoOpen}">
+                                        <n-link class="sub" to="/accountSetup2">
+                                            <li>Third Party</li>
+                                        </n-link>
+                                        <!-- <n-link class="sub" to="/products/third-party?variation=plus">
+                                            <li>Third Party Plus</li>
+                                        </n-link>
+                                        <n-link class="sub" to="/products/mini-comprehensive">
+                                            <li>Mini Comprehensive</li>
+                                        </n-link>
+                                        <n-link class="sub" to="/products/comprehensive-auto-insurance">
+                                            <li>Comprehensive Auto Insurance</li>
+                                        </n-link> -->
+                                    </ul>
+                                </li>
+                                <nuxt-link class="sub" to="/congratsUser1">
+                                    <li>Gadget</li>
+                                </nuxt-link>
+<!--                                <nuxt-link class="sub" to="/products/home-insurance">-->
+<!--                                    <li>Home Insurance</li>-->
+<!--                                </nuxt-link>-->
+
+<!--                                <nuxt-link class="sub" to="/products/delivery-cover">-->
+<!--                                    <li>Delivery Cover</li>-->
+<!--                                </nuxt-link>-->
+<!--                                <nuxt-link class="sub" to="/products/business">-->
+<!--                                    <li>Business Insurance</li>-->
+<!--                                </nuxt-link>-->
+                                <nuxt-link class="sub" to="/accountSetupinitiated">
+                                    <li>Travel</li>
+                                </nuxt-link>
+<!--                                <nuxt-link class="sub" to="/products/edusave">-->
+<!--                                    <li>Edusave</li>-->
+<!--                                </nuxt-link>-->
+                            </ul>
+                        </li>
+
+
+<!--                        <li class="cursor-pointer">-->
+<!--                            <span class="sub navigation-link">-->
+<!--                                <span class=""-->
+<!--                                      style="border-radius: 16px;">Blog-->
+<!--                                </span></span>-->
+<!--                        </li>-->
+
+
+                    </ul>
+        </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
+                      <b-navbar-nav class="ml-auto">
+
+                         <li class="action-btn cursor-pointer mr-5">
+                            <nuxt-link class="sub navigation-link" to="/join">
+                                <span class="py-1 px-4 text-white"
+                                      style="background-color: #094063">Join</span>
+                            </nuxt-link>
+                        </li>
+                        <li class="cursor-pointer action-btn ml-lg-auto">
+                            <nuxt-link class="sub navigation-link" to="/login">
+                                <span class="py-1 px-4 text-white"
+                                      style="background-color: #E57718">Login</span>
+                            </nuxt-link>
+                        </li>
+
+
+           <!-- <b-nav-item to="/accountSetup1" class="mr-2 pt-2">Account</b-nav-item>
+          <b-nav-item to="/accountSetup2" class="pt-2 mr-2">Fashion</b-nav-item>
+          <b-nav-item to="/congratsUser1" class="pt-2 mr-2">Economy</b-nav-item>
+          <b-nav-item to="/accountSetupinitiated" class="pt-2 mr-2">Fifth</b-nav-item>
+          <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button>
+           <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item>
+          <b-navbar-nav class="mr-5 mt-2">
+             <b-nav-item-dropdown
+            id="my-nav-dropdown"
+            text="Technology"
+            toggle-class="nav-link-custom"
+            left
+          >
+
+
+            <b-dropdown-item to="/login">Sixth</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
+          </b-nav-item-dropdown>
+          </b-navbar-nav> -->
+
+          <!-- <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link> -->
+        </b-navbar-nav>
+      </b-collapse><!--        -->
+      </div>
+    </b-navbar>
+  </header>
+</template>
+
+<script>
+ import CartComponent from "./CartComponent";
+  export default{
+    name:"headerComponent",
+    component: {CartComponent},
+    mounted() {
+      if (process.client){
+        window.onscroll = function () {
+          OffSetTop()
+        };
+      }
+
+
+
+      function OffSetTop() {
+        if (process.client) {
+          let header = document.querySelector(".navbar");
+          let sticky = header.offsetTop;
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+      }
+    },
+
+  }
+</script>
+
+<style scoped>
+.nav-list {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: relative;
+        left: 120px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .nav-list li {
+        line-height: 50px;
+        position: relative;
+
+    }
+
+    .sub-menu li {
+        line-height: 40px;
+    }
+
+    .nav-list .sub {
+        display: block;
+        color: #094063;
+        padding: 0 15px;
+        font-size: 14px;
+        text-transform: capitalize;
+        -webkit-transition: color 650ms;
+        -o-transition: color 650ms;
+        transition: color 650ms;
+    }
+
+    .nav-list sub:hover {
+        color: #E57718 !important;
+    }
+
+    .login-btn, .getapp-btn {
+        cursor: pointer !important;
+        display: inline-block;
+        color: #fff;
+        -webkit-transition: background-color 650ms;
+        -o-transition: background-color 650ms;
+        transition: background-color 650ms;
+    }
+
+    .sub-menu {
+        width: 270px;
+        display: block;
+        position: absolute;
+        border-top: 2px solid #E57718;
+        background-color: #fefefe;
+        z-index: 150;
+        opacity: 0;
+        visibility: hidden;
+        top: 160px;
+        -webkit-box-shadow: 0 50px 100px -20px rgba(50, 50, 93, .25), 0 30px 60px -30px rgba(0, 0, 0, .3), 0 -18px 60px -10px rgba(0, 0, 0, .025);
+        box-shadow: 0 50px 100px -20px rgba(50, 50, 93, .25), 0 30px 60px -30px rgba(0, 0, 0, .3), 0 -18px 60px -10px rgba(0, 0, 0, .025);
+        -webkit-transition: all 650ms ease;
+        -o-transition: all 650ms ease;
+        transition: all 650ms ease;
+    }
+
+    .sub-menu::before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 30px;
+        border: 12px solid transparent;
+        border-bottom-color: #E57718;
+    }
+
+    .sub-menu .sub-menu::before {
+        top: 9px;
+        left: -25px;
+        border: 12px solid transparent;
+        border-right-color: #E57718;
+    }
+
+    .sub-menu .sub-menu {
+        border-top: none;
+        border-left: 3px solid #E57718;
+        top: 0;
+        left: 100%;
+    }
+
+    .nav-list li:hover > .sub-menu {
+        top: 80px;
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+
+    .sub-menu li:hover > .sub-menu {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    li.action-buttons {
+        margin: 0 auto auto auto;
+    }
+
+    li .nuxt-link-exact-active > span {
+        font-weight: bold;
+        color: #fff;
+        padding: .25rem 0.75rem;
+        background-color: #094063;
+
+    }
+
+
+.action-btn span {
+            border-radius: 50px;
+            -webkit-box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+            box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+    }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #E57718;
+}
+
+.btn-sacademy {
+    background-color:  #E57718 !important;
+    color: #fff !important;
+    transition: 0.5s;
+    border-color: #E57718 !important;
+    font-size: 15px;
+    padding: 8px 25px;
+
+}
+
+.navbar {
+    position: fixed;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    z-index: 1000;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+    box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+}
+
+.sticky+.content {
+    padding-top: 102px;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+</style>

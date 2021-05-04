@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="pb-5">
-      <b-container class="mt-5 pb-5 px-5">
+      <b-container class="mt-5 pb-5">
 
         <b-row class="mx-0 justify-content-center">
           <b-col md="6" class=" mb-5">
@@ -96,7 +96,8 @@ section {
   .login-form_ {
       width: 140%;
     padding: 10px 43px 20px;
-    margin-left: -45px;
+    margin-left: -55px;
+    margin-top: 30px;
   }
 }
 

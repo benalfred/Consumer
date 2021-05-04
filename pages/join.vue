@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="pb-2">
-      <b-container class="mt-3 pb-5 px-5">
+      <b-container class="mt-3 pb-5 ">
         <div class=" mb-4 mx-0 justify-content-center">
          <h3 class="text-white text-center  pb-5 h3" data-aos="fade-in">Join the community today to share your opinions!</h3>
         </div>
@@ -68,7 +68,7 @@
           </b-media>
         </div>
 
-          <div class="mb-5">
+        <div class="mb-5">
           <b-media data-aos="fade-right" data-aos-delay="150">
             <template #aside>
               <img src="~/assets/img/Rectangle.png" class="img-fluid pt-2" alt="">
@@ -156,9 +156,11 @@ section {
 
 @media screen and (max-width: 500px) {
   .login-form_ {
-      width: 135%;
+      width: 155%;
     padding: 10px 43px 20px;
-    margin-left: -45px;
+    margin-left: -35px;
+    position: relative;
+    left: 20px;
   }
 }
 

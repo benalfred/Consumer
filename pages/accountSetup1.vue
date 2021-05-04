@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="pb-5">
-      <b-container class="mt-5 pb-5 px-5">
+      <b-container class="mt-5 pb-5 ">
 
         <b-row class="mx-0 justify-content-center">
           <b-col md="6" class=" mb-5">
@@ -77,10 +77,19 @@ export default {
   font-size: 20px;
 }
 section {
- background: #626D73;
+
   padding: 7rem 1.5rem;
   min-height:(100vh - 0);
 }
+
+@media screen and (min-width: 800px) {
+  section {
+    background: #626D73;
+  padding: 7rem 1.5rem;
+  min-height:(100vh - 0);
+  }
+}
+
   .contact-form input, .contact-form textarea, .contact-form .form-control:focus {
   font-size: 15px;
   background-color: white;

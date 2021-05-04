@@ -34,7 +34,19 @@
           </b-nav-item-dropdown>
           </b-navbar-nav>
 
-          <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
+
+                         <li class="action-btn cursor-pointer mr-3 ">
+                            <nuxt-link class="sub navigation-link" to="/join">
+                                <span class="py-1 px-4 text-white"
+                                      style="background-color: #094063">Join</span>
+                            </nuxt-link>
+                        </li>
+                        <li class="cursor-pointer action-btn ml-lg-auto">
+                            <nuxt-link class="sub navigation-link" to="/login">
+                                <span class="py-1 px-4 text-white"
+                                      style="background-color: #E57718">Login</span>
+                            </nuxt-link>
+                        </li>
         </b-navbar-nav>
       </b-collapse><!--        -->
       </div>
@@ -69,6 +81,23 @@
 </script>
 
 <style scoped>
+   .action-btn span {
+            border-radius: 50px;
+            -webkit-box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+            box-shadow: 0 15px 10px -22px rgba(17, 17, 17, 0.36);
+    }
+
+     .sub {
+
+        color: #094063;
+        position: relative;
+        top: 16px;
+        font-size: 14px;
+        text-transform: capitalize;
+        -webkit-transition: color 650ms;
+        -o-transition: color 650ms;
+        transition: color 650ms;
+    }
 .navbar-light .navbar-nav .nav-link {
   color: #000;
 }

@@ -33,8 +33,12 @@
             <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
           </b-nav-item-dropdown>
           </b-navbar-nav> -->
-            
+           <li>
+                            <CartComponent class="nav-hide-mob "/>
+             </li>
+
           <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
+
         </b-navbar-nav>
       </b-collapse><!--        -->
       </div>
@@ -43,8 +47,10 @@
 </template>
 
 <script>
+import CartComponent from "./CartComponent";
   export default{
     name:"headerComponent",
+    component: {CartComponent},
     mounted() {
       if (process.client){
         window.onscroll = function () {
@@ -85,6 +91,7 @@
     border-color: #E57718 !important;
     font-size: 15px;
     padding: 8px 25px;
+    border-radius: 0;
 
 }
 
@@ -118,3 +125,7 @@
     transition: all .5s ease-in-out;
 }
 </style>
+
+
+
+
