@@ -1,8 +1,8 @@
 <template>
   <div>
     <section>
-      <b-container>
-        <b-row class="mt-5 pt-1 mx-0 justify-content-center">
+      <b-container class="form__">
+        <b-row class="mt-3 pt-1 mx-0 justify-content-center">
           <b-col md="12" class="text-center mt-5 pt-5">
               <h2 class="text-white font-weight-bold">Congratulations User 1</h2>
               <p class="pt-5 text-white">Your acoount has been successfully created. <br class="d-none d-sm-block">
@@ -10,7 +10,7 @@
           </b-col>
 
 
-          <b-col md="4" class="newpost_ mt-4 pt-5">
+          <b-col md="4" class="newpost_ mt-1 pt-5">
               <b-form-group class="newpost mt-3">
                 <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Join with email</button>
               </b-form-group>
@@ -46,9 +46,9 @@ section {
     border-radius: 25px;
 }
 
-@media screen and (min-width: 700px) {
-  .newpost_ {
-
+@media screen and (max-width: 600px) {
+  .form__ {
+      padding-bottom: 100px;
   }
 }
 
