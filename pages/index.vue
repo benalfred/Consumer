@@ -551,7 +551,7 @@
       </section> -->
     </main>
     <!-- End #main -->
-    <footer />
+    <Footer />
   </div>
 </template>
 
