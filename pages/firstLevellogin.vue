@@ -1,10 +1,10 @@
 <template>
   <div class="">
-    <section class="bg mt-3">
-      <b-container class="mt-5">
+    <section class="bg">
+      <b-container class="mt-3">
         <b-row class="mx-0 justify-content-center">
           <b-col md="5" class=" mb-5">
-        <div class="login-form login-form_ pb-5">
+        <div class="login-form login-form_ " data-aos="fade-up">
          <div class="contact-form avenir pt-4 small raleway">
            <h3 class="text-center font-weight-bold mb-4 pb-4 pt-4">Login to your account</h3>
             <b-form  @submit.prevent="sendEmail">
@@ -22,14 +22,6 @@
               <b-form-group class="newpost mb-5 pb-5">
                 <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Continue</button>
               </b-form-group>
-
-
-              <!-- <div class="d-flex justify-content-end">
-                <div>
-                  <button class="bg-sea-blue  btn-lg btn mb-4 br-0" style="font-size: 11px"> SEND MESSAGE</button>
-                </div>
-              </div> -->
-
 
             </b-form>
           </div>
@@ -70,7 +62,7 @@ section {
   border-radius: 0;
   border: 1px solid #A0A0A0;
   border-radius: 8px;
-  padding: 1.4rem 1rem;
+  padding: 1.7rem 1rem;
   margin: 0px 0px 8px;
 }
 
@@ -106,7 +98,7 @@ opacity: 1;
     box-shadow: 0px 20px 20px #00000026;
     opacity: 1;
     width: 100%;
-    padding: 12px 0px 12px;
+    padding: 13px 0px 13px;
     border: 0;
     border-radius: 25px;
 }

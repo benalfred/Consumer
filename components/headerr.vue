@@ -91,8 +91,7 @@ import CartComponent from "./CartComponent";
     border-color: #E57718 !important;
     font-size: 15px;
     padding: 8px 25px;
-    border-radius: 0;
-
+    border-radius: 4;
 }
 
 .navbar {

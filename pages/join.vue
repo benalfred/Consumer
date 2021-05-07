@@ -8,9 +8,9 @@
 
         <b-row class=" justify-content-center ml-lg-5">
         <b-col md="6" class=" mb-5  d-flex justify-content-center ">
-        <div class="login-form login-form_ ">
+        <div class="login-form login-form_">
          <div class="contact-form avenir pt-4 small raleway">
-           <h3 class="text-center font-weight-bold mb-4 pb-3 pt-3">Join now</h3>
+           <h3 class="text-center font-weight-bold mb-4 pb-2 pt-2">Join now</h3>
             <b-form  @submit.prevent="sendEmail">
               <b-form-group>
                 <b-form-input placeholder="first name" name="user_name" type="text" id="full-name">
@@ -140,7 +140,7 @@ section {
   border-radius: 0;
   border: 1px solid #A0A0A0;
   border-radius: 8px;
-  padding: 1.4rem 1rem;
+  padding: 1.2rem 1rem;
   margin: 0px 0px 8px;
 }
 

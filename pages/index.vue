@@ -15,7 +15,7 @@
                   href="#"
                   class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
                 >
-                  <span v-b-modal.comingsoon>Get Started</span>
+                  <span v-b-modal.modal-xl>Get Started</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -33,15 +33,16 @@
     </section>
     <!-- End Hero -->
 
-     <b-modal id="comingsoon" hide-footer header-bg-variant="light" centered body-bg-variant="light">
+     <b-modal id="modal-xl" hide-footer header-bg-variant="light" centered body-bg-variant="light" >
 
+       <section class="modalpop">
            <b-container>
       <b-row>
         <b-col md="6">
           <h4 class="font-weight-bold">Refer a friend</h4>
         </b-col>
         <b-col md="6" class=" d-flex justify-content-end">
-          <i style="cursor: pointer" class="fas fa-times-circle fa-2x"></i>
+
         </b-col>
         <b-col md="12">
            <div
@@ -54,7 +55,7 @@
 
         <b-col md="8">
           <div>
-            <div class="mt-1">
+            <div class="mt-1 modal-input">
                   <b-form-input list="input-list" id="input-with-list" style="font-size: 13px" placeholder="email, comma seperated "></b-form-input>
                   <b-form-datalist id="input-list" :options="options"></b-form-datalist>
             </div>
@@ -73,12 +74,12 @@
           </b-container>
 
     <b-container class="mt-5">
-      <b-row class="d-flex">
+      <b-row class="d-flex  modal-refer_">
         <b-col md="6" class="d-flex">
           <img src="~/assets/img/Ellipse7.png" class="img-fluid" />
           <p class="mt-2 ml-1">refered@email.com</p>
         </b-col>
-        <b-col md="6" class="d-flex">
+        <b-col md="6" class="d-flex modal-refer">
           <img src="~/assets/img/Ellipse8.png" class="img-fluid"  />
           <p class="mt-2 ml-1">refered@email.com</p>
         </b-col>
@@ -92,6 +93,8 @@
         </b-col>
       </b-row>
     </b-container>
+
+       </section>
         </b-modal>
 
     <main id="main">
@@ -156,28 +159,28 @@
 
             <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
               <div class="row align-self-center gy-4">
-                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
+                <div class="col-md-6 mb-4" data-aos="zoom-out" data-aos-delay="200">
                   <div class="feature-box d-flex align-items-center">
                     <i class="bi bi-check"></i>
                     <h3>We Are Fast</h3>
                   </div>
                 </div>
 
-                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
+                <div class="col-md-6 mb-4" data-aos="zoom-out" data-aos-delay="300">
                   <div class="feature-box d-flex align-items-center">
                     <i class="bi bi-check"></i>
                     <h3>We Are Trusted</h3>
                   </div>
                 </div>
 
-                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
+                <div class="col-md-6 mb-4" data-aos="zoom-out" data-aos-delay="400">
                   <div class="feature-box d-flex align-items-center">
                     <i class="bi bi-check"></i>
                     <h3>We Respond Fast</h3>
                   </div>
                 </div>
 
-                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
+                <div class="col-md-6 mb-4" data-aos="zoom-out" data-aos-delay="500">
                   <div class="feature-box d-flex align-items-center">
                     <i class="bi bi-check"></i>
                     <h3>We listen</h3>
@@ -601,6 +604,9 @@ export default {
 </script>
 
 <style scoped>
+.modalpop {
+  padding: 20px 10px 20px;
+}
  .btn-sacademy_ {
     color: #fff !important;
     background: #E57718;

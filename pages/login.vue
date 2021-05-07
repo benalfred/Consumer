@@ -20,7 +20,7 @@
               </b-form-group>
 
               <b-form-group class="newpost">
-                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Join with email</button>
+                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Login</button>
               </b-form-group>
 
             <div class="text-center pt-2 pb-4">

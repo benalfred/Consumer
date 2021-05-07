@@ -63,10 +63,19 @@ export default {
   font-size: 20px;
 }
 section {
- background: #626D73;
+
   padding: 7rem 1.5rem;
   min-height:(100vh - 0);
 }
+
+@media screen and (min-width: 800px) {
+  section {
+    background: #626D73;
+  padding: 7rem 1.5rem;
+  min-height:(100vh - 0);
+  }
+}
+
   .contact-form input, .contact-form textarea, .contact-form .form-control:focus {
   font-size: 15px;
   background-color: white;
