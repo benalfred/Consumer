@@ -2,43 +2,33 @@
     <div>
         <div  @click="cartMenuOpen" @mouseover="cartMenuOpen" @mouseleave="cartMenuOpen" class="nav-list mr-5" style="cursor: pointer; margin-top: 10px;"
         >
-          <i class="far fa-bell fa-2x"></i>
+
+          <div class="notification">
+            <i class="fas fa-bell fa-2x ml-5"></i>
+          <b-badge variant="danger" class="danger_">4</b-badge>
+          </div>
 
             <div class="cart sub-menu">
                 <div class="cart_box">
                     <ul class="cart_list">
                         <li>
-                            <div class="d-flex pl-3 justify-content-between">
-                                <div class="flex-grow-0 mr-3 p-0">
-
-                                </div>
-                                <div class="flex-grow-1 mt-3">
-                                    <!-- <p class="cartProdName mb-1">cart</p>
-                                    <p class="cart_quantity mb-1">hello</p> -->
-                                </div>
-                                <div class="flex-grow-0 mt-3"><i class="trash">
-                                    <img alt=""
-                                         src="~/assets/img/delete-black-18dp.svg"
-                                    >
-                                </i></div>
+                            <div class="d-flex ">
+                                <div class="flex-grow-0 pt-3 pb-2">
+                                   <span>Notifications</span>
+                              </div>
                             </div>
                         </li>
                     </ul>
-                    <div class="">
-                        <div class="d-flex justify-content-end ">
-                            <div class="cart_total">Total
-                            </div>
-                        </div>
+                    <div class="mt-4">
 
                         <div class="row">
-                            <div class="cart_buttons_madesoft col-6">
+                            <div class="cart_buttons_madesoft col-12">
+                                 <h6 class="font-weight-bold">Notification 1</h6>
+                                <p>"Lorem ipsum dolor sit amet, consectetur eli</p>
                             </div>
-                            <div class="cart_buttons_madesoft col-6">
-                                <n-link to="/payments">
-                                    <button
-                                            class="btn view-cart_madesoft">Checkout
-                                    </button>
-                                </n-link>
+                            <div class="cart_buttons_madesoft col-12">
+                                 <h6 class="font-weight-bold">Notification 1</h6>
+                                <p>"Lorem ipsum dolor sit amet, consectetur eli</p>
                             </div>
                         </div>
                     </div>
@@ -65,10 +55,25 @@
 </script>
 
 <style scoped>
+.danger_ {
+  position: relative;
+  bottom: 18px;
+  left: -7px;
+}
+.notification {
+  position: relative;
+  left: 20px;
+}
     .cart_buttons_madesoft {
         margin: 0;
         padding: 10px 0;
-        text-align: center;
+        text-align: start;
+        position: relative;
+        left: 30px;
+    }
+
+    .cart_buttons_madesoft p {
+      font-size: 12px;
     }
 
     .cart_buttons_madesoft .view-cart_madesoft,
@@ -115,7 +120,7 @@
         right: -55px;
         max-height: 80vh;
         overflow-y: scroll;
-        overflow-x: hidden;
+        overflow-x:hidden;
         z-index: 1000;
     }
 

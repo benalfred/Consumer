@@ -36,6 +36,7 @@
               </b-form-group>
 
               <b-form-group class="newpost">
+        
                 <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Next</button>
               </b-form-group>
 
@@ -55,6 +56,8 @@
 
 
         </b-row>
+
+      
       </b-container>
     </section>
   </div>

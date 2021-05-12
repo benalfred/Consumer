@@ -26,14 +26,6 @@
 
                 <button class="next mt-5 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Next</button>
               </div>
-
-              <!-- <div class="d-flex justify-content-end">
-                <div>
-                  <button class="bg-sea-blue  btn-lg btn mb-4 br-0" style="font-size: 11px"> SEND MESSAGE</button>
-                </div>
-              </div> -->
-
-
             </b-form>
           </div>
         </div>
@@ -63,7 +55,6 @@ export default {
   font-size: 20px;
 }
 section {
-
   padding: 7rem 1.5rem;
   min-height:(100vh - 0);
 }
