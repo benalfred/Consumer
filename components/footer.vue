@@ -7,7 +7,7 @@
 
           <div class="col-lg-3 col-md-6 footer-contact">
 
-           <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
+           <img src="~/assets/img/logo.png" class="img-fluid " alt="">
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
@@ -74,7 +74,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
+            <img src="~/assets/img/logo.png" class="img-fluid " alt="">
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">

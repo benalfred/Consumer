@@ -40,19 +40,19 @@
     <b-container class="mt-5">
       <b-row class="d-flex">
         <b-col md="3" class="d-flex">
-          <img src="~/assets/img/Ellipse7.png" class="img-fluid" />
+          <img src="~/assets/img/ellipse7.png" class="img-fluid" />
           <p class="mt-2 ml-1">refered@email.com</p>
         </b-col>
         <b-col md="3" class="d-flex">
-          <img src="~/assets/img/Ellipse8.png" class="img-fluid"  />
+          <img src="~/assets/img/ellipse8.png" class="img-fluid"  />
           <p class="mt-2 ml-1">refered@email.com</p>
         </b-col>
         <b-col md="3" class="d-flex">
-          <img src="~/assets/img/Ellipse7.png" class="img-fluid" />
+          <img src="~/assets/img/ellipse7.png" class="img-fluid" />
           <p class="mt-2 ml-1">refered@email.com</p>
         </b-col>
         <b-col md="3" class="d-flex">
-          <img src="~/assets/img/Ellipse9.png" class="img-fluid" />
+          <img src="~/assets/img/ellipse9.png" class="img-fluid" />
           <p class="mt-2 ml-1">refered@email.com</p>
         </b-col>
       </b-row>

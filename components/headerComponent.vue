@@ -3,7 +3,7 @@
     <b-navbar class="navbar mt-4 d-none d-sm-block" toggleable="lg">
       <div class="container-fluid">
       <b-navbar-brand to="/" class="brand">
-        <img src="~/assets/img/Logo.png" class="img-fluid Vec pt-4 mt-2 ml-2 pl-5" alt="">
+        <img src="~/assets/img/logo.png" class="img-fluid Vec pt-4 mt-2 ml-2 pl-5" alt="">
         <img src="~/assets/img/vector1.png" class="img-fluid " width="300" alt="">
       </b-navbar-brand>
 
@@ -42,7 +42,7 @@
     <b-navbar class="d-block d-sm-none smallscreen" toggleable="lg">
       <div class="container">
       <b-navbar-brand to="/">
-        <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
+        <img src="~/assets/img/logo.png" class="img-fluid " alt="">
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

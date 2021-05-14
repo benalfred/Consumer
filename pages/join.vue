@@ -58,7 +58,7 @@
           <div class="mb-5 mt-3">
           <b-media data-aos="fade-right" data-aos-delay="50">
             <template #aside>
-              <img src="~/assets/img/Rectangle.png" class="img-fluid pt-3" alt="">
+              <img src="~/assets/img/rectangle.png" class="img-fluid pt-3" alt="">
             </template>
 
             <h2 class="text-white"></h2>
@@ -71,7 +71,7 @@
         <div class="mb-5">
           <b-media data-aos="fade-right" data-aos-delay="150">
             <template #aside>
-              <img src="~/assets/img/Rectangle.png" class="img-fluid pt-2" alt="">
+              <img src="~/assets/img/rectangle.png" class="img-fluid pt-2" alt="">
             </template>
 
             <h2 class="text-white"></h2>
@@ -84,7 +84,7 @@
           <div class="mb-5">
           <b-media data-aos="fade-right" data-aos-delay="300">
             <template #aside>
-              <img src="~/assets/img/Rectangle.png" class="img-fluid pt-2" alt="">
+              <img src="~/assets/img/rectangle.png" class="img-fluid pt-2" alt="">
             </template>
 
             <h2 class="text-white"></h2>
