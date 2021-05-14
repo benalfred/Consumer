@@ -1,5 +1,5 @@
 <template>
-  <header >
+  <header>
     <b-navbar toggleable="lg">
       <div class="container">
       <b-navbar-brand to="/">

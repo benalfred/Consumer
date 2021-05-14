@@ -1,6 +1,6 @@
 <template>
   <header>
-    <b-navbar class="navbar mt-4" toggleable="lg">
+    <b-navbar class="navbar mt-4 d-none d-sm-block" toggleable="lg">
       <div class="container-fluid">
       <b-navbar-brand to="/" class="brand">
         <img src="~/assets/img/Logo.png" class="img-fluid Vec pt-4 mt-2 ml-2 pl-5" alt="">
@@ -14,11 +14,11 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-           
+
           <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
           <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
           <b-navbar-nav class="mr-5">
-            
+
           </b-navbar-nav>
 
 
@@ -34,6 +34,50 @@
                                       style="background-color: #E57718">Login</span>
                             </nuxt-link>
                         </li>
+        </b-navbar-nav>
+      </b-collapse><!--        -->
+      </div>
+    </b-navbar>
+
+    <b-navbar class="d-block d-sm-none smallscreen" toggleable="lg">
+      <div class="container">
+      <b-navbar-brand to="/">
+        <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
+      </b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+
+           <!-- <b-nav-item to="/accountSetup1" class="mr-2 pt-2">Account</b-nav-item>
+          <b-nav-item to="/accountSetup2" class="pt-2 mr-2">Fashion</b-nav-item>
+          <b-nav-item to="/congratsUser1" class="pt-2 mr-2">Economy</b-nav-item>
+          <b-nav-item to="/accountSetupinitiated" class="pt-2 mr-2">Fifth</b-nav-item>
+
+          <b-navbar-nav class="mr-5 mt-2">
+             <b-nav-item-dropdown
+            id="my-nav-dropdown"
+            text="Technology"
+            toggle-class="nav-link-custom"
+            left
+          >
+
+
+            <b-dropdown-item to="/login">Sixth</b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
+          </b-nav-item-dropdown>
+          </b-navbar-nav> -->
+           <li>
+                            <CartComponent class="nav-hide-mob "/>
+             </li>
+
+          <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
+
         </b-navbar-nav>
       </b-collapse><!--        -->
       </div>
@@ -90,7 +134,7 @@ header {
 
         color: #094063;
         position: relative;
-        
+
         font-size: 14px;
         text-transform: capitalize;
         -webkit-transition: color 650ms;
@@ -122,7 +166,7 @@ header {
 }
 
 .vec5 {
-  position: absolute; 
+  position: absolute;
   z-index: -1000;
 }
 
@@ -152,5 +196,17 @@ header {
     -webkit-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
+}
+
+
+.smallscreen{
+  -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    z-index: 1000;
+    height: 70px;
+    background: #fff;
+    position: fixed;
 }
 </style>
