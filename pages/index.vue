@@ -271,7 +271,7 @@ export default {
   height: 105vh;
   width: 99vw;
   position: relative;
-  background: url('~assets/img/MaskGroup.png');
+  background: url('~assets/img/maskGroup.png');
   background-size: cover;
   background-color: #FAFAFA;
   background-position: 50% 50%;
@@ -283,7 +283,7 @@ export default {
   height: 90vh;
   width: 99vw;
   position: relative;
-  background: url('~assets/img/MaskGroup2.png');
+  background: url('~assets/img/maskGroup2.png');
   background-size: cover;
   background-color: #FAFAFA;
   background-position: 50% 50%;

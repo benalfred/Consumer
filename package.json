@@ -18,5 +18,7 @@
         "remixicon": "^2.5.0",
         "vue-owl-carousel": "^2.0.3"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "@nuxt/types": "^2.15.6"
+    }
 }
