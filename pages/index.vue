@@ -18,7 +18,7 @@
             </b-col>
 
             <div style="position: absolute; left: 500px; bottom: 300px" class="d-none d-sm-block ml-xl-5 pl-xl-5">
-             <img src="~/assets/img/group12.png" class="img-fluid pl-5"  alt="">
+             <img src="~/assets/img/goup12.png" class="img-fluid pl-5" alt="">
             </div>
 
             <b-col md="6"
@@ -56,24 +56,24 @@
           </b-col>
             <div class="mx-0 justify-content-end">
           <div style="position: absolute; left: 970px;" class="d-none d-sm-block ml-xl-5 pl-xl-5 mt-5 pt-5">
-             <img src="~/assets/img/group12.png" class="img-fluid  ml-lg-4"  alt="">
+             <img src="~/assets/img/goup12.png" class="img-fluid  ml-lg-4" alt="">
             </div>
         </div>
           </b-row>
 
            <div style="position: absolute; left: -70px" class="d-none d-sm-block ml-xl-5 pl-xl-5">
-             <img src="~/assets/img/group12.png" class="img-fluid pl-lg-5 ml-lg-4"  alt="">
+             <img src="~/assets/img/goup12.png" class="img-fluid pl-lg-5 ml-lg-4" alt="">
             </div>
 
         <b-row class=" justify-content-center mt-5 mb-5 card_">
           <b-col md="4" data-aos="fade-up" data-aos-offset="10" data-aos-delay="100">
-              <img src="~/assets/img/group4.png" class="img-fluid"  alt="">
+              <img src="~/assets/img/group4.png" class="img-fluid" alt="">
           </b-col>
           <b-col md="4" data-aos="fade-up" data-aos-offset="10" data-aos-delay="200">
-              <img src="~/assets/img/group5.png" class="img-fluid"  alt="">
+              <img src="~/assets/img/group5.png" class="img-fluid" alt="">
           </b-col>
           <b-col md="4" data-aos="fade-up" data-aos-offset="10" data-aos-delay="300">
-              <img src="~/assets/img/group6.png" class="img-fluid "  alt="">
+              <img src="~/assets/img/group6.png" class="img-fluid " alt="">
           </b-col>
 
 
@@ -93,9 +93,9 @@
         <b-container-fluid >
           <b-row >
             <b-col md="6" class="mt-5 pt-1">
-              <img src="~/assets/img/Frame1.png" class="img-fluid "  alt="">
+              <img src="~/assets/img/frame1.png" class="img-fluid " alt="">
               <div style="position: absolute; left: -70px" class="d-none d-sm-block ml-xl-5 pl-xl-5">
-             <img src="~/assets/img/group12.png" class="img-fluid pl-lg-5 ml-lg-5 mt-3 "  alt="">
+             <img src="~/assets/img/goup12.png" class="img-fluid pl-lg-5 ml-lg-5 mt-3 " alt="">
             </div>
             </b-col>
 
@@ -125,13 +125,13 @@
         <b-container class="groups">
             <b-row>
               <b-col md="4" data-aos="fade-up" data-aos-offset="10" data-aos-delay="50">
-                  <img src="~/assets/img/Group14.png" class="img-fluid "  alt="" >
+                  <img src="~/assets/img/group14.png" class="img-fluid " alt="" >
               </b-col>
                 <b-col md="4" data-aos="fade-up" data-aos-offset="10" data-aos-delay="150">
-                    <img src="~/assets/img/Group15.png" class="img-fluid "  alt="">
+                    <img src="~/assets/img/group15.png" class="img-fluid " alt="">
                 </b-col>
                 <b-col md="4" data-aos="fade-up" data-aos-offset="10" data-aos-delay="250">
-                    <img src="~/assets/img/Group16.png" class="img-fluid "  alt="">
+                    <img src="~/assets/img/group16.png" class="img-fluid " alt="">
                 </b-col>
             </b-row>
         </b-container>
@@ -140,38 +140,38 @@
             <b-row class="ml-xl-5 d-lg-flex mx-0 justify-content-center">
             <b-col md="5" class="d-lg-flex"  data-aos="zoom-in" data-aos-offset="10" data-aos-delay="50">
               <p class="centered1">We listen</p>
-              <img src="~/assets/img/Rectangle16.png" class="img-fluid Rec"  alt="">
+              <img src="~/assets/img/rectangle16.png" class="img-fluid Rec" alt="">
             </b-col>
               <b-col md="5" class="d-lg-flex" data-aos="zoom-in" data-aos-offset="10" data-aos-delay="150">
               <p class="centered1">We Respond Fast</p>
-              <img src="~/assets/img/Rectangle11.png" class="img-fluid Rec "  alt="">
+              <img src="~/assets/img/rectangle11.png" class="img-fluid Rec " alt="">
               </b-col>
 
 
                 <b-row class="mt-3" style="margin-left: -50px">
               <b-col class="d-lg-flex" data-aos="zoom-in" data-aos-offset="10" data-aos-delay="250">
                <p class="centered1">We Are Fast</p>
-                    <img src="~/assets/img/Rectangle11.png" class="img-fluid Rec"  alt="">
+                    <img src="~/assets/img/rectangle11.png" class="img-fluid Rec" alt="">
               </b-col>
 
               <b-col data-aos="flip-left"  data-aos-offset="10" data-aos-delay="250">
-                   <img src="~/assets/img/MaskGroup1.png" class="img-fluid Rec"  alt="">
+                   <img src="~/assets/img/maskGroup1.png" class="img-fluid Rec" alt="">
               </b-col>
 
               <b-col data-aos="zoom-in" data-aos-offset="10" data-aos-delay="350">
                <p class="centered1">We Are Trusted</p>
-                  <img src="~/assets/img/Rectangle16.png" class="img-fluid Rec"  alt="">
+                  <img src="~/assets/img/rectangle16.png" class="img-fluid Rec" alt="">
               </b-col>
             </b-row>
 
 
             <b-col md="5" class="d-lg-flex mt-3" data-aos="zoom-in" data-aos-offset="10" data-aos-delay="450">
               <p class="centered1">We are always available</p>
-              <img src="~/assets/img/Rectangle16.png" class="img-fluid Rec"  alt="">
+              <img src="~/assets/img/rectangle16.png" class="img-fluid Rec" alt="">
             </b-col>
               <b-col md="5" class="d-lg-flex mt-3" data-aos="zoom-in" data-aos-offset="10" data-aos-delay="550">
               <p class="centered1">We Are Consumer Halla.</p>
-              <img src="~/assets/img/Rectangle11.png" class="img-fluid Rec "  alt="">
+              <img src="~/assets/img/rectangle11.png" class="img-fluid Rec " alt="">
               </b-col>
 
             </b-row>
@@ -204,7 +204,7 @@
           <b-container class="pt-5">
             <b-row>
               <b-col md="7">
-                   <img src="~/assets/img/logo.png" class="img-fluid"  alt="" data-aos="fade-right" data-aos-offset="10" data-aos-delay="50">
+                   <img src="~/assets/img/logo.png" class="img-fluid" alt="" data-aos="fade-right" data-aos-offset="10" data-aos-delay="50">
                    <h5 class="mt-5 font-weight-bold" style="color: #E57718;" data-aos="fade-right" data-aos-offset="10" data-aos-delay="150">About CONSUMMERHALLA</h5>
                    <p class="mt-5 lead_" data-aos="fade-right" data-aos-offset="10" data-aos-delay="250">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
               </b-col>
@@ -271,7 +271,7 @@ export default {
   height: 105vh;
   width: 99vw;
   position: relative;
-  background: url('~assets/img/MaskGroup.png');
+  background: url('~assets/img/maskGroup.png');
   background-size: cover;
   background-color: #FAFAFA;
   background-position: 50% 50%;
@@ -283,7 +283,7 @@ export default {
   height: 90vh;
   width: 99vw;
   position: relative;
-  background: url('~assets/img/MaskGroup2.png');
+  background: url('~assets/img/maskGroup2.png');
   background-size: cover;
   background-color: #FAFAFA;
   background-position: 50% 50%;

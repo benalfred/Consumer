@@ -1,10 +1,10 @@
 <template>
   <header>
-    <b-navbar class="navbar mt-4 	" toggleable="lg">
+    <b-navbar class="navbar mt-4 d-none d-sm-block" toggleable="lg">
       <div class="container-fluid">
       <b-navbar-brand to="/" class="brand">
         <img src="~/assets/img/Logo.png" class="img-fluid Vec pt-4 mt-2 ml-2 pl-5" alt="">
-        <img src="~/assets/img/Vector1.png" class="img-fluid " width="300" alt="">
+        <img src="~/assets/img/vector1.png" class="img-fluid " width="300" alt="">
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -39,8 +39,7 @@
       </div>
     </b-navbar>
 
-
-    <b-navbar toggleable="lg" class="d-block d-sm-none">
+    <b-navbar class="d-block d-sm-none smallscreen" toggleable="lg">
       <div class="container">
       <b-navbar-brand to="/">
         <img src="~/assets/img/Logo.png" class="img-fluid " alt="">
@@ -197,5 +196,17 @@ header {
     -webkit-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
+}
+
+
+.smallscreen{
+  -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    z-index: 1000;
+    height: 70px;
+    background: #fff;
+    position: fixed;
 }
 </style>
