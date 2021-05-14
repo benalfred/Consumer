@@ -4,7 +4,7 @@
       <div class="container-fluid">
       <b-navbar-brand to="/" class="brand">
         <img src="~/assets/img/Logo.png" class="img-fluid Vec pt-4 mt-2 ml-2 pl-5" alt="">
-        <img src="~/assets/img/Vector1.png" class="img-fluid " width="300" alt="">
+        <img src="~/assets/img/vector1.png" class="img-fluid " width="300" alt="">
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
