@@ -207,6 +207,12 @@
                    <img src="~/assets/img/logo.png" class="img-fluid" alt="" data-aos="fade-right" data-aos-offset="10" data-aos-delay="50">
                    <h5 class="mt-5 font-weight-bold" style="color: #E57718;" data-aos="fade-right" data-aos-offset="10" data-aos-delay="150">About CONSUMMERHALLA</h5>
                    <p class="mt-5 lead_" data-aos="fade-right" data-aos-offset="10" data-aos-delay="250">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+                   <div class="">
+                      <i class="fab fa-facebook-f"></i>
+                      <i class="fab fa-instagram"></i>
+                      <i class="fab fa-twitter"></i>
+                   </div>
               </b-col>
 
               <b-col class="mt-5 pt-3 pl-lg-5 ml-lg-5 ">
