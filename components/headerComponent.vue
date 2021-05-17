@@ -134,12 +134,23 @@ header {
     width: 100%;
     z-index: 1000;
     height: 70px;
-    background: #656565;
+}
+
+@media screen and (min-width: 550px) {
+  .navbar {
+      background: #656565;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .sticky {
+      background: #fafafa;
+      position: fixed;
+  }
 }
 
 .sticky {
-    top: 0;
-    background: #656565;
     width: 100%;
     -webkit-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;

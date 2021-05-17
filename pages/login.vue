@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  layout: 'headerr',
+    layout: 'headerr',
 }
 </script>
 
