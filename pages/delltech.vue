@@ -2,7 +2,7 @@
     <div>
       <div class="container mt-5">
         <div class="row">
-        <div class="col-md-6 ">
+        <div class="col-md-5 ">
           <b-media>
             <template #aside>
               <img src="~/assets/img/dellpic.png" class="img-fluid" alt="Media Aside">
@@ -76,7 +76,7 @@
         </div>
 
 
-        <div class="col-md-6 section_ px-5 pt-5 mt-3">
+        <div class="col-md-7 section_ px-5 pt-5 mt-3">
             <div class="second-col px-4 pt-4 pb-4">
                 <b-media>
             <template #aside>
@@ -160,14 +160,21 @@ border-radius: 10px;
 }
 .section_ {
   background: #626D73;
+  }
 
+  @media screen and (min-width: 600px) {
+  .section_ {
+  background: #626D73;
+  position: relative;
+  left: 100px;
+  }
   }
 
 h2 {
   font-family: Poppins;
 font-style: normal;
 font-weight: 600;
-font-size: 32px;
+font-size: 30px;
 line-height: 60px;
 /* identical to box height, or 167% */
 
