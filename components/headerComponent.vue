@@ -3,7 +3,7 @@
     <b-navbar class="navbar mt-lg-4 mt-md-4 mt-sm-4" toggleable="lg">
       <div class="container-fluid">
       <b-navbar-brand to="/" class="brand">
-        <img src="~/assets/img/Logo.png" class="img-fluid Vec pt-lg-4 mt-lg-2 ml-lg-2 pl-lg-5" alt="">
+        <img src="~/assets/img/logo.png" class="img-fluid Vec pt-lg-4 mt-lg-2 ml-lg-2 pl-lg-5" alt="">
         <img src="~/assets/img/vector1.png" class="img-fluid d-none d-sm-block" width="300" alt="">
       </b-navbar-brand>
 
