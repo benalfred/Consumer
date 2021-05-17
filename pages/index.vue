@@ -207,6 +207,12 @@
                    <img src="~/assets/img/logo.png" class="img-fluid" alt="" data-aos="fade-right" data-aos-offset="10" data-aos-delay="50">
                    <h5 class="mt-5 font-weight-bold" style="color: #E57718;" data-aos="fade-right" data-aos-offset="10" data-aos-delay="150">About CONSUMMERHALLA</h5>
                    <p class="mt-5 lead_" data-aos="fade-right" data-aos-offset="10" data-aos-delay="250">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+                   <div class="icons my-3 pt-5  ">
+                      <i class="fab fa-facebook p-2"></i>
+                      <i class="fab fa-instagram p-2 ml-3"></i>
+                      <i class="fab fa-twitter p-2 ml-3"></i>
+                   </div>
               </b-col>
 
               <b-col class="mt-5 pt-3 pl-lg-5 ml-lg-5 ">
@@ -219,8 +225,21 @@
               </div>
               </b-col>
             </b-row>
+
+
           </b-container>
         </section>
+
+           <div class="container mb-4 mt-4"  style="
+          ;
+              background: #626D73;
+              height: 1px;
+            ">
+                <div
+            class="mt-2 line"
+
+          ></div>
+        </div>
 
 
   </div>
@@ -259,6 +278,13 @@ export default {
 
 
 <style  scoped>
+.icons i{
+    background: #626D73;
+border-radius: 25px;
+color: white;
+}
+
+
 .Rec {
   width: 350px;
 }

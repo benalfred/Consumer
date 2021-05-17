@@ -1,10 +1,10 @@
 <template>
   <header>
-    <b-navbar class="navbar mt-4 d-none d-sm-block" toggleable="lg">
+    <b-navbar class="navbar mt-lg-4 mt-md-4 mt-sm-4" toggleable="lg">
       <div class="container-fluid">
       <b-navbar-brand to="/" class="brand">
-        <img src="~/assets/img/logo.png" class="img-fluid Vec pt-4 mt-2 ml-2 pl-5" alt="">
-        <img src="~/assets/img/vector1.png" class="img-fluid " width="300" alt="">
+        <img src="~/assets/img/logo.png" class="img-fluid Vec pt-lg-4 mt-lg-2 ml-lg-2 pl-lg-5" alt="">
+        <img src="~/assets/img/vector1.png" class="img-fluid d-none d-sm-block" width="300" alt="">
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -18,7 +18,6 @@
           <!-- <b-button class="my-2 my-sm-0 btn-secondary mr-lg-4">Contact Us</b-button> -->
           <!-- <b-nav-item to="/contact-us" class="btn btn-secondary">Contact Us</b-nav-item> -->
           <b-navbar-nav class="mr-5">
-
           </b-navbar-nav>
 
 
@@ -160,9 +159,12 @@ header {
 
 }
 
-.brand .Vec {
-  position: absolute;
 
+
+@media screen and (min-width: 700px) {
+    .brand .Vec {
+  position: absolute;
+}
 }
 
 .vec5 {
@@ -177,12 +179,23 @@ header {
     width: 100%;
     z-index: 1000;
     height: 70px;
-    background: #656565;
+}
+
+@media screen and (min-width: 550px) {
+  .navbar {
+      background: #656565;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .sticky {
+      background: #fafafa;
+      position: fixed;
+  }
 }
 
 .sticky {
-    top: 0;
-    background: #656565;
     width: 100%;
     -webkit-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;

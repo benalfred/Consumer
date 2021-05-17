@@ -75,6 +75,11 @@ import CartComponent from "./CartComponent";
 </script>
 
 <style scoped>
+header {
+   width: 100%;
+        height: 80px;
+}
+
 .navbar-light .navbar-nav .nav-link {
   color: #000;
 }
