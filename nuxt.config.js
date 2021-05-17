@@ -1,6 +1,9 @@
 export default {
 
     ssr: true,
+    router: {
+        middleware: ['auth']
+    },
     loading: {
         color: '#de115e',
         height: '5px',
@@ -103,13 +106,13 @@ export default {
                     // type: 'Bearer'
                 },
                 user: {
-                    property: 'user',
+                    property: null,
                     // autoFetch: true
                 },
                 endpoints: {
-                    login: { url: 'admin/login', method: 'post' },
+                    login: { url: 'account/authenticate2', method: 'post' },
                     logout: { url: 'logout', method: 'post' },
-                    user: { url: '/api/Account/GetUserInformation', method: 'get' }
+                    user: { url: '/account/GetUserInformation', method: 'get' }
                 }
             }
         },

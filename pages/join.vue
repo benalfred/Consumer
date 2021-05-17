@@ -166,6 +166,7 @@
 <script>
 export default {
   layout: "headerr",
+   auth: 'guest',
   data() {
     return {
       spinner: false,
