@@ -4,7 +4,7 @@
         >
 
           <div class="notification">
-            <i class="fas fa-bell fa-2x ml-5"></i>
+            <i class="fas fa-bell fa-2x ml-lg-5"></i>
           <b-badge variant="danger" class="danger_">4</b-badge>
           </div>
 
@@ -221,7 +221,7 @@
     .sub-menu {
         /*width: 270px;*/
         display: block;
-        position: absolute;
+
         border-top: 2px solid #4FBFA3;
         background-color: #fefefe;
         z-index: 250;
@@ -231,6 +231,25 @@
         box-shadow: 0 50px 100px -20px rgba(50, 50, 93, .25), 0 30px 60px -30px rgba(0, 0, 0, .3), 0 -18px 60px -10px rgba(0, 0, 0, .025);
         transition: all 650ms ease;
     }
+
+    @media screen and (min-width: 600px) {
+        .sub-menu {
+            position: absolute;
+        }
+    }
+    @media screen and (max-width: 550px) {
+        .sub-menu {
+            position: relative;
+            left: -60px;
+        }
+        .notification{
+          margin-bottom: 7px;
+          margin-top: 5px;
+          margin-left: -10px;
+        }
+    }
+
+
 
     .nav-list:hover > .sub-menu {
         top: 80px;

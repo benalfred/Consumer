@@ -33,9 +33,9 @@
             <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
           </b-nav-item-dropdown>
           </b-navbar-nav> -->
-           <li>
+           <!-- <li>
                             <CartComponent class="nav-hide-mob "/>
-             </li>
+             </li> -->
 
           <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
 
