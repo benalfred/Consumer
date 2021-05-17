@@ -106,8 +106,8 @@ export default {
                     // type: 'Bearer'
                 },
                 user: {
-                    property: 'data',
-                    // autoFetch: true
+                    property: false
+                        // autoFetch: true
                 },
                 endpoints: {
                     login: { url: 'account/authenticate2', method: 'post' },
