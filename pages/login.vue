@@ -54,7 +54,9 @@
 
                   <div class="text-center pt-2">
                     <p class="terms">
-                      Dont have an account? <a href="/join" class="a">join here</a>
+                      Dont have an account? <router-link to="/join">
+                       Join here
+                      </router-link>
                     </p>
                   </div>
 

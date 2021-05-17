@@ -90,7 +90,9 @@
                   <div class="text-center pt-2">
                     <p class="terms">
                       Already have an account?
-                      <a href="/login" class="a">Login in</a>
+                      <router-link to="/login">
+                       Login in
+                      </router-link>
                     </p>
                   </div>
 
