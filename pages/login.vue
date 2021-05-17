@@ -99,7 +99,7 @@ export default {
       try {
         this.spinner = true
         let response = await this.$auth.loginWith("local", { data: this.login });
-        this.$store.state.auth.loggedIn = true
+        // this.$store.state.auth.loggedIn = true
         this.spinner = false
         await this.$router.push("/");
       } catch (err) {
