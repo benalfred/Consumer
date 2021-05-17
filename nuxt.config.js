@@ -106,7 +106,7 @@ export default {
                     // type: 'Bearer'
                 },
                 user: {
-                    property: null,
+                    property: 'data',
                     // autoFetch: true
                 },
                 endpoints: {

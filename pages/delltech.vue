@@ -33,7 +33,7 @@
           </b-media>
 
           <div>
-             <img src="~/assets/img/MainReview.png" class="img-fluid" alt="">
+             <img src="~/assets/img/mainreview.png" class="img-fluid" alt="">
           </div>
 
           <b-media class="mt-4">
