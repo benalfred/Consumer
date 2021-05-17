@@ -21,34 +21,39 @@
           </b-navbar-nav>
 
 
-                         <li class=" cursor-pointer mr-3 ">
+                         <li class=" cursor-pointer mr-3 mt-4 ">
                             <nuxt-link v-if="!$auth.loggedIn" class="" to="/join">
-                                <span class="py-1 px-4 text-white"
+                                <span class="py-1 px-4 text-white join"
                                       >Join</span>
                             </nuxt-link>
                         </li>
-                        <li class="cursor-pointer action-btn ml-lg-auto" v-if="!$auth.loggedIn">
+                        <li class="cursor-pointer action-btn ml-lg-auto mt-4" v-if="!$auth.loggedIn">
                             <nuxt-link class="sub navigation-link" to="/login">
                                 <span class="py-1 px-4 text-white"
                                       style="background-color: #E57718">Login  <img src="~/assets/img/vector4.png" class="img-fluid pl-2" width="22" alt=""> </span>
                             </nuxt-link>
-                            <nuxt-link class="sub navigation-link" to="/login">
+                            <!-- <nuxt-link class="sub navigation-link" to="/login">
                                 <span class="py-1 px-4 text-white"
                                       style="background-color: #E57718">Logout <img src="~/assets/img/vector4.png" class="img-fluid pl-2"  width="22" alt="">  </span>
-                            </nuxt-link>
+                            </nuxt-link> -->
                         </li>
+                         <li>
+                            <ImageDropdown class="nav-hide-mob "/>
+             </li>
         </b-navbar-nav>
-      </b-collapse><!--        -->
+      </b-collapse>
       </div>
     </b-navbar>
 
-   
+
   </header>
 </template>
 
 <script>
+import ImageDropdown from "./ImageDropdown"
   export default{
     name:"headerComponent",
+    component: {ImageDropdown},
     mounted() {
       if (process.client){
         window.onscroll = function () {
@@ -154,6 +159,9 @@ header {
   .sticky {
       background: #fafafa;
       position: fixed;
+  }
+  .join {
+    color: black!important;
   }
 }
 

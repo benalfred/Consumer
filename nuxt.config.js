@@ -2,7 +2,7 @@ export default {
 
     ssr: true,
     router: {
-        middleware: ['auth']
+        // middleware: ['auth']
     },
     loading: {
         color: '#de115e',
