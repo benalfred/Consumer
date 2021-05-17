@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div  @click="cartMenuOpen" @mouseover="cartMenuOpen" @mouseleave="cartMenuOpen" class="nav-list mr-5" style="cursor: pointer; margin-top: 10px;"
+        <div  class="nav-list mr-5" style="cursor: pointer; margin-top: 10px;"
         >
 
           <div class="notification">

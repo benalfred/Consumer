@@ -23,12 +23,12 @@
 
 
                          <li class=" cursor-pointer mr-3 ">
-                            <nuxt-link class="" to="/join">
+                            <nuxt-link v-if="!$auth.loggedIn" class="" to="/join">
                                 <span class="py-1 px-4 text-white"
                                       >Join</span>
                             </nuxt-link>
                         </li>
-                        <li class="cursor-pointer action-btn ml-lg-auto">
+                        <li class="cursor-pointer action-btn ml-lg-auto" v-if="!$auth.loggedIn">
                             <nuxt-link class="sub navigation-link" to="/login">
                                 <span class="py-1 px-4 text-white"
                                       style="background-color: #E57718">Login</span>
@@ -72,11 +72,11 @@
             <b-dropdown-item to="/firstLevellogin">Others</b-dropdown-item>
           </b-nav-item-dropdown>
           </b-navbar-nav> -->
-           <li>
+           <li v-if="$auth.loggedIn">
                             <CartComponent class="nav-hide-mob "/>
              </li>
 
-          <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
+          <nuxt-link v-if="!$auth.loggedIn" to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
 
         </b-navbar-nav>
       </b-collapse><!--        -->

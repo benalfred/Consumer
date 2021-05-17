@@ -9,6 +9,8 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
+        "@nuxtjs/auth-next": "5.0.0-1620773067.c356fed",
+        "@nuxtjs/axios": "^5.13.1",
         "aos": "^2.3.4",
         "bootstrap": "^4.6.0",
         "bootstrap-icons": "^1.4.1",
@@ -16,6 +18,7 @@
         "core-js": "^3.8.3",
         "nuxt": "^2.15.4",
         "remixicon": "^2.5.0",
+        "sweetalert": "^2.1.2",
         "vue-owl-carousel": "^2.0.3"
     },
     "devDependencies": {

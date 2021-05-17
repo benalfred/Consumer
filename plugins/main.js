@@ -38,3 +38,4 @@
 // Vue.component('BIcon', BIcon)
 // Vue.component('BIconArrowUp', BIconArrowUp)
 // Vue.component('BIconArrowDown', BIconArrowDown)
+import swal from 'sweetalert';
