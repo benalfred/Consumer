@@ -51,7 +51,33 @@
 
 <script>
 export default {
-    layout: 'headerr',
+  layout: 'headerr',
+  data() {
+    return {
+      spinner:false,
+      login:{
+        EmailAddress:'',
+        password:''
+      },
+    }
+  },
+  methods: {
+      async userLogin() {
+      try {
+        let response = await this.$auth.loginWith('local', { data: this.login })
+        await this.$router.push('/')
+      } catch (err) {
+        if (err.response){
+         this.$store.commit("notifications/error",err.response.data.errors)
+         this.makeToast()
+         return
+        } else{
+          this.$store.commit("notifications/error","Something went wrong")
+          this.makeToast()
+        }
+      }
+    }
+  },
 }
 </script>
 
