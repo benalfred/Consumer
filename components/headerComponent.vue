@@ -20,9 +20,9 @@
           <b-navbar-nav class="mr-5">
           </b-navbar-nav>
 
-                         <li class=" cursor-pointer mr-3 ">
+                         <li class=" cursor-pointer mr-3 mt-lg-4">
                             <nuxt-link v-if="!$auth.loggedIn" class="" to="/join">
-                                <span class="py-1 px-4 text-white join"
+                                <span class="join py-1 px-4 text-white join"
                                       >Join</span>
                             </nuxt-link>
                         </li>
