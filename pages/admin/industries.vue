@@ -4,37 +4,48 @@
         <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
            <div class="container-fluid">
-           <h1 class="mb-5">Welcome Back!</h1>
             <b-row>
+            <b-col md="6">
+                 <h1 class="">Technology! <span style="font-size: 24px;">at its very best</span></h1>
+           <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            </b-col>
+            <b-col md="6">
+
+            </b-col>
             <b-col lg="6" xl="6" class="">
-                <div class="Opinion p-5">
-                    <h4 class="h4 pb-3">Opinion Ratings</h4>
-                    <p class="text-white text" style="position: relative; top: 10px;">POSIVIE OPINIONS</p>
-                    <div class="d-flex">
-                        <button type="button" class="btn_">Technology</button>
+                <div class="Opinion1 p-5 mt-5">
+                      <div>
+                      <div class="d-flex">
+                        <p class="add pb-2">Full Review Breakdown</p>
+                      </div>
+                      <div class=" mb-2"  style="background: rgba(0, 0, 0, 0.1);height: 1px;">
+                              </div>
+                      </div>
 
-                        <div class="ml-2">
-                        <button type="button" class="btn1_">Technology</button>
-                        </div>
-                        <div class="ml-2">
-                        <button type="button" class="btn2_">Technology</button>
-                        </div>
+                <div class="d-flex_ row ">
+                    <div class="col-md-12">
+                        <button type="button" class="button_">VIEW FULL REVIEW CHARTS
+
+                        </button>
                     </div>
+                </div>
+                </div>
 
-                    <div class="mt-4">
-                            <p class="text-white text" style="position: relative; top: 10px;">NEGATIVE OPINIONS</p>
-                    <div class="d-flex">
-                        <button type="button" class="btn_">ECONOMY</button>
+                <div class="Opinion1 p-5 mt-5">
+                      <div>
+                      <div class="d-flex">
+                        <p class="add pb-2">Download Report</p>
+                      </div>
+                      <div class=" mb-2"  style="background: rgba(0, 0, 0, 0.1);height: 1px;">
+                              </div>
+                      </div>
 
-                        <div class="ml-2">
-                        <button type="button" class="btn1_">FASHION</button>
-                        </div>
-                        <div class="ml-2">
-                        <button type="button" class="btn2_">FINANCE</button>
-                        </div>
+                <div class="d-flex_ row ">
+                    <div class="col-md-12">
+                        <button type="button" class="button_">CLICK TO DOWNLOAD REPORT <img class="pl-2" src="~/assets/img/Group.png" alt="">
+                        </button>
                     </div>
-                    </div>
-
+                </div>
                 </div>
 
                 <div class="Opinion1 p-5 mt-5">
@@ -48,7 +59,6 @@
 
                 <div class="d-flex_ row ">
                     <div class="col-md-4">
-
                         <button type="button" class="button_">Technology
                             <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
@@ -63,17 +73,7 @@
                         <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
-                    <div class="col-md-4">
-                        <button type="button" class="button_">ECONOMY
-                          <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
-                        </button>
-                    </div>
                 </div>
-
-                <div class="sector p-5 mt-5">
-
-                </div>
-
                 </div>
             </b-col>
 

@@ -32,7 +32,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/admin/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -50,9 +50,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Finace</h6>
-                        <a class="collapse-item" href="buttons.html">Fashion</a>
+                        <a class="collapse-item" href="/admin/industries">Fashion</a>
+                        <a class="collapse-item" href="/admin/delltechnology">Technology</a>
                         <a class="collapse-item" href="cards.html">Economy</a>
-                        <a class="collapse-item" href="cards.html">Technology</a>
                     </div>
                 </div>
             </li>
@@ -247,8 +247,8 @@
         </div>
       </div>
   </div>
-   
-    
+
+
   </div>
 </template>
 
@@ -257,12 +257,12 @@
 
 
 export default {
-  
+
   name: 'dashlayout',
    head() {
      return {
        script: [
-         
+
        ]
      }
    }

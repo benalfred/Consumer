@@ -9,7 +9,7 @@
                     </div>
             </div>
 
-           <div class="media_">   
+           <div class="media_">
           <b-media>
             <template #aside>
               <img src="~/assets/img/vector4.png" class="img-fluid p-2 mt-2 img1" alt="Media Aside">
@@ -27,7 +27,7 @@
             <!-- b-[Optional: add media children here for nesting] -->
 
           </b-media>
-                   
+
 
            <b-media>
             <template #aside>
@@ -47,7 +47,7 @@
 
           </b-media>
 
-           
+
            <b-media>
             <template #aside>
               <img src="~/assets/img/vector4.png" class="img-fluid p-2 img3 mt-2" alt="Media Aside">
@@ -81,24 +81,14 @@ export default {
 .media_ {
   overflow: hidden;
   overflow-y: scroll;
-  height: 450px;
-  
+  max-height: 450px;
+
 }
 .second-col{
   background: #FFFFFF;
-  background: #FFFFFF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
 }
-
-
-  @media screen and (min-width: 600px) {
-  .section_ {
-  background: #626D73;
-  position: relative;
-  left: 100px;
-  }
-  }
 
 h2 {
   font-family: Poppins;
@@ -106,9 +96,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 30px;
 line-height: 60px;
-/* identical to box height, or 167% */
-
-
 color: #656565;
 }
 
@@ -118,7 +105,6 @@ font-style: normal;
 font-weight: normal;
 font-size: 12px;
 line-height: 18px;
-
 color: #000000;
 }
 
@@ -144,10 +130,9 @@ border-radius: 19.5px;
   background: rgba(241, 19, 139, 0.87);
 border-radius: 19.5px;
 }
-
 .img3 {
   background: #18E5B4;
-border-radius: 19.5px;
+  border-radius: 19.5px;
 }
 
 .firstp {
