@@ -1,7 +1,7 @@
 export default {
     ssr: true,
     router: {
-        // middleware: ['auth']
+        middleware: ['auth']
     },
     loading: {
         color: '#de115e',
@@ -18,7 +18,7 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-       
+
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -73,7 +73,7 @@ export default {
         },
         {
           src: '/jquery/jquery.min.js',
-        
+
         },
         {
           src: '/bootstrap/js/bootstrap.bundle.min.js',
@@ -84,11 +84,11 @@ export default {
         {
           src: '/sb-admin-2.min.js',
         }
-        
+
        ],
     },
 
-    
+
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
