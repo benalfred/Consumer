@@ -38,4 +38,9 @@
 // Vue.component('BIcon', BIcon)
 // Vue.component('BIconArrowUp', BIconArrowUp)
 // Vue.component('BIconArrowDown', BIconArrowDown)
+import Vue from 'vue'
+import vSelect from 'vue-select'
 import swal from 'sweetalert';
+import 'vue-select/dist/vue-select.css';
+
+Vue.component('v-select', vSelect)

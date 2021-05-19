@@ -95,17 +95,12 @@ section {
 @media screen and (max-width: 500px) {
   .login-form_ {
       width: 140%;
-    padding: 10px 43px 20px;
-    margin-left: -55px;
+    padding: 10px 24px 20px;
     margin-top: 30px;
   }
 }
 
-@media screen and (min-width: 900px) {
-  .login-form_ {
 
-  }
-}
 
 .log {
   background: transparent linear-gradient(0deg, #E22A6F 0%, #FE6666 100%) 0% 0% no-repeat padding-box;
