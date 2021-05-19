@@ -11,29 +11,21 @@ export default {
         continuous: true,
         duration: 500
     },
+    target: "static",
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: 'consumer-halla',
         htmlAttrs: {
             lang: 'en'
         },
-        target: "static",
+
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { hid: 'description', name: 'description', content: '' }
         ],
-
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            {
-                rel: 'stylesheet',
-                href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css'
-            },
-            {
-                rel: 'stylesheet',
-                href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css'
-            },
             {
                 rel: 'stylesheet',
                 href: 'https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css'
@@ -74,18 +66,37 @@ export default {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'
             },
-        ]
+        ],
+        script: [
+          {
+            src: 'https://kit.fontawesome.com/802d49fc10.js',
+        },
+        {
+          src: '/jquery/jquery.min.js',
+
+        },
+        {
+          src: '/bootstrap/js/bootstrap.bundle.min.js',
+        },
+         {
+          src: '/sb-admin-2.js',
+        },
+        {
+          src: '/sb-admin-2.min.js',
+        }
+
+       ],
     },
 
-    script: [{
-        src: 'https://kit.fontawesome.com/802d49fc10.js'
-    }, ],
+
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '~/assets/css/responsive.css',
         '~/assets/css/style.css',
-        'aos/dist/aos.css'
+        '~/assets/css/sb-admin-2.min.css',
+        '~/assets/css/sb-admin-2.css',
+        'aos/dist/aos.css',
     ],
 
     axios: {

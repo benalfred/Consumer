@@ -12,7 +12,7 @@
               <p class="lead mb-5 mt-md-4">
                 We consumerHalla are team of talented people making things easy for you with Our ideaz
               </p>
-              <n-link class="button btn-lg text-white mt-md-5 mt-5" to="/delltech" role="button"
+              <n-link class="button btn-lg text-white mt-md-5 mt-5" to="/admin/dashboard" role="button"
               >Join
               </n-link>
             </b-col>
