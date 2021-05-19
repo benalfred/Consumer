@@ -1,5 +1,4 @@
 export default {
-
     ssr: true,
     router: {
         // middleware: ['auth']
