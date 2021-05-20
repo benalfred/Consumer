@@ -175,6 +175,11 @@ export default {
 </script>
 
 <style scoped>
+.section_ {
+   overflow: hidden;
+  overflow-y: scroll;
+  height: 750px;
+}
 .second-col{
   background: #FFFFFF;
 border-radius: 10px;

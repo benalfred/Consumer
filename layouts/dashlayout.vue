@@ -32,9 +32,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/admin/dashboard">
+                <nuxt-link class="nav-link" to="/admin/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span></nuxt-link>
             </li>
 
             <!-- Divider -->
@@ -52,7 +52,7 @@
                         <h6 class="collapse-header">Finace</h6>
                         <nuxt-link class="collapse-item" to="/admin/industries">Fashion</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/delltechnology">Technology</nuxt-link>
-                        <nuxt-link class="collapse-item" to="/cards">Economy</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/economy">Economy</nuxt-link>
                     </div>
                 </div>
             </li>
