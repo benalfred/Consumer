@@ -32,9 +32,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/admin/dashboard">
+                <nuxt-link class="nav-link" to="/admin/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span></nuxt-link>
             </li>
 
             <!-- Divider -->
@@ -50,9 +50,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Finace</h6>
-                        <a class="collapse-item" href="/admin/industries">Fashion</a>
-                        <a class="collapse-item" href="/admin/delltechnology">Technology</a>
-                        <a class="collapse-item" href="cards.html">Economy</a>
+                        <nuxt-link class="collapse-item" to="/admin/industries">Fashion</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/delltechnology">Technology</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/economy">Economy</nuxt-link>
                     </div>
                 </div>
             </li>
