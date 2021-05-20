@@ -50,9 +50,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Finace</h6>
-                        <a class="collapse-item" href="/admin/industries">Fashion</a>
-                        <a class="collapse-item" href="/admin/delltechnology">Technology</a>
-                        <a class="collapse-item" href="cards.html">Economy</a>
+                        <nuxt-link class="collapse-item" to="/admin/industries">Fashion</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/delltechnology">Technology</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/cards">Economy</nuxt-link>
                     </div>
                 </div>
             </li>
