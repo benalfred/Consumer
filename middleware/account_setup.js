@@ -1,6 +1,6 @@
-// export default async function({ route, redirect, $auth, $axios, store, dispatch }) {
-//     console.log('running inside')
-//     if ($auth.user && $auth.user.FirstName === null) {
-//         redirect('/accountSetup1')
-//     }
-// }
+export default async function({ route, context, redirect, $auth, $axios, store, dispatch }) {
+    if ($auth.user && $auth.user.picture == null) {
+        console.log('yes', $auth.user)
+        return redirect('/setup-account')
+    }
+}

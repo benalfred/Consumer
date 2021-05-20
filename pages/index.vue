@@ -264,7 +264,7 @@ export default {
       duration: 1000,
     });
   },
-  // middleware: 'account_setup',
+   middleware: 'account_setup',
 
   methods: {
     onSlideStart(slide) {

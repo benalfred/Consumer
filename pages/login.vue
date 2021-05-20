@@ -107,7 +107,7 @@ export default {
         await this.$router.push("/");
       } catch (err) {
         if (err.response) {
-          this.$store.commit("notifications/error", err.response.data.errors);
+          this.$store.commit("notifications/error", err.response.data);
           this.makeToast();
           return;
         } else {

@@ -19,7 +19,8 @@
         "nuxt": "^2.15.4",
         "remixicon": "^2.5.0",
         "sweetalert": "^2.1.2",
-        "vue-owl-carousel": "^2.0.3"
+        "vue-owl-carousel": "^2.0.3",
+        "vue-select": "^3.11.2"
     },
     "devDependencies": {
         "@nuxt/types": "^2.15.6"
