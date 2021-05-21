@@ -150,6 +150,27 @@
 <script>
 export default {
   layout: 'headerr',
+  mounted() {
+    this.getAllOpinionsAndReactions()
+  },
+  data() {
+    return {
+      opinionsData:[],
+    }
+  },
+  methods: {
+    async getAllOpinionsAndReactions(){
+      try {
+    const opinions = await this.$axios.get('Opinions/GetOpinions')
+    console.log(opinions.data)
+    this.opinionsData = opinions.data
+    } catch (e) {
+    alert('error')
+    console.log(e)
+    }
+    }
+    
+  },
 }
 </script>
 
