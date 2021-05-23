@@ -67,10 +67,10 @@
                 <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E;">Great</div>
             </b-col>
             <b-col md="3">
-                <div class="card-subtitle mb-2 px-3 text-muted" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Awesome</div>
+                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Awesome</div>
             </b-col>
             <b-col md="3">
-                 <div class="card-subtitle mb-2 px-3 text-muted" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Amazing</div>
+                 <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Amazing</div>
             </b-col>
             <b-col md="3">
                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Great</div>
@@ -82,10 +82,10 @@
                 <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E;">Great</div>
             </b-col>
             <b-col md="3">
-                <div class="card-subtitle mb-2 px-3 text-muted" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Awesome</div>
+                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Awesome</div>
             </b-col>
             <b-col md="3">
-                 <div class="card-subtitle mb-2 px-3 text-muted" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Amazing</div>
+                 <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Amazing</div>
             </b-col>
             <b-col md="3">
                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Great</div>
