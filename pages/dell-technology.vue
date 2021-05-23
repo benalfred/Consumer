@@ -1,20 +1,16 @@
 <template>
-  <div>
-    <div class="container mt-5">
-      <div class="row">
+    <div>
+      <div class="container mt-5">
+        <div class="row">
         <div class="col-md-5">
+
           <b-media>
             <template #aside>
-              <img src="~/assets/img/dellpic.png" class="img-fluid" alt="Media Aside" />
+               <img src="~/assets/img/dellpic.png" class="img-fluid" alt="Media Aside">
             </template>
 
-            <h2 class="pt-3">Dell Technology</h2>
-            <p class="pt-1">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor ut labore et dolore magna aliqua.
-            </p>
-
-            <!-- b-[Optional: add media children here for nesting] -->
+            <h2 class="pt-3">Dell Technology </h2>
+            <p class="pt-1">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. </p>
           </b-media>
 
           <b-media class="mt-4">
@@ -22,15 +18,78 @@
               <p class="pt-2">RATE</p>
             </template>
 
-            <div class="mb-4 mt-4" style="background: #626d73; height: 1px">
-              <div class="mt-2 line"></div>
+          <div class="mb-4 mt-4"  style="
+              background: #626D73;
+              height: 1px;">
+                <div
+            class="mt-2 line"></div>
+          </div>
+        </b-media>
+
+          <div class="d-flex" style="padding: 0px 10px 0px">
+            <div class="emoji">
+              <p>😡</p>
             </div>
+            <div class="emoji ml-5">
+              <p>😞</p>
+            </div>
+            <div class="emoji ml-5">
+              <p>😑</p>
+            </div>
+            <div class="emoji ml-5">
+              <p>😊</p>
+            </div>
+            <div class="emoji ml-5">
+             <p>😍</p>
+            </div>
+          </div>
+
+           <b-media class="mt-4">
+            <template #aside>
+                <p class="pt-2">Features</p>
+            </template>
+
+                   <div class="mb-4 mt-4"  style="
+              background: #626D73;
+              height: 1px;
+            ">
+                <div
+            class="mt-2 line"
+
+          ></div>
+        </div>
 
             <!-- b-[Optional: add media children here for nesting] -->
           </b-media>
 
-          <div>
-            <img src="~/assets/img/mainreview.png" class="img-fluid" alt="" />
+          <div class=" row">
+            <b-col md="3">
+                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E;">Great</div>
+            </b-col>
+            <b-col md="3">
+                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Awesome</div>
+            </b-col>
+            <b-col md="3">
+                 <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Amazing</div>
+            </b-col>
+            <b-col md="3">
+               <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Great</div>
+            </b-col>
+          </div>
+
+          <div class="row mt-3">
+            <b-col md="3">
+                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E;">Great</div>
+            </b-col>
+            <b-col md="3">
+                <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Awesome</div>
+            </b-col>
+            <b-col md="3">
+                 <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Amazing</div>
+            </b-col>
+            <b-col md="3">
+               <div class="card-subtitle mb-2 px-3 text-muted text-center" style="border: 1px solid #81959E; border-radius: 50px; font-size: 14px; color: #81959E; ">Great</div>
+            </b-col>
           </div>
 
           <b-media class="mt-4">
@@ -54,6 +113,7 @@
               max-rows="6"
             ></b-form-textarea>
           </div>
+
           <div class="mx-0 justify-content-end">
             <div>
               <b-form-group class="newpost mt-3">
@@ -67,6 +127,7 @@
                 </button>
               </b-form-group>
             </div>
+          </div>
           </div>
         </div>
 
@@ -267,5 +328,14 @@ p {
 
 .firstp {
   color: #626d73;
+}
+
+.emoji {
+  width: 150px;
+}
+
+.emoji p {
+  font-size: 34px;
+  cursor: pointer;
 }
 </style>
