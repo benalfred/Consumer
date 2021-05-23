@@ -68,8 +68,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <nuxt-link class="collapse-item" to="/admin/email-setting">email setting</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/review-setting">review-setting</nuxt-link>
                         <a class="collapse-item" href="utilities-animation.html">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
