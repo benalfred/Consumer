@@ -69,6 +69,8 @@
               </b-col>
             </b-row>
 
+            <b-button variant="light" class="viewall" style="border-radius: 0!important;">View All</b-button>
+
        </div>
         </div>
         </div>
@@ -86,6 +88,9 @@ export default {
 
 
 <style scoped>
+.viewall {
+  padding: 10px 25px 10px;
+}
 
 .email-setting {
   background: #0083CA;
