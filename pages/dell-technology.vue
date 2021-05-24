@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="container mt-5">
-        <div class="row">
+      <div class="row">
         <div class="col-md-5">
 
           <b-media>
@@ -129,8 +129,7 @@
             </div>
           </div>
           </div>
-        </div>
-
+          
         <div class="col-md-7 section_ px-5 pt-5 mt-3">
           <div class="second-col px-4 pt-4 pb-4">
             <b-media>
@@ -219,9 +218,9 @@
             </b-media>
           </div>
         </div>
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
