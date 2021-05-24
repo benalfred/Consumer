@@ -47,7 +47,7 @@
                     </div>
                 </b-col>
 
-                <b-col md="5" class="mt-4">
+                <b-col md="6" class="mt-4">
                   <h6 class="pt-4 mt-3" style="color: #000; font-weight: 600">Password generation email</h6>
                   <div class="mt-3 email-tittle p-3">
                       <h6 class="mt-2 font-weight-bold" style="color: #000;">Email tittle</h6>
@@ -58,6 +58,15 @@
                       <a href="www.consumerhalla.com" class="mt-1 text-decoration-none" style="color: #000; font-weight: 600">www.consumerhalla.com</a>
                   </div>
                 </b-col>
+
+                <b-col md="6">
+
+                </b-col>
+                <b-col md="4" class="newpost_ mt-1  justify-content-center">
+              <b-form-group class="newpost mt-3">
+                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Update</button>
+              </b-form-group>
+              </b-col>
             </b-row>
 
        </div>
@@ -99,10 +108,23 @@ color: #FFFFFF;
 }
 
 .email-tittle{
-  border: 1px solid #626D73;
+  border: 1px solid rgba(14, 10, 10, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
   overflow: hidden;
   overflow-y: scroll;
   height: 300px;
   scrollbar-width: thin;
+}
+
+  .btn-sacademy {
+    color: #fff !important;
+    background: #E57718;
+    box-shadow: 0px 20px 20px #00000026;
+    opacity: 1;
+    width: 100%;
+    padding: 10px 0px 10px;
+    border: 0;
+    border-radius: 25px;
 }
 </style>
