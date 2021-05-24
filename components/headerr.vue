@@ -11,10 +11,7 @@
       <b-collapse id="nav-collapse" is-nav>
 
 
-
         <b-navbar-nav class="ml-auto">
-
-
 
           <nuxt-link to="/join" class="btn btn-sacademy mt-2" role="button">Join Us</nuxt-link>
 
