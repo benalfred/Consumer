@@ -164,7 +164,29 @@ color: #FFFFFF;
   overflow: hidden;
   overflow-y: scroll;
   height: 300px;
-  scrollbar-width: thin;
+}
+
+.email-tittle::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 50px;
+}
+
+/* Track */
+.email-tittle::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.email-tittle::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.email-tittle::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
 }
 
   .btn-sacademy {
