@@ -2,7 +2,7 @@
   <div>
   <div>
       <div id="wrapper">
-          <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+          <ul :class="{'slide-out': state}" class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
              <a class="sidebar-brand d-flex pb-5 pt-5 align-items-center justify-content-center" href="index.html" >
@@ -115,13 +115,11 @@
         </ul>
 
         <div id="content-wrapper" class="d-flex flex-column">
-
         <div id="content">
-
               <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top ">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button @click="toggle" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -140,7 +138,7 @@
                     </form> -->
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul  class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
 
@@ -257,6 +255,11 @@
 
 
 export default {
+  data() {
+    return {
+state: false
+    }
+  },
 
   name: 'dashlayout',
    head() {
@@ -264,6 +267,12 @@ export default {
        script: [
 
        ]
+     }
+   },
+   methods: {
+     toggle() {
+       this.state = !this.state
+       console.log(this.state)
      }
    }
 }
@@ -278,5 +287,12 @@ border-radius: 19.5px;
 .sidebar {
   background-color: #F3CEAE;
   color: black!important;
+}
+
+@media screen and (max-width: 640px) {
+  .slide-out {
+ margin-left: -100px;
+ transition: margin .4s ease-in-out;
+}  
 }
 </style>

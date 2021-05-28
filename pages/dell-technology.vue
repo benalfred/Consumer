@@ -30,16 +30,16 @@
             <div class="emoji">
               <p>😡</p>
             </div>
-            <div class="emoji ml-5">
+            <div class="emoji ml-lg-5">
               <p>😞</p>
             </div>
-            <div class="emoji ml-5">
+            <div class="emoji ml-lg-5">
               <p>😑</p>
             </div>
-            <div class="emoji ml-5">
+            <div class="emoji ml-lg-5">
               <p>😊</p>
             </div>
-            <div class="emoji ml-5">
+            <div class="emoji ml-lg-5">
              <p>😍</p>
             </div>
           </div>

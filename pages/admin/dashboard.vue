@@ -7,9 +7,10 @@
            <h1 class="mb-5">Welcome Back!</h1>
             <b-row>
             <b-col lg="6" xl="6" class="">
-                <div class="Opinion p-5">
+                <div class="Opinion p-3 pl-lg-5">
                     <h4 class="h4 pb-3">Opinion Ratings</h4>
                     <p class="text-white text" style="position: relative; top: 10px;">POSIVIE OPINIONS</p>
+                    <div class="d-lg-flex">
                     <div class="d-flex">
                         <button type="button" v-b-modal.modal-lg class="btn_">Technology</button>
 
@@ -18,28 +19,31 @@
                         <button type="button" class="btn1_">Technology</button>
                         </a>
                         </div>
-                        <div class="ml-2">
+                    </div>
+                     <div class="ml-lg-2 mt-2">
                         <button type="button" class="btn2_">Technology</button>
                         </div>
                     </div>
 
                     <div class="mt-4">
                             <p class="text-white text" style="position: relative; top: 10px;">NEGATIVE OPINIONS</p>
+                      <div class="d-lg-flex">
                     <div class="d-flex">
                         <button type="button" class="btn_">ECONOMY</button>
 
                         <div class="ml-2">
                         <button type="button" class="btn1_">FASHION</button>
                         </div>
-                        <div class="ml-2">
+                    </div>
+                     <div class="ml-lg-2">
                         <button type="button" class="btn2_">FINANCE</button>
                         </div>
-                    </div>
+                      </div>
                     </div>
 
                 </div>
 
-                <div class="Opinion1 p-5 mt-5">
+                <div class="Opinion1 p-3 p-lg-5 mt-5">
                       <div>
                       <div class="d-flex">
                         <p class="add pb-2">Add and Remove Sectors</p>
@@ -51,22 +55,22 @@
                 <div class="d-flex_ row ">
                     <div class="col-md-4">
 
-                        <button type="button" class="button_">Technology
+                        <button type="button" class="button">Technology
                             <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
-                    <div class="col-md-4 pl-4">
-                        <button type="button" class="button_">FINANCE
+                    <div class="col-md-4 pl-lg-4">
+                        <button type="button" class="button">FINANCE
                             <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
                     <div class="col-md-4">
-                        <button type="button" class="button_">FASHION
+                        <button type="button" class="button">FASHION
                         <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
                     <div class="col-md-4">
-                        <button type="button" class="button_">ECONOMY
+                        <button type="button" class="button">ECONOMY
                           <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
@@ -131,7 +135,7 @@
 
         </b-modal> -->
 
-        <a href="#openModal-about">Modal</a>
+       
 <!--modals-->
     <div id="openModal-about" class="modalDialog">
       <div>
@@ -166,6 +170,11 @@ import UserResponse from "@/components/UserResponse.vue"
 export default {
     layout: "dashlayout",
     component: {UserResponse},
+    data(){
+      return {
+        filter: ""
+      }
+    }
 }
 </script>
 
@@ -358,7 +367,7 @@ line-height: 18px;
 color: #373737;
 }
 
-.button_{
+.button{
     background: #00B5D3;
 border: none;
 padding: 8px 32px 8px;

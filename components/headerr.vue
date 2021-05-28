@@ -17,10 +17,7 @@
 
         <b-navbar-nav class="ml-auto">
 
-         <b-nav-item to="/technology-landingpage" class="mt-2 mr-2 active">Technology</b-nav-item>
-          <b-nav-item to="/dell-techlanding-page" class="mt-2 mr-2">Dell</b-nav-item>
-          <b-nav-item to="/admin/dashboard" class="mt-2 mr-2">Economy</b-nav-item>
-          <b-nav-item to="/" class="mt-2 mr-2">Fashion</b-nav-item>
+        
         
         
             <li class=" cursor-pointer mr-3 mt-lg-4">

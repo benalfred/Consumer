@@ -2,15 +2,7 @@
   <div class="">
     <section class="bg">
       <b-container>
-        <b-row class="justify-content-center pt-3">
-        <div class="display-text d-lg-flex m-3  d-none d-sm-block">
-            <nuxt-link to="" style="color: #E57718;">Technology</nuxt-link>
-            <nuxt-link to="">Banking</nuxt-link>
-            <nuxt-link to=""><p>Fashion</p></nuxt-link>
-            <nuxt-link to="">Economy</nuxt-link>
-        </div>
-        </b-row>
-
+       <SecNav />
         <b-row>
             <b-col md="12">
                 <h4 class="text-center pb-1" data-aos="fade-up" data-aos-offset="30"
@@ -83,11 +75,12 @@
 <script>
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SecNav from "@/components/SecNav.vue"
 import agegender from "@/components/agegender.vue"
 import footer from "@/components/footer.vue"
 export default {
   layout: "headerr",
-  component: {agegender, footer},
+  component: {agegender, footer, SecNav},
 
    mounted() {
     AOS.init({
