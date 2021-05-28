@@ -1,5 +1,6 @@
 <template>
   <div>
+  <section class="bg">
 
         <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
@@ -23,7 +24,8 @@
        </div>
         </div>
         </div>
-
+        
+  </section>
   </div>
 </template>
 
@@ -47,6 +49,9 @@ export default {
 
 
 <style scoped>
+.bg {
+  overflow: hidden;
+}
 
 .container-fluid::-webkit-scrollbar {
   width: 5px;

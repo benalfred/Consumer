@@ -11,9 +11,11 @@
                   </div>
               </b-col>
               <b-col md="6">
+              <nuxt-link to="/review-setting">
                   <div class="email-setting1 p-3">
-                      <p class="pt-2">Review Setting</p>
+                    <p class="pt-2">Review Setting</p>
                   </div>
+                </nuxt-link>
               </b-col>
             </b-row>
 

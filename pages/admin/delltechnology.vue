@@ -13,7 +13,7 @@
 
             </b-col>
             <b-col lg="6" xl="6" class="">
-                <div class="Opinion1 p-5 mt-5">
+                <div class="Opinion1 p-3 p-lg-5 mt-5">
                       <div>
                       <div class="d-flex">
                         <p class="add pb-2">Full Review Breakdown</p>
@@ -32,7 +32,7 @@
                 </div>
                 </div>
 
-                <div class="Opinion1 p-5 mt-5">
+                <div class="Opinion1 p-3 p-lg-5 mt-5">
                       <div>
                       <div class="d-flex">
                         <p class="add pb-2">Download Report</p>

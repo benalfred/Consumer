@@ -11,9 +11,11 @@
                   </div>
               </b-col>
               <b-col md="6">
+              <nuxt-link to="email-setting">
                   <div class="email-setting p-3">
                       <p class="pt-2">Email Setting</p>
                   </div>
+              </nuxt-link>
               </b-col>
             </b-row>
 
@@ -104,7 +106,7 @@
                   </b-form-group>
               </b-col>
 
-              <b-col md="2" class="pl-5 form-select">
+              <b-col md="2" class="pl-lg-5 form-select">
               <h6 style="font-weight: 600; color: #626D73;" class="pb-4">Set Age range</h6>
                    <b-form-group class="">
                     <div class=" selectdate1">
@@ -127,7 +129,7 @@
                   </b-form-group>
               </b-col>
 
-              <b-col md="2" class="pl-5 mt-5 pt-4">
+              <b-col md="2" class="pl-lg-5 mt-5 pt-4">
                    <b-form-group class="pt-1">
                     <div class="form-group selectdate2">
                       <v-select
