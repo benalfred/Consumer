@@ -289,10 +289,4 @@ border-radius: 19.5px;
   color: black!important;
 }
 
-@media screen and (max-width: 640px) {
-  .slide-out {
- margin-left: -100px;
- transition: margin .4s ease-in-out;
-}  
-}
 </style>
