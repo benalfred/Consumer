@@ -200,7 +200,7 @@
                     </b-container>
                   </div>
 
-        <section class="section pt-5">
+        <section class="section pt-5 pb-2">
           <b-container class="pt-5">
             <b-row>
               <b-col md="7">
@@ -228,9 +228,7 @@
 
 
           </b-container>
-        </section>
-
-           <div class="container mb-4 mt-4"  style="
+              <div class="container mb-5 mt-1"  style="
           ;
               background: #626D73;
               height: 1px;
@@ -240,6 +238,9 @@
 
           ></div>
         </div>
+        </section>
+
+
 
 
   </div>
@@ -251,6 +252,7 @@ import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
 import footer from '~/components/footer';
 export default {
+  layout: "headerr",
   components: {
     carousel: () =>
       process.client

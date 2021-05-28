@@ -11,10 +11,12 @@
                     <h4 class="h4 pb-3">Opinion Ratings</h4>
                     <p class="text-white text" style="position: relative; top: 10px;">POSIVIE OPINIONS</p>
                     <div class="d-flex">
-                        <button type="button" class="btn_">Technology</button>
+                        <button type="button" v-b-modal.modal-lg class="btn_">Technology</button>
 
                         <div class="ml-2">
+                        <a href="#openModal-about">
                         <button type="button" class="btn1_">Technology</button>
+                        </a>
                         </div>
                         <div class="ml-2">
                         <button type="button" class="btn2_">Technology</button>
@@ -119,6 +121,43 @@
         </div>
         </div>
 
+        <!-- <b-modal
+          id="modal-lg"
+          size="lg" class="popup"
+          centered scrollable title=""
+          body-bg-variant="light"
+          header-bg-variant="light" hide-footer>
+
+
+        </b-modal> -->
+
+        <a href="#openModal-about">Modal</a>
+<!--modals-->
+    <div id="openModal-about" class="modalDialog">
+      <div>
+         <a href="#close" title="Close" class="close">X</a>
+           <div class=" pt-5 pb-5">
+              <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
+
+               <div class="d-flex justify-content-center">
+                   <div>
+                      <b-form-group class="newpost mt-3">
+                    <button class="mt-2 mr-4 btn-sacademy"  style="font-size: 16px" type="submit" value="Send">cancel</button>
+                  </b-form-group>
+                   </div>
+
+                   <div>
+                      <b-form-group class="newpost mt-3">
+                    <button class=" mt-2 btn-sacademy1"  style="font-size: 16px" type="submit" value="Send">okay</button>
+                  </b-form-group>
+                   </div>
+               </div>
+
+               <div style="background: #333536;" class="p-4 mt-5"></div>
+          </div>
+       </div>
+    </div>
+
   </div>
 </template>
 
@@ -132,6 +171,83 @@ export default {
 
 
 <style scoped>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+}
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  margin: 10% auto;
+  border-radius: 3px;
+  background: #626D73;
+  border-radius: 10px;
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f26d7d;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
+
+  .btn-sacademy {
+    color: #fff !important;
+    background: #D91925;
+    border-radius: 25px;
+    box-shadow: 0px 20px 20px #00000026;
+    opacity: 1;
+    padding: 8px 34px 8px;
+    border: 0;
+}
+  .btn-sacademy1 {
+    color: #fff !important;
+    background: #18E5B4;
+    border-radius: 25px;
+    box-shadow: 0px 20px 20px #00000026;
+    opacity: 1;
+    padding: 8px 34px 8px;
+    border: 0;
+}
+
 .all {
   position: relative;
   bottom: 100px;

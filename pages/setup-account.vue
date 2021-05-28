@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section class="pb-5 min-100">
-      <b-container class="mt-5 min-100 pb-5">
+    <section class=" min-100">
+      <b-container class="min-100 ">
         <b-row class="mx-0 min-100 align-items-center justify-content-center">
           <b-col md="6" class="mb-5 px-0 min-100 position-relative">
             <div
@@ -9,7 +9,7 @@
               style="display: block; opacity: 1"
               class="login-form login-form_"
             >
-              <div class="contact-form avenir pt-4 small raleway">
+              <div class="contact-form avenir pt-3 small raleway">
                 <h3 class="text-center font-weight-bold mb-4 pb-2 pt-2">Account Setup</h3>
                 <b-form class="">
                   <b-form-group>
@@ -297,6 +297,24 @@ export default {
 </script>
 
 <style scoped>
+.vs--searchable .vs__dropdown-toggle {
+    cursor: text;
+    height: calc(1.5em + 0.75rem + 2px) !important;
+    padding: 1.6rem 1rem !important;
+    font-size: 1rem;
+    align-items: center !important;
+    display: flex !important;
+    font-weight: 400;
+    line-height: 1.5 !important;
+    color: #000;
+    border-radius: 8px;
+    border: 1px solid #a0a0a0;
+}
+
+.vs__clear {
+    display: none !important;
+}
+
 .btn-sacademy {
   color: #fff !important;
   background: #e57718;
@@ -329,7 +347,7 @@ section {
   color: #000;
   border-radius: 8px;
   border: 1px solid #a0a0a0;
-  padding: 1.6rem 1rem;
+  padding: 1.4rem 1rem;
   margin: 0px 0px 8px;
 }
 

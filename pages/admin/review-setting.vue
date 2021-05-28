@@ -63,7 +63,7 @@
               </b-col>
 
               <b-col md="2" style="position: relative; left: 20px">
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -73,7 +73,7 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -83,7 +83,7 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -93,7 +93,7 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -105,10 +105,10 @@
               </b-col>
 
               <b-col md="2" class="pl-5 form-select">
-              <h6 style="font-weight: 600; color: #626D73;" class="pb-3">Set Age range</h6>
+              <h6 style="font-weight: 600; color: #626D73;" class="pb-4">Set Age range</h6>
                    <b-form-group class="">
-                    <div class="form-group">
-                    <label for="">Millenials</label>
+                    <div class=" selectdate1">
+                    <div class="w-100">Millenials</div>
                       <v-select
                         placeholder="3"
                         label="Name"
@@ -116,10 +116,10 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate1">
                     <div class="form-group">
-                        <label for="">Millenials</label>
-                      <v-select class="v-select"
+                        <div class="w-100 ">Generation X</div>
+                      <v-select class="v-select_"
                         placeholder="3"
                         label="Name"
                       ></v-select>
@@ -127,17 +127,29 @@
                   </b-form-group>
               </b-col>
 
-              <b-col md="2">
-                   <b-form-group class="mb-2 form-select">
-                    <div class="form-group">
+              <b-col md="2" class="pl-5 mt-5 pt-4">
+                   <b-form-group class="pt-1">
+                    <div class="form-group selectdate2">
                       <v-select
+                        placeholder="3"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
 
+                   <b-form-group class="mb-2 selectdate2">
+                    <div class="form-group">
+
+                      <v-select class="v-select_"
                         placeholder="3"
                         label="Name"
                       ></v-select>
                     </div>
                   </b-form-group>
               </b-col>
+
+
+
             </b-row>
 
             <b-row class="justify-content-center">
@@ -167,7 +179,6 @@ export default {
 
 
 <style scoped>
-
 .email-setting {
   background: #0083CA;
 }
@@ -212,13 +223,11 @@ align-items: center;
 color: #626D73;
 }
 
-.form-select{
-  width: 120px;
-}
+
 
 @media screen and (min-width: 700px) {
     .form-select {
-        position: relative; left: 40px
+        position: relative; left: 20px
     }
 }
 

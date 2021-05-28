@@ -24,7 +24,7 @@
 
                     <div class="mt-5">
                        <b-form-group>
-                    <div class="form-group">
+                    <div class="form-group small-select">
                     <label for="" class="text-dark" style="font-weight: 700" >Choose email template</label>
                       <v-select
 
@@ -35,7 +35,7 @@
                   </b-form-group>
 
                        <b-form-group>
-                    <div class="form-group">
+                    <div class="form-group small-select">
                     <label for="" class="text-dark" style="font-weight: 700" >Choose address format</label>
                       <v-select
 
@@ -73,9 +73,12 @@
         </div>
 
 
-         <b-modal id="modal-xl" size="xl" class="popup" centered scrollable title="Technology"
-                             body-bg-variant="light"
-                             header-bg-variant="light" hide-footer>
+         <b-modal
+          id="modal-xl"
+          size="xl" class="popup"
+          centered scrollable title="Technology"
+          body-bg-variant="light"
+          header-bg-variant="light" hide-footer>
 
               <div class="item-wrapper one">
               <h1 class="text-center font-weight-bold mt-5" style="color: #000;">Technology <br> <span style="font-size: 27px; color: #626D73;">at its very best</span></h1>
@@ -126,6 +129,8 @@ export default {
 
 
 <style scoped>
+
+
   .btn-sacademy {
     color: #fff !important;
     background: #E57718;
@@ -199,4 +204,6 @@ color: #FFFFFF;
     border: 0;
     border-radius: 25px;
 }
+
+@import url(~/assets/css/stylee.css);
 </style>

@@ -24,8 +24,10 @@
 
                 <div class="d-flex_ row ">
                     <div class="col-md-12">
+                    <a href="#openModal-about">
                         <button type="button" class="button_">VIEW FULL REVIEW CHARTS
                         </button>
+                    </a>
                     </div>
                 </div>
                 </div>
@@ -90,19 +92,117 @@
         </div>
         </div>
 
+
+
+        <div id="openModal-about" class="modalDialog justify-content-center text-center">
+      <div class="pt-5 pb-5">
+         <a href="#close" title="Close" class="close">X</a>
+         <h2 class="report-h2 mb-5">Report Downloading</h2>
+          <b-progress :max="max" class="mb-4">
+      <b-progress-bar :value="value" :label="`${((value / max) * 100).toFixed(2)}%`"></b-progress-bar>
+    </b-progress>
+    <div>
+        <div>
+          <b-form-group class="newpost mt-5">
+                <button class=" mt-4 btn-sacademy" v-b-modal.modal-xl style="font-size: 16px" type="submit" value="Send">Completed</button>
+              </b-form-group>
+        </div>
+    </div>
+       </div>
+    </div>
+
   </div>
 </template>
 
 <script>
 import UserResponse from "@/components/UserResponse.vue"
 export default {
+   data() {
+      return {
+        value: 33.333333333,
+        max: 50
+      }
+   },
     layout: "dashlayout",
     component: {UserResponse},
+
 }
 </script>
 
 
 <style scoped>
+  .btn-sacademy {
+    color: #fff !important;
+    background: #E57718;
+    box-shadow: 0px 20px 20px #00000026;
+    opacity: 1;
+    width: 40%;
+    padding: 12px 0px 12px;
+    border: 0;
+    border-radius: 25px;
+    opacity: 0.4;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+   height: 105vh;
+  width: 99vw;
+  background: url('~assets/img/bg-image.png');
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+}
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  margin: 10% auto;
+  background: #FFFFFF;
+  opacity: 0.95;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f26d7d;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
+
 .all {
   position: relative;
   bottom: 100px;
@@ -229,5 +329,18 @@ margin: 15px 0px 10px;
 
 .sector {
   background: #656565;
+}
+
+.report-h2 {
+  font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 60px;
+/* identical to box height, or 83% */
+
+text-align: center;
+
+color: #000000;
 }
 </style>
