@@ -10,9 +10,19 @@
 
       <b-collapse id="nav-collapse" is-nav>
 
+      <b-navbar-nav class="mx-auto">
+         
+      </b-navbar-nav>
+
 
         <b-navbar-nav class="ml-auto">
 
+         <b-nav-item to="/technology-landingpage" class="mt-2 mr-2 active">Technology</b-nav-item>
+          <b-nav-item to="/dell-techlanding-page" class="mt-2 mr-2">Dell</b-nav-item>
+          <b-nav-item to="/admin/dashboard" class="mt-2 mr-2">Economy</b-nav-item>
+          <b-nav-item to="/" class="mt-2 mr-2">Fashion</b-nav-item>
+        
+        
             <li class=" cursor-pointer mr-3 mt-lg-4">
                             <nuxt-link v-if="!$auth.loggedIn" class="" to="/join">
                                 <span class="join py-1 px-4 text-white join"
@@ -75,11 +85,17 @@ header {
         height: 80px;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: #000;
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #E57718;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.active {
   color: #E57718;
 }
 

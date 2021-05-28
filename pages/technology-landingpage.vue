@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <section class="">
+    <section class="bg">
       <b-container>
         <b-row class="justify-content-center pt-3">
         <div class="display-text d-lg-flex m-3  d-none d-sm-block">
@@ -24,7 +24,7 @@
 
         <p>ConsumerHalla Overall Ratings (%)</p>
 
-        <div class="row mb-1 pl-2">
+        <div class="row pb-1 pl-2">
           <div class="col-md-2 p-2" style="background: #E57718">
               <b-media>
                 <template #aside>
@@ -38,7 +38,7 @@
                 </b-media>
         </div>
 
-          <div class="col-md-2 p-2 ml-2" style="background: #07072F;">
+          <div class="col-md-2 p-2 ml-lg-2" style="background: #07072F;">
               <b-media>
                 <template #aside>
                     <img src="~/assets/img/thumbs.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
@@ -51,7 +51,7 @@
                 </b-media>
         </div>
 
-          <div class="col-md-2 p-2 ml-2" style="background: #626D73;">
+          <div class="col-md-2 p-2 ml-lg-2" style="background: #626D73;">
               <b-media>
                 <template #aside>
                     <img src="~/assets/img/thumbs.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
@@ -64,7 +64,7 @@
                 </b-media>
         </div>
 
-          <div class="col-md-2 p-2 ml-2" style="background: #00B5D3;">
+          <div class="col-md-2 p-2 ml-lg-2" style="background: #00B5D3;">
               <b-media>
                 <template #aside>
                     <img src="~/assets/img/thumbs.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
@@ -80,12 +80,38 @@
             <p class="reviews-p ml-3 align-items-center">With over 200 reviews, here are the rating datas collated by consumerhalla </p>
         </div>
         </div>
-        <div style="background: #07072F;" class="p-4 ml-0 row"></div>
+        <div style="background: #07072F;" class="p-5"></div>
+
+        <b-row>
+              <b-col md="11" class="dell-card ml-lg-5">
+                     <div class="d-flex_ row p-5" >
+                    <div class="col-md-2">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-2">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-2">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-2">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-2">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-2 mt-3 pl-1">
+                        <button class="btn"> <img src="~/assets/img/viewall.png" class="img-fluid" alt=""> </button>
+                    </div>
+                  </div>
+                 </b-col>
+        </b-row>
 
       </b-container>
     </section>
 
-
+<agegender />
+      <Footer />
 
   </div>
 </template>
@@ -110,14 +136,15 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 720px) {
-    .bg{
-height: 65vh;
-  background: #FFDFC4;
+.bg {
+  overflow: hidden;
+}
+.dell-card{
+  position: relative;
+  bottom: 40px;
 }
 .second-con {
   margin-top: 320px;
-}
 }
 h4 {
   font-family: Poppins;
@@ -162,6 +189,14 @@ color: #373737;
 
 .dell-card img{
     margin: 20px 0px 10px;
+}
+
+.d-flex_ {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
 }
 
 .img1 {
