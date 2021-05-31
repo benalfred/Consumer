@@ -149,20 +149,20 @@
                 </div>
               </div>
 
-              <div class="d-flex">
-                <div class="">
-                  <button type="button" class="btn1">ALL</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">Technology</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">FASHION</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">ECONOMY</button>
-                </div>
-              </div>
+               <div class="d-flex">
+                   <div class="">
+                    <button type="button" class="btn1">ALL</button>
+                  </div>
+                   <div class="ml-lg-2">
+                    <button type="button" class="btn2">Technology</button>
+                  </div>
+                   <div class="ml-lg-2">
+                    <button type="button" class="btn2">FASHION</button>
+                  </div>
+                   <div class="ml-lg-2">
+                    <button type="button" class="btn2">ECONOMY</button>
+                  </div>
+               </div>
 
               <UserResponse />
             </b-col>
