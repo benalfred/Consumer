@@ -110,7 +110,7 @@
             </div>
                 </div>
 
-               <div class="d-flex">
+               <div class="d-flex profile-dropdown">
                    <div class="">
                     <button type="button" class="btn1">ALL</button>
                   </div>
@@ -124,6 +124,7 @@
                     <button type="button" class="btn2">ECONOMY</button>
                   </div>
                   <ProfileComponent />
+
                </div>
 
               <UserResponse />
@@ -421,5 +422,9 @@ margin: 15px 0px 10px;
 box-sizing: border-box;
 border-radius: 5px;
 color: white;
+}
+
+.profile-dropdown{
+  overflow: auto;
 }
 </style>
