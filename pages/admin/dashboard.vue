@@ -1,6 +1,5 @@
 <template>
   <div>
-
         <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
            <div class="container-fluid">
@@ -76,8 +75,17 @@
                     </div>
                 </div>
 
-                <div class="sector p-5 mt-5">
-
+                <div class="sector p-3 mt-5">
+                     <b-row class="my-1">
+                        <b-col sm="9">
+                          <b-form-input id="input-large" class="input-sector" size="lg" placeholder="New Sector"></b-form-input>
+                        </b-col>
+                         <b-col sm="3" class="pl-4 pt-1">
+                            <nuxt-link to="#">
+                                <img src="~assets/img/sectoricon.png" alt="">
+                            </nuxt-link>
+                        </b-col>
+                      </b-row>
                 </div>
 
                 </div>
@@ -135,7 +143,7 @@
 
         </b-modal> -->
 
-       
+
 <!--modals-->
     <div id="openModal-about" class="modalDialog">
       <div>
@@ -383,5 +391,13 @@ margin: 15px 0px 10px;
 
 .sector {
   background: #656565;
+}
+
+.input-sector {
+  background: #656565;
+  border: 1px solid #A0A0A0;
+box-sizing: border-box;
+border-radius: 5px;
+color: white;
 }
 </style>

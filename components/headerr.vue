@@ -11,15 +11,15 @@
       <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="mx-auto">
-         
+
       </b-navbar-nav>
 
 
         <b-navbar-nav class="ml-auto">
 
-        
-        
-        
+
+
+
             <li class=" cursor-pointer mr-3 mt-lg-4">
                             <nuxt-link v-if="!$auth.loggedIn" class="" to="/join">
                                 <span class="join py-1 px-4 text-white join"
@@ -122,6 +122,12 @@ header {
     font-size: 15px;
     padding: 8px 25px;
     border-radius: 50px;
+}
+
+.btn-sacademy {
+    background-color: #EF4323 !important;
+    color: #fff !important;
+    border-color: #EF4323 !important;
 }
 
 .navbar {
