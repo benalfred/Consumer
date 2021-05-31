@@ -80,10 +80,10 @@
                         <b-col sm="9">
                           <b-form-input id="input-large" class="input-sector" size="lg" placeholder="New Sector"></b-form-input>
                         </b-col>
-                         <b-col sm="3" class="pl-4 pt-1">
-                            <nuxt-link to="#">
+                         <b-col sm="3" class="pl-4 pt-0">
+                            <button class="btn outline-none">
                                 <img src="~assets/img/sectoricon.png" alt="">
-                            </nuxt-link>
+                            </button>
                         </b-col>
                       </b-row>
                 </div>
