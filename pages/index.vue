@@ -1,7 +1,7 @@
 <template>
-  <div class="">
-
+  <div>
         <b-container class="line_">
+        <SecNav />
           <b-row class="">
             <b-col md="6" class=" my-sm-5 my-lg-auto  order-sm-1 order-2 pr-md-0">
               <h1 class="hero small-hero-text hero-text">
@@ -12,7 +12,7 @@
               <p class="lead mb-5 mt-md-4">
                 We consumerHalla are team of talented people making things easy for you with Our ideaz
               </p>
-              <n-link class="button btn-lg text-white mt-md-5 mt-5" to="/admin/dashboard" role="button"
+              <n-link class="button_ btn-lg text-white mt-md-5 mt-5" to="/admin/dashboard" role="button_"
               >Join
               </n-link>
             </b-col>
@@ -107,7 +107,7 @@
                 Anim pariatur cliche reprehenderit, enim <br class="d-none d-md-block"> eiusmod high life accusamus terry <br class="d-none d-md-block"> richardson ad squid. 3 wolf moon officia <br class="d-none d-md-block"> aute, non cupidatat skateboard
               </p>
               <div class="mt-5" data-aos="fade-right" data-aos-offset="10" data-aos-delay="300">
-                    <n-link class="button1 btn-lg text-white mt-md-5 mt-5" to="/register" role="button"
+                    <n-link class="button_1 btn-lg mt-md-5 mt-5" to="/register" role="button_"
               >Get Started
               </n-link>
               </div>
@@ -192,7 +192,7 @@
                     <p class="lead mb-5 mt-md-4">
                       Share your own opinion and earn up to <span style="color: #E57718;">100 points</span> to get a gift
                     </p>
-                    <n-link class="button btn-lg text-white mt-md-5 mt-5" to="/register" role="button"
+                    <n-link class="button_ btn-lg text-white mt-md-5 mt-5" to="/register" role="button_"
                     >Share your Opinion
                     </n-link>
                     </b-col>
@@ -200,7 +200,7 @@
                     </b-container>
                   </div>
 
-        <section class="section pt-5">
+        <section class="section pt-5 pb-2">
           <b-container class="pt-5">
             <b-row>
               <b-col md="7">
@@ -228,9 +228,7 @@
 
 
           </b-container>
-        </section>
-
-           <div class="container mb-4 mt-4"  style="
+              <div class="container mb-5 mt-1"  style="
           ;
               background: #626D73;
               height: 1px;
@@ -240,6 +238,9 @@
 
           ></div>
         </div>
+        </section>
+
+
 
 
   </div>
@@ -251,6 +252,7 @@ import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
 import footer from '~/components/footer';
 export default {
+  layout: "headerr",
   components: {
     carousel: () =>
       process.client
@@ -284,6 +286,8 @@ export default {
 border-radius: 25px;
 color: white;
 }
+
+
 
 
 .Rec {

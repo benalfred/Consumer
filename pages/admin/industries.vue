@@ -24,7 +24,7 @@
 
                 <div class="d-flex_ row ">
                     <div class="col-md-12">
-                        <button type="button" class="button_">VIEW FULL REVIEW CHARTS
+                        <button type="button" class="button__">VIEW FULL REVIEW CHARTS
 
                         </button>
                     </div>
@@ -42,7 +42,7 @@
 
                 <div class="d-flex_ row ">
                     <div class="col-md-12">
-                        <button type="button" class="button_">CLICK TO DOWNLOAD REPORT <img class="pl-2" src="~/assets/img/Group.png" alt="">
+                        <button type="button" class="button__">CLICK TO DOWNLOAD REPORT <img class="pl-2" src="~/assets/img/Group.png" alt="">
                         </button>
                     </div>
                 </div>
@@ -59,17 +59,17 @@
 
                 <div class="d-flex_ row ">
                     <div class="col-md-4">
-                        <button type="button" class="button_">Technology
+                        <button type="button" class="button__">Technology
                             <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
-                    <div class="col-md-4 pl-4">
-                        <button type="button" class="button_">FINANCE
+                    <div class="col-md-4 pl-lg-4">
+                        <button type="button" class="button__">FINANCE
                             <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
                     <div class="col-md-4">
-                        <button type="button" class="button_">FASHION
+                        <button type="button" class="button__">FASHION
                         <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
                         </button>
                     </div>
@@ -242,7 +242,7 @@ line-height: 18px;
 color: #373737;
 }
 
-.button_{
+.button__{
     background: #00B5D3;
 border: none;
 padding: 8px 32px 8px;

@@ -11,13 +11,15 @@
                   </div>
               </b-col>
               <b-col md="6">
+              <nuxt-link to="email-setting">
                   <div class="email-setting p-3">
                       <p class="pt-2">Email Setting</p>
                   </div>
+              </nuxt-link>
               </b-col>
             </b-row>
 
-            <b-row class="mt-5">
+            <b-row class="mt-5 ">
             <b-col md="3">
               <div class="d-flex">
                    <div class="emoji ">
@@ -55,15 +57,15 @@
               </div>
               </b-col>
 
-              <b-col md="3" class="review ml-5">
+              <b-col md="3" class="review pl-lg-4">
                   <p>No. of Opinion to Display</p>
                   <p>Dispaly by</p>
                   <p>Date Format</p>
                   <p>View Additional Opinion</p>
               </b-col>
 
-              <b-col md="3">
-                   <b-form-group class="mb-2">
+              <b-col md="2" style="position: relative; left: 20px">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -73,7 +75,7 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -83,7 +85,7 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -93,7 +95,7 @@
                     </div>
                   </b-form-group>
 
-                   <b-form-group class="mb-2">
+                   <b-form-group class="mb-2 selectdate">
                     <div class="form-group">
                       <v-select
 
@@ -102,6 +104,61 @@
                       ></v-select>
                     </div>
                   </b-form-group>
+              </b-col>
+
+              <b-col md="2" class="pl-lg-5 form-select">
+              <h6 style="font-weight: 600; color: #626D73;" class="pb-4">Set Age range</h6>
+                   <b-form-group class="">
+                    <div class=" selectdate1">
+                    <div class="w-100">Millenials</div>
+                      <v-select
+                        placeholder="3"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
+
+                   <b-form-group class="mb-2 selectdate1">
+                    <div class="form-group">
+                        <div class="w-100 ">Generation X</div>
+                      <v-select class="v-select_"
+                        placeholder="3"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
+              </b-col>
+
+              <b-col md="2" class="pl-lg-5 mt-5 pt-4">
+                   <b-form-group class="pt-1">
+                    <div class="form-group selectdate2">
+                      <v-select
+                        placeholder="3"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
+
+                   <b-form-group class="mb-2 selectdate2">
+                    <div class="form-group">
+
+                      <v-select class="v-select_"
+                        placeholder="3"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
+              </b-col>
+
+
+
+            </b-row>
+
+            <b-row class="justify-content-center">
+              <b-col md="4" class="newpost_ mt-1  justify-content-center">
+              <b-form-group class="newpost mt-3">
+                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Update</button>
+              </b-form-group>
               </b-col>
             </b-row>
 
@@ -124,14 +181,12 @@ export default {
 
 
 <style scoped>
-
 .email-setting {
   background: #0083CA;
 }
 .email-setting1 {
   background: #C4C4C4;
 }
-
 .email-setting p,
 .email-setting1 p
  {
@@ -144,12 +199,10 @@ align-items: center;
 text-align: center;
 color: #FFFFFF;
 }
-
 .emoji p {
   font-size: 34px;
   cursor: pointer;
 }
-
 .review p{
   line-height: 55px;
 
@@ -157,11 +210,8 @@ font-family: Poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
-/* identical to box height */
-
 display: flex;
 align-items: center;
-
 color: #626D73;
 }
 
@@ -171,11 +221,28 @@ font-style: normal;
 font-weight: normal;
 font-size: 16px;
 line-height: 27px;
-/* identical to box height */
-
 align-items: center;
-
 color: #626D73;
 }
+
+
+
+@media screen and (min-width: 700px) {
+    .form-select {
+        position: relative; left: 20px
+    }
+}
+
+  .btn-sacademy {
+    color: #fff !important;
+    background: #E57718;
+    box-shadow: 0px 20px 20px #00000026;
+    opacity: 1;
+    width: 100%;
+    padding: 12px 0px 12px;
+    border: 0;
+    border-radius: 25px;
+}
+
 
 </style>

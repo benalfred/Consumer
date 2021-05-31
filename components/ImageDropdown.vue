@@ -20,14 +20,7 @@
                     <div class="mt-4">
 
                         <div class="row">
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/edit-profile" class="dropdown-item text-left_">Technology</nuxt-link>
-                            </div>
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/delltech" class="dropdown-item text-left_">Dell</nuxt-link>
-                            </div>
+                           
                             <div class="cart_buttons_madesoft col-12 d-flex">
 
                                  <nuxt-link to="/refer" class="dropdown-item text-left_">Refer</nuxt-link>
