@@ -24,23 +24,11 @@
                 <div
             class="mt-2 line"></div>
           </div>
-        </b-media>
+        </b-media><select name="" id="" disabled="disabled"></select>
 
           <div class="d-flex" style="padding: 0px 10px 0px">
-            <div class="emoji">
-              <p>😡</p>
-            </div>
-            <div class="emoji ml-lg-5">
-              <p>😞</p>
-            </div>
-            <div class="emoji ml-lg-5">
-              <p>😑</p>
-            </div>
-            <div class="emoji ml-lg-5">
-              <p>😊</p>
-            </div>
-            <div class="emoji ml-lg-5">
-             <p>😍</p>
+            <div class="emoji" v-for="rating in ratingsData" :key="rating.id">
+              <p v-if="ratingMethod(rating.PreferredName)" @click="displayRatingTags(rating.id)">{{ratingMethod(rating.PreferredName).emoji}}</p>
             </div>
           </div>
 
@@ -226,12 +214,19 @@
 <script>
 export default {
   layout: "headerr",
-  mounted() {
-    this.getAllOpinionsAndReactions();
+  async fetch() {
+    await this.getAllOpinionsAndReactions();
   },
   data() {
     return {
       opinionsData: [],
+      ratingEmoji:[
+        {PreferredName:"Very Bad", emoji:"😡"},
+        {PreferredName:"Bad", emoji:"😞"},
+        {PreferredName:"Fair", emoji:"😑"},
+        {PreferredName:"Good", emoji:"😊"},
+        {PreferredName:"Very Good", emoji:"😍"},
+      ],
       ratingsData: [],
       tagsData: [
         // {Id:1,Name:'sad',Rating:1},
@@ -241,11 +236,17 @@ export default {
     };
   },
   methods: {
+    displayRatingTags(){
+     
+    },
+    ratingMethod(value){
+    let foundEmoji = this.ratingEmoji.find(emoji => emoji.PreferredName === value)
+    return foundEmoji
+    },
     async getAllOpinionsAndReactions() {
       try {
-        const opinions = await this.$axios.get("settings/GetRatings");
-        console.log(opinions.data);
-        this.ratingsData = opinions.data;
+        const ratings = await this.$axios.get("settings/GetRatings");
+        this.ratingsData = ratings.data;
       } catch (e) {
         alert("error");
         console.log(e);
