@@ -64,9 +64,9 @@
                 <b-col md="6">
 
                 </b-col>
-                <b-col md="4" class="newpost_ mt-1  justify-content-center">
+            <b-col md="4" class="newpost_ mt-1  justify-content-center">
               <b-form-group class="newpost mt-3">
-                <button class=" mt-2 btn-sacademy" v-b-modal.modal-xl style="font-size: 16px" type="submit" value="Send">Update</button>
+                <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Update</button>
               </b-form-group>
               </b-col>
             </b-row>
@@ -75,48 +75,7 @@
         </div>
 
 
-         <b-modal
-          id="modal-xl"
-          size="xl" class="popup"
-          centered scrollable title="Technology"
-          body-bg-variant="light"
-          header-bg-variant="light" hide-footer>
-
-              <div class="item-wrapper one">
-              <h1 class="text-center font-weight-bold mt-5" style="color: #000;">Technology <br> <span style="font-size: 27px; color: #626D73;">at its very best</span></h1>
-              <p class="text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <div class="item">
-                    <form data-validation="true" action="#" method="post" enctype="multipart/form-data">
-                        <div class="item-inner">
-                            <div class="item-content">
-                                <div class="image-upload"> <label style="cursor: pointer;" for="file_upload"> <img src="" alt="" class="uploaded-image">
-                                        <div class="h-100">
-                                            <div class="dplay-tbl">
-                                                <div class="dplay-tbl-cell"> <i class="fa fa-cloud-upload"></i>
-                                                    <h5><b>Choose Your Image to Upload</b></h5>
-                                                    <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--upload-content--> <input data-required="image" type="file" name="image_name" id="file_upload" class="image-input" data-traget-resolution="image_resolution" value="">
-                                    </label> </div>
-                            </div>
-                            <!--item-content-->
-                        </div>
-                        <!--item-inner-->
-                    </form>
-                </div>
-
-              <b-row class="justify-content-center">
-              <b-col md="4" class="newpost_ justify-content-center">
-              <b-form-group class="newpost">
-                <button class=" btn-sacademy" style="font-size: 16px" type="submit" value="Send">Update</button>
-              </b-form-group>
-              </b-col>
-            </b-row>
-            </div>
-
-          </b-modal>
+        
 
   </div>
 </template>
