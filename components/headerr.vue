@@ -50,6 +50,7 @@
 <script>
 import CartComponent from "./CartComponent";
 import ImageDropdown from "./ImageDropdown"
+
   export default{
     name:"headerComponent",
     component: {CartComponent, ImageDropdown},

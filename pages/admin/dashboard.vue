@@ -36,7 +36,8 @@
                     </div>
                      <div class="ml-lg-2">
                         <button type="button" class="btn2_">FINANCE</button>
-                        </div>
+                      </div>
+
                       </div>
                     </div>
 
@@ -122,6 +123,7 @@
                    <div class="ml-lg-2">
                     <button type="button" class="btn2">ECONOMY</button>
                   </div>
+                  <ProfileComponent />
                </div>
 
               <UserResponse />
@@ -175,9 +177,10 @@
 
 <script>
 import UserResponse from "@/components/UserResponse.vue"
+import ProfileComponent from "@/components/ProfileComponent.vue"
 export default {
     layout: "dashlayout",
-    component: {UserResponse},
+    component: {UserResponse, ProfileComponent},
     data(){
       return {
         filter: "",
@@ -198,7 +201,7 @@ export default {
           icon: "success",
         });
         } catch (e) {
-        
+
         }
       }
     },
