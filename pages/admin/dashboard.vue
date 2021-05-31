@@ -78,7 +78,7 @@
                 <div class="sector p-3 mt-5">
                      <b-row class="my-1">
                         <b-col sm="9">
-                          <b-form-input id="input-large" class="input-sector" size="lg" placeholder="New Sector"></b-form-input>
+                          <b-form-input id="input-large" v-model="sector" class="input-sector" size="lg" placeholder="New Sector"></b-form-input>
                         </b-col>
                          <b-col sm="3" class="pl-4 pt-0">
                             <button class="btn outline-none">
@@ -180,9 +180,28 @@ export default {
     component: {UserResponse},
     data(){
       return {
-        filter: ""
+        filter: "",
+        sector:null,
+        addSectorSpinner:null
       }
-    }
+    },
+    methods: {
+      async addSector(){
+        this.addSectorSpinner = true
+        try {
+         await this.$axios.post('Industries/CreateIndustry',this.sector)
+         this.addSectorSpinner = false;
+         this.sector = null
+        swal({
+          title: "Success!",
+          text: "sector added!",
+          icon: "success",
+        });
+        } catch (e) {
+        
+        }
+      }
+    },
 }
 </script>
 
