@@ -9,8 +9,8 @@
                     </div>
             </div>
 
-           <div class="media_">
-          <b-media>
+         <div class="media_" v-if="opinions.length">
+          <b-media v-for="opinion in opinions" :key="opinion.id">
             <template #aside>
               <img src="~/assets/img/vector4.png" class="img-fluid p-2 mt-2 img1" alt="Media Aside">
             </template>
@@ -27,52 +27,45 @@
             <!-- b-[Optional: add media children here for nesting] -->
 
           </b-media>
-
-
-           <b-media>
+           </div>
+           <div class="media_" v-if="!opinions.length && !spinner">
+          <b-media>
             <template #aside>
-              <img src="~/assets/img/vector4.png" class="img-fluid p-2 mt-2 img2" alt="Media Aside">
+              <img src="~/assets/img/vector4.png" class="img-fluid p-2 mt-2 img1" alt="Media Aside">
             </template>
 
-            <h6 class="pt-3">User 2</h6>
+            <h6 class="pt-3">User 1</h6>
             <div class="d-flex">
-            <div><img src="~/assets/img/emoji2.png" class="img-fluid" alt=""></div>
-               <p class="pt-1 ml-2" style="color: #D91925;">NEGATIVE OPINION</p>
+                <div><img src="~/assets/img/emoji1.png" class="img-fluid" alt=""></div>
+            <p class="pt-1 ml-2" style="color: #E57718;">Positive Opinion</p>
             <div><img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt=""></div>
             </div>
-            <p class="firstp">Vey Bad | Too Poor</p>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat....</p>
-
-            <!-- b-[Optional: add media children here for nesting] -->
-
-          </b-media>
-
-
-           <b-media>
-            <template #aside>
-              <img src="~/assets/img/vector4.png" class="img-fluid p-2 img3 mt-2" alt="Media Aside">
-            </template>
-
-            <h6 class="pt-3">User 3</h6>
-            <div class="d-flex">
-            <div><img src="~/assets/img/emoji3.png" class="img-fluid" alt=""></div>
-               <p class="pt-1 ml-2" style="color: #D91925;">NEUTRAL OPINION</p>
-                <div><img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt=""></div>
-            </div>
-            <p class="firstp">Whatever | I like it</p>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+            <p class="firstp">No opinions yet</p>
 
             <!-- b-[Optional: add media children here for nesting] -->
 
           </b-media>
            </div>
-            </div>
+         </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "UserResponse",
+  props:{
+   opinions: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    }, 
+  },
+  data() {
+    return {
+      spinner:false
+    }
+  },
 }
 </script>
 

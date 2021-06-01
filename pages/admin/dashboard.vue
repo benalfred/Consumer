@@ -114,18 +114,22 @@
                         class="input-sector"
                         size="lg"
                         placeholder="New Sector"
-                        ></b-form-input>
+                      ></b-form-input>
                     </b-col>
                     <b-col sm="3" class="pl-4 pt-0">
-                      <button v-if="!addSectorSpinner" class="btn outline-none" @click="addSector" :disabled="!Name">
+                      <button
+                        v-if="!addSectorSpinner"
+                        class="btn outline-none"
+                        @click="addSector"
+                        :disabled="!Name"
+                      >
                         <img src="~assets/img/sectoricon.png" alt="" />
                       </button>
-                        <b-spinner
-                          v-if="addSectorSpinner"
-                          label="Spinning"
-                          style="margin-left: 5%"
-                        ></b-spinner
-                      >
+                      <b-spinner
+                        v-if="addSectorSpinner"
+                        label="Spinning"
+                        style="margin-left: 5%"
+                      ></b-spinner>
                     </b-col>
                   </b-row>
                 </div>
@@ -149,22 +153,22 @@
                 </div>
               </div>
 
-               <div class="d-flex">
-                   <div class="">
-                    <button type="button" class="btn1">ALL</button>
-                  </div>
-                   <div class="ml-lg-2">
-                    <button type="button" class="btn2">Technology</button>
-                  </div>
-                   <div class="ml-lg-2">
-                    <button type="button" class="btn2">FASHION</button>
-                  </div>
-                   <div class="ml-lg-2">
-                    <button type="button" class="btn2">ECONOMY</button>
-                  </div>
-               </div>
+              <div class="d-flex">
+                <div class="">
+                  <button type="button" class="btn1">ALL</button>
+                </div>
+                <div class="ml-lg-2">
+                  <button type="button" class="btn2">Technology</button>
+                </div>
+                <div class="ml-lg-2">
+                  <button type="button" class="btn2">FASHION</button>
+                </div>
+                <div class="ml-lg-2">
+                  <button type="button" class="btn2">ECONOMY</button>
+                </div>
+              </div>
 
-              <UserResponse />
+              <UserResponse :opinions="opinions"/>
             </b-col>
           </b-row>
         </div>
@@ -220,7 +224,6 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -232,11 +235,29 @@ export default {
   data() {
     return {
       filter: "",
+      positiveRatings:[],
+      negativeRatings:[],
       Name: null,
+      sectorSpinner:false,
+      page:1,
+      opinions:[],
+      pageSize:5,
       addSectorSpinner: false,
     };
   },
+  async fetch(){
+  await this.fetchPositiveRatingAndNegativeRating(),
+   await this.fetchSectors()
+  },
   methods: {
+     makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      });
+    },
     async addSector() {
       this.addSectorSpinner = true;
       try {
@@ -258,16 +279,37 @@ export default {
           });
       }
     },
-  },
-
-  async getIndustries(){
+   async fetchSectors(){
+     this.sectorSpinner = true
+     try {
+         const sectors = await this.$axios.get(`Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`)
+        console.log(sectors.data)
+        this.sectorSpinner = false
+     } catch (e) {
+      this.$store.commit("notifications/error", 'something went wrong');
+          this.makeToast();
+          return;
+     }
+   },
+  async fetchPositiveRatingAndNegativeRating(){
     try {
-    const response = await this.$axios.get('')
+    const positiveRatings = await this.$axios.get('Industries/GetTop3IndustiesWithPositiveRating')
+    console.log(positiveRatings.data)
+    // const negativeRatings = await this.$axios.get('Industries/GetTop3IndustiesWithNegativeRating')
+    // console.log(negativeRatings.data)
+    this.positiveRatings = positiveRatings.data
+    // this.negativeRatings = negativeRatings.data
+
     } catch (e) {
-    
+      console.log(e)
+    this.$store.commit("notifications/error", 'something went wrong');
+          this.makeToast();
+          return;
     }
   }
-};
+},
+
+}
 </script>
 
 <style scoped>
