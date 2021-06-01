@@ -1,7 +1,7 @@
 export default {
     ssr: true,
     router: {
-        // middleware: ['auth']
+        middleware: ['auth']
     },
     loading: {
         color: '#de115e',
@@ -67,25 +67,24 @@ export default {
                 href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'
             },
         ],
-        script: [
-          {
-            src: 'https://kit.fontawesome.com/802d49fc10.js',
-        },
-        {
-          src: '/jquery/jquery.min.js',
+        script: [{
+                src: 'https://kit.fontawesome.com/802d49fc10.js',
+            },
+            {
+                src: '/jquery/jquery.min.js',
 
-        },
-        {
-          src: '/bootstrap/js/bootstrap.bundle.min.js',
-        },
-         {
-          src: '/sb-admin-2.js',
-        },
-        {
-          src: '/sb-admin-2.min.js',
-        }
+            },
+            {
+                src: '/bootstrap/js/bootstrap.bundle.min.js',
+            },
+            {
+                src: '/sb-admin-2.js',
+            },
+            {
+                src: '/sb-admin-2.min.js',
+            }
 
-       ],
+        ],
     },
 
 
