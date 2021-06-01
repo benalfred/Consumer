@@ -100,7 +100,7 @@
             </div>
                 </div>
 
-               <div class="d-flex">
+               <div class="d-flex profile-dropdown">
                    <div class="">
                     <button type="button" class="btn1">ALL</button>
                   </div>
@@ -113,6 +113,7 @@
                    <div class="ml-lg-2">
                     <button type="button" class="btn2">ECONOMY</button>
                   </div>
+                  <ProfileComponent />
                </div>
 
               <UserResponse />
@@ -171,10 +172,11 @@
 </template>
 
 <script>
+import ProfileComponent from "@/components/ProfileComponent.vue"
 import UserResponse from "@/components/UserResponse.vue"
 export default {
     layout: "dashlayout",
-    component: {UserResponse},
+    component: {UserResponse, ProfileComponent},
 }
 </script>
 
@@ -187,6 +189,9 @@ export default {
 .img1 {
  background: #E57718;
 border-radius: 19.5px;
+}
+.profile-dropdown{
+  overflow: auto;
 }
 
   .btn-sacademy {

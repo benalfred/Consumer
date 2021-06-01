@@ -3,7 +3,12 @@
         <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
            <div class="container-fluid">
-           <h1 class="mb-5">Welcome Back!</h1>
+            <div class="d-flex" style="cursor: pointer">
+             <h1 class="mb-5">Welcome Back!</h1>
+                    <div>
+                        <img v-b-modal.modal-xl class="ml-4 mt-2"  src="~assets/img/bx_bxs-edit-alt.png" alt="">
+                    </div>
+                 </div>
             <b-row>
             <b-col lg="6" xl="6" class="">
                 <div class="Opinion p-3 pl-lg-5">
@@ -19,7 +24,7 @@
                         </a>
                         </div>
                     </div>
-                     <div class="ml-lg-2 mt-2">
+                     <div class="ml-lg-2 ">
                         <button type="button" class="btn2_">Technology</button>
                         </div>
                     </div>
@@ -426,5 +431,11 @@ color: white;
 
 .profile-dropdown{
   overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .btn2_{
+      margin-top: 10px;
+    }
 }
 </style>

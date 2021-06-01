@@ -81,6 +81,7 @@
                    <div class="ml-lg-2">
                     <button type="button" class="btn2">ECONOMY</button>
                   </div>
+                  <ProfileComponent />
                </div>
 
               <UserResponse />
@@ -115,6 +116,7 @@
 </template>
 
 <script>
+import ProfileComponent from "@/components/ProfileComponent.vue"
 import UserResponse from "@/components/UserResponse.vue"
 export default {
    data() {
@@ -124,7 +126,7 @@ export default {
       }
    },
     layout: "dashlayout",
-    component: {UserResponse},
+    component: {UserResponse, ProfileComponent},
 
 }
 </script>

@@ -12,9 +12,11 @@
                     </n-link>
                 </li>
                 <li>
-                    <n-link to="#" class="d-flex px-2 align-items-center justify-content-start">
                         Log Out
-                    </n-link>
+
+                     <div class="d-flex px-2 align-items-center justify-content-start">
+                    <button type="button" class="btn2">Technology</button>
+                  </div>
                 </li>
             </ul>
         </div>
@@ -44,7 +46,19 @@
 </script>
 
 <style scoped>
-
+.btn2 {
+ background: #00B5D3;
+border: none;
+padding: 5px 20px 5px;
+color: black;
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 18px;
+color: #fff;
+opacity: 0.5;
+}
 
     .user-icon {
         width: 30px;

@@ -42,5 +42,6 @@ import Vue from 'vue'
 import vSelect from 'vue-select'
 import swal from 'sweetalert';
 import 'vue-select/dist/vue-select.css';
-
+import 'v-calendar'
 Vue.component('v-select', vSelect)
+Vue.component('v-calendar', 'v-calendar')
