@@ -12,7 +12,6 @@
                     </n-link>
                 </li>
                 <li>
-                        Log Out
 
                      <div class="d-flex px-2 align-items-center justify-content-start">
                     <button type="button" class="btn2">Technology</button>
