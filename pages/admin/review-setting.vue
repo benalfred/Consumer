@@ -22,7 +22,7 @@
             <b-row class="mt-5 ">
             <b-col md="3">
               <div class="d-flex">
-                   <div class="emoji ">
+            <div class="emoji ">
               <p>😡</p>
             </div>
                     <b-form-input class="mt-2 ml-4" v-model="text" placeholder="Very bad"></b-form-input>
@@ -43,7 +43,7 @@
               </div>
 
               <div class="d-flex">
-                   <div class="emoji ">
+            <div class="emoji ">
               <p>😊</p>
             </div>
                     <b-form-input class="mt-2 ml-4" v-model="text" placeholder="Good"></b-form-input>
@@ -147,7 +147,13 @@
                         label="Name"
                       ></v-select>
                     </div>
+                    
+                     <v-calendar title-position="left" />
                   </b-form-group>
+
+
+
+
               </b-col>
 
 

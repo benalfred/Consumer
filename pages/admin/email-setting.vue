@@ -11,7 +11,7 @@
                   </div>
               </b-col>
               <b-col md="6">
-              <nuxt-link to="/review-setting">
+              <nuxt-link to="review-setting">
                   <div class="email-setting1 p-3">
                     <p class="pt-2">Review Setting</p>
                   </div>
@@ -21,13 +21,13 @@
 
             <b-row class="mt-5">
                 <b-col md="6">
-                    <h3>Configure Email Template</h3>
-                    <p class="pt-3"> Here is an email configuration theme that gives flexibility to email settings</p>
+                    <h3 class="text-dark_">Configure Email Template</h3>
+                    <p class="pt-3 text-dark"> Here is an email configuration theme that gives flexibility to email settings</p>
 
                     <div class="mt-5">
                        <b-form-group>
                     <div class="form-group small-select">
-                    <label for="" class="text-dark" style="font-weight: 700" >Choose email template</label>
+                    <label for="" class="text-dark_" style="font-weight: 700" >Choose email template</label>
                       <v-select
 
                         placeholder="select state"
@@ -38,7 +38,7 @@
 
                        <b-form-group>
                     <div class="form-group small-select">
-                    <label for="" class="text-dark" style="font-weight: 700" >Choose address format</label>
+                    <label for="" class="text-dark_" style="font-weight: 700" >Choose address format</label>
                       <v-select
 
                         placeholder="select state"
@@ -51,14 +51,14 @@
 
                 <b-col md="6" class="mt-4">
                   <h6 class="pt-4 mt-3" style="color: #000; font-weight: 600">Password generation email</h6>
-                  <div class="mt-3 email-tittle p-3">
+                  <b-form-textarea class="mt-3 email-tittle p-3" placeholder="">
                       <h6 class="mt-2 font-weight-bold" style="color: #000;">Email tittle</h6>
                       <p class="pt-3">Dear [[Lastname]] [[Firstname]],</p>
                       <p>Your acccount to Consumerhalla with the email address [[email-address]] has been successfully set up. Please, use the password <span class="font-weight-bold" style="color: #000">XMG_2VxLB</span> to login into your account for the first time.</p>
 
                       <p class="mt-4">Warm Regards</p>
                       <a href="www.consumerhalla.com" class="mt-1 text-decoration-none" style="color: #000; font-weight: 600">www.consumerhalla.com</a>
-                  </div>
+                  </b-form-textarea>
                 </b-col>
 
                 <b-col md="6">
@@ -75,7 +75,7 @@
         </div>
 
 
-        
+
 
   </div>
 </template>
@@ -90,7 +90,10 @@ export default {
 
 
 <style scoped>
-
+.text-dark_{
+  color: #000;
+  font-weight: 600;
+}
 
   .btn-sacademy {
     color: #fff !important;

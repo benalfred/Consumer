@@ -4,9 +4,24 @@
             <div>
             <div class="d-flex">
               <p>Review Update</p>
+              <div class="emoji ml-auto">
+              <p>😡</p>
+            </div>
+                <div class="emoji">
+              <p>😞</p>
+            </div>
+            <div class="emoji">
+              <p>😑</p>
+            </div>
+            <div class="emoji">
+              <p>😊</p>
+            </div>
+            <div class="emoji">
+              <p>😍</p>
+            </div>
             </div>
             <div class=" mb-2"  style="background: rgba(0, 0, 0, 0.1);height: 1px;">
-                    </div>
+              </div>
             </div>
 
          <div class="media_" v-if="opinions.length">
@@ -80,6 +95,12 @@ export default {
 .media_::-webkit-scrollbar {
   width: 10px;
   border-radius: 50px;
+}
+
+.emoji p {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px 7px 0px;
 }
 
 /* Track */
