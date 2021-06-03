@@ -1,161 +1,183 @@
 <template>
   <div>
-        <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-           <div class="container-fluid">
-            <div class="d-flex" style="cursor: pointer">
-             <h1 class="mb-5">Welcome Back!</h1>
-                    <div>
-                        <img v-b-modal.modal-xl class="ml-4 mt-2"  src="~assets/img/bx_bxs-edit-alt.png" alt="">
-                    </div>
-                 </div>
-            <b-row>
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <div class="container-fluid">
+          <div class="d-flex" style="cursor: pointer">
+            <h1 class="mb-5">Welcome Back!</h1>
+            <div>
+              <img
+                v-b-modal.modal-xl
+                class="ml-4 mt-2"
+                src="~assets/img/bx_bxs-edit-alt.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <b-row>
             <b-col lg="6" xl="6" class="">
-                <div class="Opinion p-3 pl-lg-5">
-                    <h4 class="h4 pb-3">Opinion Ratings</h4>
-                    <p class="text-white text" style="position: relative; top: 10px;">POSIVIE OPINIONS</p>
-                    <div class="d-lg-flex">
-                    <div class="d-flex">
-                        <button type="button" v-b-modal.modal-lg class="btn_">Technology</button>
-
-                        <div class="ml-2">
-                        <a href="#openModal-about">
-                        <button type="button" class="btn1_">Technology</button>
-                        </a>
-                        </div>
-                    </div>
-                     <div class="ml-lg-2 ">
-                        <button type="button" class="btn2_">Technology</button>
-                        </div>
-                    </div>
-
-                    <div class="mt-4">
-                            <p class="text-white text" style="position: relative; top: 10px;">NEGATIVE OPINIONS</p>
-                      <div class="d-lg-flex">
-                    <div class="d-flex">
-                        <button type="button" class="btn_">ECONOMY</button>
-
-                        <div class="ml-2">
-                        <button type="button" class="btn1_">FASHION</button>
-                        </div>
-                    </div>
-                     <div class="ml-lg-2">
-                        <button type="button" class="btn2_">FINANCE</button>
-                      </div>
-
-                      </div>
-                    </div>
-
+              <div class="Opinion p-3 pl-lg-5">
+                <h4 class="h4 pb-3">Opinion Ratings</h4>
+                
+                <p class="text-white text" style="position: relative; top: 10px">
+                  POSIVIE OPINIONS
+                </p>
+                <div class="d-lg-flex">
+                  <div class="d-flex" v-if="positiveRatings.length">
+                
+                    <button type="button"  class="btn_" v-for="rating in positiveRatings" :key="rating.Id">
+                      {{rating.Name}}
+                    </button>
+                  
+                 </div>
+                 <button type="button" class="btn_" v-if="!positiveRatings.length">
+                      No positive rating yet
+                  </button>
+                  
                 </div>
 
-                <div class="Opinion1 p-3 p-lg-5 mt-5">
-                      <div>
-                      <div class="d-flex">
-                        <p class="add pb-2">Add and Remove Sectors</p>
-                      </div>
-                      <div class=" mb-2"  style="background: rgba(0, 0, 0, 0.1);height: 1px;">
-                              </div>
-                      </div>
-
-                <div class="d-flex_ row ">
-                    <div class="col-md-4">
-
-                        <button type="button" class="button">Technology
-                            <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
-                        </button>
+                <div class="mt-4">
+                  <p class="text-white text" style="position: relative; top: 10px">
+                    NEGATIVE OPINIONS
+                  </p>
+                  <div class="d-lg-flex">
+                    <div class="d-flex" v-if="negativeRatings.length">
+                       <button type="button" class="btn_" v-for="rating in negativeRatings" :key="rating.Id">{{rating.Name}}</button>
                     </div>
-                    <div class="col-md-4 pl-lg-4">
-                        <button type="button" class="button">FINANCE
-                            <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
-                        </button>
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" class="button">FASHION
-                        <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
-                        </button>
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" class="button">ECONOMY
-                          <img style="position: absolute; bottom: 35px" class="pl-4" src="~/assets/img/cancel.png" alt="">
-                        </button>
-                    </div>
+                    <button type="button" class="btn_" v-if="!negativeRatings.length">No negative rating yet</button>
+                  </div>
                 </div>
+              </div>
 
-                <div class="sector p-3 mt-5">
-                  <b-row class="my-1">
-                    <b-col sm="9">
-                      <b-form-input
-                        id="input-large"
-                        v-model="Name"
-                        class="input-sector"
-                        size="lg"
-                        placeholder="New Sector"
-                      ></b-form-input>
-                    </b-col>
-                    <b-col sm="3" class="pl-4 pt-0">
-                      <button
-                        v-if="!addSectorSpinner"
-                        class="btn outline-none"
-                        @click="addSector"
-                        :disabled="!Name"
-                      >
-                        <img src="~assets/img/sectoricon.png" alt="" />
-                      </button>
-                      <b-spinner
-                        v-if="addSectorSpinner"
-                        label="Spinning"
-                        style="margin-left: 5%"
-                      ></b-spinner>
-                    </b-col>
-                  </b-row>
+              <div class="Opinion1 p-3 p-lg-5 mt-5">
+                <div>
+                  <div class="d-flex">
+                    <p class="add pb-2">Add and Remove Sectors</p>
+                  </div>
+                  <div
+                    class="mb-2"
+                    style="background: rgba(0, 0, 0, 0.1); height: 1px"
+                  ></div>
                 </div>
+                <div class="d-flex_ row">
+                <div class="col-md-4">
+                  <button type="button" class="button" v-b-modal.modal-lg>
+                    Technology
+                    <a href="#openModal-about"><img
+                      style="position: absolute; bottom: 35px; cursor:pointer"
+                      class="pl-4"
+                      src="~/assets/img/cancel.png"
+                      alt=""
+                    /></a>
+                  </button>
+                </div>
+                <div class="col-md-4 pl-lg-4">
+                  <button type="button" class="button">
+                    FINANCE
+                    <img
+                      style="position: absolute; bottom: 35px"
+                      class="pl-4"
+                      src="~/assets/img/cancel.png"
+                      alt=""
+                    />
+                  </button>
+                </div>
+                <div class="col-md-4">
+                  <button type="button" class="button">
+                    FASHION
+                    <img
+                      style="position: absolute; bottom: 35px"
+                      class="pl-4"
+                      src="~/assets/img/cancel.png"
+                      alt=""
+                    />
+                  </button>
+                </div>
+                <div class="col-md-4">
+                  <button type="button" class="button">
+                    ECONOMY
+                    <img
+                      style="position: absolute; bottom: 35px"
+                      class="pl-4"
+                      src="~/assets/img/cancel.png"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </div>
+               <div class="sector p-3 mt-5">
+                <b-row class="my-1">
+                  <b-col sm="9">
+                    <b-form-input
+                      id="input-large"
+                      v-model="Name"
+                      class="input-sector"
+                      size="lg"
+                      placeholder="New Sector"
+                    ></b-form-input>
+                  </b-col>
+                  <b-col sm="3" class="pl-4 pt-0">
+                    <button
+                      v-if="!addSectorSpinner"
+                      class="btn outline-none"
+                      @click="addSector"
+                      :disabled="!Name"
+                    >
+                      <img src="~assets/img/sectoricon.png" alt="" />
+                    </button>
+                    <b-spinner
+                      v-if="addSectorSpinner"
+                      label="Spinning"
+                      style="margin-left: 5%"
+                    ></b-spinner>
+                  </b-col>
+                </b-row>
+              </div>
+              </div>
+
             </b-col>
-
 
             <b-col lg="6" xl="6" class="all pl-lg-5">
-            <div class="search-wrapper mb-3">
-            <div class="wrapper">
-              <div class="input-data">
-                <span class="las la-search search"></span>
-                <b-input
-                  type="text"
-                  required
-                  debounce="1000"
-                  v-model="filter"
-                  class="pl-5 pt-2 input"
-                  placeholder="Search for user"
-                ></b-input>
-              </div>
-            </div>
+              <div class="search-wrapper mb-3">
+                <div class="wrapper">
+                  <div class="input-data">
+                    <span class="las la-search search"></span>
+                    <b-input
+                      type="text"
+                      required
+                      debounce="1000"
+                      v-model="filter"
+                      class="pl-5 pt-2 input"
+                      placeholder="Search for user"
+                    ></b-input>
+                  </div>
                 </div>
+              </div>
 
-               <div class="d-flex profile-dropdown">
-                   <div class="">
-                    <button type="button" class="btn1">ALL</button>
-                  </div>
-                   <div class="ml-lg-2">
-                    <button type="button" class="btn2">Technology</button>
-                  </div>
-                   <div class="ml-lg-2">
-                    <button type="button" class="btn2">FASHION</button>
-                  </div>
-                   <div class="ml-lg-2">
-                    <button type="button" class="btn2">ECONOMY</button>
-                  </div>
-                  <ProfileComponent />
+              <div class="d-flex profile-dropdown">
+                <div class="">
+                  <button type="button" class="btn1">ALL</button>
+                </div>
+                <div class="ml-lg-2">
+                  <button type="button" class="btn2">Technology</button>
+                </div>
+                <div class="ml-lg-2">
+                  <button type="button" class="btn2">FASHION</button>
+                </div>
+                <div class="ml-lg-2">
+                  <button type="button" class="btn2">ECONOMY</button>
+                </div>
+                <ProfileComponent />
+              </div>
 
-               </div>
-
-              <UserResponse :opinions="opinions"/>
+              <UserResponse :opinions="opinions" />
             </b-col>
-            </b-row>
-
-
-       </div>
+          </b-row>
         </div>
-        </div>
+      </div>
+    </div>
 
-        <!-- <b-modal
+    <!-- <b-modal
           id="modal-lg"
           size="lg" class="popup"
           centered scrollable title=""
@@ -165,60 +187,72 @@
 
         </b-modal> -->
 
-
-<!--modals-->
+    <!--modals-->
     <div id="openModal-about" class="modalDialog">
       <div>
-         <a href="#close" title="Close" class="close">X</a>
-           <div class=" pt-5 pb-5">
-              <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
+        <a href="#close" title="Close" class="close">X</a>
+        <div class="pt-5 pb-5">
+          <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
 
-               <div class="d-flex justify-content-center">
-                   <div>
-                      <b-form-group class="newpost mt-3">
-                    <button class="mt-2 mr-4 btn-sacademy"  style="font-size: 16px" type="submit" value="Send">cancel</button>
-                  </b-form-group>
-                   </div>
+          <div class="d-flex justify-content-center">
+            <div>
+              <b-form-group class="newpost mt-3">
+                <button
+                  class="mt-2 mr-4 btn-sacademy"
+                  style="font-size: 16px"
+                  type="submit"
+                  value="Send"
+                >
+                  cancel
+                </button>
+              </b-form-group>
+            </div>
 
-                   <div>
-                      <b-form-group class="newpost mt-3">
-                    <button class=" mt-2 btn-sacademy1"  style="font-size: 16px" type="submit" value="Send">okay</button>
-                  </b-form-group>
-                   </div>
-               </div>
-
-               <div style="background: #333536;" class="p-4 mt-5"></div>
+            <div>
+              <b-form-group class="newpost mt-3">
+                <button
+                  class="mt-2 btn-sacademy1"
+                  style="font-size: 16px"
+                  type="submit"
+                  value="Send"
+                >
+                  okay
+                </button>
+              </b-form-group>
+            </div>
           </div>
-       </div>
+
+          <div style="background: #333536" class="p-4 mt-5"></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import UserResponse from "@/components/UserResponse.vue"
-import ProfileComponent from "@/components/ProfileComponent.vue"
+import UserResponse from "@/components/UserResponse.vue";
+import ProfileComponent from "@/components/ProfileComponent.vue";
 export default {
   layout: "dashlayout",
   component: { UserResponse },
   data() {
     return {
       filter: "",
-      positiveRatings:[],
-      negativeRatings:[],
+      positiveRatings: [],
+      negativeRatings: [],
       Name: null,
-      sectorSpinner:false,
-      page:1,
-      opinions:[],
-      pageSize:5,
+      sectorSpinner: false,
+      page: 1,
+      opinions: [],
+      pageSize: 5,
       addSectorSpinner: false,
     };
   },
-  async fetch(){
-  await this.fetchPositiveRatingAndNegativeRating(),
-   await this.fetchSectors()
+  async fetch() {
+    await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors();
   },
   methods: {
-     makeToast() {
+    makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
         autoHideDelay: 5000,
@@ -229,51 +263,53 @@ export default {
     async addSector() {
       this.addSectorSpinner = true;
       try {
-       const response =  await this.$axios.post("Industries/CreateIndustry", {Name:this.Name});
-         this.Name = null;
+        const response = await this.$axios.post("Industries/CreateIndustry", {
+          Name: this.Name,
+        });
+        this.Name = null;
         this.addSectorSpinner = false;
         swal({
           title: "Success!",
           text: "sector added!",
           icon: "success",
         });
-        } catch (e) {
-
-        }
-      }
+      } catch (e) {}
     },
-   async fetchSectors(){
-     this.sectorSpinner = true
-     try {
-         const sectors = await this.$axios.get(`Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`)
-        console.log(sectors.data)
-        this.sectorSpinner = false
-     } catch (e) {
-      this.$store.commit("notifications/error", 'something went wrong');
-          this.makeToast();
-          return;
-     }
-   },
-  async fetchPositiveRatingAndNegativeRating(){
+    async fetchSectors() {
+    this.sectorSpinner = true;
+    this.page -= 1
     try {
-    const positiveRatings = await this.$axios.get('Industries/GetTop3IndustiesWithPositiveRating')
-    console.log(positiveRatings.data)
-    // const negativeRatings = await this.$axios.get('Industries/GetTop3IndustiesWithNegativeRating')
-    // console.log(negativeRatings.data)
-    this.positiveRatings = positiveRatings.data
-    // this.negativeRatings = negativeRatings.data
-
+      const sectors = await this.$axios.get(
+        `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+      );
+      console.log(sectors.data);
+      this.sectors = sectors.data.Result
+      this.sectorSpinner = false;
     } catch (e) {
-      console.log(e)
-    this.$store.commit("notifications/error", 'something went wrong');
-          this.makeToast();
-          return;
+      this.$store.commit("notifications/error", "something went wrong");
+      this.makeToast();
+      return;
     }
+  },
+  async fetchPositiveRatingAndNegativeRating() {
+    try {
+      const positiveRatings = await this.$axios.get(
+        "Industries/GetTop3IndustiesWithPositiveRating"
+      );
+      const negativeRatings = await this.$axios.get('Industries/GetTop3IndustiesWithNegativeRating')
+      console.log(negativeRatings.data)
+      this.positiveRatings = positiveRatings.data;
+      this.negativeRatings = negativeRatings.data
+    } catch (e) {
+      console.log(e);
+      this.$store.commit("notifications/error", "something went wrong");
+      this.makeToast();
+      return;
+    }
+  },
   }
-},
-
+}
 </script>
-
 
 <style scoped>
 * {
@@ -290,14 +326,14 @@ export default {
   background: #fff;
   border-radius: 10px;
   z-index: 99999;
-  opacity:0;
+  opacity: 0;
   -webkit-transition: opacity 100ms ease-in;
   -moz-transition: opacity 100ms ease-in;
   transition: opacity 100ms ease-in;
   pointer-events: none;
 }
 .modalDialog:target {
-  opacity:1;
+  opacity: 1;
   pointer-events: auto;
 }
 .modalDialog > div {
@@ -306,7 +342,7 @@ export default {
   position: relative;
   margin: 10% auto;
   border-radius: 3px;
-  background: #626D73;
+  background: #626d73;
   border-radius: 10px;
 }
 .close {
@@ -334,23 +370,23 @@ export default {
   background: #fa3f6f;
 }
 
-  .btn-sacademy {
-    color: #fff !important;
-    background: #D91925;
-    border-radius: 25px;
-    box-shadow: 0px 20px 20px #00000026;
-    opacity: 1;
-    padding: 8px 34px 8px;
-    border: 0;
+.btn-sacademy {
+  color: #fff !important;
+  background: #d91925;
+  border-radius: 25px;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  padding: 8px 34px 8px;
+  border: 0;
 }
-  .btn-sacademy1 {
-    color: #fff !important;
-    background: #18E5B4;
-    border-radius: 25px;
-    box-shadow: 0px 20px 20px #00000026;
-    opacity: 1;
-    padding: 8px 34px 8px;
-    border: 0;
+.btn-sacademy1 {
+  color: #fff !important;
+  background: #18e5b4;
+  border-radius: 25px;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  padding: 8px 34px 8px;
+  border: 0;
 }
 
 .all {
@@ -358,123 +394,123 @@ export default {
   bottom: 100px;
 }
 .img1 {
- background: #E57718;
-border-radius: 19.5px;
+  background: #e57718;
+  border-radius: 19.5px;
 }
 
 .text {
   font-family: Poppins;
-font-style: normal;
-font-weight: 500;
-font-size: 10px;
-line-height: 15px;
-text-transform: uppercase;
-color: #FFFFFF;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .sidebar {
-  background-color: #F3CEAE;
-  color: black!important;
+  background-color: #f3ceae;
+  color: black !important;
 }
 
-.Opinion{
-  background: #E57718;
+.Opinion {
+  background: #e57718;
   border-radius: 5px;
 }
-.Opinion1{
-   background: #FFFFFF;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-   border-radius: 5px;
+.Opinion1 {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
 }
 
 .btn_ {
-background: #FFFFFF;
-border: none;
-padding: 5px 20px 5px;
-color: black;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-color: #000000;
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
 }
 .btn1_ {
-background: #FFFFFF;
-border: none;
-padding: 5px 20px 5px;
-color: black;
-opacity: 0.6;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-/* identical to box height */
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.6;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
 
-color: #000000;
+  color: #000000;
 }
 .btn2_ {
-background: #FFFFFF;
-border: none;
-padding: 5px 20px 5px;
-color: black;
-opacity: 0.2;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-color: #000000;
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.2;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
 }
 
 .btn1 {
- background: #00B5D3;
-border: none;
-padding: 5px 20px 5px;
-color: black;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-color: #fff;
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
 }
 .btn2 {
- background: #00B5D3;
-border: none;
-padding: 5px 20px 5px;
-color: black;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-color: #fff;
-opacity: 0.2;
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.2;
 }
 
 .add {
   font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-color: #373737;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #373737;
 }
 
-.button{
-    background: #00B5D3;
-border: none;
-padding: 8px 32px 8px;
-color: black;
-font-family: Poppins;
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-color: #fff;
-margin: 15px 0px 10px;
+.button {
+  background: #00b5d3;
+  border: none;
+  padding: 8px 32px 8px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  margin: 15px 0px 10px;
 }
 
 .sector {
@@ -483,19 +519,19 @@ margin: 15px 0px 10px;
 
 .input-sector {
   background: #656565;
-  border: 1px solid #A0A0A0;
-box-sizing: border-box;
-border-radius: 5px;
-color: white;
+  border: 1px solid #a0a0a0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
 }
 
-.profile-dropdown{
+.profile-dropdown {
   overflow: auto;
 }
 
 @media screen and (max-width: 700px) {
-    .btn2_{
-      margin-top: 10px;
-    }
+  .btn2_ {
+    margin-top: 10px;
+  }
 }
 </style>

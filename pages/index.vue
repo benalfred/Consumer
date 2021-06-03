@@ -1,7 +1,6 @@
 <template>
   <div>
         <b-container class="line_">
-        <SecNav />
           <b-row class="">
             <b-col md="6" class=" my-sm-5 my-lg-auto  order-sm-1 order-2 pr-md-0">
               <h1 class="hero small-hero-text hero-text">
