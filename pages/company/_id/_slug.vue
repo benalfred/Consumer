@@ -1,7 +1,6 @@
 <template>
   <div class="">
     <section class="bg">
-      <b-container>
        <SecNav />
         <b-row>
             <b-col md="12">

@@ -1,7 +1,6 @@
 <template>
   <div>
         <b-container class="line_">
-        <SecNav />
           <b-row class="">
           <div class="spacer"></div>
             <b-col md="6" class=" my-sm-5 mt-lg-5 pt-lg-5  order-sm-1 order-2 pr-md-0">
