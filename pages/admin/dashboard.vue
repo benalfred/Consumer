@@ -109,6 +109,7 @@
                     </b-col>
                   </b-row>
                 </div>
+                </div>
             </b-col>
 
 
@@ -270,7 +271,7 @@ export default {
           return;
     }
   }
-},
+}
 
 </script>
 

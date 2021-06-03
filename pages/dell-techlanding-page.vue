@@ -58,6 +58,9 @@
                     <div class="col-md-3">
                             <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
                     </div>
+                    <div class="col-md-3">
+                        <button class="btn"> <img src="~/assets/img/viewall.png" class="img-fluid pt-2" alt=""> </button>
+                    </div>
                   </div>
                  </b-col>
 

@@ -2,7 +2,7 @@
   <div class="">
     <section class="bg">
       <b-container>
-       
+
        <SecNav />
 
         <b-row class="mb-3">
@@ -35,7 +35,7 @@
           <div class="col-md-2 p-2 ml-lg-2" style="background: #07072F;">
               <b-media>
                 <template #aside>
-                    <img src="~/assets/img/thumbs.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
+                    <img src="~/assets/img/thumbdown.png" class="img-fluid p-2 mt-4 ml-2 img2" alt="">
                 </template>
 
                 <div class="d-flex b-media">
@@ -48,7 +48,7 @@
           <div class="col-md-2 p-2 ml-lg-2" style="background: #626D73;">
               <b-media>
                 <template #aside>
-                    <img src="~/assets/img/thumbs.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
+                    <img src="~/assets/img/thumbsleft.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
                 </template>
 
                 <div class="d-flex b-media">
@@ -61,7 +61,7 @@
           <div class="col-md-2 p-2 ml-lg-2" style="background: #00B5D3;">
               <b-media>
                 <template #aside>
-                    <img src="~/assets/img/thumbs.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
+                    <img src="~/assets/img/thumbsleft2.png" class="img-fluid p-2 mt-4 ml-2 img1" alt="">
                 </template>
 
                 <div class="d-flex b-media">
@@ -196,6 +196,11 @@ color: #373737;
 
 .img1 {
   background: #fff;
+border-radius: 19.5px;
+}
+
+.img2 {
+  background: #D91925;
 border-radius: 19.5px;
 }
 
