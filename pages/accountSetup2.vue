@@ -40,7 +40,7 @@
 
 <script>
 export default {
-  layout: 'headerr',
+  
    data() {
     return {
       options: ['Apple', 'Banana', 'Grape', 'Kiwi', 'Orange'],

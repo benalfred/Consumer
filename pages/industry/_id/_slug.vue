@@ -45,8 +45,8 @@
             <b-media>
               <template #aside>
                 <img
-                  src="~/assets/img/thumbs.png"
-                  class="img-fluid p-2 mt-4 ml-2 img1"
+                  src="~/assets/img/thumbdown.png"
+                  class="img-fluid p-2 mt-4 ml-2 img2"
                   alt=""
                 />
               </template>
@@ -65,7 +65,7 @@
             <b-media>
               <template #aside>
                 <img
-                  src="~/assets/img/thumbs.png"
+                  src="~/assets/img/thumbsleft.png"
                   class="img-fluid p-2 mt-4 ml-2 img1"
                   alt=""
                 />
@@ -85,7 +85,7 @@
             <b-media>
               <template #aside>
                 <img
-                  src="~/assets/img/thumbs.png"
+                  src="~/assets/img/thumbsleft2.png"
                   class="img-fluid p-2 mt-4 ml-2 img1"
                   alt=""
                 />
@@ -244,6 +244,11 @@ h4 {
 
 .img1 {
   background: #fff;
+  border-radius: 19.5px;
+}
+
+.img2 {
+  background: #D91925;
   border-radius: 19.5px;
 }
 
