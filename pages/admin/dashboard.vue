@@ -59,34 +59,13 @@
                     style="background: rgba(0, 0, 0, 0.1); height: 1px"
                   ></div>
                 </div>
-                <div class="d-flex_ row">
-                <div class="col-md-4 ">
-                  <button type="button" class="button">
-                    Technology
+                <div class="d-flex_ row" v-if="sectors.length">
+                <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
+                  <button type="button" to="" class="button">
+                    {{sector.Name}}
                   </button>
                    <a href="#openModal-about">
-                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 135px"></i></a>
-                </div>
-                <div class="col-md-4 pl-lg-4">
-                  <button type="button" class="button">
-                    FINANCE
-                  </button>
-                   <a href="#openModal-about">
-                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 129px"></i></a>
-                </div>
-                <div class="col-md-4">
-                  <button type="button" class="button">
-                    FASHION
-                  </button>
-                   <a href="#openModal-about">
-                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 118px"></i></a>
-                </div>
-                <div class="col-md-4">
-                  <button type="button" class="button">
-                    ECONOMY
-                  </button>
-                   <a href="#openModal-about">
-                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 128x"></i></a>
+                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer;"></i></a>
                 </div>
               </div>
                <div class="sector p-3 mt-5">
@@ -227,6 +206,7 @@ export default {
       Name: null,
       sectorSpinner: false,
       page: 1,
+      sectors:[],
       opinions: [],
       pageSize: 5,
       addSectorSpinner: false,
@@ -263,11 +243,11 @@ export default {
     this.sectorSpinner = true;
     this.page -= 1
     try {
-      const sectors = await this.$axios.get(
+      const sector = await this.$axios.get(
         `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
       );
-      console.log(sectors.data);
-      this.sectors = sectors.data.Result
+      console.log(sector.data);
+      this.sectors = sector.data.Results
       this.sectorSpinner = false;
     } catch (e) {
       this.$store.commit("notifications/error", "something went wrong");
