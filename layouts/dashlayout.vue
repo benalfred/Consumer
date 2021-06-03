@@ -70,7 +70,7 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <nuxt-link class="collapse-item" to="/admin/email-setting">email setting</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/review-setting">review-setting</nuxt-link>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="/admin/chartjs">Animations</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
@@ -293,6 +293,6 @@ border-radius: 19.5px;
   .slide-out {
  margin-left: -100px;
  transition: margin .4s ease-in-out;
-}  
+}
 }
 </style>

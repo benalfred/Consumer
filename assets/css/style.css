@@ -45,6 +45,10 @@ h6 {
     font-family: 'Poppins', sans-serif;
 }
 
+.spacer {
+  margin-top: 50px;
+}
+
 .section {
     margin-top: 150px;
     background: rgba(229, 119, 24, 0.05);

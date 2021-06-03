@@ -2,8 +2,9 @@
   <div>
         <b-container class="line_">
           <b-row class="">
-            <b-col md="6" class=" my-sm-5 my-lg-auto  order-sm-1 order-2 pr-md-0">
-              <h1 class="hero small-hero-text hero-text">
+          <div class="spacer"></div>
+            <b-col md="6" class=" my-sm-5 mt-lg-5 pt-lg-5  order-sm-1 order-2 pr-md-0">
+              <h1 class="hero mt-lg-5 pt-lg-3 small-hero-text hero-text">
                 Explore what <span style="color: #E57718;" class="font-weight-bold">Nigerians</span>
                  <br class="d-none d-md-block"/>
                 are saying
