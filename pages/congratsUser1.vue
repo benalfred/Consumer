@@ -15,7 +15,7 @@
                 <button class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Join with email</button>
               </b-form-group>
           </b-col>
-          
+
         </b-row>
       </b-container>
     </section>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-   layout: 'headerr',
+   
 }
 </script>
 

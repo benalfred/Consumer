@@ -388,6 +388,6 @@ body {
     border-radius: 10px;
 }
 
-.color-orange {
-    color: #e57718 !important;
+.nuxt-link-exact-active.nuxt-link-active{
+  color: #e57718 !important;
 }
