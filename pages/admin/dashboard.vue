@@ -18,22 +18,22 @@
             <b-col lg="6" xl="6" class="">
               <div class="Opinion p-3 pl-lg-5">
                 <h4 class="h4 pb-3">Opinion Ratings</h4>
-                
+
                 <p class="text-white text" style="position: relative; top: 10px">
                   POSIVIE OPINIONS
                 </p>
                 <div class="d-lg-flex">
                   <div class="d-flex" v-if="positiveRatings.length">
-                
+
                     <button type="button"  class="btn_" v-for="rating in positiveRatings" :key="rating.Id">
                       {{rating.Name}}
                     </button>
-                  
+
                  </div>
                  <button type="button" class="btn_" v-if="!positiveRatings.length">
                       No positive rating yet
                   </button>
-                  
+
                 </div>
 
                 <div class="mt-4">
@@ -60,49 +60,33 @@
                   ></div>
                 </div>
                 <div class="d-flex_ row">
-                <div class="col-md-4">
-                  <button type="button" class="button" v-b-modal.modal-lg>
+                <div class="col-md-4 ">
+                  <button type="button" class="button">
                     Technology
-                    <a href="#openModal-about"><img
-                      style="position: absolute; bottom: 35px; cursor:pointer"
-                      class="pl-4"
-                      src="~/assets/img/cancel.png"
-                      alt=""
-                    /></a>
                   </button>
+                   <a href="#openModal-about">
+                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 135px"></i></a>
                 </div>
                 <div class="col-md-4 pl-lg-4">
                   <button type="button" class="button">
                     FINANCE
-                    <img
-                      style="position: absolute; bottom: 35px"
-                      class="pl-4"
-                      src="~/assets/img/cancel.png"
-                      alt=""
-                    />
                   </button>
+                   <a href="#openModal-about">
+                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 129px"></i></a>
                 </div>
                 <div class="col-md-4">
                   <button type="button" class="button">
                     FASHION
-                    <img
-                      style="position: absolute; bottom: 35px"
-                      class="pl-4"
-                      src="~/assets/img/cancel.png"
-                      alt=""
-                    />
                   </button>
+                   <a href="#openModal-about">
+                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 118px"></i></a>
                 </div>
                 <div class="col-md-4">
                   <button type="button" class="button">
                     ECONOMY
-                    <img
-                      style="position: absolute; bottom: 35px"
-                      class="pl-4"
-                      src="~/assets/img/cancel.png"
-                      alt=""
-                    />
                   </button>
+                   <a href="#openModal-about">
+                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer; left: 128x"></i></a>
                 </div>
               </div>
                <div class="sector p-3 mt-5">
@@ -533,5 +517,9 @@ export default {
   .btn2_ {
     margin-top: 10px;
   }
+}
+
+.d-flex_ i{
+  color: red;
 }
 </style>
