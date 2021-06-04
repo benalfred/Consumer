@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-2">
+  <div class="">
     <div
       class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
       type="submit"

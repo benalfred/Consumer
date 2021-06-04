@@ -148,13 +148,8 @@
                 </div>
               </div>
 
-              <div class="d-flex profile-dropdown">
-                <div class="" v-for="sector in sector2" :key="sector.Id">
-                  <button type="button" class="btn1">{{sector.Name}}</button>
-                </div>
-              </div>
-             <ProfileComponent/>
-              <UserResponse :opinions="opinions" />
+              <SectorsList />
+
             </b-col>
           </b-row>
         </div>
@@ -216,11 +211,10 @@
 </template>
 
 <script>
-import UserResponse from "@/components/UserResponse.vue";
-import ProfileComponent from "@/components/ProfileComponent.vue";
+import SectorsList from "~/components/SectorsList.vue"
 export default {
   layout: "dashlayout",
-  component: { UserResponse,ProfileComponent },
+  component: { SectorsList },
   data() {
     return {
       filter: "",
@@ -313,7 +307,7 @@ export default {
         this.makeToast();
       }
     },
-    
+
     async fetchPositiveRatingAndNegativeRating() {
       try {
         const positiveRatings = await this.$axios.get(
@@ -340,11 +334,7 @@ export default {
 </script>
 
 <style scoped>
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+
 .modalDialog {
   position: fixed;
   top: 0;
@@ -398,24 +388,8 @@ export default {
   background: #fa3f6f;
 }
 
-.btn-sacademy {
-  color: #fff !important;
-  background: #d91925;
-  border-radius: 25px;
-  box-shadow: 0px 20px 20px #00000026;
-  opacity: 1;
-  padding: 8px 34px 8px;
-  border: 0;
-}
-.btn-sacademy1 {
-  color: #fff !important;
-  background: #18e5b4;
-  border-radius: 25px;
-  box-shadow: 0px 20px 20px #00000026;
-  opacity: 1;
-  padding: 8px 34px 8px;
-  border: 0;
-}
+
+
 
 .all {
   position: relative;
@@ -495,7 +469,7 @@ export default {
 .btn1 {
   background: #00b5d3;
   border: none;
-  padding: 5px 20px 5px;
+  padding: 5px 12px 5px;
   color: black;
   font-family: Poppins;
   font-style: normal;
@@ -504,6 +478,31 @@ export default {
   line-height: 18px;
   color: #fff;
 }
+
+.profile-dropdown_::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50px;
+}
+
+
+/* Track */
+.profile-dropdown_::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.profile-dropdown_::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.profile-dropdown_::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
 .btn2 {
   background: #00b5d3;
   border: none;

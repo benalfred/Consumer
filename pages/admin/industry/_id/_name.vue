@@ -18,6 +18,9 @@
               <p v-if="form.Description">{{ form.Description }}</p>
               <p v-else>No description yet</p>
             </b-col>
+            <div class="col-md-6">
+
+            </div>
             <b-col lg="6" xl="6" class="">
               <div class="Opinion1 p-5 mt-5">
                 <div>
@@ -79,7 +82,7 @@
                     <button
                       @click="goToCompanyDetailsPage(company)"
                       type="button"
-                      class="button"
+                      class="btn1"
                     >
                       {{ company.Name }}
                     </button>
@@ -87,7 +90,7 @@
                       <i
                         @click="setId(company.Id)"
                         class="far fa-times-circle"
-                        style="position: absolute; bottom: 35px; cursor: pointer"
+                        style="position: absolute; bottom: 20px; cursor: pointer"
                       ></i
                     ></a>
                   </div>
@@ -411,15 +414,14 @@ export default {
   overflow: auto;
 }
 
-.btn-sacademy {
+.btn-sacademy1 {
   color: #fff !important;
-  background: #e57718;
+  background: #18e5b4;
+  border-radius: 25px;
   box-shadow: 0px 20px 20px #00000026;
   opacity: 1;
-  width: 100%;
-  padding: 12px 0px 12px;
+  padding: 8px 34px 8px;
   border: 0;
-  border-radius: 25px;
 }
 
 .text {
