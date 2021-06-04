@@ -72,17 +72,21 @@
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
                   <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
-                    <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
+                  <div>
+                     <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
                       {{ sector.Name }}
                     </button>
                     <a href="#openModal-about">
                       <i @click="setId(sector.Id)"
                         class="far fa-times-circle"
-                        style="position: absolute; bottom: 35px; cursor: pointer"
+                        style="position: absolute;  cursor: pointer"
                       ></i
                     ></a>
                   </div>
+
+                  </div>
                 </div>
+
                  <b-pagination
                     v-model="bpg"
                     :total-rows="totalRows"
@@ -91,6 +95,7 @@
                     size="sm"
                     class="my-0 text-center"
                 />
+
                 <div class="" v-if="!sectors.length && !fetchSectorSpinner">
                   <button type="button" class="button">No sector yet</button>
                 </div>
@@ -334,6 +339,10 @@ export default {
 </script>
 
 <style scoped>
+.pagination-sm .page-item .page-link{
+    border: none!important;
+    width: 300px;
+}
 
 .modalDialog {
   position: fixed;
