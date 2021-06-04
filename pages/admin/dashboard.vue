@@ -24,16 +24,18 @@
                 </p>
                 <div class="d-lg-flex">
                   <div class="d-flex" v-if="positiveRatings.length">
-
-                    <button type="button"  class="btn_" v-for="rating in positiveRatings" :key="rating.Id">
-                      {{rating.Name}}
+                    <button
+                      type="button"
+                      class="btn_"
+                      v-for="rating in positiveRatings"
+                      :key="rating.Id"
+                    >
+                      {{ rating.Name }}
                     </button>
-
-                 </div>
-                 <button type="button" class="btn_" v-if="!positiveRatings.length">
-                      No positive rating yet
+                  </div>
+                  <button type="button" class="btn_" v-if="!positiveRatings.length">
+                    No positive rating yet
                   </button>
-
                 </div>
 
                 <div class="mt-4">
@@ -42,9 +44,18 @@
                   </p>
                   <div class="d-lg-flex">
                     <div class="d-flex" v-if="negativeRatings.length">
-                       <button type="button" class="btn_" v-for="rating in negativeRatings" :key="rating.Id">{{rating.Name}}</button>
+                      <button
+                        type="button"
+                        class="btn_"
+                        v-for="rating in negativeRatings"
+                        :key="rating.Id"
+                      >
+                        {{ rating.Name }}
+                      </button>
                     </div>
-                    <button type="button" class="btn_" v-if="!negativeRatings.length">No negative rating yet</button>
+                    <button type="button" class="btn_" v-if="!negativeRatings.length">
+                      No negative rating yet
+                    </button>
                   </div>
                 </div>
               </div>
@@ -60,44 +71,64 @@
                   ></div>
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
-                <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
-                  <button type="button" to="" class="button">
-                    {{sector.Name}}
-                  </button>
-                   <a href="#openModal-about">
-                    <i class="far fa-times-circle" style="position: absolute; bottom: 35px; cursor:pointer;"></i></a>
+                  <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
+                    <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
+                      {{ sector.Name }}
+                    </button>
+                    <a href="#openModal-about">
+                      <i @click="setId(sector.Id)"
+                        class="far fa-times-circle"
+                        style="position: absolute; bottom: 35px; cursor: pointer"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+                 <b-pagination
+                    v-model="bpg"
+                    :total-rows="totalRows"
+                    :per-page="pageSize"
+                    align="center"
+                    size="sm"
+                    class="my-0 text-center"
+                />
+                <div class="" v-if="!sectors.length && !fetchSectorSpinner">
+                  <button type="button" class="button">No sector yet</button>
+                </div>
+                <b-spinner
+                  v-if="fetchSectorSpinner"
+                  label="Spinning"
+                  style="margin-left: 5%"
+                ></b-spinner>
+
+                <div class="sector p-3 mt-5">
+                  <b-row class="my-1">
+                    <b-col sm="9">
+                      <b-form-input
+                        id="input-large"
+                        v-model="Name"
+                        class="input-sector"
+                        size="lg"
+                        placeholder="New Sector"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col sm="3" class="pl-4 pt-0">
+                      <button
+                        v-if="!addSectorSpinner"
+                        class="btn outline-none"
+                        @click="addSector"
+                        :disabled="!Name"
+                      >
+                        <img src="~assets/img/sectoricon.png" alt="" />
+                      </button>
+                      <b-spinner
+                        v-if="addSectorSpinner"
+                        label="Spinning"
+                        style="margin-left: 5%"
+                      ></b-spinner>
+                    </b-col>
+                  </b-row>
                 </div>
               </div>
-               <div class="sector p-3 mt-5">
-                <b-row class="my-1">
-                  <b-col sm="9">
-                    <b-form-input
-                      id="input-large"
-                      v-model="Name"
-                      class="input-sector"
-                      size="lg"
-                      placeholder="New Sector"
-                    ></b-form-input>
-                  </b-col>
-                  <b-col sm="3" class="pl-4 pt-0">
-                    <button
-                      v-if="!addSectorSpinner"
-                      class="btn outline-none"
-                      @click="addSector"
-                      :disabled="!Name"
-                    >
-                      <img src="~assets/img/sectoricon.png" alt="" />
-                    </button>
-                    <b-spinner
-                      v-if="addSectorSpinner"
-                      label="Spinning"
-                      style="margin-left: 5%"
-                    ></b-spinner>
-                  </b-col>
-                </b-row>
-              </div>
-              </div>
-
             </b-col>
 
             <b-col lg="6" xl="6" class="all pl-lg-5">
@@ -118,21 +149,11 @@
               </div>
 
               <div class="d-flex profile-dropdown">
-                <div class="">
-                  <button type="button" class="btn1">ALL</button>
+                <div class="" v-for="sector in sector2" :key="sector.Id">
+                  <button type="button" class="btn1">{{sector.Name}}</button>
                 </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">Technology</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">FASHION</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">ECONOMY</button>
-                </div>
-                <ProfileComponent />
               </div>
-
+             <ProfileComponent/>
               <UserResponse :opinions="opinions" />
             </b-col>
           </b-row>
@@ -160,7 +181,8 @@
           <div class="d-flex justify-content-center">
             <div>
               <b-form-group class="newpost mt-3">
-                <button
+               <a href="#close">
+                 <button
                   class="mt-2 mr-4 btn-sacademy"
                   style="font-size: 16px"
                   type="submit"
@@ -168,12 +190,13 @@
                 >
                   cancel
                 </button>
+               </a>
               </b-form-group>
             </div>
 
             <div>
               <b-form-group class="newpost mt-3">
-                <button
+                <button @click="deleteSector"
                   class="mt-2 btn-sacademy1"
                   style="font-size: 16px"
                   type="submit"
@@ -197,24 +220,36 @@ import UserResponse from "@/components/UserResponse.vue";
 import ProfileComponent from "@/components/ProfileComponent.vue";
 export default {
   layout: "dashlayout",
-  component: { UserResponse },
+  component: { UserResponse,ProfileComponent },
   data() {
     return {
       filter: "",
       positiveRatings: [],
+      isFetchingSectors: false,
+      fetchSectorSpinner: false,
       negativeRatings: [],
       Name: null,
+      id:null,
       sectorSpinner: false,
       page: 1,
-      sectors:[],
+      bpg: 1,
+      sectors: [],
+      sectors3:[],
+      totalRows:null,
       opinions: [],
-      pageSize: 5,
+      pageSize: 10,
       addSectorSpinner: false,
     };
   },
   async fetch() {
     await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors();
   },
+  computed: {
+    sector2(){
+      return this.$store ? this.$store.state.notifications.sector2 : null;
+    }
+  },
+
   methods: {
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
@@ -224,10 +259,29 @@ export default {
         solid: true,
       });
     },
+    setId(id){
+    this.id = id
+    },
+    goToIndustryDetailsPage(sector){
+     this.$router.push(`/admin/industry/${sector.Id}/${sector.Name}`)
+    },
+    async deleteSector() {
+      try {
+        await this.$axios.post("/Industries/DeleteIndustry", {Id:this.id});
+        let newSectors = this.sectors.filter(sector => sector.Id != this.id)
+        this.sectors = newSectors
+        this.$router.back()
+        this.$store.commit("notifications/success", "sector deleted");
+        this.makeToast();
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
     async addSector() {
       this.addSectorSpinner = true;
       try {
-        const response = await this.$axios.post("Industries/CreateIndustry", {
+          await this.$axios.post("Industries/CreateIndustry", {
           Name: this.Name,
         });
         this.Name = null;
@@ -237,42 +291,52 @@ export default {
           text: "sector added!",
           icon: "success",
         });
-      } catch (e) {}
+        await this.fetchSectors()
+      } catch (e) {
+        console.log(e)
+      }
     },
     async fetchSectors() {
-    this.sectorSpinner = true;
-    this.page -= 1
-    try {
-      const sector = await this.$axios.get(
-        `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
-      );
-      console.log(sector.data);
-      this.sectors = sector.data.Results
-      this.sectorSpinner = false;
-    } catch (e) {
-      this.$store.commit("notifications/error", "something went wrong");
-      this.makeToast();
-      return;
-    }
+      this.fetchSectorSpinner = true;
+       this.page = this.bpg
+       this.page--
+      try {
+        const sector = await this.$axios.get(
+          `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+        );
+        this.totalRows = sector.data.TotalCount
+        this.sectors = sector.data.Results;
+        this.fetchSectorSpinner = false;
+      } catch (e) {
+        console.log(e)
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+    
+    async fetchPositiveRatingAndNegativeRating() {
+      try {
+        const positiveRatings = await this.$axios.get(
+          "Industries/GetTop3IndustiesWithPositiveRating"
+        );
+        const negativeRatings = await this.$axios.get(
+          "Industries/GetTop3IndustiesWithNegativeRating"
+        );
+        this.positiveRatings = positiveRatings.data;
+        this.negativeRatings = negativeRatings.data;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+        return;
+      }
+    },
   },
-  async fetchPositiveRatingAndNegativeRating() {
-    try {
-      const positiveRatings = await this.$axios.get(
-        "Industries/GetTop3IndustiesWithPositiveRating"
-      );
-      const negativeRatings = await this.$axios.get('Industries/GetTop3IndustiesWithNegativeRating')
-      console.log(negativeRatings.data)
-      this.positiveRatings = positiveRatings.data;
-      this.negativeRatings = negativeRatings.data
-    } catch (e) {
-      console.log(e);
-      this.$store.commit("notifications/error", "something went wrong");
-      this.makeToast();
-      return;
+  watch:{
+    bpg() {
+      this.fetchSectors()
     }
-  },
   }
-}
+};
 </script>
 
 <style scoped>
@@ -499,7 +563,7 @@ export default {
   }
 }
 
-.d-flex_ i{
+.d-flex_ i {
   color: red;
 }
 </style>

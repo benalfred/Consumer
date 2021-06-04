@@ -1,13 +1,17 @@
 export const state = () => ({
     type: null,
     message: null,
-    notification: null
+    notification: null,
+    sector2: []
 })
 
 export const mutations = {
     success(state, message) {
         state.type = 'success'
         state.message = message
+    },
+    setSector(state, sectors) {
+        state.sector2 = sectors
     },
     error(state, message) {
         state.type = 'error'
