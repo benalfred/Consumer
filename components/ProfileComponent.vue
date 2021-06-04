@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import {mapMutations,mapState} from 'vuex'
 export default {
   name: "profileComponent",
   data() {
@@ -50,63 +51,38 @@ export default {
       logoutMenuState: false,
       threeOpen: false,
       filter: "",
-      positiveRatings: [],
-      fetchSectorSpinner: false,
-      negativeRatings: [],
-      Name: null,
-      id: null,
-      sectorSpinner: false,
-      page: 1,
-      bpg: 1,
-      sectors2: [],
-      sectors: [],
-      sectors3: [],
-      totalRows: null,
-      opinions: [],
-      pageSize: 10,
-      addSectorSpinner: false,
     };
   },
-  props: {},
-  async mounted(){
-   await this.fetchSectors()
+  props:{
+   totalRows: {
+      type: Number,
+      default: 0,
+    },
+    bpg: {
+      type: Number,
+      default: 1,
+    },
+    pageSize: {
+      type: Number,
+      default: 10,
+    },
+  },
+  computed: {
+    ...mapState("data-fetching", [
+      "sector3",
+      "totalRows",
+      "pageSize"
+    ])
   },
 
   methods: {
+    //  ...mapMutations('data-fetching', ["setBpg"]),
+    //  ...mapActions("data-fetching", [
+    //    "fetchSectors"
+    //  ]),
     threeMenuOpen() {
       this.threeOpen = !this.threeOpen;
-    },
-    async fetchSectors() {
-      this.fetchSectorSpinner = true;
-      this.page = this.bpg;
-      this.page--;
-      try {
-        const sector = await this.$axios.get(
-          `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
-        );
-        this.sectors2 = []
-        this.totalRows = sector.data.TotalCount;
-        if (sector.data.Results.length) {
-          sector.data.Results.filter((sec) => {
-            if (this.sectors2.length != 5) {
-              this.sectors2.push(sec);
-            }
-          });
-          this.$store.commit("notifications/setSector",this.sectors2)
-          let ctx = this;
-          ctx.sectors3 = []
-          sector.data.Results.filter((sec, index) => {
-            if (index > 4) {
-              ctx.sectors3.push(sec);
-            }
-          });
-        }
-      } catch (e) {
-        console.log(e);
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
-      }
-    },
+    },   
   },
 
   watch: {

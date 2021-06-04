@@ -72,24 +72,29 @@
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
                   <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
-                    <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
+                    <button
+                      @click="goToIndustryDetailsPage(sector)"
+                      type="button"
+                      class="button"
+                    >
                       {{ sector.Name }}
                     </button>
                     <a href="#openModal-about">
-                      <i @click="setId(sector.Id)"
+                      <i
+                        @click="setId(sector.Id)"
                         class="far fa-times-circle"
                         style="position: absolute; bottom: 35px; cursor: pointer"
                       ></i
                     ></a>
                   </div>
                 </div>
-                 <b-pagination
-                    v-model="bpg"
-                    :total-rows="totalRows"
-                    :per-page="pageSize"
-                    align="center"
-                    size="sm"
-                    class="my-0 text-center"
+                <b-pagination
+                  v-model="bpg"
+                  :total-rows="totalRows"
+                  :per-page="pageSize"
+                  align="center"
+                  size="sm"
+                  class="my-0 text-center"
                 />
                 <div class="" v-if="!sectors.length && !fetchSectorSpinner">
                   <button type="button" class="button">No sector yet</button>
@@ -147,9 +152,62 @@
                   </div>
                 </div>
               </div>
+              <div>
+                <div class="d-flex profile-dropdown mr-5">
+                  <div
+                    class="profile-dropdown_"
+                    v-for="sector in sectors2"
+                    :key="sector.Id"
+                  >
+                    <button type="button" class="btn1">{{ sector.Name }}</button>
+                  </div>
+                  <!--start dropdown-->
+                  <div class="">
+                    <div
+                      class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
+                      type="submit"
+                      @click="threeMenuOpen"
+                    >
+                      <i class="fas fa-angle-down"></i>
 
-              <SectorsList />
+                      <ul
+                        class="logout-sub-menu sub-menu"
+                        id="logout-sub-menu"
+                        :class="{ submenuthreeopen: threeOpen }"
+                      >
+                        <li>
+                          <n-link
+                            to="/dashboard"
+                            class="d-flex align-items-center px-2 justify-content-start"
+                          >
+                            Others
+                          </n-link>
+                        </li>
+                        <li>
+                          <div
+                            v-for="sector in sectors3"
+                            :key="sector.Id"
+                            class="d-flex px-2 align-items-center justify-content-start"
+                          >
+                            <button type="button" class="btn2">{{ sector.Name }}</button>
+                          </div>
+                          <b-pagination
+                            v-model="bpg2"
+                            :total-rows="totalRows2"
+                            :per-page="pageSize"
+                            align="center"
+                            size="sm"
+                            class="my-0 text-center"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!--end of dropdown-->
+                </div>
 
+                <UserResponse :opinions="opinions" />
+              </div>
             </b-col>
           </b-row>
         </div>
@@ -176,22 +234,23 @@
           <div class="d-flex justify-content-center">
             <div>
               <b-form-group class="newpost mt-3">
-               <a href="#close">
-                 <button
-                  class="mt-2 mr-4 btn-sacademy"
-                  style="font-size: 16px"
-                  type="submit"
-                  value="Send"
-                >
-                  cancel
-                </button>
-               </a>
+                <a href="#close">
+                  <button
+                    class="mt-2 mr-4 btn-sacademy"
+                    style="font-size: 16px"
+                    type="submit"
+                    value="Send"
+                  >
+                    cancel
+                  </button>
+                </a>
               </b-form-group>
             </div>
 
             <div>
               <b-form-group class="newpost mt-3">
-                <button @click="deleteSector"
+                <button
+                  @click="deleteSector"
                   class="mt-2 btn-sacademy1"
                   style="font-size: 16px"
                   type="submit"
@@ -211,40 +270,54 @@
 </template>
 
 <script>
-import SectorsList from "~/components/SectorsList.vue"
+import SectorsList from "~/components/SectorsList.vue";
 export default {
   layout: "dashlayout",
   component: { SectorsList },
   data() {
     return {
       filter: "",
+       logoutMenuState: false,
+      threeOpen: false,
+      filter: "",
       positiveRatings: [],
       isFetchingSectors: false,
       fetchSectorSpinner: false,
       negativeRatings: [],
       Name: null,
-      id:null,
+      id: null,
       sectorSpinner: false,
       page: 1,
+      page2:1,
+      bpg2:1,
+      totalRows2:0,
       bpg: 1,
       sectors: [],
-      sectors3:[],
-      totalRows:null,
+      sectors3: [],
+      sectors2:[],
+      totalRows: null,
       opinions: [],
       pageSize: 10,
       addSectorSpinner: false,
     };
   },
   async fetch() {
-    await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors();
+    await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors()
+  },
+  mounted() {
+    this.fetchSectors2()
   },
   computed: {
-    sector2(){
-      return this.$store ? this.$store.state.notifications.sector2 : null;
-    }
+    // sector2(){
+    //   return this.$store ? this.$store.state.notifications.sector2 : null;
+    // },
+    // ...mapState("data-fetching", ["sector3", "totalRows", "pageSize", "bpg"]),
   },
 
   methods: {
+    threeMenuOpen() {
+      this.threeOpen = !this.threeOpen;
+    }, 
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
@@ -253,18 +326,18 @@ export default {
         solid: true,
       });
     },
-    setId(id){
-    this.id = id
+    setId(id) {
+      this.id = id;
     },
-    goToIndustryDetailsPage(sector){
-     this.$router.push(`/admin/industry/${sector.Id}/${sector.Name}`)
+    goToIndustryDetailsPage(sector) {
+      this.$router.push(`/admin/industry/${sector.Id}/${sector.Name}`);
     },
     async deleteSector() {
       try {
-        await this.$axios.post("/Industries/DeleteIndustry", {Id:this.id});
-        let newSectors = this.sectors.filter(sector => sector.Id != this.id)
-        this.sectors = newSectors
-        this.$router.back()
+        await this.$axios.post("/Industries/DeleteIndustry", { Id: this.id });
+        let newSectors = this.sectors.filter((sector) => sector.Id != this.id);
+        this.sectors = newSectors;
+        this.$router.back();
         this.$store.commit("notifications/success", "sector deleted");
         this.makeToast();
       } catch (e) {
@@ -275,7 +348,7 @@ export default {
     async addSector() {
       this.addSectorSpinner = true;
       try {
-          await this.$axios.post("Industries/CreateIndustry", {
+        await this.$axios.post("Industries/CreateIndustry", {
           Name: this.Name,
         });
         this.Name = null;
@@ -285,24 +358,53 @@ export default {
           text: "sector added!",
           icon: "success",
         });
-        await this.fetchSectors()
+        await this.fetchSectors();
       } catch (e) {
-        console.log(e)
+        console.log(e);
+      }
+    },
+    async fetchSectors2() {
+      this.page2 = this.bpg2;
+      this.page2--;
+      try {
+        const sector = await this.$axios.get(
+          `Industries/GetLiteIndustries?page=${this.page2}&pageSize=${this.pageSize}`
+        );
+        this.sectors2 = [];
+        this.totalRows2 = sector.data.TotalCount;
+        if (sector.data.Results.length) {
+          sector.data.Results.filter((sec) => {
+            if (this.sectors2.length != 5) {
+              this.sectors2.push(sec);
+            }
+          });
+          let ctx = this;
+          ctx.sectors3 = [];
+          sector.data.Results.filter((sec, index) => {
+            if (index > 4) {
+              ctx.sectors3.push(sec);
+            }
+          });
+        }
+      } catch (e) {
+        console.log(e);
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async fetchSectors() {
       this.fetchSectorSpinner = true;
-       this.page = this.bpg
-       this.page--
+      this.page = this.bpg;
+      this.page--;
       try {
         const sector = await this.$axios.get(
           `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
         );
-        this.totalRows = sector.data.TotalCount
+        this.totalRows = sector.data.TotalCount;
         this.sectors = sector.data.Results;
         this.fetchSectorSpinner = false;
       } catch (e) {
-        console.log(e)
+        console.log(e);
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -325,16 +427,104 @@ export default {
       }
     },
   },
-  watch:{
+  watch: {
     bpg() {
-      this.fetchSectors()
-    }
-  }
+      this.fetchSectors();
+    },
+  },
 };
 </script>
 
 <style scoped>
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.5;
+}
 
+.user-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #00b5d3;
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.logout-sub-menu {
+  position: absolute;
+  top: 120px;
+  z-index: 1000;
+  box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-icon {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+  }
+}
+
+.sub-menu {
+  /*width: 270px;*/
+  display: block;
+  position: absolute;
+  background-color: #fefefe;
+  z-index: 250;
+  opacity: 0;
+  visibility: hidden;
+  width: 390px;
+  right: -20px;
+  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
+  transition: all 650ms ease;
+}
+
+.nav-list li:hover > .sub-menu,
+.nav-list li:active > .sub-menu,
+.nav-list li:focus > .sub-menu {
+  top: 60px;
+  opacity: 1;
+  visibility: visible;
+}
+.submenuthreeopen {
+  opacity: 1;
+  visibility: visible;
+  max-height: initial;
+}
+li a {
+  color: #333 !important;
+  font-size: 14px;
+  line-height: 32px;
+}
+li {
+  padding: 0.5rem 0;
+}
+.logout-sub-menu {
+  right: 0px;
+}
+
+@media screen and (min-width: 750px) {
+  .logout-sub-menu {
+    right: 90px;
+  }
+}
 .modalDialog {
   position: fixed;
   top: 0;
@@ -387,9 +577,6 @@ export default {
 .close:hover {
   background: #fa3f6f;
 }
-
-
-
 
 .all {
   position: relative;
@@ -483,7 +670,6 @@ export default {
   width: 5px;
   border-radius: 50px;
 }
-
 
 /* Track */
 .profile-dropdown_::-webkit-scrollbar-track {
