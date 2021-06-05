@@ -78,8 +78,8 @@
                     </button>
                     <a href="#openModal-about">
                       <i @click="setId(sector.Id)"
-                        class="far fa-times-circle"
-                        style="position: absolute;  cursor: pointer"
+                        class="far fa-times-circle "
+                        style="position: absolute;  cursor: pointer; top: 5px; left: 5px"
                       ></i
                     ></a>
                   </div>
@@ -87,7 +87,8 @@
                   </div>
                 </div>
 
-                 <b-pagination
+                <div>
+                   <b-pagination
                     v-model="bpg"
                     :total-rows="totalRows"
                     :per-page="pageSize"
@@ -95,6 +96,7 @@
                     size="sm"
                     class="my-0 text-center"
                 />
+                </div>
 
                 <div class="" v-if="!sectors.length && !fetchSectorSpinner">
                   <button type="button" class="button">No sector yet</button>
@@ -339,10 +341,7 @@ export default {
 </script>
 
 <style scoped>
-.pagination-sm .page-item .page-link{
-    border: none!important;
-    width: 300px;
-}
+
 
 .modalDialog {
   position: fixed;
