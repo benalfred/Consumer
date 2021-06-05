@@ -8,7 +8,9 @@
               <div class="d-flex">
                 <h1 class="" v-if="form.Name">
                   {{ form.Name }}
-                  <span style="font-size: 24px" v-if="form.Slogan">{{form.Slogan}}</span>
+                  <span style="font-size: 24px" v-if="form.Slogan">{{
+                    form.Slogan
+                  }}</span>
                   <span style="font-size: 24px" v-if="!form.Slogan">No Slogan Yet</span>
                 </h1>
                 <div class="ml-4" style="cursor: pointer">
@@ -18,9 +20,7 @@
               <p v-if="form.Description">{{ form.Description }}</p>
               <p v-else>No description yet</p>
             </b-col>
-            <div class="col-md-6">
-
-            </div>
+            <div class="col-md-6"></div>
             <b-col lg="6" xl="6" class="">
               <div class="Opinion1 p-5 mt-5">
                 <div>
@@ -76,7 +76,7 @@
                 <div class="d-flex_ row" v-if="companies.length">
                   <div
                     class="col-md-4 d-flex"
-                    v-for="company in companies"
+                    v-for="company in companies2"
                     :key="company.id"
                   >
                     <button
@@ -117,7 +117,7 @@
                     </b-col>
                     <b-col sm="3" class="pl-4 pt-0">
                       <button
-                        v-if="!addSectorSpinner"
+                        v-if="!addCompanySpinner"
                         class="btn outline-none"
                         @click="addCompany"
                         :disabled="!Name"
@@ -152,23 +152,79 @@
                 </div>
               </div>
 
-              <div class="d-flex profile-dropdown">
+              <div class="d-flex profile-dropdown mr-5">
+                <div
+                  class="profile-dropdown_"
+                  v-for="company in companies"
+                  :key="company.Id"
+                >
+                  <button type="button" class="btn1">{{ company.Name }}</button>
+                </div>
+                <!--start dropdown-->
                 <div class="">
-                  <button type="button" class="btn1">ALL</button>
+                  <div
+                    class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
+                    type="submit"
+                    @click="threeMenuOpen"
+                  >
+                    <i class="fas fa-angle-down"></i>
+
+                    <ul
+                      class="logout-sub-menu sub-menu"
+                      id="logout-sub-menu"
+                      :class="{ submenuthreeopen: threeOpen }"
+                    >
+                      <li>
+                        <n-link
+                          to="/dashboard"
+                          class="d-flex align-items-center px-2 justify-content-start"
+                        >
+                          Others
+                        </n-link>
+                      </li>
+                      <li>
+                        <div
+                          v-for="sector in sectors3"
+                          :key="sector.Id"
+                          class="d-flex px-2 align-items-center justify-content-start"
+                        >
+                          <button type="button" class="btn2">{{ sector.Name }}</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">Technology</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">FASHION</button>
-                </div>
-                <div class="ml-lg-2">
-                  <button type="button" class="btn2">ECONOMY</button>
-                </div>
-                <ProfileComponent />
+                <!--end of dropdown-->
               </div>
 
-              <UserResponse />
+              <div class="second-col px-4 pt-5 mt-5 pb-4">
+                <div>
+                  <div class="d-flex">
+                    <p>Review Update</p>
+                    <div class="emoji ml-auto">
+                      <p>😡</p>
+                    </div>
+                    <div class="emoji">
+                      <p>😞</p>
+                    </div>
+                    <div class="emoji">
+                      <p>😑</p>
+                    </div>
+                    <div class="emoji">
+                      <p>😊</p>
+                    </div>
+                    <div class="emoji">
+                      <p>😍</p>
+                    </div>
+                  </div>
+                  <div
+                    class="mb-2"
+                    style="background: rgba(0, 0, 0, 0.1); height: 1px"
+                  ></div>
+                </div>
+                <UserResponse :opinions="opinions" />
+                <div />
+              </div>
             </b-col>
           </b-row>
         </div>
@@ -252,6 +308,45 @@
       </div>
     </b-modal>
 
+    <div id="openModal-about" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <div class="pt-5 pb-5">
+          <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
+
+          <div class="d-flex justify-content-center">
+            <div>
+              <b-form-group class="newpost mt-3">
+                <a href="#close">
+                  <button
+                    class="mt-2 mr-4 btn-sacademy"
+                    style="font-size: 16px"
+                    type="submit"
+                    value="Send"
+                  >
+                    cancel
+                  </button>
+                </a>
+              </b-form-group>
+            </div>
+
+            <div>
+              <b-form-group class="newpost mt-3">
+                <button
+                  @click="deleteCompany"
+                  class="mt-2 btn-sacademy1"
+                  style="font-size: 16px"
+                  type="submit"
+                  value="Send"
+                >
+                  okay
+                </button>
+              </b-form-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -263,6 +358,9 @@ export default {
   component: { UserResponse, ProfileComponent },
   data() {
     return {
+      logoutMenuState: false,
+      threeOpen: false,
+      filter: "",
       form: {
         Name: null,
         Description: null,
@@ -281,6 +379,7 @@ export default {
       page: 1,
       bpg: 1,
       sectors: [],
+      companies2: [],
       companies: [],
       sectors3: [],
       totalRows: null,
@@ -289,15 +388,30 @@ export default {
       addCompanySpinner: false,
     };
   },
-  async fetch(){
-   await this.fetchIndustryDetails()
+  async fetch() {
+    await this.fetchIndustryDetails();
   },
   methods: {
+    goToCompanyDetailsPage(){
+
+    },
+    makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      });
+    },
+
+    threeMenuOpen() {
+      this.threeOpen = !this.threeOpen;
+    },
     setId(id) {
       this.id = id;
     },
     async fetchIndustryDetails() {
-      this.fetchCompanySpinner = true
+      this.fetchCompanySpinner = true;
       try {
         const response = await this.$axios.get(
           `/Industries/GetIndustryDetailsByAdmin?industryId=${this.$route.params.id}`
@@ -305,9 +419,23 @@ export default {
         this.form.Name = response.data.Name;
         this.form.Slogan = response.data.Slogan;
         this.form.Description = response.data.Description;
-        this.companies = response.data.Companies;
+        if (response.data.Companies.length) {
+          response.data.Companies.filter((company) => {
+            if (this.companies.length != 4) {
+              this.companies.push(company);
+            }
+          });
+          let ctx = this;
+          ctx.sectors3 = [];
+          response.data.Companies.filter((com, index) => {
+            if (index > 4) {
+              ctx.sectors3.push(com);
+            }
+          });
+        }
+        this.companies2 = response.data.Companies;
         this.form.Banner = response.data.Banner;
-        this.fetchCompanySpinner = false
+        this.fetchCompanySpinner = false;
       } catch (e) {
         alert(e);
         console.log(e);
@@ -318,29 +446,32 @@ export default {
       try {
         await this.$axios.post("Industries/CreateCompany", {
           Name: this.Name,
-          IndustryId:this.$route.params.id
+          IndustryId: this.$route.params.id,
         });
         this.Name = null;
         this.addCompanySpinner = false;
+        await this.fetchIndustryDetails();
         swal({
           title: "Success!",
           text: "company added!",
           icon: "success",
         });
-        await this.fetchCompany();
       } catch (e) {
+        this.addCompanySpinner = false;
         console.log(e);
       }
     },
-     async deleteCompany() {
+    async deleteCompany() {
       try {
-        await this.$axios.post("/Industries/DeleteCompany", {Id:this.id});
-        let newCompanies = this.companies.filter(company => company.Id != this.id)
-        this.companies = newCompanies
-        this.$router.back()
+        await this.$axios.post("/Industries/DeleteCompany", { Id: this.id });
+        let newCompanies = this.companies2.filter((company) => company.Id != this.id);
+        this.companies2 = newCompanies;
+        this.companies = newCompanies;
+        this.$router.back();
         this.$store.commit("notifications/success", "company deleted");
         this.makeToast();
       } catch (e) {
+        console.log(e)
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -350,6 +481,230 @@ export default {
 </script>
 
 <style scoped>
+.media_ {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 450px;
+}
+
+.media_::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 50px;
+}
+
+.emoji p {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px 7px 0px;
+}
+
+/* Track */
+.media_::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.media_::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.media_::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
+.second-col {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+h2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 60px;
+  color: #656565;
+}
+
+p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.btn-sacademy {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 50%;
+  padding: 12px 0px 12px;
+  border: 0;
+  border-radius: 25px;
+  margin-left: 50%;
+}
+
+.img1 {
+  background: #e57718;
+  border-radius: 19.5px;
+}
+
+.img2 {
+  background: rgba(241, 19, 139, 0.87);
+  border-radius: 19.5px;
+}
+.img3 {
+  background: #18e5b4;
+  border-radius: 19.5px;
+}
+
+.firstp {
+  color: #626d73;
+}
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #00b5d3;
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.logout-sub-menu {
+  position: absolute;
+  top: 120px;
+  z-index: 1000;
+  box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-icon {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+  }
+}
+
+.btn2_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.2;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.profile-dropdown_ {
+  padding: 0px 5px 0px;
+  margin-left: -5px;
+}
+
+.btn1 {
+  background: #00b5d3;
+  border: none;
+  height: 35px;
+  width: 90px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.2;
+}
+
+.sub-menu {
+  /*width: 270px;*/
+  display: block;
+  position: absolute;
+  background-color: #fefefe;
+  z-index: 250;
+  opacity: 0;
+  visibility: hidden;
+  width: 390px;
+  right: -20px;
+  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
+  transition: all 650ms ease;
+}
+
+.nav-list li:hover > .sub-menu,
+.nav-list li:active > .sub-menu,
+.nav-list li:focus > .sub-menu {
+  top: 60px;
+  opacity: 1;
+  visibility: visible;
+}
+.submenuthreeopen {
+  opacity: 1;
+  visibility: visible;
+  max-height: initial;
+}
+li a {
+  color: #333 !important;
+  font-size: 14px;
+  line-height: 32px;
+}
+li {
+  padding: 0.5rem 0;
+}
+.logout-sub-menu {
+  right: 0px;
+}
+
+@media screen and (min-width: 750px) {
+  .logout-sub-menu {
+    right: 90px;
+  }
+}
 .modalDialog {
   position: fixed;
   top: 0;

@@ -6,10 +6,10 @@
                   <button type="button" class="btn1 ">{{sector.Name}}</button>
                 </div>
                 <ProfileComponent/>
-              </div>
+           </div>
 
 
-              <UserResponse :opinions="opinions" />
+              <UserResponse :opinions="opinions"/>
   </div>
 </template>
 
@@ -18,10 +18,25 @@ import ProfileComponent from '~/components/ProfileComponent.vue'
 import UserResponse from '~/components/UserResponse.vue'
 export default {
   components: {ProfileComponent, UserResponse},
+  
+   props:{
+   totalRows: {
+      type: Number,
+      default: 0,
+    },
+    bpg: {
+      type: Number,
+      default: 1,
+    },
+    pageSize: {
+      type: Number,
+      default: 10,
+    },
+  },
 
   computed: {
     sector2(){
-      return this.$store ? this.$store.state.notifications.sector2 : null;
+      return this.$store ? this.$store.state.data-fetching.sector2 : null;
     }
   },
 
