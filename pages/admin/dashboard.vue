@@ -72,22 +72,25 @@
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
                   <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
-                    <button
-                      @click="goToIndustryDetailsPage(sector)"
-                      type="button"
-                      class="button"
-                    >
-                      {{ sector.Name }}
-                    </button>
-                    <a href="#openModal-about">
-                      <i
-                        @click="setId(sector.Id)"
-                        class="far fa-times-circle"
-                        style="position: absolute; bottom: 35px; cursor: pointer"
-                      ></i
-                    ></a>
+                    <div>
+                      <button
+                        @click="goToIndustryDetailsPage(sector)"
+                        type="button"
+                        class="button"
+                      >
+                        {{ sector.Name }}
+                      </button>
+                      <a href="#openModal-about">
+                        <i
+                          @click="setId(sector.Id)"
+                          class="far fa-times-circle"
+                          style="position: absolute; cursor: pointer"
+                        ></i
+                      ></a>
+                    </div>
                   </div>
                 </div>
+
                 <b-pagination
                   v-model="bpg"
                   :total-rows="totalRows"
@@ -96,6 +99,7 @@
                   size="sm"
                   class="my-0 text-center"
                 />
+
                 <div class="" v-if="!sectors.length && !fetchSectorSpinner">
                   <button type="button" class="button">No sector yet</button>
                 </div>
@@ -205,8 +209,34 @@
                   </div>
                   <!--end of dropdown-->
                 </div>
-
-                <UserResponse :opinions="opinions" />
+                <div class="second-col px-4 pt-5 mt-5 pb-4">
+                  <div>
+                    <div class="d-flex">
+                      <p>Review Update</p>
+                      <div class="emoji ml-auto">
+                        <p>😡</p>
+                      </div>
+                      <div class="emoji">
+                        <p>😞</p>
+                      </div>
+                      <div class="emoji">
+                        <p>😑</p>
+                      </div>
+                      <div class="emoji">
+                        <p>😊</p>
+                      </div>
+                      <div class="emoji">
+                        <p>😍</p>
+                      </div>
+                    </div>
+                    <div
+                      class="mb-2"
+                      style="background: rgba(0, 0, 0, 0.1); height: 1px"
+                    ></div>
+                  </div>
+                  <UserResponse :opinions="opinions" />
+                  <div />
+                </div>
               </div>
             </b-col>
           </b-row>
@@ -277,7 +307,7 @@ export default {
   data() {
     return {
       filter: "",
-       logoutMenuState: false,
+      logoutMenuState: false,
       threeOpen: false,
       filter: "",
       positiveRatings: [],
@@ -288,13 +318,13 @@ export default {
       id: null,
       sectorSpinner: false,
       page: 1,
-      page2:1,
-      bpg2:1,
-      totalRows2:0,
+      page2: 1,
+      bpg2: 1,
+      totalRows2: 0,
       bpg: 1,
       sectors: [],
       sectors3: [],
-      sectors2:[],
+      sectors2: [],
       totalRows: null,
       opinions: [],
       pageSize: 10,
@@ -302,22 +332,16 @@ export default {
     };
   },
   async fetch() {
-    await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors()
+    await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors();
   },
   mounted() {
-    this.fetchSectors2()
-  },
-  computed: {
-    // sector2(){
-    //   return this.$store ? this.$store.state.notifications.sector2 : null;
-    // },
-    // ...mapState("data-fetching", ["sector3", "totalRows", "pageSize", "bpg"]),
+    this.fetchSectors2();
   },
 
   methods: {
     threeMenuOpen() {
       this.threeOpen = !this.threeOpen;
-    }, 
+    },
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
@@ -374,7 +398,7 @@ export default {
         this.totalRows2 = sector.data.TotalCount;
         if (sector.data.Results.length) {
           sector.data.Results.filter((sec) => {
-            if (this.sectors2.length != 5) {
+            if (this.sectors2.length != 4) {
               this.sectors2.push(sec);
             }
           });
@@ -387,7 +411,6 @@ export default {
           });
         }
       } catch (e) {
-        console.log(e);
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -431,11 +454,136 @@ export default {
     bpg() {
       this.fetchSectors();
     },
+    bpg2() {
+      this.fetchSectors2();
+    },
   },
 };
 </script>
 
 <style scoped>
+.media_ {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 450px;
+}
+
+.media_::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 50px;
+}
+
+.emoji p {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px 7px 0px;
+}
+
+/* Track */
+.media_::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.media_::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.media_::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
+.second-col {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+h2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 60px;
+  color: #656565;
+}
+
+p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.btn-sacademy {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 50%;
+  padding: 12px 0px 12px;
+  border: 0;
+  border-radius: 25px;
+  margin-left: 50%;
+}
+
+.img1 {
+  background: #e57718;
+  border-radius: 19.5px;
+}
+
+.img2 {
+  background: rgba(241, 19, 139, 0.87);
+  border-radius: 19.5px;
+}
+.img3 {
+  background: #18e5b4;
+  border-radius: 19.5px;
+}
+
+.firstp {
+  color: #626d73;
+}
+
+.btn2_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.2;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.profile-dropdown_ {
+  padding: 0px 5px 0px;
+  margin-left: -5px;
+}
+
+.btn1 {
+  background: #00b5d3;
+  border: none;
+  height: 35px;
+  width: 90px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+
 .btn2 {
   background: #00b5d3;
   border: none;
@@ -479,6 +627,11 @@ export default {
     width: 30px;
     font-size: 14px;
   }
+}
+
+.pagination-sm .page-item .page-link {
+  border: none !important;
+  width: 300px;
 }
 
 .sub-menu {
