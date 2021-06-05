@@ -1,29 +1,6 @@
 <template>
   <div>
-            <div class="second-col px-4 pt-5 mt-5 pb-4">
-            <div>
-            <div class="d-flex">
-              <p>Review Update</p>
-              <div class="emoji ml-auto">
-              <p>😡</p>
-            </div>
-                <div class="emoji">
-              <p>😞</p>
-            </div>
-            <div class="emoji">
-              <p>😑</p>
-            </div>
-            <div class="emoji">
-              <p>😊</p>
-            </div>
-            <div class="emoji">
-              <p>😍</p>
-            </div>
-            </div>
-            <div class=" mb-2"  style="background: rgba(0, 0, 0, 0.1);height: 1px;">
-              </div>
-            </div>
-
+            
          <div class="media_" v-if="opinions.length">
           <b-media v-for="opinion in opinions" :key="opinion.id">
             <template #aside>
@@ -61,7 +38,6 @@
 
           </b-media>
            </div>
-         </div>
   </div>
 </template>
 
