@@ -71,7 +71,7 @@
                   ></div>
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
-                  <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
+                  <div class="col-lg-4 col-xl-4 d-flex" v-for="sector in sectors" :key="sector.id">
                   <div>
                      <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
                       {{ sector.Name }}
@@ -359,10 +359,10 @@
         </div>
 
         <b-row class="justify-content-center">
-          <b-col md="4" class="newpost_ justify-content-center">
+          <b-col md="5" class=" justify-content-center">
             <b-form-group class="newpost">
               <button
-                class="btn-sacademy"
+                class="btn-sacademyy"
                 style="font-size: 16px"
                 type="submit"
                 value="Send"
@@ -663,7 +663,7 @@ p {
   color: #000000;
 }
 
-.btn-sacademy {
+.btn-sacademyy {
   color: #fff !important;
   background: #e57718;
   box-shadow: 0px 20px 20px #00000026;
@@ -672,7 +672,7 @@ p {
   padding: 12px 0px 12px;
   border: 0;
   border-radius: 25px;
-  margin-left: 50%;
+  margin-left: 25%;
 }
 
 .btn-sacademy1 {

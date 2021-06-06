@@ -10,6 +10,9 @@
             :key="sector.id"
             >{{ sector.Name }}</nuxt-link
           >
+
+          <SecDropdown />
+
         </div>
       </b-row>
     </b-container>
@@ -17,8 +20,10 @@
 </template>
 
 <script>
+import SecDropdown from './SecDropdown.vue'
 export default {
   name: "SecNav",
+  components: { SecDropdown },
   data() {
     return {
       sectors: [],
