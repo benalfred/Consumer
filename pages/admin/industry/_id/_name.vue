@@ -144,7 +144,7 @@
                       type="text"
                       required
                       debounce="1000"
-                      v-model="filter"
+                      v-model="keyword"
                       class="pl-5 pt-2 input"
                       placeholder="Search for user"
                     ></b-input>
@@ -201,20 +201,17 @@
                 <div>
                   <div class="d-flex">
                     <p>Review Update</p>
-                    <div class="emoji ml-auto">
-                      <p>😡</p>
-                    </div>
-                    <div class="emoji">
-                      <p>😞</p>
-                    </div>
-                    <div class="emoji">
-                      <p>😑</p>
-                    </div>
-                    <div class="emoji">
-                      <p>😊</p>
-                    </div>
-                    <div class="emoji">
-                      <p>😍</p>
+                    <div
+                      v-for="rating in ratingsData"
+                      :key="rating.Id"
+                      class="emoji ml-auto"
+                    >
+                      <p
+                        v-if="ratingMethod(rating.PreferredName)"
+                        @click="setRatingId(rating.Id)"
+                      >
+                        {{ ratingMethod(rating.PreferredName).emoji }}
+                      </p>
                     </div>
                   </div>
                   <div
@@ -222,7 +219,15 @@
                     style="background: rgba(0, 0, 0, 0.1); height: 1px"
                   ></div>
                 </div>
-                <UserResponse :opinions="opinions" />
+                <UserResponse :opinions="opinions" :spinner="opinionsSpinner" />
+                <b-pagination
+                  v-model="pageForOpinions2"
+                  :total-rows="totalRowsForOpinion"
+                  :per-page="pageSize"
+                  align="center"
+                  size="sm"
+                  class="my-0 text-center"
+                />
                 <div />
               </div>
             </b-col>
@@ -273,15 +278,12 @@
                       </div>
                     </div>
                     <!--upload-content-->
-                    <input
-                      data-required="image"
-                      type="file"
-                      name="image_name"
-                      id="file_upload"
-                      class="image-input"
-                      data-traget-resolution="image_resolution"
-                      value=""
-                    />
+                    <b-form-file
+                      v-model="form.Banner"
+                      placeholder="Choose a file or drop it here..."
+                      drop-placeholder="Drop file here..."
+                      name="image"
+                    ></b-form-file>
                   </label>
                 </div>
               </div>
@@ -292,9 +294,10 @@
         </div>
 
         <b-row class="justify-content-center">
-          <b-col md="4" class="newpost_ justify-content-center">
+          <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
             <b-form-group class="newpost">
               <button
+                @click="updateSector"
                 class="btn-sacademy"
                 style="font-size: 16px"
                 type="submit"
@@ -304,6 +307,11 @@
               </button>
             </b-form-group>
           </b-col>
+          <b-spinner
+            v-if="updateSpinner"
+            label="Spinning"
+            style="margin-left: 5%"
+          ></b-spinner>
         </b-row>
       </div>
     </b-modal>
@@ -360,20 +368,24 @@ export default {
     return {
       logoutMenuState: false,
       threeOpen: false,
-      filter: "",
       form: {
-        Name: null,
+        Id: this.$route.params.id,
+        Name: this.$route.params.name,
         Description: null,
         Slogan: null,
-        Banner: null,
+        Banner:[],
         Logo: null,
       },
-      filter: "",
-      positiveRatings: [],
-      isFetchingSectors: false,
       fetchCompanySpinner: false,
-      negativeRatings: [],
       Name: null,
+      ratingEmoji: [
+        { PreferredName: "Very Bad", emoji: "😡" },
+        { PreferredName: "Bad", emoji: "😞" },
+        { PreferredName: "Fair", emoji: "😑" },
+        { PreferredName: "Good", emoji: "😊" },
+        { PreferredName: "Very Good", emoji: "😍" },
+      ],
+      file: null,
       id: null,
       sectorSpinner: false,
       page: 1,
@@ -384,17 +396,29 @@ export default {
       sectors3: [],
       totalRows: null,
       opinions: [],
+      industryId: null,
+      rating: null,
+      updateSpinner: false,
+      keyword: null,
+      ratingsData: [],
+      pageForOpinions: 1,
+      pageForOpinions2: 1,
       pageSize: 10,
+      companyId: null,
+      totalRowsForOpinion: 0,
+      opinionsSpinner: false,
       addCompanySpinner: false,
     };
   },
   async fetch() {
     await this.fetchIndustryDetails();
+    await this.getRatings();
+  },
+  mounted() {
+    this.allOpinions();
   },
   methods: {
-    goToCompanyDetailsPage(){
-
-    },
+    goToCompanyDetailsPage() {},
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
@@ -409,6 +433,16 @@ export default {
     },
     setId(id) {
       this.id = id;
+    },
+    setRatingId(id) {
+      this.pageForOpinions2 = 1;
+      this.rating = id;
+      this.allOpinions();
+    },
+    setCompanyId(id) {
+      this.pageForOpinions2 = 1;
+      this.companyId = id;
+      this.allOpinions();
     },
     async fetchIndustryDetails() {
       this.fetchCompanySpinner = true;
@@ -471,10 +505,56 @@ export default {
         this.$store.commit("notifications/success", "company deleted");
         this.makeToast();
       } catch (e) {
-        console.log(e)
+        console.log(e);
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
+    },
+    async allOpinions() {
+      this.opinionsSpinner = true;
+      let keyword = this.keyword ? this.keyword : "";
+      keyword ? (this.pageForOpinions2 = 1) : this.pageForOpinions2;
+      this.pageForOpinions = this.pageForOpinions2;
+      this.pageForOpinions--;
+      try {
+        const opinions = await this.$axios.get(
+          `Opinions/GetOpinions?keyword=${keyword}&companyId=${this.companyId}&rating=${this.rating}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
+        );
+        this.opinions = opinions.data.Results;
+        this.totalRowsForOpinion = opinions.data.TotalCount;
+        this.opinionsSpinner = false;
+        console.log(opinions.data);
+      } catch (e) {
+        alert(e);
+        console.log(e);
+      }
+    },
+    async getRatings() {
+      try {
+        const ratings = await this.$axios.get("settings/GetRatings");
+        this.ratingsData = ratings.data;
+      } catch (e) {
+        alert("error");
+        console.log(e);
+      }
+    },
+    async updateSector() {
+      this.updateSpinner = true;
+      try {
+        const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
+        this.updateSpinner = false;
+        swal({
+          title: "Success!",
+          text: "sector updated!",
+          icon: "success",
+        });
+      } catch (e) {
+        alert(e);
+      }
+    },
+    ratingMethod(value) {
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      return foundEmoji;
     },
   },
 };

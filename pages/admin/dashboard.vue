@@ -149,7 +149,7 @@
                       type="text"
                       required
                       debounce="1000"
-                      v-model="filter"
+                      v-model="keyword"
                       class="pl-5 pt-2 input"
                       placeholder="Search for user"
                     ></b-input>
@@ -163,7 +163,9 @@
                     v-for="sector in sectors2"
                     :key="sector.Id"
                   >
-                    <button type="button" class="btn1">{{ sector.Name }}</button>
+                    <button type="button" @click="setIndustryId(sector.Id)" class="btn1">
+                      {{ sector.Name }}
+                    </button>
                   </div>
                   <!--start dropdown-->
                   <div class="">
@@ -193,7 +195,13 @@
                             :key="sector.Id"
                             class="d-flex px-2 align-items-center justify-content-start"
                           >
-                            <button type="button" class="btn2">{{ sector.Name }}</button>
+                            <button
+                              @click="setIndustryId(sector.Id)"
+                              type="button"
+                              class="btn2"
+                            >
+                              {{ sector.Name }}
+                            </button>
                           </div>
                           <b-pagination
                             v-model="bpg2"
@@ -213,20 +221,17 @@
                   <div>
                     <div class="d-flex">
                       <p>Review Update</p>
-                      <div class="emoji ml-auto">
-                        <p>😡</p>
-                      </div>
-                      <div class="emoji">
-                        <p>😞</p>
-                      </div>
-                      <div class="emoji">
-                        <p>😑</p>
-                      </div>
-                      <div class="emoji">
-                        <p>😊</p>
-                      </div>
-                      <div class="emoji">
-                        <p>😍</p>
+                      <div
+                        v-for="rating in ratingsData"
+                        :key="rating.Id"
+                        class="emoji ml-auto"
+                      >
+                        <p
+                          v-if="ratingMethod(rating.PreferredName)"
+                          @click="setRatingId(rating.Id)"
+                        >
+                          {{ ratingMethod(rating.PreferredName).emoji }}
+                        </p>
                       </div>
                     </div>
                     <div
@@ -234,7 +239,15 @@
                       style="background: rgba(0, 0, 0, 0.1); height: 1px"
                     ></div>
                   </div>
-                  <UserResponse :opinions="opinions" />
+                  <UserResponse :opinions="opinions" :spinner="opinionsSpinner" />
+                  <b-pagination
+                    v-model="pageForOpinions2"
+                    :total-rows="totalRowsForOpinion"
+                    :per-page="pageSize"
+                    align="center"
+                    size="sm"
+                    class="my-0 text-center"
+                  />
                   <div />
                 </div>
               </div>
@@ -306,10 +319,8 @@ export default {
   component: { SectorsList },
   data() {
     return {
-      filter: "",
       logoutMenuState: false,
       threeOpen: false,
-      filter: "",
       positiveRatings: [],
       isFetchingSectors: false,
       fetchSectorSpinner: false,
@@ -324,18 +335,36 @@ export default {
       bpg: 1,
       sectors: [],
       sectors3: [],
+      ratingEmoji: [
+        { PreferredName: "Very Bad", emoji: "😡" },
+        { PreferredName: "Bad", emoji: "😞" },
+        { PreferredName: "Fair", emoji: "😑" },
+        { PreferredName: "Good", emoji: "😊" },
+        { PreferredName: "Very Good", emoji: "😍" },
+      ],
       sectors2: [],
       totalRows: null,
       opinions: [],
+      industryId: null,
+      rating: null,
+      keyword: null,
+      ratingsData: [],
+      pageForOpinions: 1,
+      pageForOpinions2: 1,
       pageSize: 10,
+      totalRowsForOpinion: 0,
+      opinionsSpinner: false,
       addSectorSpinner: false,
     };
   },
   async fetch() {
-    await this.fetchPositiveRatingAndNegativeRating(), await this.fetchSectors();
+    await this.fetchPositiveRatingAndNegativeRating(),
+      await this.fetchSectors(),
+      await this.getRatings();
   },
   mounted() {
     this.fetchSectors2();
+    this.allOpinions()
   },
 
   methods: {
@@ -357,6 +386,7 @@ export default {
       this.$router.push(`/admin/industry/${sector.Id}/${sector.Name}`);
     },
     async deleteSector() {
+      alert(this.id);
       try {
         await this.$axios.post("/Industries/DeleteIndustry", { Id: this.id });
         let newSectors = this.sectors.filter((sector) => sector.Id != this.id);
@@ -432,6 +462,16 @@ export default {
         this.makeToast();
       }
     },
+    setRatingId(id) {
+      this.pageForOpinions2 = 1;
+      this.rating = id;
+      this.allOpinions();
+    },
+    setIndustryId(id) {
+      this.pageForOpinions2 = 1;
+      this.industryId = id;
+      this.allOpinions();
+    },
 
     async fetchPositiveRatingAndNegativeRating() {
       try {
@@ -449,6 +489,40 @@ export default {
         return;
       }
     },
+    async allOpinions() {
+      this.opinionsSpinner = true;
+      let keyword = this.keyword ? this.keyword : "";
+      keyword
+        ? (this.pageForOpinions2 = 1)
+        : this.pageForOpinions2;
+        this.pageForOpinions = this.pageForOpinions2
+      this.pageForOpinions--;
+      try {
+        const opinions = await this.$axios.get(
+          `Opinions/GetOpinions?keyword=${keyword}&industryId=${this.industryId}&rating=${this.rating}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
+        );
+        this.opinions = opinions.data.Results;
+        this.totalRowsForOpinion = opinions.data.TotalCount;
+        this.opinionsSpinner = false;
+        console.log(opinions.data);
+      } catch (e) {
+        alert(e);
+        console.log(e);
+      }
+    },
+    async getRatings() {
+      try {
+        const ratings = await this.$axios.get("settings/GetRatings");
+        this.ratingsData = ratings.data;
+      } catch (e) {
+        alert("error");
+        console.log(e);
+      }
+    },
+    ratingMethod(value) {
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      return foundEmoji;
+    },
   },
   watch: {
     bpg() {
@@ -456,6 +530,9 @@ export default {
     },
     bpg2() {
       this.fetchSectors2();
+    },
+    keyword() {
+      this.allOpinions();
     },
   },
 };

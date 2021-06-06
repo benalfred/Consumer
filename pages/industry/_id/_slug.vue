@@ -10,7 +10,7 @@
               data-aos-offset="30"
               data-aos-delay="50"
             >
-              Here’s what Nigerian’s are saying about the Technology Industry
+              Here’s what Nigerian’s are saying about the {{Name}} Industry
             </h4>
           </b-col>
           <b-col md="12" class="mt-3">
@@ -152,13 +152,19 @@ export default {
   layout: "headerr",
   component: { agegender, footer, SecNav },
   data() {
-    return {};
+    return {
+      Name:null,
+      Slogan:null,
+      Banner:null,
+      Logo:null,
+      companies:[],
+      Description:null
+    };
   },
 
-  async fetch() {
-    await this.fetchIndustryDetails();
-  },
   mounted() {
+     alert('hello')
+     this.fetchIndustryDetails();
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -167,10 +173,15 @@ export default {
 
   methods: {
     async fetchIndustryDetails() {
+      alert('runnig')
       try {
-      const response = await this.$axios.get(`Industries/GetPublicIndustryDetails?industryId${this.$route.params.id}`)
+      const response = await this.$axios.get(`Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`)
       console.log(response.data)
-      alert('telenubo is here')
+      this.Name = response.data.Name
+      this.Slogan = response.data.Slogan
+      this.Description = response.data.Description
+      this.Logo = response.data.Logo
+      this.Banner = response.data.Banner
       } catch (e) {
       alert('error')
       }
