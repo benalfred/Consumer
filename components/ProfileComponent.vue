@@ -10,13 +10,11 @@
       <ul
         class="logout-sub-menu sub-menu"
         id="logout-sub-menu"
-        :class="{ submenuthreeopen: threeOpen }"
-      >
+        :class="{ submenuthreeopen: threeOpen }">
         <li>
           <n-link
             to="/dashboard"
-            class="d-flex align-items-center px-2 justify-content-start"
-          >
+            class="d-flex align-items-center px-2 justify-content-start">
             Others
           </n-link>
         </li>

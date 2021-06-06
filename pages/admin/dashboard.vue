@@ -72,33 +72,31 @@
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
                   <div class="col-md-4 d-flex" v-for="sector in sectors" :key="sector.id">
-                    <div>
-                      <button
-                        @click="goToIndustryDetailsPage(sector)"
-                        type="button"
-                        class="button"
-                      >
-                        {{ sector.Name }}
-                      </button>
-                      <a href="#openModal-about">
-                        <i
-                          @click="setId(sector.Id)"
-                          class="far fa-times-circle"
-                          style="position: absolute; cursor: pointer"
-                        ></i
-                      ></a>
-                    </div>
+                  <div>
+                     <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
+                      {{ sector.Name }}
+                    </button>
+                    <a href="#openModal-about">
+                      <i @click="setId(sector.Id)"
+                        class="far fa-times-circle "
+                        style="position: absolute;  cursor: pointer; top: 5px; left: 5px"
+                      ></i
+                    ></a>
+                  </div>
+
                   </div>
                 </div>
 
-                <b-pagination
-                  v-model="bpg"
-                  :total-rows="totalRows"
-                  :per-page="pageSize"
-                  align="center"
-                  size="sm"
-                  class="my-0 text-center"
+                <div>
+                   <b-pagination
+                    v-model="bpg"
+                    :total-rows="totalRows"
+                    :per-page="pageSize"
+                    align="center"
+                    size="sm"
+                    class="my-0 text-center"
                 />
+                </div>
 
                 <div class="" v-if="!sectors.length && !fetchSectorSpinner">
                   <button type="button" class="button">No sector yet</button>
@@ -257,15 +255,7 @@
       </div>
     </div>
 
-    <!-- <b-modal
-          id="modal-lg"
-          size="lg" class="popup"
-          centered scrollable title=""
-          body-bg-variant="light"
-          header-bg-variant="light" hide-footer>
 
-
-        </b-modal> -->
 
     <!--modals-->
     <div id="openModal-about" class="modalDialog">
@@ -279,7 +269,7 @@
               <b-form-group class="newpost mt-3">
                 <a href="#close">
                   <button
-                    class="mt-2 mr-4 btn-sacademy"
+                    class="mt-2  btn-sacademy_"
                     style="font-size: 16px"
                     type="submit"
                     value="Send"
@@ -309,6 +299,81 @@
         </div>
       </div>
     </div>
+
+     <b-modal
+      id="modal-xl"
+      size="xl"
+      class="popup"
+      centered
+      scrollable
+      title="Technology"
+      body-bg-variant="light"
+      header-bg-variant="light"
+      hide-footer
+    >
+      <div class="item-wrapper one justify-content-center">
+        <input class="" type="text" name="" placeholder="Technology at its very best">
+
+        <p class="text-center">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <div class="item">
+          <form
+            data-validation="true"
+            action="#"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="item-inner">
+              <div class="item-content">
+                <div class="image-upload">
+                  <label style="cursor: pointer" for="file_upload">
+                    <img src="" alt="" class="uploaded-image" />
+                    <div class="h-100">
+                      <div class="dplay-tbl">
+                        <div class="dplay-tbl-cell">
+                          <i class="fa fa-cloud-upload"></i>
+                          <h5><b>Choose Your Image to Upload</b></h5>
+                          <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <!--upload-content-->
+                    <input
+                      data-required="image"
+                      type="file"
+                      name="image_name"
+                      id="file_upload"
+                      class="image-input"
+                      data-traget-resolution="image_resolution"
+                      value=""
+                    />
+                  </label>
+                </div>
+              </div>
+              <!--item-content-->
+            </div>
+            <!--item-inner-->
+          </form>
+        </div>
+
+        <b-row class="justify-content-center">
+          <b-col md="4" class="newpost_ justify-content-center">
+            <b-form-group class="newpost">
+              <button
+                class="btn-sacademy"
+                style="font-size: 16px"
+                type="submit"
+                value="Send"
+              >
+                Update
+              </button>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -608,6 +673,30 @@ p {
   border: 0;
   border-radius: 25px;
   margin-left: 50%;
+}
+
+.btn-sacademy1 {
+   color: #fff !important;
+  background: #18E5B4;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 300%;
+  padding: 9px 0px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
+.btn-sacademy_ {
+  color: #fff !important;
+  background: #D91925;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  position: relative;
+  left: -80px;
+  width: 200%;
+  padding: 9px 5px 9px;
+  border: 0;
+  border-radius: 25px;
 }
 
 .img1 {
