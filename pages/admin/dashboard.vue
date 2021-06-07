@@ -5,14 +5,7 @@
         <div class="container-fluid">
           <div class="d-flex" style="cursor: pointer">
             <h1 class="mb-5">Welcome Back!</h1>
-            <div>
-              <img
-                v-b-modal.modal-xl
-                class="ml-4 mt-2"
-                src="~assets/img/bx_bxs-edit-alt.png"
-                alt=""
-              />
-            </div>
+           
           </div>
           <b-row>
             <b-col lg="6" xl="6" class="">
@@ -246,12 +239,7 @@
                       style="background: rgba(0, 0, 0, 0.1); height: 1px"
                     ></div>
                   </div>
-                  <!-- <UserResponse :opinions="opinions" :spinner="opinionsSpinner" /> -->
-                  <div class="row justify-content-center d-flex my-4">
-                    <div class="col-4">
-                      <img src="~/assets/img/opinion.jpg" class="img-fluid no-opinion-img" alt="">
-                    </div>
-                  </div>
+                  <UserResponse :opinions="opinions" :spinner="opinionsSpinner" />
                   <b-pagination
                     v-model="pageForOpinions2"
                     :total-rows="totalRowsForOpinion"

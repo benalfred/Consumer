@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <section class="bg">
+      <div class="container">
         <b-row>
             <b-col md="12">
                 <h4 class="text-center pb-1" data-aos="fade-up" data-aos-offset="30"
@@ -11,7 +12,7 @@
                 <div style="background: #0083CA;" class="p-2"></div>
             </b-col>
         </b-row>
-      </b-container>
+      </div>
     </section>
 
     <b-container class="mb-5 second-con">

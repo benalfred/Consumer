@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="media_">
-      <b-spinner v-if="spinner" label="Spinning" style="margin-left: 49%"></b-spinner>
+      <b-spinner
+        v-if="spinner"
+        label="Spinning"
+        style="margin-left: 49%"
+      ></b-spinner>
     </div>
     <div class="media_" v-if="opinions.length && !spinner">
       <b-media v-for="opinion in opinions" :key="opinion.Id">
@@ -19,7 +23,9 @@
             {{ ratingMethod(opinion.Rating).emoji }}
           </div>
           <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
-          <div><img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" /></div>
+          <div>
+            <img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" />
+          </div>
         </div>
         <p class="firstp">
           <span v-for="tag in opinion.Tags" :key="tag.Id">{{ tag.Name }}|</span>
@@ -32,25 +38,15 @@
       </b-media>
     </div>
     <div class="media_" v-if="!opinions.length && !spinner">
-      <b-media>
-        <template #aside>
+      <div class="row justify-content-center d-flex my-4">
+        <div class="col-4">
           <img
-            src="~/assets/img/vector4.png"
-            class="img-fluid p-2 mt-2 img1"
-            alt="Media Aside"
+            src="~/assets/img/opinion.jpg"
+            class="img-fluid no-opinion-img"
+            alt=""
           />
-        </template>
-
-        <h6 class="pt-3">User 1</h6>
-        <div class="d-flex">
-          <div><img src="~/assets/img/emoji1.png" class="img-fluid" alt="" /></div>
-          <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
-          <div><img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" /></div>
         </div>
-        <p class="firstp">No opinions yet</p>
-
-        <!-- b-[Optional: add media children here for nesting] -->
-      </b-media>
+      </div>
     </div>
   </div>
 </template>

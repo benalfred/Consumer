@@ -21,7 +21,7 @@
 <script>
 import SecDropdown from "./SecDropdown.vue";
 export default {
-  name: "SecNav",
+  name: "SecNavComponent",
   components: { SecDropdown },
   data() {
     return {

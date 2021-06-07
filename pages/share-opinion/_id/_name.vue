@@ -23,7 +23,7 @@
             <div class="mb-4 mt-4" style="background: #626d73; height: 1px">
               <div class="mt-2 line"></div>
             </div> </b-media
-          ><select name="" id="" disabled="disabled"></select>
+          >
 
           <div class="d-flex" style="padding: 0px 10px 0px">
             <div class="emoji" v-for="ratingg in ratingsData" :key="ratingg.id">
@@ -65,12 +65,12 @@
             </b-col>
           </div>
           <div class="row" v-if="!ratingTags.length && !ratingTagSpinner">
-            <b-col md="3">
+            <b-col md="4">
               <div
-                class="card-subtitle mb-2 px-3 text-muted text-center"
+                class="card-subtitle mb-2 px-3 p-2 text-muted text-center"
                 style="
                   border: 1px solid #81959e;
-                  border-radius: 50px;
+                  border-radius: 50px; logo-main
                   font-size: 14px;
                   color: #81959e;
                 "
@@ -120,6 +120,7 @@
         </div>
 
         <div class="col-md-7 section_ px-5 pt-5 mt-3">
+          <div class="section__">
           <div class="second-col px-4 pt-4 pb-4" v-if="opinions.length && !spinner">
             <b-media>
               <template #aside>
@@ -182,6 +183,7 @@
             size="sm"
             class="my-0 text-center"
           />
+        </div>
         </div>
       </div>
     </div>
@@ -316,7 +318,36 @@ export default {
   border-radius: 10px;
 }
 .section_ {
-  background: #626d73;
+  
+}
+
+.section_::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 50px;
+}
+
+.emoji p {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px 7px 0px;
+}
+
+/* Track */
+.section_::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.section_::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.section_::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
 }
 
 @media screen and (min-width: 600px) {

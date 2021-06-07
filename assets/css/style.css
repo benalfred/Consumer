@@ -54,11 +54,16 @@ h6 {
   line-height: 1.5;
   border: none;
   margin-top: 10px;
+  
 }
 
+li .page-item  {
+  background: red;
+}
 
 .page-item {
   width: 50px;
+  
 }
 
 .page-item.active .page-link {
@@ -66,10 +71,12 @@ h6 {
   color: #fff;
   background-color: #E57718!important;
   border-color: #E57718;
-  margin-left: 3px;
+  margin-left: 4px;
   border-radius: 50px;
   padding: 8px 14px 7px;
-
+  position: relative;
+  bottom: 3px;
+  left: 3px;
 }
 
 .no-opinion-img {
@@ -148,7 +155,7 @@ a {
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     padding: 13px 100px 13px !important;
-    color: #e5e5e5!important;
+    color: #E57718!important;
     font-weight: 500;
     font-size: 1.225rem;
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="pb-2">
-      <b-container class="mt-3 pb-5">
+      <b-container class="3 pb-5">
         <div class="mb-4 mx-0 justify-content-center">
           <h3 class="text-white text-center pb-5 h3" data-aos="fade-in">
             Join the community today to share your opinions!
@@ -166,9 +166,11 @@
 </template>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css"
 export default {
-  layout: "headerr",
    auth: 'guest',
+   
   data() {
     return {
       spinner: false,
@@ -181,6 +183,15 @@ export default {
       },
     };
   },
+  mounted() {
+    AOS.init({
+      offset: 100,
+      duration: 1000,
+    });
+  },
+  
+
+   
 
   methods: {
     async registerUser() {
@@ -213,7 +224,9 @@ export default {
         }
       }
     },
+    
   },
+  
 };
 </script>
 

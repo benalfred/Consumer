@@ -11,13 +11,12 @@
         class="logout-sub-menu sub-menu"
         id="logout-sub-menu"
         :class="{ submenuthreeopen: threeOpen }">
-       
+
         <li>
           <div
             v-for="sector in sectors2"
             :key="sector.Id"
-            class="d-flex  align-items-start justify-content-start"
-          >
+            class="d-flex  align-items-start justify-content-start">
              <nuxt-link
             :to="`/industry/${sector.Id}/${sector.Name}`"
             > <p>{{ sector.Name }}</p> </nuxt-link
