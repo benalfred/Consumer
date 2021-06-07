@@ -10,7 +10,7 @@
               data-aos-offset="30"
               data-aos-delay="50"
             >
-              Here’s what Nigerian’s are saying about the {{Name}} Industry
+              Here’s what Nigerian’s are saying about the {{ Name }} Industry
             </h4>
           </b-col>
           <b-col md="12" class="mt-3">
@@ -32,10 +32,10 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">20</h6>
+                <h6 class="pt-2 mt-1">{{PositivePercent}}</h6>
                 <p class="ml-2 pt-4">
-                  Some <br />
-                  text
+                  Positve <br />
+                  Opinion
                 </p>
               </div>
             </b-media>
@@ -52,9 +52,9 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">50</h6>
+                <h6 class="pt-2 mt-1">{{NegativePercent}}</h6>
                 <p class="ml-1 pt-4">
-                  NEGATIVe <br />
+                  Negative <br />
                   Opinion
                 </p>
               </div>
@@ -72,9 +72,9 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">40</h6>
+                <h6 class="pt-2 mt-1">{{NeutralPercent}}</h6>
                 <p class="ml-1 pt-4">
-                  NAGATIVE <br />
+                  Neutral <br />
                   Opinion
                 </p>
               </div>
@@ -92,7 +92,7 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">190</h6>
+                <h6 class="pt-2 mt-1">{{TotalReviewCount}}</h6>
                 <p class="ml-1 pt-4">
                   REVIES <br />
                   SUBMITTED
@@ -110,26 +110,19 @@
 
         <b-row>
           <b-col md="11" class="dell-card ml-lg-5">
-            <div class="d-flex_ row p-5">
-              <div class="col-md-2">
-                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-              </div>
-              <div class="col-md-2">
-                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-              </div>
-              <div class="col-md-2">
-                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-              </div>
-              <div class="col-md-2">
-                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-              </div>
-              <div class="col-md-2">
+            <div class="d-flex_ row p-5" v-if="companies.length">
+              <div style="cursor:pointer;" @click="goToCompanyPage(company)" class="col-md-2" v-for="company in companies" :key="company.Id">
                 <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
               </div>
               <div class="col-md-2 mt-3 pl-1">
                 <button class="btn">
                   <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                 </button>
+              </div>
+            </div>
+            <div class="d-flex_ row p-5" v-if="!companies.length">
+              <div class="col-md-12">
+                <h3>No company for {{ Name }} Yet</h3>
               </div>
             </div>
           </b-col>
@@ -153,18 +146,22 @@ export default {
   component: { agegender, footer, SecNav },
   data() {
     return {
-      Name:null,
-      Slogan:null,
-      Banner:null,
-      Logo:null,
-      companies:[],
-      Description:null
+      Name: null,
+      Slogan: null,
+      Banner: null,
+      Logo: null,
+      companies: [],
+      Description: null,
+      PositivePercent: 0,
+    NegativePercent: 0,
+    NeutralPercent: 0,
+    TotalReviewCount: 0,
     };
   },
 
   mounted() {
-     alert('hello')
-     this.fetchIndustryDetails();
+    alert("hello");
+    this.fetchIndustryDetails();
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -172,18 +169,28 @@ export default {
   },
 
   methods: {
+    goToCompanyPage(company){
+     this.$router.push(`/company/${company.Id}/${company.Name}`)
+    },
     async fetchIndustryDetails() {
-      alert('runnig')
+      alert("runnig");
       try {
-      const response = await this.$axios.get(`Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`)
-      console.log(response.data)
-      this.Name = response.data.Name
-      this.Slogan = response.data.Slogan
-      this.Description = response.data.Description
-      this.Logo = response.data.Logo
-      this.Banner = response.data.Banner
+        const response = await this.$axios.get(
+          `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
+        );
+        console.log(response.data);
+        this.Name = response.data.Name;
+        this.Slogan = response.data.Slogan;
+        this.Description = response.data.Description;
+        this.Logo = response.data.Logo;
+        this.Banner = response.data.Banner;
+        this.companies = response.data.Companies
+        this.PositivePercent = response.data.GeneralRating.PositivePercent
+        this.NegativePercent = response.data.GeneralRating.NegativePercent
+        this.NeutralPercent = response.data.GeneralRating.NeutralPercent
+        this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount
       } catch (e) {
-      alert('error')
+        alert("error");
       }
     },
   },
@@ -259,7 +266,7 @@ h4 {
 }
 
 .img2 {
-  background: #D91925;
+  background: #d91925;
   border-radius: 19.5px;
 }
 

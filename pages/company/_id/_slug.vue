@@ -1,11 +1,10 @@
 <template>
   <div class="">
     <section class="bg">
-       <SecNav />
         <b-row>
             <b-col md="12">
                 <h4 class="text-center pb-1" data-aos="fade-up" data-aos-offset="30"
-                       data-aos-delay="50">Here’s what Nigerian’s are saying about the Technology Industry</h4>
+                       data-aos-delay="50">Here’s what Nigerian’s are saying about the {{Name}} Industry</h4>
             </b-col>
             <b-col md="12" class="mt-3">
                 <img src="~/assets/img/dellbg.png" class="img-fluid" alt="">
@@ -20,12 +19,12 @@
         <b-row class="mt-5 pt-5 d-lg-flex">
             <b-col md="5">
                 <p class="header-p" data-aos="fade-right" data-aos-offset="30"
-                       data-aos-delay="50">Dell Technology</p>
+                       data-aos-delay="50">{{Name}}</p>
                 <p class="pt-3 dell-p" data-aos="fade-right" data-aos-offset="30"
                        data-aos-delay="200">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
                  <b-form-group class="newpost mt-3" data-aos="fade-right" data-aos-offset="30"
                        data-aos-delay="300">
-                <button class=" mt-2 btn-sacademy" v-b-modal.modal-xl style="font-size: 16px" type="submit" value="Send">Share your Opinion</button>
+                <button @click="goToShareOpinionPage" class=" mt-2 btn-sacademy" style="font-size: 16px" type="submit" value="Send">Share your Opinion</button>
               </b-form-group>
             </b-col>
 
@@ -84,11 +83,52 @@ export default {
   layout: "headerr",
   component: {agegender, footer, SecNav},
 
+  async fetch(){
+   await this.fetchIndustryDetails()
+  },
+
    mounted() {
     AOS.init({
       offset: 100,
       duration: 1000,
     });
+  },
+  data() {
+    return {
+            Name: null,
+      Slogan: null,
+      Banner: null,
+      Logo: null,
+       PositivePercent: 0,
+    NegativePercent: 0,
+    NeutralPercent: 0,
+    TotalReviewCount: 0,
+    }
+  },
+
+  methods: {
+    goToShareOpinionPage(){
+     this.$router.push(`/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`)
+    },
+    async fetchIndustryDetails() {
+      try {
+        const response = await this.$axios.get(
+          `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
+        );
+        console.log(response.data);
+        this.Name = response.data.Name;
+        this.Slogan = response.data.Slogan;
+        this.Description = response.data.Description;
+        this.Logo = response.data.Logo;
+        this.Banner = response.data.Banner;
+        this.PositivePercent = response.data.GeneralRating.PositivePercent
+        this.NegativePercent = response.data.GeneralRating.NegativePercent
+        this.NeutralPercent = response.data.GeneralRating.NeutralPercent
+        this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount
+      } catch (e) {
+        alert("error");
+      }
+    },
   },
 
 };

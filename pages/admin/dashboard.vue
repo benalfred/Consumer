@@ -71,34 +71,42 @@
                   ></div>
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
-                  <div class="col-lg-4 col-xl-4 d-flex" v-for="sector in sectors" :key="sector.id">
-                  <div>
-                     <button @click="goToIndustryDetailsPage(sector)" type="button" class="button">
-                      {{ sector.Name }}
-                    </button>
-                    <a href="#openModal-about">
-                      <i @click="setId(sector.Id)"
-                        class="far fa-times-circle "
-                        style="position: absolute;  cursor: pointer; top: 5px; left: 5px"
-                      ></i
-                    ></a>
-                  </div>
-
+                  <div
+                    class="col-lg-4 col-xl-4 d-flex"
+                    v-for="sector in sectors"
+                    :key="sector.id"
+                  >
+                    <div>
+                      <button
+                        @click="goToIndustryDetailsPage(sector)"
+                        type="button"
+                        class="button"
+                      >
+                        {{ sector.Name }}
+                      </button>
+                      <a href="#openModal-about">
+                        <i
+                          @click="setId(sector.Id)"
+                          class="far fa-times-circle"
+                          style="position: absolute; cursor: pointer; top: 5px; left: 5px"
+                        ></i
+                      ></a>
+                    </div>
                   </div>
                 </div>
 
                 <div>
-                   <b-pagination
+                  <b-pagination
                     v-model="bpg"
                     :total-rows="totalRows"
                     :per-page="pageSize"
                     align="center"
                     size="sm"
                     class="my-0 text-center"
-                />
+                  />
                 </div>
 
-                <div class="" v-if="!sectors.length && !fetchSectorSpinner">
+                <div class="d-flex_ row" v-if="!sectors.length && !fetchSectorSpinner">
                   <button type="button" class="button">No sector yet</button>
                 </div>
                 <b-spinner
@@ -158,15 +166,24 @@
                 <div class="d-flex profile-dropdown mr-5">
                   <div
                     class="profile-dropdown_"
+                    :class="[industryId != 0 ? 'active' : '']"
+                  >
+                    <button type="button" @click="setIndustryIdToZero" class="btn1">
+                      All
+                    </button>
+                  </div>
+                  <div
+                    class="profile-dropdown_"
                     v-for="sector in sectors2"
                     :key="sector.Id"
+                    :class="[industryId != sector.Id ? 'active' : '']"
                   >
                     <button type="button" @click="setIndustryId(sector.Id)" class="btn1">
                       {{ sector.Name }}
                     </button>
                   </div>
                   <!--start dropdown-->
-                  <div class="">
+                  <div class="" v-if="sectors3.length">
                     <div
                       class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
                       type="submit"
@@ -211,15 +228,16 @@
                     <div class="d-flex">
                       <p>Review Update</p>
                       <div
-                        v-for="rating in ratingsData"
-                        :key="rating.Id"
+                        v-for="ratingg in ratingsData"
+                        :key="ratingg.Id"
                         class="emoji ml-auto"
                       >
                         <p
-                          v-if="ratingMethod(rating.PreferredName)"
-                          @click="setRatingId(rating.Id)"
+                          v-if="ratingMethod(ratingg.PreferredName)"
+                          @click="setRatingId(ratingg.Id)"
+                          :class="[rating != ratingg.Id ? 'active' : '']"
                         >
-                          {{ ratingMethod(rating.PreferredName).emoji }}
+                          {{ ratingMethod(ratingg.PreferredName).emoji }}
                         </p>
                       </div>
                     </div>
@@ -251,8 +269,6 @@
       </div>
     </div>
 
-
-
     <!--modals-->
     <div id="openModal-about" class="modalDialog">
       <div>
@@ -265,7 +281,7 @@
               <b-form-group class="newpost mt-3">
                 <a href="#close">
                   <button
-                    class="mt-2  btn-sacademy_"
+                    class="mt-2 btn-sacademy_"
                     style="font-size: 16px"
                     type="submit"
                     value="Send"
@@ -296,7 +312,7 @@
       </div>
     </div>
 
-     <b-modal
+    <b-modal
       id="modal-xl"
       size="xl"
       class="popup"
@@ -308,7 +324,7 @@
       hide-footer
     >
       <div class="item-wrapper one justify-content-center">
-        <input class="" type="text" name="" placeholder="Technology at its very best">
+        <input class="" type="text" name="" placeholder="Technology at its very best" />
 
         <p class="text-center">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
@@ -355,7 +371,7 @@
         </div>
 
         <b-row class="justify-content-center">
-          <b-col md="5" class=" justify-content-center">
+          <b-col md="5" class="justify-content-center">
             <b-form-group class="newpost">
               <button
                 class="btn-sacademyy"
@@ -406,8 +422,8 @@ export default {
       sectors2: [],
       totalRows: null,
       opinions: [],
-      industryId: null,
-      rating: null,
+      industryId: 0,
+      rating: 5,
       keyword: null,
       ratingsData: [],
       pageForOpinions: 1,
@@ -420,15 +436,19 @@ export default {
   },
   async fetch() {
     await this.fetchPositiveRatingAndNegativeRating(),
+      await this.fetchSectors2(),
       await this.fetchSectors(),
       await this.getRatings();
   },
   mounted() {
-    this.fetchSectors2();
-    this.allOpinions()
+    this.allOpinions();
   },
 
   methods: {
+    setIndustryIdToZero() {
+      this.industryId = 0;
+      this.allOpinions();
+    },
     threeMenuOpen() {
       this.threeOpen = !this.threeOpen;
     },
@@ -475,7 +495,23 @@ export default {
         });
         await this.fetchSectors();
       } catch (e) {
-        console.log(e);
+        if (e.response) {
+          this.addSectorSpinner = false;
+          swal({
+            title: "Error!",
+            text: e.response.data,
+            icon: "warning",
+            dangerMode: true,
+          });
+        } else {
+          this.addSectorSpinner = false;
+          swal({
+            title: "Error!",
+            text: "something went wrong",
+            icon: "warning",
+            dangerMode: true,
+          });
+        }
       }
     },
     async fetchSectors2() {
@@ -489,14 +525,14 @@ export default {
         this.totalRows2 = sector.data.TotalCount;
         if (sector.data.Results.length) {
           sector.data.Results.filter((sec) => {
-            if (this.sectors2.length != 4) {
+            if (this.sectors2.length != 3) {
               this.sectors2.push(sec);
             }
           });
           let ctx = this;
           ctx.sectors3 = [];
           sector.data.Results.filter((sec, index) => {
-            if (index > 4) {
+            if (index > 2) {
               ctx.sectors3.push(sec);
             }
           });
@@ -553,10 +589,8 @@ export default {
     async allOpinions() {
       this.opinionsSpinner = true;
       let keyword = this.keyword ? this.keyword : "";
-      keyword
-        ? (this.pageForOpinions2 = 1)
-        : this.pageForOpinions2;
-        this.pageForOpinions = this.pageForOpinions2
+      keyword ? (this.pageForOpinions2 = 1) : this.pageForOpinions2;
+      this.pageForOpinions = this.pageForOpinions2;
       this.pageForOpinions--;
       try {
         const opinions = await this.$axios.get(
@@ -600,6 +634,9 @@ export default {
 </script>
 
 <style scoped>
+.active {
+  opacity: 0.3;
+}
 .media_ {
   overflow: hidden;
   overflow-y: scroll;
@@ -672,8 +709,8 @@ p {
 }
 
 .btn-sacademy1 {
-   color: #fff !important;
-  background: #18E5B4;
+  color: #fff !important;
+  background: #18e5b4;
   box-shadow: 0px 20px 20px #00000026;
   opacity: 1;
   width: 300%;
@@ -684,7 +721,7 @@ p {
 
 .btn-sacademy_ {
   color: #fff !important;
-  background: #D91925;
+  background: #d91925;
   box-shadow: 0px 20px 20px #00000026;
   opacity: 1;
   position: relative;

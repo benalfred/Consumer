@@ -20,20 +20,15 @@
         </li>
         <li>
           <div
-            v-for="sector in sectors3"
+            v-for="sector in sectors2"
             :key="sector.Id"
             class="d-flex px-2 align-items-center justify-content-start"
           >
-            <button type="button" class="btn2">{{ sector.Name }}</button>
+             <nuxt-link
+            :to="`/industry/${sector.Id}/${sector.Name}`"
+            >{{ sector.Name }}</nuxt-link
+          >
           </div>
-          <b-pagination
-            v-model="bpg"
-            :total-rows="totalRows"
-            :per-page="pageSize"
-            align="center"
-            size="sm"
-            class="my-0 text-center"
-          />
         </li>
       </ul>
     </div>
@@ -52,6 +47,13 @@ export default {
     };
   },
   props:{
+ sectors2: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+
    totalRows: {
       type: Number,
       default: 0,

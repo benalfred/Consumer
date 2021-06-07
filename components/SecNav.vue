@@ -11,8 +11,7 @@
             >{{ sector.Name }}</nuxt-link
           >
 
-          <SecDropdown />
-
+          <SecDropdown :sectors2="sectors2" />
         </div>
       </b-row>
     </b-container>
@@ -20,13 +19,14 @@
 </template>
 
 <script>
-import SecDropdown from './SecDropdown.vue'
+import SecDropdown from "./SecDropdown.vue";
 export default {
   name: "SecNav",
   components: { SecDropdown },
   data() {
     return {
       sectors: [],
+      sectors2: [],
       page: 1,
       id: this.colorCheckingId,
       pageSize: 1,
@@ -36,19 +36,31 @@ export default {
     await this.fetchSectors();
   },
   computed: {
-    colorCheckingId(){
-      return this.id = this.$route.params.id
-    }
+    colorCheckingId() {
+      return (this.id = this.$route.params.id);
+    },
   },
 
   methods: {
     async fetchSectors() {
       try {
         this.pageSize -= 1;
-        const sectors = await this.$axios.get(
+        const response = await this.$axios.get(
           `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
         );
-        this.sectors = sectors.data.Results;
+        if (response.data.Results.length) {
+          response.data.Results.filter((sec) => {
+            if (this.sectors.length != 5) {
+              this.sectors.push(sec);
+            }
+          });
+          let ctx = this;
+          response.data.Results.filter((com, index) => {
+            if (index > 4) {
+              ctx.sectors2.push(com);
+            }
+          });
+        }
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
@@ -71,5 +83,4 @@ export default {
   text-align: center;
   color: #373737;
 }
-
 </style>

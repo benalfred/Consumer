@@ -43,7 +43,7 @@
                     <img class="pl-2 d-none d-sm-block" height="220" src="~/assets/img/line7.png" alt="">
 
                      <div class="col-md-3  text-p">
-                     <h6 class="text-center">Positive Opinion</h6>
+                     <h6 class="text-center">Negative Opinion</h6>
                         <p data-aos="fade-up" data-aos-offset="30"
                        data-aos-delay="50">50%</p>
                         <p data-aos="fade-up" data-aos-offset="30"
@@ -56,7 +56,7 @@
 
 
                       <div class="col-md-3  text-p">
-                     <h6 class="text-center">Positive Opinion</h6>
+                     <h6 class="text-center">Neutral Opinion</h6>
                         <p data-aos="fade-up" data-aos-offset="30"
                        data-aos-delay="50">50%</p>
                         <p data-aos="fade-up" data-aos-offset="30"
@@ -106,7 +106,7 @@
                     <img class="pl-2 d-none d-sm-block" height="220" src="~/assets/img/line7.png" alt="">
 
                      <div class="col-md-3  text-p">
-                     <h6 class="text-center">Positive Opinion</h6>
+                     <h6 class="text-center">Negative Opinion</h6>
                         <p data-aos="fade-up" data-aos-offset="30"
                        data-aos-delay="50">50%</p>
                         <p data-aos="fade-up" data-aos-offset="30"
@@ -118,7 +118,7 @@
                     <img class="pl-2 d-none d-sm-block" height="220" src="~/assets/img/line7.png" alt="">
 
                       <div class="col-md-3  text-p">
-                     <h6 class="text-center">Positive Opinion</h6>
+                     <h6 class="text-center">Neutral Opinion</h6>
                         <p>50%</p>
                         <p>20%</p>
                         <p>30%</p>
