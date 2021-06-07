@@ -3,7 +3,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
         <div class="container-fluid">
-          <b-row>
+          <b-row class="overflow_">
             <b-col md="6">
               <div class="d-flex">
                 <h1 class="" v-if="form.Name">
@@ -135,8 +135,10 @@
               </div>
             </b-col>
 
+
+
             <b-col lg="6" xl="6" class="all pl-lg-5">
-              <div class="search-wrapper mb-3">
+              <div class="search-wrapper mb-3 mt-5">
                 <div class="wrapper">
                   <div class="input-data">
                     <span class="las la-search search"></span>
@@ -161,6 +163,7 @@
                   <button type="button" class="btn1">{{ company.Name }}</button>
                 </div>
                 <!--start dropdown-->
+
                 <div class="">
                   <div
                     class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
@@ -219,6 +222,7 @@
                     style="background: rgba(0, 0, 0, 0.1); height: 1px"
                   ></div>
                 </div>
+
                 <UserResponse :opinions="opinions" :spinner="opinionsSpinner" />
                 <b-pagination
                   v-model="pageForOpinions2"

@@ -174,24 +174,14 @@
                     >
                       <i class="fas fa-angle-down"></i>
 
-                      <ul
-                        class="logout-sub-menu sub-menu"
+                      <div class="logout-sub-menu row sub-menu"
                         id="logout-sub-menu"
-                        :class="{ submenuthreeopen: threeOpen }"
-                      >
-                        <li>
-                          <n-link
-                            to="/dashboard"
-                            class="d-flex align-items-center px-2 justify-content-start"
-                          >
-                            Others
-                          </n-link>
-                        </li>
-                        <li>
+                        :class="{ submenuthreeopen: threeOpen }">
+
                           <div
                             v-for="sector in sectors3"
                             :key="sector.Id"
-                            class="d-flex px-2 align-items-center justify-content-start"
+                            class="d-flex col-md-4 px-3 pt-4 align-items-center justify-content-start"
                           >
                             <button
                               @click="setIndustryId(sector.Id)"
@@ -207,14 +197,15 @@
                             :per-page="pageSize"
                             align="center"
                             size="sm"
-                            class="my-0 text-center"
+                            class="my-2 text-center ml-5"
                           />
-                        </li>
-                      </ul>
+
+                      </div>
                     </div>
                   </div>
                   <!--end of dropdown-->
                 </div>
+
                 <div class="second-col px-4 pt-5 mt-5 pb-4">
                   <div>
                     <div class="d-flex">
@@ -237,7 +228,12 @@
                       style="background: rgba(0, 0, 0, 0.1); height: 1px"
                     ></div>
                   </div>
-                  <UserResponse :opinions="opinions" :spinner="opinionsSpinner" />
+                  <!-- <UserResponse :opinions="opinions" :spinner="opinionsSpinner" /> -->
+                  <div class="row justify-content-center d-flex my-4">
+                    <div class="col-4">
+                      <img src="~/assets/img/opinion.jpg" class="img-fluid no-opinion-img" alt="">
+                    </div>
+                  </div>
                   <b-pagination
                     v-model="pageForOpinions2"
                     :total-rows="totalRowsForOpinion"
@@ -761,7 +757,6 @@ p {
   font-size: 12px;
   line-height: 18px;
   color: #fff;
-  opacity: 0.5;
 }
 
 .user-icon {
@@ -802,7 +797,6 @@ p {
 
 .sub-menu {
   /*width: 270px;*/
-  display: block;
   position: absolute;
   background-color: #fefefe;
   z-index: 250;
@@ -813,6 +807,10 @@ p {
   box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
     0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
   transition: all 650ms ease;
+}
+
+.sub-menu button {
+  margin: 0px 0px 10px;
 }
 
 .nav-list li:hover > .sub-menu,
@@ -841,9 +839,10 @@ li {
 
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
-    right: 90px;
+    right: 100px;
   }
 }
+
 .modalDialog {
   position: fixed;
   top: 0;
@@ -1019,7 +1018,7 @@ li {
   font-size: 12px;
   line-height: 18px;
   color: #fff;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .add {

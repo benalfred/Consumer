@@ -66,10 +66,14 @@ h6 {
   color: #fff;
   background-color: #E57718!important;
   border-color: #E57718;
-  margin-left: 5px;
+  margin-left: 3px;
   border-radius: 50px;
-  padding: 8px 14px 8px;
+  padding: 8px 14px 7px;
 
+}
+
+.no-opinion-img {
+  width: 100px;
 }
 
 .section {
