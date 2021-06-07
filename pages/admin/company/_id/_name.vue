@@ -8,10 +8,6 @@
               <div class="d-flex">
                 <h1 class="" v-if="form.Name">
                   {{ form.Name }}
-                  <span style="font-size: 24px" v-if="form.Slogan">{{
-                    form.Slogan
-                  }}</span>
-                  <span style="font-size: 24px" v-if="!form.Slogan">No Slogan Yet</span>
                 </h1>
                 <div class="ml-4" style="cursor: pointer">
                   <img v-b-modal.modal-xl src="~assets/img/bx_bxs-edit-alt.png" alt="" />
@@ -62,77 +58,6 @@
                   </div>
                 </div>
               </div>
-
-              <div class="Opinion1 p-3 p-lg-5 mt-5">
-                <div>
-                  <div class="d-flex">
-                    <p class="add pb-2">Add and Remove Company</p>
-                  </div>
-                  <div
-                    class="mb-2"
-                    style="background: rgba(0, 0, 0, 0.1); height: 1px"
-                  ></div>
-                </div>
-                <div class="d-flex_ row" v-if="companies.length">
-                  <div
-                    class="col-md-4 d-flex"
-                    v-for="company in companies2"
-                    :key="company.id"
-                  >
-                    <button
-                      @click="goToCompanyDetailsPage(company)"
-                      type="button"
-                      class="btn1"
-                    >
-                      {{ company.Name }}
-                    </button>
-                    <a href="#openModal-about">
-                      <i
-                        @click="setId(company.Id)"
-                        class="far fa-times-circle"
-                        style="position: absolute; bottom: 20px; cursor: pointer"
-                      ></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="" v-if="!companies.length && !fetchCompanySpinner">
-                  <button type="button" class="button">No company yet</button>
-                </div>
-                <b-spinner
-                  v-if="fetchCompanySpinner"
-                  label="Spinning"
-                  style="margin-left: 5%"
-                ></b-spinner>
-
-                <div class="sector p-3 mt-5">
-                  <b-row class="my-1">
-                    <b-col sm="9">
-                      <b-form-input
-                        id="input-large"
-                        v-model="Name"
-                        class="input-sector"
-                        size="lg"
-                        placeholder="New Sector"
-                      ></b-form-input>
-                    </b-col>
-                    <b-col sm="3" class="pl-4 pt-0">
-                      <button
-                        v-if="!addCompanySpinner"
-                        class="btn outline-none"
-                        @click="addCompany"
-                        :disabled="!Name"
-                      >
-                        <img src="~assets/img/sectoricon.png" alt="" />
-                      </button>
-                      <b-spinner
-                        v-if="addCompanySpinner"
-                        label="Spinning"
-                        style="margin-left: 5%"
-                      ></b-spinner>
-                    </b-col>
-                  </b-row>
-                </div>
-              </div>
             </b-col>
 
             <b-col lg="6" xl="6" class="all pl-lg-5">
@@ -150,59 +75,6 @@
                     ></b-input>
                   </div>
                 </div>
-              </div>
-
-              <div class="d-flex profile-dropdown mr-5">
-                <div
-                  class="profile-dropdown_"
-                >
-                  <button type="button" @click="setIndustryId" 
-                    :class="[industryId != this.$route.params.id ? 'active' : '']" class="btn1">All</button>
-                </div>
-                <div
-                  class="profile-dropdown_"
-                  v-for="company in companies"
-                  :key="company.Id" 
-                  @click="setCompanyId(company.Id)"
-                    :class="[companyId != company.Id ? 'active' : '']"
-                >
-                  <button type="button" class="btn1">{{ company.Name }}</button>
-                </div>
-                <!--start dropdown-->
-                <div class="" v-if="sectors3.length">
-                  <div
-                    class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
-                    type="submit"
-                    @click="threeMenuOpen"
-                  >
-                    <i class="fas fa-angle-down"></i>
-
-                    <ul
-                      class="logout-sub-menu sub-menu"
-                      id="logout-sub-menu"
-                      :class="{ submenuthreeopen: threeOpen }"
-                    >
-                      <li>
-                        <n-link
-                          to="/dashboard"
-                          class="d-flex align-items-center px-2 justify-content-start"
-                        >
-                          Others
-                        </n-link>
-                      </li>
-                      <li>
-                        <div
-                          v-for="sector in sectors3"
-                          :key="sector.Id"
-                          class="d-flex px-2 align-items-center justify-content-start"
-                        >
-                          <button type="button" class="btn2">{{ sector.Name }}</button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--end of dropdown-->
               </div>
 
               <div class="second-col px-4 pt-5 mt-5 pb-4">
@@ -306,7 +178,7 @@
           <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
             <b-form-group class="newpost">
               <button
-                @click="updateSector"
+                @click="updateCompany"
                 class="btn-sacademy"
                 style="font-size: 16px"
                 type="submit"
@@ -324,46 +196,6 @@
         </b-row>
       </div>
     </b-modal>
-
-    <div id="openModal-about" class="modalDialog">
-      <div>
-        <a href="#close" title="Close" class="close">X</a>
-        <div class="pt-5 pb-5">
-          <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
-
-          <div class="d-flex justify-content-center">
-            <div>
-              <b-form-group class="newpost mt-3">
-                <a href="#close">
-                  <button
-                    class="mt-2 mr-4 btn-sacademy"
-                    style="font-size: 16px"
-                    type="submit"
-                    value="Send"
-                  >
-                    cancel
-                  </button>
-                </a>
-              </b-form-group>
-            </div>
-
-            <div>
-              <b-form-group class="newpost mt-3">
-                <button
-                  @click="deleteCompany"
-                  class="mt-2 btn-sacademy1"
-                  style="font-size: 16px"
-                  type="submit"
-                  value="Send"
-                >
-                  okay
-                </button>
-              </b-form-group>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -394,18 +226,7 @@ export default {
         { PreferredName: "Good", emoji: "😊" },
         { PreferredName: "Very Good", emoji: "😍" },
       ],
-      file: null,
-      id: null,
-      sectorSpinner: false,
-      page: 1,
-      bpg: 1,
-      sectors: [],
-      companies2: [],
-      companies: [],
-      sectors3: [],
-      totalRows: null,
       opinions: [],
-      industryId: this.$route.params.id,
       rating: 5,
       updateSpinner: false,
       keyword: null,
@@ -416,20 +237,16 @@ export default {
       companyId: 0,
       totalRowsForOpinion: 0,
       opinionsSpinner: false,
-      addCompanySpinner: false,
     };
   },
   async fetch() {
-    await this.fetchIndustryDetails();
+    await this.fetchCompanyDetails();
     await this.getRatings();
   },
   mounted() {
     this.allOpinions();
   },
   methods: {
-    goToCompanyDetailsPage(company) {
-      this.$router.push(`/admin/company/${company.Id}/${company.Name}`)
-    },
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
@@ -442,105 +259,26 @@ export default {
     threeMenuOpen() {
       this.threeOpen = !this.threeOpen;
     },
-    setId(id) {
-      this.id = id;
-    },
+
     setRatingId(id) {
       this.pageForOpinions2 = 1;
       this.rating = id;
       this.allOpinions();
     },
-    setIndustryId(){
-      this.pageForOpinions2 = 1;
-      this.companyId = 0
-     this.industryId = this.$route.params.id
-     this.allOpinions()
-    },
-    setCompanyId(id) {
-      this.pageForOpinions2 = 1;
-      this.companyId = id;
-      this.industryId = 0
-      this.allOpinions();
-    },
-    async fetchIndustryDetails() {
+    async fetchCompanyDetails() {
       this.fetchCompanySpinner = true;
       try {
         const response = await this.$axios.get(
-          `/Industries/GetIndustryDetailsByAdmin?industryId=${this.$route.params.id}`
+          `/Industries/GetCompanyDetailsByAdmin?companyId=${this.$route.params.id}`
         );
         this.form.Name = response.data.Name;
         this.form.Slogan = response.data.Slogan;
         this.form.Description = response.data.Description;
-        if (response.data.Companies.length) {
-          response.data.Companies.filter((company) => {
-            if (this.companies.length != 3) {
-              this.companies.push(company);
-            }
-          });
-          let ctx = this;
-          ctx.sectors3 = [];
-          response.data.Companies.filter((com, index) => {
-            if (index > 2) {
-              ctx.sectors3.push(com);
-            }
-          });
-        }
-        this.companies2 = response.data.Companies;
         this.form.Banner = response.data.Banner;
         this.fetchCompanySpinner = false;
       } catch (e) {
         alert(e);
         console.log(e);
-      }
-    },
-    async addCompany() {
-      this.addCompanySpinner = true;
-      try {
-        await this.$axios.post("Industries/CreateCompany", {
-          Name: this.Name,
-          IndustryId: this.$route.params.id,
-        });
-        this.Name = null;
-        this.addCompanySpinner = false;
-        await this.fetchIndustryDetails();
-        swal({
-          title: "Success!",
-          text: "company added!",
-          icon: "success",
-        });
-      } catch (e) {
-        if (e.response) {
-          this.addCompanySpinner = false;
-          swal({
-            title: "Error!",
-            text: e.response.data,
-            icon: "warning",
-            dangerMode: true,
-          });
-        } else {
-          this.addCompanySpinner = false;
-          swal({
-            title: "Error!",
-            text: "something went wrong",
-            icon: "warning",
-            dangerMode: true,
-          });
-        }
-      }
-    },
-    async deleteCompany() {
-      try {
-        await this.$axios.post("/Industries/DeleteCompany", { Id: this.id });
-        let newCompanies = this.companies2.filter((company) => company.Id != this.id);
-        this.companies2 = newCompanies;
-        this.companies = newCompanies;
-        this.$router.back();
-        this.$store.commit("notifications/success", "company deleted");
-        this.makeToast();
-      } catch (e) {
-        console.log(e);
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
       }
     },
     async allOpinions() {
@@ -551,7 +289,7 @@ export default {
       this.pageForOpinions--;
       try {
         const opinions = await this.$axios.get(
-          `Opinions/GetOpinions?industryId=${this.industryId}&keyword=${keyword}&companyId=${this.companyId}&rating=${this.rating}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
+          `Opinions/GetOpinions?keyword=${keyword}&companyId=${this.$route.params.id}&rating=${this.rating}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
@@ -570,7 +308,7 @@ export default {
         this.makeToast()
       }
     },
-    async updateSector() {
+    async updateCompany() {
       this.updateSpinner = true;
       try {
         const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
