@@ -79,7 +79,7 @@ import ImageDropdown from "./ImageDropdown"
 <style scoped>
 header {
    width: 100%;
-        height: 80px;
+        height: 30px;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
