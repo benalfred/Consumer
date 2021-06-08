@@ -105,9 +105,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+
 
             <!-- Sidebar Message -->
 
@@ -119,7 +117,7 @@
               <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top ">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button @click="toggle" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button @click="toggle" id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -292,6 +290,13 @@ border-radius: 19.5px;
 @media screen and (max-width: 640px) {
   .slide-out {
  margin-left: -100px;
+ transition: margin .4s ease-in-out;
+}
+}
+
+@media screen and (min-width: 800px) {
+  .slide-out {
+ margin-left: -220px;
  transition: margin .4s ease-in-out;
 }
 }
