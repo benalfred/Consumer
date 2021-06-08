@@ -40,11 +40,12 @@
     <div class="media_" v-if="!opinions.length && !spinner">
       <div class="row justify-content-center d-flex my-4">
         <div class="col-4">
-          <img
-            src="~/assets/img/no-opinion.jpg"
+           <img
+            src="~/assets/img/comment-icon.png"
             class="img-fluid no-opinion-img"
             alt=""
           />
+          <p class="text-center">no opinion</p>
         </div>
       </div>
     </div>

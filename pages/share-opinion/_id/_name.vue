@@ -151,28 +151,16 @@
             </b-media>
           </div>
           <div class="second-col px-4 pt-4 pb-4" v-if="!opinions.length && !spinner">
-            <b-media>
-              <template #aside>
-                <img
-                  src="~/assets/img/vector4.png"
-                  class="img-fluid p-2 mt-2 img1"
-                  alt="Media Aside"
-                />
-              </template>
-
-              <h6 class="pt-3">User 1</h6>
-              <div class="d-flex">
-                <div><img src="~/assets/img/emoji1.png" class="img-fluid" alt="" /></div>
-                <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
-                <div>
-                  <img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" />
-                </div>
-              </div>
-              <p class="firstp">No opinions yet</p>
-              <p>No opinions yet fot this company</p>
-
-              <!-- b-[Optional: add media children here for nesting] -->
-            </b-media>
+                <div class="row justify-content-center d-flex my-4">
+        <div class="col-4">
+          <img
+            src="~/assets/img/comment-icon.png"
+            class="img-fluid no-opinion-img"
+            alt=""
+          />
+          <p class="text-center">no opinion</p>
+        </div>
+      </div>
           </div>
           <b-spinner v-if="spinner" label="Spinning" style="margin-left: 49%"></b-spinner>
           <b-pagination
@@ -318,7 +306,7 @@ export default {
   border-radius: 10px;
 }
 .section_ {
-  
+
 }
 
 .section_::-webkit-scrollbar {

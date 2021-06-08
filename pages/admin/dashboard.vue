@@ -5,7 +5,6 @@
         <div class="container-fluid">
           <div class="d-flex" style="cursor: pointer">
             <h1 class="mb-5">Welcome Back!</h1>
-
           </div>
           <b-row>
             <b-col lg="6" xl="6" class="">

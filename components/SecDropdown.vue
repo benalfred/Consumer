@@ -164,7 +164,7 @@ li {
 
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
-    right: 355px;
+    right: 340px;
   }
 }
 </style>
