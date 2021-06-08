@@ -260,15 +260,29 @@
       header-bg-variant="light"
       hide-footer
     >
-      <div class="item-wrapper one">
-        <h1 class="text-center font-weight-bold mt-5" style="color: #000">
-          Technology <br />
-          <span style="font-size: 27px; color: #626d73">at its very best</span>
-        </h1>
-        <p class="text-center">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+      <div class="item-wrapper one justify-content-center">
+        <div class="row justify-content-center text-center">
+           <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 27px; color: #626d73"
+          v-model="text"
+          placeholder="Technology at its very best"
+          rows="2">
+        </b-form-textarea>
+        </div>
+        </div>
+        <div class="row justify-content-center text-center">
+             <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 13px; color: #626d73"
+          v-model="text"
+          placeholder="Text......"
+          rows="1">
+        </b-form-textarea>
+        </div>
+        </div>
         <div class="item">
           <form
             data-validation="true"
@@ -335,12 +349,13 @@
         <div class="pt-5 pb-5">
           <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
 
+          
           <div class="d-flex justify-content-center">
             <div>
               <b-form-group class="newpost mt-3">
                 <a href="#close">
                   <button
-                    class="mt-2 mr-4 btn-sacademy"
+                    class="mt-2 btn-sacademy_"
                     style="font-size: 16px"
                     type="submit"
                     value="Send"
@@ -609,6 +624,42 @@ export default {
   opacity: 0.3;
 }
 
+.btn-sacademy1 {
+  color: #fff !important;
+  background: #18e5b4;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 300%;
+  padding: 9px 0px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
+.btn-sacademy {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 50%;
+  padding: 12px 0px 12px;
+  border: 0;
+  border-radius: 25px;
+  margin-left: 25%;
+}
+
+.btn-sacademy_ {
+  color: #fff !important;
+  background: #d91925;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  position: relative;
+  left: -80px;
+  width: 200%;
+  padding: 9px 5px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
 .media_ {
   overflow: hidden;
   overflow-y: scroll;
@@ -668,17 +719,7 @@ p {
   color: #000000;
 }
 
-.btn-sacademy {
-  color: #fff !important;
-  background: #e57718;
-  box-shadow: 0px 20px 20px #00000026;
-  opacity: 1;
-  width: 50%;
-  padding: 12px 0px 12px;
-  border: 0;
-  border-radius: 25px;
-  margin-left: 50%;
-}
+
 
 .img1 {
   background: #e57718;
@@ -711,36 +752,7 @@ p {
   opacity: 0.5;
 }
 
-.user-icon {
-  width: 30px;
-  height: 30px;
-  background-color: #00b5d3;
-  border: none;
-  color: white;
-  font-family: sans-serif;
-  font-size: 18px;
-  border-radius: 50%;
-  display: inline-block;
-}
 
-.logout-sub-menu {
-  position: absolute;
-  top: 120px;
-  z-index: 1000;
-  box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
-  background-color: white;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-@media all and (max-width: 1024px) {
-  .user-icon {
-    height: 30px;
-    width: 30px;
-    font-size: 14px;
-  }
-}
 
 .btn2_ {
   background: #ffffff;
@@ -789,6 +801,51 @@ p {
   opacity: 0.2;
 }
 
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #00b5d3;
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.logout-sub-menu {
+  position: absolute;
+  top: 120px;
+  z-index: 1000;
+  box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-icon {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+  }
+}
+
 .sub-menu {
   /*width: 270px;*/
   display: block;
@@ -831,6 +888,13 @@ li {
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
     right: 90px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .logout-sub-menu {
+    right: 90px;
+    margin-top: 50px;
   }
 }
 .modalDialog {
@@ -897,15 +961,7 @@ li {
   overflow: auto;
 }
 
-.btn-sacademy1 {
-  color: #fff !important;
-  background: #18e5b4;
-  border-radius: 25px;
-  box-shadow: 0px 20px 20px #00000026;
-  opacity: 1;
-  padding: 8px 34px 8px;
-  border: 0;
-}
+
 
 .text {
   font-family: Poppins;

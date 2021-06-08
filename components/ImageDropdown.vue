@@ -20,30 +20,10 @@
                     <div class="mt-4">
 
                         <div class="row">
-                           
+
                             <div class="cart_buttons_madesoft col-12 d-flex">
 
                                  <nuxt-link to="/refer" class="dropdown-item text-left_">Refer</nuxt-link>
-                            </div>
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/accountSetup1" class="dropdown-item text-left_">Account1</nuxt-link>
-                            </div>
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/accountSetup2" class="dropdown-item text-left_">Account2</nuxt-link>
-                            </div>
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/congratsUser1" class="dropdown-item text-left_">congratsUser1</nuxt-link>
-                            </div>
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/firstLevellogin" class="dropdown-item text-left_">firstLevellogin</nuxt-link>
-                            </div>
-                            <div class="cart_buttons_madesoft col-12 d-flex">
-
-                                 <nuxt-link to="/accountSetupinitiated" class="dropdown-item text-left_">accountSetupinitiated</nuxt-link>
                             </div>
 
                             <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
@@ -142,7 +122,8 @@
         box-shadow: 0 13px 42px 11px rgba(0, 0, 0, .1);
 
         /*top: 65px;*/
-        right: -100px;
+        right: -60px;
+        top: 30px;
         max-height: 80vh;
         overflow-y: scroll;
         overflow-x:hidden;

@@ -5,11 +5,11 @@
         <div class="container-fluid">
           <div class="d-flex" style="cursor: pointer">
             <h1 class="mb-5">Welcome Back!</h1>
-           
+
           </div>
           <b-row>
             <b-col lg="6" xl="6" class="">
-              <div class="Opinion p-3 pl-lg-5">
+              <div class="Opinion p-4 pl-lg-5">
                 <h4 class="h4 pb-3">Opinion Ratings</h4>
 
                 <p class="text-white text" style="position: relative; top: 10px">
@@ -300,80 +300,7 @@
       </div>
     </div>
 
-    <b-modal
-      id="modal-xl"
-      size="xl"
-      class="popup"
-      centered
-      scrollable
-      title="Technology"
-      body-bg-variant="light"
-      header-bg-variant="light"
-      hide-footer
-    >
-      <div class="item-wrapper one justify-content-center">
-        <input class="" type="text" name="" placeholder="Technology at its very best" />
 
-        <p class="text-center">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <div class="item">
-          <form
-            data-validation="true"
-            action="#"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <div class="item-inner">
-              <div class="item-content">
-                <div class="image-upload">
-                  <label style="cursor: pointer" for="file_upload">
-                    <img src="" alt="" class="uploaded-image" />
-                    <div class="h-100">
-                      <div class="dplay-tbl">
-                        <div class="dplay-tbl-cell">
-                          <i class="fa fa-cloud-upload"></i>
-                          <h5><b>Choose Your Image to Upload</b></h5>
-                          <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <!--upload-content-->
-                    <input
-                      data-required="image"
-                      type="file"
-                      name="image_name"
-                      id="file_upload"
-                      class="image-input"
-                      data-traget-resolution="image_resolution"
-                      value=""
-                    />
-                  </label>
-                </div>
-              </div>
-              <!--item-content-->
-            </div>
-            <!--item-inner-->
-          </form>
-        </div>
-
-        <b-row class="justify-content-center">
-          <b-col md="5" class="justify-content-center">
-            <b-form-group class="newpost">
-              <button
-                class="btn-sacademyy"
-                style="font-size: 16px"
-                type="submit"
-                value="Send"
-              >
-                Update
-              </button>
-            </b-form-group>
-          </b-col>
-        </b-row>
-      </div>
-    </b-modal>
   </div>
 </template>
 

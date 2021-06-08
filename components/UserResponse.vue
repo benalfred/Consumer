@@ -41,7 +41,7 @@
       <div class="row justify-content-center d-flex my-4">
         <div class="col-4">
           <img
-            src="~/assets/img/opinion.jpg"
+            src="~/assets/img/no-opinion.jpg"
             class="img-fluid no-opinion-img"
             alt=""
           />

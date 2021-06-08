@@ -46,25 +46,14 @@ export default {
         return [];
       },
     },
-
-   totalRows: {
-      type: Number,
-      default: 0,
-    },
     bpg: {
       type: Number,
       default: 1,
-    },
-    pageSize: {
-      type: Number,
-      default: 10,
     },
   },
   computed: {
     ...mapState("data-fetching", [
       "sector3",
-      "totalRows",
-      "pageSize"
     ])
   },
 

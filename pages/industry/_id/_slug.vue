@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <section class="bg">
+    <section class="bg mt-5">
       <b-container>
         <b-row class="mb-3">
           <b-col md="12">

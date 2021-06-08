@@ -11,7 +11,7 @@
       <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="mx-auto">
-
+          <SecNav />
       </b-navbar-nav>
 
 
@@ -50,9 +50,10 @@
 <script>
 import CartComponent from "./CartComponent";
 import ImageDropdown from "./ImageDropdown"
+import SecNav from "./SecNav"
   export default{
     name:"headerComponent",
-    component: {CartComponent, ImageDropdown},
+    component: {CartComponent, ImageDropdown, SecNav},
     mounted() {
       if (process.client){
         window.onscroll = function () {
@@ -79,7 +80,7 @@ import ImageDropdown from "./ImageDropdown"
 <style scoped>
 header {
    width: 100%;
-        height: 30px;
+   height: 100px;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {

@@ -2,15 +2,14 @@
   <div>
     <b-container class="mt-5">
       <b-row class="justify-content-center">
-        <div class="display-text d-lg-flex m-3 d-none d-sm-block">
+        <div class="display-text d-lg-flex m-lg-3">
           <nuxt-link
             :class="[id == sector.Id ? 'color-orange' : '']"
             :to="`/industry/${sector.Id}/${sector.Name}`"
             v-for="sector in sectors"
-            :key="sector.id"
-            >{{ sector.Name }}</nuxt-link
-          >
-
+            :key="sector.Id"
+            >{{ sector.Name }}
+          </nuxt-link>
           <SecDropdown :sectors2="sectors2" />
         </div>
       </b-row>
@@ -60,6 +59,7 @@ export default {
               ctx.sectors2.push(com);
             }
           });
+          console.log(this.sectors2)
         }
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -78,7 +78,6 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 27px;
   text-decoration: none;
   text-align: center;
   color: #373737;
