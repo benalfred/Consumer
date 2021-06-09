@@ -1,15 +1,9 @@
 <template>
   <div>
-    <b-container class="mt-5 .d-none .d-sm-block">
+    <b-container class="mt-5">
       <b-row class="justify-content-center">
-        <div class="display-text d-lg-flex m-lg-3">
-          <nuxt-link
-            :class="[id == sector.Id ? 'color-orange' : '']"
-            :to="`/industry/${sector.Id}/${sector.Name}`"
-            v-for="sector in sectors"
-            :key="sector.Id"
-            >{{ sector.Name }}
-          </nuxt-link>
+        <div class="display-text d-lg-flex mt-5 m-lg-3">
+
           <SecDropdown :sectors2="sectors2" />
         </div>
       </b-row>
@@ -47,20 +41,21 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
         );
-        if (response.data.Results.length) {
-          response.data.Results.filter((sec) => {
-            if (this.sectors.length != 5) {
-              this.sectors.push(sec);
-            }
-          });
-          let ctx = this;
-          response.data.Results.filter((com, index) => {
-            if (index > 4) {
-              ctx.sectors2.push(com);
-            }
-          });
-          console.log(this.sectors2)
-        }
+        // if (response.data.Results.length) {
+        //   response.data.Results.filter((sec) => {
+        //     if (this.sectors.length != 5) {
+        //       this.sectors.push(sec);
+        //     }
+        //   });
+        //   let ctx = this;
+        //   response.data.Results.filter((com, index) => {
+        //     if (index > 4) {
+        //       ctx.sectors2.push(com);
+        //     }
+        //   });
+        //   console.log(this.sectors2)
+        // }
+        this.sectors2 = response.data.Results
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
