@@ -1,16 +1,15 @@
 <template>
   <div class="">
     <div
-      class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
+      class="nav-list  text-center d-flex justify-content-center align-items-center"
       type="submit"
-      @click="threeMenuOpen"
-    >
-      <i class="fas fa-angle-down"></i>
+      @click="threeMenuOpen">
+
+      <p>Click here</p>
 
       <ul
         class="logout-sub-menu sub-menu"
-        id="logout-sub-menu"
-        :class="{ submenuthreeopen: threeOpen }">
+        id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
 
         <li>
           <div

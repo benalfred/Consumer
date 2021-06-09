@@ -39,7 +39,7 @@
     </div>
     <div class="media_" v-if="!opinions.length && !spinner">
       <div class="row justify-content-center d-flex my-4">
-        <div class="col-4">
+        <div class="col-4 mt-3">
            <img
             src="~/assets/img/comment-icon.png"
             class="img-fluid no-opinion-img"

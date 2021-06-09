@@ -96,7 +96,7 @@
                   </div>
                 </div>
                 <div class="" v-if="!companies.length && !fetchCompanySpinner">
-                  <button type="button" class="button">No company yet</button>
+                  <button type="button" class="btn1">No company yet</button>
                 </div>
                 <b-spinner
                   v-if="fetchCompanySpinner"
@@ -349,7 +349,7 @@
         <div class="pt-5 pb-5">
           <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
 
-          
+
           <div class="d-flex justify-content-center">
             <div>
               <b-form-group class="newpost mt-3">
@@ -777,7 +777,7 @@ p {
   background: #00b5d3;
   border: none;
   height: 35px;
-  width: 90px;
+ 
   color: black;
   font-family: Poppins;
   font-style: normal;

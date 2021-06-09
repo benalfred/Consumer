@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container class="mt-5 d-none d-sm-block">
+    <b-container class="mt-5 .d-none .d-sm-block">
       <b-row class="justify-content-center">
         <div class="display-text d-lg-flex m-lg-3">
           <nuxt-link

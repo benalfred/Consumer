@@ -4,7 +4,7 @@
       <div id="content">
         <div class="container-fluid">
           <div class="d-flex" style="cursor: pointer">
-            <h1 class="mb-5">Welcome Back!</h1>
+          <h1 class="mb-5">Welcome Back!</h1>
           </div>
           <b-row>
             <b-col lg="6" xl="6" class="">
@@ -64,7 +64,29 @@
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
                   <div
-                    class="col-lg-4 col-xl-4 d-flex"
+                    class="col-sm-6 col-lg-4 	d-none d-sm-block"
+                    v-for="sector in sectors"
+                    :key="sector.id"
+                  >
+                    <div>
+                      <button
+                        @click="goToIndustryDetailsPage(sector)"
+                        type="button"
+                        class="button"
+                      >
+                        {{ sector.Name }}
+                      </button>
+                      <a href="#openModal-about">
+                        <i
+                          @click="setId(sector.Id)"
+                          class="far fa-times-circle"
+                          style="position: absolute; cursor: pointer; top: 5px; left: 5px"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div
+                    class="col-6 d-block d-sm-none"
                     v-for="sector in sectors"
                     :key="sector.id"
                   >
@@ -190,7 +212,7 @@
                           <div
                             v-for="sector in sectors3"
                             :key="sector.Id"
-                            class="d-flex col-md-4 px-3 pt-4 align-items-center justify-content-start"
+                            class="px-3 pt-4 align-items-center justify-content-start"
                           >
                             <button
                               @click="setIndustryId(sector.Id)"
@@ -702,6 +724,7 @@ p {
   border: none;
   padding: 5px 20px 5px;
   color: black;
+  width: 120px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -986,6 +1009,7 @@ li {
   border: none;
   padding: 8px 32px 8px;
   color: black;
+  width: 120px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
