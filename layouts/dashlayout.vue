@@ -70,7 +70,7 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <nuxt-link class="collapse-item" to="/admin/email-setting">email setting</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/review-setting">review-setting</nuxt-link>
-                        <a class="collapse-item" href="/admin/chartjs">Animations</a>
+                        <nuxt-link class="collapse-item" to="/admin/chartjs">Animations</nuxt-link>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>

@@ -1,13 +1,6 @@
 <template>
   <div>
-    <b-container class="mt-5">
-      <b-row class="justify-content-center">
-        <div class="display-text d-lg-flex mt-5 m-lg-3">
-
-          <SecDropdown :sectors2="sectors2" />
-        </div>
-      </b-row>
-    </b-container>
+    <SecDropdown class="ml-auto" :sectors2="sectors2" />
   </div>
 </template>
 

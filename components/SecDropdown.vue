@@ -5,7 +5,7 @@
       type="submit"
       @click="threeMenuOpen">
 
-      <p>Click here</p>
+      <p class="sectors mr-4">Sectors <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
 
       <ul
         class="logout-sub-menu sub-menu"
@@ -103,7 +103,7 @@ export default {
 
 .logout-sub-menu {
   position: absolute;
-  top: 150px;
+  top: 70px;
   z-index: 1000;
   box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
   background-color: white;
@@ -163,7 +163,15 @@ li {
 
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
-    right: 340px;
+    right: 300px;
+
   }
+}
+
+.sectors {
+  font-size: 19px;
+  font-size: 600;
+  color: #000;
+  font-family: Poppins;
 }
 </style>

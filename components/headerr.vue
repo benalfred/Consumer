@@ -11,7 +11,7 @@
       <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav class="mx-auto display-text">
-          <SecNav />
+
            <nuxt-link  :class="[id == sector.Id ? 'color-orange' : '']"
             :to="`/industry/${sector.Id}/${sector.Name}`"
             v-for="sector in sectors"
@@ -23,6 +23,7 @@
 
 
         <b-navbar-nav class="ml-auto">
+        <SecNav class="mt-4 mr-5" />
 
  <li class="d-block d-sm-none">
                                <div class="cart_buttons_madesoft col-12 d-flex">
