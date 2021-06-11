@@ -53,6 +53,8 @@ export default {
   overflow: hidden;
 }
 
+
+
 .container-fluid::-webkit-scrollbar {
   width: 5px;
   border-radius: 50px;

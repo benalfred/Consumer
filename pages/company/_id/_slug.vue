@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <section class="bg mt-5">
+    <section class="bg mt-5 pt-5">
       <div class="container">
         <b-row>
             <b-col md="12">
@@ -17,7 +17,7 @@
 
     <b-container class="mb-5 second-con">
 
-        <b-row class="mt-5 pt-5 d-lg-flex">
+        <b-row class="mt-5  d-lg-flex">
             <b-col md="5">
                 <p class="header-p" data-aos="fade-right" data-aos-offset="30"
                        data-aos-delay="50">{{Name}}</p>
@@ -54,11 +54,15 @@
                     <div class="col-md-3">
                             <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
                     </div>
+
                     <div class="col-md-3">
+
                             <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
                     </div>
+
                     <div class="col-md-3">
-                        <button class="btn"> <img src="~/assets/img/viewall.png" class="img-fluid pt-2" alt=""> </button>
+                        <a href="#openModal-about">
+                        <button class="btn">  <img src="~/assets/img/viewall.png" class="img-fluid pt-2" alt=""> </button></a>
                     </div>
                   </div>
                  </b-col>
@@ -71,6 +75,41 @@
 
       <agegender />
       <Footer />
+
+      <div id="openModal-about" class="modalDialog">
+      <a href="#close" title="Close" class="close">X</a>
+      <div>
+
+          <div class="d-flex_ row p-5 dell-card" data-aos="flip-right">
+                    <div class="col-md-3 ">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-3">
+                            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="">
+                    </div>
+
+                  </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -136,6 +175,58 @@ export default {
 </script>
 
 <style scoped>
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 500px;
+  width: 60%;
+  position: relative;
+  margin: 13% auto;
+  border-radius: 3px;
+  background: #626d73;
+  border-radius: 10px;
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f26d7d;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
 @media screen and (min-width: 720px) {
     .bg{
 height: 65vh;
