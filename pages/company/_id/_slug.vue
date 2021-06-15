@@ -317,7 +317,7 @@ export default {
 }
 
 .big-image {
-  height: 68vh;
+  height: 72vh;
   width: 99vw;
   position: relative;
    background: url('~assets/img/xsmall.jpg') repeat;
@@ -332,7 +332,7 @@ div.background-text {
   background-color: #000;
   font-weight: 600;
   color: #fff;
-   height: 68vh;
+   height: 72vh;
 }
 
 .background-text h2 {
