@@ -13,7 +13,7 @@
                 We consumerHalla are team of talented people making things easy for you with Our ideaz
               </p>
               <n-link class="button_ btn-lg text-white mt-md-5 mt-5" to="/admin/dashboard" role="button_"
-              >Get Started 
+              >Get Started
               </n-link>
             </b-col>
 
@@ -239,7 +239,6 @@
           ></div>
         </div>
         </section>
-
 
 
 

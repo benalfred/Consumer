@@ -1,9 +1,9 @@
 <template>
   <div>
-  <section class="bg">
+  <section class="">
 
         <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
+        <div id="">
            <div class="container-fluid">
             <b-row>
             <b-col md="6">

@@ -13,9 +13,20 @@
               Here’s what Nigerian’s are saying about the {{ Name }} Industry
             </h4>
           </b-col>
-          <b-col md="12" class="mt-3">
-            <img src="~/assets/img/technologybg.png" class="img-fluid" alt="" />
-          </b-col>
+
+
+          <div class="big-image">
+            <div class="background-text">
+
+            <div class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="h2 pb-3 pt-5">Technology <br> at it very best</h2>
+              <p class="pt-5 ptag">HERE IS WHAT NIGERINS ARE SAYING ABOT DELL TECHNOLOGY</p>
+            </div>
+
+
+            </div>
+            </div>
+
         </b-row>
 
         <p>ConsumerHalla Overall Ratings (%)</p>
@@ -296,5 +307,36 @@ h4 {
   font-size: 15px;
   line-height: 27px;
   color: #656565;
+}
+
+
+.big-image {
+  height: 62vh;
+  width: 99vw;
+  position: relative;
+   background: url('~assets/img/xsmall.jpg') repeat;
+  background-size: cover;
+  background-color: #000;
+  background-position: 50% 50%;
+  overflow: hidden;
+}
+
+div.background-text {
+  opacity: 0.7;
+  background-color: #000;
+  font-weight: 600;
+  color: #fff;
+   height: 62vh;
+}
+
+.background-text h2 {
+  color: white;
+  font-weight: 700;
+  font-size: 45px;
+}
+.background-text .ptag {
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
 }
 </style>

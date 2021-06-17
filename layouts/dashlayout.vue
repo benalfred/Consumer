@@ -70,8 +70,8 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <nuxt-link class="collapse-item" to="/admin/email-setting">email setting</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/review-setting">review-setting</nuxt-link>
-                        <nuxt-link class="collapse-item" to="/admin/chartjs">Animations</nuxt-link>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <nuxt-link class="collapse-item" to="/admin/chartjs">Chart</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/add-rating">Add rating</nuxt-link>
                     </div>
                 </div>
             </li>
@@ -280,6 +280,10 @@ state: false
 .img1 {
  background: #E57718;
 border-radius: 19.5px;
+}
+
+a{
+    font-family: Poppins;
 }
 
 .sidebar {
