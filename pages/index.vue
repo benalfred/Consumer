@@ -13,7 +13,7 @@
                 We consumerHalla are team of talented people making things easy for you with Our ideaz
               </p>
               <n-link class="button_ btn-lg text-white mt-md-5 mt-5" to="/admin/dashboard" role="button_"
-              >Join
+              >Get Started
               </n-link>
             </b-col>
 
@@ -107,7 +107,7 @@
                 Anim pariatur cliche reprehenderit, enim <br class="d-none d-md-block"> eiusmod high life accusamus terry <br class="d-none d-md-block"> richardson ad squid. 3 wolf moon officia <br class="d-none d-md-block"> aute, non cupidatat skateboard
               </p>
               <div class="mt-5" data-aos="fade-right" data-aos-offset="10" data-aos-delay="300">
-                    <n-link class="button_1 btn-lg mt-md-5 mt-5" to="/register" role="button_"
+                    <n-link class="button_1 btn-lg mt-md-5 mt-5" to="/join" role="button_"
               >Get Started
               </n-link>
               </div>
@@ -242,7 +242,6 @@
 
 
 
-
   </div>
 </template>
 
@@ -253,6 +252,7 @@ import "remixicon/fonts/remixicon.css";
 import footer from '~/components/footer';
 export default {
   layout: "headerr",
+
   components: {
     carousel: () =>
       process.client

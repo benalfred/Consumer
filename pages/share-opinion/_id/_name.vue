@@ -5,13 +5,17 @@
         <div class="col-md-5">
           <b-media>
             <template #aside>
-              <img src="~/assets/img/dellpic.png" class="img-fluid" alt="Media Aside" />
+              <img
+                src="~/assets/img/dellpic.png"
+                class="img-fluid"
+                alt="Media Aside"
+              />
             </template>
 
             <h2 class="pt-3">Dell Technology</h2>
             <p class="pt-1">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor ut labore et dolore magna aliqua.
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor ut labore et dolore magna aliqua.
             </p>
           </b-media>
 
@@ -22,8 +26,8 @@
 
             <div class="mb-4 mt-4" style="background: #626d73; height: 1px">
               <div class="mt-2 line"></div>
-            </div> </b-media
-          ><select name="" id="" disabled="disabled"></select>
+            </div>
+          </b-media>
 
           <div class="d-flex" style="padding: 0px 10px 0px">
             <div class="emoji" v-for="ratingg in ratingsData" :key="ratingg.id">
@@ -51,7 +55,8 @@
 
           <div class="row" v-if="ratingTags.length && !ratingTagSpinner">
             <b-col md="3" v-for="tag in ratingTags" :key="tag.Id">
-              <div @click="setRatingTagId(tag)"
+              <div
+                @click="setRatingTagId(tag)"
                 class="card-subtitle mb-2 px-3 text-muted text-center"
                 style="
                   border: 1px solid #81959e;
@@ -65,12 +70,12 @@
             </b-col>
           </div>
           <div class="row" v-if="!ratingTags.length && !ratingTagSpinner">
-            <b-col md="3">
+            <b-col md="4">
               <div
-                class="card-subtitle mb-2 px-3 text-muted text-center"
+                class="card-subtitle mb-2 px-3 p-2 text-muted text-center"
                 style="
                   border: 1px solid #81959e;
-                  border-radius: 50px;
+                  border-radius: 50px; logo-main
                   font-size: 14px;
                   color: #81959e;
                 "
@@ -79,7 +84,11 @@
               </div>
             </b-col>
           </div>
-          <b-spinner v-if="ratingTagSpinner" label="Spinning" style="margin-left: 49%"></b-spinner>
+          <b-spinner
+            v-if="ratingTagSpinner"
+            label="Spinning"
+            style="margin-left: 49%"
+          ></b-spinner>
 
           <b-media class="mt-4">
             <template #aside>
@@ -106,7 +115,9 @@
           <div class="mx-0 justify-content-end">
             <div>
               <b-form-group class="newpost mt-3">
-                <button :disabled="!Comment && !rating && !ratingTagId.length" @click="createOpinion"
+                <button
+                  :disabled="!Comment && !rating && !ratingTagId.length"
+                  @click="createOpinion"
                   class="mt-2 btn-sacademy"
                   style="font-size: 16px"
                   type="submit"
@@ -120,68 +131,80 @@
         </div>
 
         <div class="col-md-7 section_ px-5 pt-5 mt-3">
-          <div class="second-col px-4 pt-4 pb-4" v-if="opinions.length && !spinner">
-            <b-media>
-              <template #aside>
-                <img
-                  src="~/assets/img/vector4.png"
-                  class="img-fluid p-2 mt-2 img1"
-                  alt="Media Aside"
-                />
-              </template>
+          <div class="section__">
+            <div
+              class="second-col px-4 pt-4 pb-4"
+              v-if="opinions.length && !spinner"
+            >
+              <b-media>
+                <template #aside>
+                  <img
+                    src="~/assets/img/vector4.png"
+                    class="img-fluid p-2 mt-2 img1"
+                    alt="Media Aside"
+                  />
+                </template>
 
-              <h6 class="pt-3">User 1</h6>
-              <div class="d-flex">
-                <div><img src="~/assets/img/emoji1.png" class="img-fluid" alt="" /></div>
-                <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
-                <div>
-                  <img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" />
+                <h6 class="pt-3">User 1</h6>
+                <div class="d-flex">
+                  <div>
+                    <img
+                      src="~/assets/img/emoji1.png"
+                      class="img-fluid"
+                      alt=""
+                    />
+                  </div>
+                  <p class="pt-1 ml-2" style="color: #e57718">
+                    Positive Opinion
+                  </p>
+                  <div>
+                    <img
+                      src="~/assets/img/Frame20.png"
+                      class="img-fluid ml-3"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <p class="firstp">Giving Great Values | Amazing | Good...</p>
+                <p>
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat....
+                </p>
+
+                <!-- b-[Optional: add media children here for nesting] -->
+              </b-media>
+            </div>
+            <div
+              class="second-col px-4 pt-4 pb-4"
+              v-if="!opinions.length && !spinner"
+            >
+              <div class="row justify-content-center d-flex my-4">
+                <div class="col-4">
+                  <img
+                    src="~/assets/img/comment-icon.png"
+                    class="img-fluid no-opinion-img"
+                    alt=""
+                  />
+                  <p class="text-center">no opinion</p>
                 </div>
               </div>
-              <p class="firstp">Giving Great Values | Amazing | Good...</p>
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat....
-              </p>
-
-              <!-- b-[Optional: add media children here for nesting] -->
-            </b-media>
+            </div>
+            <b-spinner
+              v-if="spinner"
+              label="Spinning"
+              style="margin-left: 49%"
+            ></b-spinner>
+            <b-pagination
+              v-model="pageForOpinions2"
+              :total-rows="totalRowsForOpinion"
+              :per-page="pageSize"
+              align="center"
+              size="sm"
+              class="my-0 text-center"
+            />
           </div>
-          <div class="second-col px-4 pt-4 pb-4" v-if="!opinions.length && !spinner">
-            <b-media>
-              <template #aside>
-                <img
-                  src="~/assets/img/vector4.png"
-                  class="img-fluid p-2 mt-2 img1"
-                  alt="Media Aside"
-                />
-              </template>
-
-              <h6 class="pt-3">User 1</h6>
-              <div class="d-flex">
-                <div><img src="~/assets/img/emoji1.png" class="img-fluid" alt="" /></div>
-                <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
-                <div>
-                  <img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" />
-                </div>
-              </div>
-              <p class="firstp">No opinions yet</p>
-              <p>No opinions yet fot this company</p>
-
-              <!-- b-[Optional: add media children here for nesting] -->
-            </b-media>
-          </div>
-          <b-spinner v-if="spinner" label="Spinning" style="margin-left: 49%"></b-spinner>
-          <b-pagination
-            v-model="pageForOpinions2"
-            :total-rows="totalRowsForOpinion"
-            :per-page="pageSize"
-            align="center"
-            size="sm"
-            class="my-0 text-center"
-          />
         </div>
       </div>
     </div>
@@ -217,59 +240,63 @@ export default {
       ],
       pageForOpinions: 1,
       pageForOpinions2: 1,
-      Comment:null,
+      Comment: null,
       pageSize: 10,
-      ratingTagSpinner:false,
+      ratingTagSpinner: false,
       companyId: 0,
-      ratingTagId:[],
-      ratingTags:[],
+      ratingTagId: [],
+      ratingTags: [],
       totalRowsForOpinion: 0,
       opinionsSpinner: false,
     };
   },
   methods: {
-    setRatingTagId(tag){
-      this.ratingTagId.push(tag.Id)
+    setRatingTagId(tag) {
+      this.ratingTagId.push(tag.Id);
     },
-  async  displayRatingTags(id) {
-      this.ratingTagSpinner = true
+    async displayRatingTags(id) {
+      this.ratingTagSpinner = true;
       try {
-        this.rating = id
-        const response = await this.$axios.get(`/Opinions/GetRatingTags?rating=${this.rating}`)
-        this.ratingTags = response.data
-        this.ratingTagSpinner = false
+        this.rating = id;
+        const response = await this.$axios.get(
+          `/Opinions/GetRatingTags?rating=${this.rating}`
+        );
+        this.ratingTags = response.data;
+        this.ratingTagSpinner = false;
       } catch (e) {
-        alert(e)
-        console.log(e)
+        alert(e);
+        console.log(e);
       }
     },
-  async createOpinion(){
+    async createOpinion() {
       try {
-      const response = await this.$axios.post('/Opinions/SubmitOpinion', {
-        companyId:this.$route.params.id,
-        rating:this.rating,
-        ratingTagId:this.ratingTagId,
-        Comment:this.Comment
-      })
-      this.Comment = null
-      this.rating = null
-      this.ratingTagId = []
-       swal({
+        const response = await this.$axios.post("/Opinions/SubmitOpinion", {
+          companyId: this.$route.params.id,
+          rating: this.rating,
+          ratingTagId: this.ratingTagId,
+          Comment: this.Comment,
+        });
+        this.Comment = null;
+        this.rating = null;
+        this.ratingTagId = [];
+        swal({
           title: "Success!",
           text: "Opinion Submitted thank you!",
           icon: "success",
         });
       } catch (e) {
-       swal({
-            title: "Error!",
-            text: "Something went wrong!",
-            icon: "warning",
-            dangerMode: true,
-          });
+        swal({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "warning",
+          dangerMode: true,
+        });
       }
     },
     ratingMethod(value) {
-      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      let foundEmoji = this.ratingEmoji.find(
+        (emoji) => emoji.PreferredName === value
+      );
       return foundEmoji;
     },
     async allOpinions() {
@@ -316,7 +343,35 @@ export default {
   border-radius: 10px;
 }
 .section_ {
-  background: #626d73;
+}
+
+.section_::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 50px;
+}
+
+.emoji p {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px 7px 0px;
+}
+
+/* Track */
+.section_::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.section_::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.section_::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
 }
 
 @media screen and (min-width: 600px) {

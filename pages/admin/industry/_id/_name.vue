@@ -3,7 +3,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
         <div class="container-fluid">
-          <b-row>
+          <b-row class="overflow_">
             <b-col md="6">
               <div class="d-flex">
                 <h1 class="" v-if="form.Name">
@@ -96,7 +96,7 @@
                   </div>
                 </div>
                 <div class="" v-if="!companies.length && !fetchCompanySpinner">
-                  <button type="button" class="button">No company yet</button>
+                  <button type="button" class="btn1">No company yet</button>
                 </div>
                 <b-spinner
                   v-if="fetchCompanySpinner"
@@ -135,8 +135,10 @@
               </div>
             </b-col>
 
+
+
             <b-col lg="6" xl="6" class="all pl-lg-5">
-              <div class="search-wrapper mb-3">
+              <div class="search-wrapper mb-3 mt-5">
                 <div class="wrapper">
                   <div class="input-data">
                     <span class="las la-search search"></span>
@@ -156,20 +158,21 @@
                 <div
                   class="profile-dropdown_"
                 >
-                  <button type="button" @click="setIndustryId" 
+                  <button type="button" @click="setIndustryId"
                     :class="[industryId != this.$route.params.id ? 'active' : '']" class="btn1">All</button>
                 </div>
                 <div
                   class="profile-dropdown_"
                   v-for="company in companies"
-                  :key="company.Id" 
+                  :key="company.Id"
                   @click="setCompanyId(company.Id)"
                     :class="[companyId != company.Id ? 'active' : '']"
                 >
                   <button type="button" class="btn1">{{ company.Name }}</button>
                 </div>
                 <!--start dropdown-->
-                <div class="" v-if="sectors3.length">
+
+                <div class="">
                   <div
                     class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
                     type="submit"
@@ -228,6 +231,7 @@
                     style="background: rgba(0, 0, 0, 0.1); height: 1px"
                   ></div>
                 </div>
+
                 <UserResponse :opinions="opinions" :spinner="opinionsSpinner" />
                 <b-pagination
                   v-model="pageForOpinions2"
@@ -256,15 +260,29 @@
       header-bg-variant="light"
       hide-footer
     >
-      <div class="item-wrapper one">
-        <h1 class="text-center font-weight-bold mt-5" style="color: #000">
-          Technology <br />
-          <span style="font-size: 27px; color: #626d73">at its very best</span>
-        </h1>
-        <p class="text-center">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+      <div class="item-wrapper one justify-content-center">
+        <div class="row justify-content-center text-center">
+           <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 27px; color: #626d73"
+          v-model="text"
+          placeholder="Technology at its very best"
+          rows="2">
+        </b-form-textarea>
+        </div>
+        </div>
+        <div class="row justify-content-center text-center">
+             <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 13px; color: #626d73"
+          v-model="text"
+          placeholder="Text......"
+          rows="1">
+        </b-form-textarea>
+        </div>
+        </div>
         <div class="item">
           <form
             data-validation="true"
@@ -331,12 +349,13 @@
         <div class="pt-5 pb-5">
           <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
 
+
           <div class="d-flex justify-content-center">
             <div>
               <b-form-group class="newpost mt-3">
                 <a href="#close">
                   <button
-                    class="mt-2 mr-4 btn-sacademy"
+                    class="mt-2 btn-sacademy_"
                     style="font-size: 16px"
                     type="submit"
                     value="Send"
@@ -604,6 +623,42 @@ export default {
   opacity: 0.3;
 }
 
+.btn-sacademy1 {
+  color: #fff !important;
+  background: #18e5b4;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 300%;
+  padding: 9px 0px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
+.btn-sacademy {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 50%;
+  padding: 12px 0px 12px;
+  border: 0;
+  border-radius: 25px;
+  margin-left: 25%;
+}
+
+.btn-sacademy_ {
+  color: #fff !important;
+  background: #d91925;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  position: relative;
+  left: -80px;
+  width: 200%;
+  padding: 9px 5px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
 .media_ {
   overflow: hidden;
   overflow-y: scroll;
@@ -663,17 +718,7 @@ p {
   color: #000000;
 }
 
-.btn-sacademy {
-  color: #fff !important;
-  background: #e57718;
-  box-shadow: 0px 20px 20px #00000026;
-  opacity: 1;
-  width: 50%;
-  padding: 12px 0px 12px;
-  border: 0;
-  border-radius: 25px;
-  margin-left: 50%;
-}
+
 
 .img1 {
   background: #e57718;
@@ -692,6 +737,69 @@ p {
 .firstp {
   color: #626d73;
 }
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+
+
+.btn2_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.2;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.profile-dropdown_ {
+  padding: 0px 5px 0px;
+  margin-left: -5px;
+}
+
+.btn1 {
+  background: #00b5d3;
+  border: none;
+  height: 35px;
+
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.2;
+}
+
 .btn2 {
   background: #00b5d3;
   border: none;
@@ -737,53 +845,6 @@ p {
   }
 }
 
-.btn2_ {
-  background: #ffffff;
-  border: none;
-  padding: 5px 20px 5px;
-  color: black;
-  opacity: 0.2;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: #000000;
-}
-
-.profile-dropdown_ {
-  padding: 0px 5px 0px;
-  margin-left: -5px;
-}
-
-.btn1 {
-  background: #00b5d3;
-  border: none;
-  height: 35px;
-  width: 90px;
-  color: black;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: #fff;
-}
-
-.btn2 {
-  background: #00b5d3;
-  border: none;
-  padding: 5px 20px 5px;
-  color: black;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: #fff;
-  opacity: 0.2;
-}
-
 .sub-menu {
   /*width: 270px;*/
   display: block;
@@ -826,6 +887,13 @@ li {
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
     right: 90px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .logout-sub-menu {
+    right: 90px;
+    margin-top: 50px;
   }
 }
 .modalDialog {
@@ -892,15 +960,7 @@ li {
   overflow: auto;
 }
 
-.btn-sacademy1 {
-  color: #fff !important;
-  background: #18e5b4;
-  border-radius: 25px;
-  box-shadow: 0px 20px 20px #00000026;
-  opacity: 1;
-  padding: 8px 34px 8px;
-  border: 0;
-}
+
 
 .text {
   font-family: Poppins;

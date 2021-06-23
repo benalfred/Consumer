@@ -24,7 +24,7 @@
 
 <script>
 export default {
-   
+
 }
 </script>
 
@@ -36,7 +36,7 @@ section {
    min-height:(100vh - 0);
 }
 
-  .btn-sacademy {
+.btn-sacademy {
     color: #fff !important;
     background: #E57718;
     box-shadow: 0px 20px 20px #00000026;

@@ -4,19 +4,11 @@
       <div id="content">
         <div class="container-fluid">
           <div class="d-flex" style="cursor: pointer">
-            <h1 class="mb-5">Welcome Back!</h1>
-            <div>
-              <img
-                v-b-modal.modal-xl
-                class="ml-4 mt-2"
-                src="~assets/img/bx_bxs-edit-alt.png"
-                alt=""
-              />
-            </div>
+          <h1 class="mb-5">Welcome Back!</h1>
           </div>
           <b-row>
             <b-col lg="6" xl="6" class="">
-              <div class="Opinion p-3 pl-lg-5">
+              <div class="Opinion p-4 pl-lg-5">
                 <h4 class="h4 pb-3">Opinion Ratings</h4>
 
                 <p class="text-white text" style="position: relative; top: 10px">
@@ -72,7 +64,29 @@
                 </div>
                 <div class="d-flex_ row" v-if="sectors.length">
                   <div
-                    class="col-lg-4 col-xl-4 d-flex"
+                    class="col-sm-6 col-lg-4 	d-none d-sm-block"
+                    v-for="sector in sectors"
+                    :key="sector.id"
+                  >
+                    <div>
+                      <button
+                        @click="goToIndustryDetailsPage(sector)"
+                        type="button"
+                        class="button"
+                      >
+                        {{ sector.Name }}
+                      </button>
+                      <a href="#openModal-about">
+                        <i
+                          @click="setId(sector.Id)"
+                          class="far fa-times-circle"
+                          style="position: absolute; cursor: pointer; top: 5px; left: 5px"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                  <div
+                    class="col-6 d-block d-sm-none"
                     v-for="sector in sectors"
                     :key="sector.id"
                   >
@@ -191,24 +205,14 @@
                     >
                       <i class="fas fa-angle-down"></i>
 
-                      <ul
-                        class="logout-sub-menu sub-menu"
+                      <div class="logout-sub-menu row sub-menu"
                         id="logout-sub-menu"
-                        :class="{ submenuthreeopen: threeOpen }"
-                      >
-                        <li>
-                          <n-link
-                            to="/dashboard"
-                            class="d-flex align-items-center px-2 justify-content-start"
-                          >
-                            Others
-                          </n-link>
-                        </li>
-                        <li>
+                        :class="{ submenuthreeopen: threeOpen }">
+
                           <div
                             v-for="sector in sectors3"
                             :key="sector.Id"
-                            class="d-flex px-2 align-items-center justify-content-start"
+                            class="px-3 pt-4 align-items-center justify-content-start"
                           >
                             <button
                               @click="setIndustryId(sector.Id)"
@@ -224,14 +228,15 @@
                             :per-page="pageSize"
                             align="center"
                             size="sm"
-                            class="my-0 text-center"
+                            class="my-2 text-center ml-5"
                           />
-                        </li>
-                      </ul>
+
+                      </div>
                     </div>
                   </div>
                   <!--end of dropdown-->
                 </div>
+
                 <div class="second-col px-4 pt-5 mt-5 pb-4">
                   <div>
                     <div class="d-flex">
@@ -316,80 +321,7 @@
       </div>
     </div>
 
-    <b-modal
-      id="modal-xl"
-      size="xl"
-      class="popup"
-      centered
-      scrollable
-      title="Technology"
-      body-bg-variant="light"
-      header-bg-variant="light"
-      hide-footer
-    >
-      <div class="item-wrapper one justify-content-center">
-        <input class="" type="text" name="" placeholder="Technology at its very best" />
 
-        <p class="text-center">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <div class="item">
-          <form
-            data-validation="true"
-            action="#"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <div class="item-inner">
-              <div class="item-content">
-                <div class="image-upload">
-                  <label style="cursor: pointer" for="file_upload">
-                    <img src="" alt="" class="uploaded-image" />
-                    <div class="h-100">
-                      <div class="dplay-tbl">
-                        <div class="dplay-tbl-cell">
-                          <i class="fa fa-cloud-upload"></i>
-                          <h5><b>Choose Your Image to Upload</b></h5>
-                          <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <!--upload-content-->
-                    <input
-                      data-required="image"
-                      type="file"
-                      name="image_name"
-                      id="file_upload"
-                      class="image-input"
-                      data-traget-resolution="image_resolution"
-                      value=""
-                    />
-                  </label>
-                </div>
-              </div>
-              <!--item-content-->
-            </div>
-            <!--item-inner-->
-          </form>
-        </div>
-
-        <b-row class="justify-content-center">
-          <b-col md="5" class="justify-content-center">
-            <b-form-group class="newpost">
-              <button
-                class="btn-sacademyy"
-                style="font-size: 16px"
-                type="submit"
-                value="Send"
-              >
-                Update
-              </button>
-            </b-form-group>
-          </b-col>
-        </b-row>
-      </div>
-    </b-modal>
   </div>
 </template>
 
@@ -792,13 +724,13 @@ p {
   border: none;
   padding: 5px 20px 5px;
   color: black;
+  width: 120px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
   color: #fff;
-  opacity: 0.5;
 }
 
 .user-icon {
@@ -839,7 +771,6 @@ p {
 
 .sub-menu {
   /*width: 270px;*/
-  display: block;
   position: absolute;
   background-color: #fefefe;
   z-index: 250;
@@ -850,6 +781,10 @@ p {
   box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
     0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
   transition: all 650ms ease;
+}
+
+.sub-menu button {
+  margin: 0px 0px 10px;
 }
 
 .nav-list li:hover > .sub-menu,
@@ -878,9 +813,10 @@ li {
 
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
-    right: 90px;
+    right: 100px;
   }
 }
+
 .modalDialog {
   position: fixed;
   top: 0;
@@ -1056,7 +992,7 @@ li {
   font-size: 12px;
   line-height: 18px;
   color: #fff;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .add {
@@ -1073,6 +1009,7 @@ li {
   border: none;
   padding: 8px 32px 8px;
   color: black;
+  width: 120px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;

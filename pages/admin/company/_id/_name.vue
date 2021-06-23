@@ -128,15 +128,29 @@
       header-bg-variant="light"
       hide-footer
     >
-      <div class="item-wrapper one">
-        <h1 class="text-center font-weight-bold mt-5" style="color: #000">
-          Technology <br />
-          <span style="font-size: 27px; color: #626d73">at its very best</span>
-        </h1>
-        <p class="text-center">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+      <div class="item-wrapper one justify-content-center">
+        <div class="row justify-content-center text-center">
+           <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 27px; color: #626d73"
+          v-model="text"
+          placeholder="Technology at its very best"
+          rows="2">
+        </b-form-textarea>
+        </div>
+        </div>
+        <div class="row justify-content-center text-center">
+             <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 13px; color: #626d73"
+          v-model="text"
+          placeholder="Text......"
+          rows="1">
+        </b-form-textarea>
+        </div>
+        </div>
         <div class="item">
           <form
             data-validation="true"
@@ -178,7 +192,7 @@
           <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
             <b-form-group class="newpost">
               <button
-                @click="updateCompany"
+                @click="updateSector"
                 class="btn-sacademy"
                 style="font-size: 16px"
                 type="submit"

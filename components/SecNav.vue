@@ -1,27 +1,13 @@
 <template>
   <div>
-    <b-container>
-      <b-row class="justify-content-center">
-        <div class="display-text d-lg-flex m-3 d-none d-sm-block">
-          <nuxt-link
-            :class="[id == sector.Id ? 'color-orange' : '']"
-            :to="`/industry/${sector.Id}/${sector.Name}`"
-            v-for="sector in sectors"
-            :key="sector.Id"
-            >{{ sector.Name }}</nuxt-link
-          >
-
-          <SecDropdown :sectors2="sectors2" />
-        </div>
-      </b-row>
-    </b-container>
+    <SecDropdown class="ml-auto" :sectors2="sectors2" />
   </div>
 </template>
 
 <script>
 import SecDropdown from "./SecDropdown.vue";
 export default {
-  name: "SecNav",
+  name: "SecNavComponent",
   components: { SecDropdown },
   data() {
     return {
@@ -48,19 +34,21 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
         );
-        if (response.data.Results.length) {
-          response.data.Results.filter((sec) => {
-            if (this.sectors.length != 5) {
-              this.sectors.push(sec);
-            }
-          });
-          let ctx = this;
-          response.data.Results.filter((com, index) => {
-            if (index > 4) {
-              ctx.sectors2.push(com);
-            }
-          });
-        }
+        // if (response.data.Results.length) {
+        //   response.data.Results.filter((sec) => {
+        //     if (this.sectors.length != 5) {
+        //       this.sectors.push(sec);
+        //     }
+        //   });
+        //   let ctx = this;
+        //   response.data.Results.filter((com, index) => {
+        //     if (index > 4) {
+        //       ctx.sectors2.push(com);
+        //     }
+        //   });
+        //   console.log(this.sectors2)
+        // }
+        this.sectors2 = response.data.Results
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
@@ -78,7 +66,6 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 27px;
   text-decoration: none;
   text-align: center;
   color: #373737;

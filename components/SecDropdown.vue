@@ -1,32 +1,24 @@
 <template>
   <div class="">
     <div
-      class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
+      class="nav-list  text-center d-flex justify-content-center align-items-center"
       type="submit"
-      @click="threeMenuOpen"
-    >
-      <i class="fas fa-angle-down"></i>
+      @click="threeMenuOpen">
+
+      <p class="sectors mr-4">Sectors <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
 
       <ul
         class="logout-sub-menu sub-menu"
-        id="logout-sub-menu"
-        :class="{ submenuthreeopen: threeOpen }">
-        <li>
-          <n-link
-            to="/dashboard"
-            class="d-flex align-items-center px-2 justify-content-start">
-            Others
-          </n-link>
-        </li>
+        id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
+
         <li>
           <div
             v-for="sector in sectors2"
             :key="sector.Id"
-            class="d-flex px-2 align-items-center justify-content-start"
-          >
+            class="d-flex  align-items-start justify-content-start">
              <nuxt-link
             :to="`/industry/${sector.Id}/${sector.Name}`"
-            >{{ sector.Name }}</nuxt-link
+            > <p>{{ sector.Name }}</p> </nuxt-link
           >
           </div>
         </li>
@@ -53,25 +45,14 @@ export default {
         return [];
       },
     },
-
-   totalRows: {
-      type: Number,
-      default: 0,
-    },
     bpg: {
       type: Number,
       default: 1,
-    },
-    pageSize: {
-      type: Number,
-      default: 10,
     },
   },
   computed: {
     ...mapState("data-fetching", [
       "sector3",
-      "totalRows",
-      "pageSize"
     ])
   },
 
@@ -122,7 +103,7 @@ export default {
 
 .logout-sub-menu {
   position: absolute;
-  top: 150px;
+  top: 70px;
   z-index: 1000;
   box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
   background-color: white;
@@ -147,7 +128,7 @@ export default {
   z-index: 250;
   opacity: 0;
   visibility: hidden;
-  width: 390px;
+  width: 190px;
   right: -20px;
   box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
     0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
@@ -170,6 +151,8 @@ li a {
   color: #333 !important;
   font-size: 14px;
   line-height: 32px;
+  font-weight: 500;
+  font-family: Poppins;
 }
 li {
   padding: 0.5rem 0;
@@ -180,7 +163,15 @@ li {
 
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
-    right: 155px;
+    right: 300px;
+
   }
+}
+
+.sectors {
+  font-size: 19px;
+  font-size: 600;
+  color: #000;
+  font-family: Poppins;
 }
 </style>

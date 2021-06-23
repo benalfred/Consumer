@@ -112,6 +112,100 @@
        </div>
     </div>
 
+    <b-modal
+      id="modal-xl"
+      size="xl"
+      class="popup"
+      centered
+      scrollable
+      title="Technology"
+      body-bg-variant="light"
+      header-bg-variant="light"
+      hide-footer
+    >
+      <div class="item-wrapper one justify-content-center">
+        <div class="row justify-content-center text-center">
+           <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 27px; color: #626d73"
+          v-model="text"
+          placeholder="Technology at its very best"
+          rows="2">
+        </b-form-textarea>
+        </div>
+        </div>
+        <div class="row justify-content-center text-center">
+             <div class="col-md-4 justify-content-center text-center mb-3">
+          <b-form-textarea
+          id="textarea"
+          style="font-size: 13px; color: #626d73"
+          v-model="text"
+          placeholder="Text......"
+          rows="1">
+        </b-form-textarea>
+        </div>
+        </div>
+        <div class="item">
+          <form
+            data-validation="true"
+            action="#"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="item-inner">
+              <div class="item-content">
+                <div class="image-upload">
+                  <label style="cursor: pointer" for="file_upload">
+                    <img src="" alt="" class="uploaded-image" />
+                    <div class="h-100">
+                      <div class="dplay-tbl">
+                        <div class="dplay-tbl-cell">
+                          <i class="fa fa-cloud-upload"></i>
+                          <h5><b>Choose Your Image to Upload</b></h5>
+                          <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <!--upload-content-->
+                    <b-form-file
+                      v-model="form.Banner"
+                      placeholder="Choose a file or drop it here..."
+                      drop-placeholder="Drop file here..."
+                      name="image"
+                    ></b-form-file>
+                  </label>
+                </div>
+              </div>
+              <!--item-content-->
+            </div>
+            <!--item-inner-->
+          </form>
+        </div>
+
+        <b-row class="justify-content-center">
+          <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
+            <b-form-group class="newpost">
+              <button
+                @click="updateSector"
+                class="btn-sacademy"
+                style="font-size: 16px"
+                type="submit"
+                value="Send"
+              >
+                Update
+              </button>
+            </b-form-group>
+          </b-col>
+          <b-spinner
+            v-if="updateSpinner"
+            label="Spinning"
+            style="margin-left: 5%"
+          ></b-spinner>
+        </b-row>
+      </div>
+    </b-modal>
+
   </div>
 </template>
 

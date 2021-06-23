@@ -50,7 +50,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Finace</h6>
-                        <nuxt-link class="collapse-item" to="/admin/industries">Fashion</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/industry/_name">Fashion</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/delltechnology">Technology</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/economy">Economy</nuxt-link>
                     </div>
@@ -70,8 +70,8 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <nuxt-link class="collapse-item" to="/admin/email-setting">email setting</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/review-setting">review-setting</nuxt-link>
-                        <a class="collapse-item" href="/admin/chartjs">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <nuxt-link class="collapse-item" to="/admin/chartjs">Chart</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/add-rating">Add rating</nuxt-link>
                     </div>
                 </div>
             </li>
@@ -105,9 +105,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+
 
             <!-- Sidebar Message -->
 
@@ -119,7 +117,7 @@
               <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top ">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button @click="toggle" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button @click="toggle" id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -284,6 +282,10 @@ state: false
 border-radius: 19.5px;
 }
 
+a{
+    font-family: Poppins;
+}
+
 .sidebar {
   background-color: #F3CEAE;
   color: black!important;
@@ -292,6 +294,13 @@ border-radius: 19.5px;
 @media screen and (max-width: 640px) {
   .slide-out {
  margin-left: -100px;
+ transition: margin .4s ease-in-out;
+}
+}
+
+@media screen and (min-width: 800px) {
+  .slide-out {
+ margin-left: -220px;
  transition: margin .4s ease-in-out;
 }
 }

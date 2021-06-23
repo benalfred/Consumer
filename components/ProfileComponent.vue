@@ -1,28 +1,19 @@
 <template>
   <div class="">
     <div
-      class="nav-list user-icon text-center d-flex justify-content-center align-items-center"
+      class="nav-list user-icon text-center justify-content-center align-items-center"
       type="submit"
       @click="threeMenuOpen"
     >
       <i class="fas fa-angle-down"></i>
 
-      <ul
-        class="logout-sub-menu sub-menu"
+    <div  class="logout-sub-menu row sub-menu"
         id="logout-sub-menu"
         :class="{ submenuthreeopen: threeOpen }">
-        <li>
-          <n-link
-            to="/dashboard"
-            class="d-flex align-items-center px-2 justify-content-start">
-            Others
-          </n-link>
-        </li>
-        <li>
           <div
             v-for="sector in sectors3"
             :key="sector.Id"
-            class="d-flex px-2 align-items-center justify-content-start"
+            class=" col-md-4 px-2 align-items-center justify-content-start"
           >
             <button type="button" class="btn2">{{ sector.Name }}</button>
           </div>
@@ -34,8 +25,7 @@
             size="sm"
             class="my-0 text-center"
           />
-        </li>
-      </ul>
+        </div>
     </div>
   </div>
 </template>
@@ -80,7 +70,7 @@ export default {
     //  ]),
     threeMenuOpen() {
       this.threeOpen = !this.threeOpen;
-    },   
+    },
   },
 
   watch: {
