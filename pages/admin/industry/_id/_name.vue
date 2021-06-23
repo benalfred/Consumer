@@ -489,7 +489,6 @@ export default {
         this.form.Banner = response.data.Banner;
         this.fetchCompanySpinner = false;
       } catch (e) {
-        alert(e);
         console.log(e);
       }
     },

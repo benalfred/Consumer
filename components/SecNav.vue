@@ -7,7 +7,7 @@
             :class="[id == sector.Id ? 'color-orange' : '']"
             :to="`/industry/${sector.Id}/${sector.Name}`"
             v-for="sector in sectors"
-            :key="sector.id"
+            :key="sector.Id"
             >{{ sector.Name }}</nuxt-link
           >
 

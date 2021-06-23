@@ -462,7 +462,7 @@ export default {
         autoHideDelay: 5000,
         variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
         solid: true,
-      });
+      }); 
     },
     setId(id) {
       this.id = id;
