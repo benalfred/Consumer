@@ -333,6 +333,10 @@ export default {
   opacity: 0.3;
 }
 
+.no-opinion-img {
+  margin-left: 50px;
+}
+
 .section_ {
   overflow: hidden;
   overflow-y: scroll;

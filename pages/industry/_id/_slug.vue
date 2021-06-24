@@ -8,8 +8,7 @@
               class="text-center pb-1"
               data-aos="fade-up"
               data-aos-offset="30"
-              data-aos-delay="50"
-            >
+              data-aos-delay="50">
               Here’s what Nigerian’s are saying about the {{ Name }} Industry
             </h4>
           </b-col>
