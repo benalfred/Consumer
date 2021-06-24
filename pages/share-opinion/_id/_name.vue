@@ -331,6 +331,7 @@ export default {
 </script>
 
 <style scoped>
+
 .active {
   opacity: 0.3;
 }
