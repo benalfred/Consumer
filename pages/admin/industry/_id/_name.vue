@@ -257,38 +257,37 @@
       class="popup"
       centered
       scrollable
-      title="Technology"
+      title="Update Sector"
       body-bg-variant="light"
       header-bg-variant="light"
       hide-footer
     >
       <div class="item-wrapper one justify-content-center">
       <div class="row justify-content-center text-center">
-          <div class="col-md-4 justify-content-center text-center mb-3">
-            <b-form-textarea
+          <div class="col-md-6 justify-content-center text-center mb-1">
+            <b-input
               id="textarea"
-              style="font-size: 13px; color: #626d73"
+              style="font-size: 20px; color: #626d73"
               v-model="form.Name"
               placeholder="Name"
-              rows="1"
+              rows=""
             >
-            </b-form-textarea>
+            </b-input>
           </div>
-        </div>
-        <div class="row justify-content-center text-center">
-          <div class="col-md-4 justify-content-center text-center mb-3">
-            <b-form-textarea
+          <div class="col-md-6 justify-content-center text-center mb-1">
+              <b-input
               id="textarea"
               style="font-size: 13px; color: #626d73"
               v-model="form.Slogan"
               placeholder="Slogan"
               rows="1"
             >
-            </b-form-textarea>
+            </b-input>
           </div>
         </div>
+
         <div class="row justify-content-center text-center">
-          <div class="col-md-4 justify-content-center text-center mb-3">
+          <div class="col-md-6 justify-content-center text-center mb-1">
             <b-form-textarea
               id="textarea"
               style="font-size: 27px; color: #626d73"
@@ -301,7 +300,7 @@
         </div>
         
         <div class="item">
-          <form
+          <form @submit.prevent="updateSector"
             data-validation="true"
             action="#"
             method="post"
@@ -323,8 +322,7 @@
                     </div>
                     <!--upload-content-->
                     <b-form-file
-                     multiple
-                      v-model="form.File"
+                      v-model="File"
                       placeholder="Choose a file or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
@@ -335,14 +333,11 @@
               <!--item-content-->
             </div>
             <!--item-inner-->
-          </form>
-        </div>
-
+            
         <b-row class="justify-content-center">
           <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
             <b-form-group class="newpost">
               <button
-                @click="updateSector"
                 class="btn-sacademy"
                 style="font-size: 16px"
                 type="submit"
@@ -358,6 +353,8 @@
             style="margin-left: 5%"
           ></b-spinner>
         </b-row>
+          </form>
+        </div>
       </div>
     </b-modal>
 
@@ -419,9 +416,9 @@ export default {
         Name: this.$route.params.name,
         Description: null,
         Slogan: null,
-        File: [],
-        
+        Banner:null,
       },
+      File:null,
       fetchCompanySpinner: false,
       Name: null,
       ratingEmoji: [
@@ -431,7 +428,6 @@ export default {
         { PreferredName: "Good", emoji: "😊" },
         { PreferredName: "Very Good", emoji: "😍" },
       ],
-      file: null,
       id: null,
       sectorSpinner: false,
       page: 1,
@@ -465,13 +461,20 @@ export default {
   },
   methods: {
     async updateSector(){
+      alert('yes')
+      this.updateSpinner = true
+      let  formData = new FormData();
       try {
-      if (this.form.File) {
-      let banner = await this.$axios.post(`FileUpload/PictureUpload`,this.form)
+      if (File) {
+        formData.append('File',this.File)
+      let banner = await this.$axios.post(`FileUpload/PictureUpload`,formData)
+      this.form.Banner = banner.data
         console.log(banner.data)
       }
+      await this.updateSector2()
       } catch (e) {
-      
+       this.$store.commit("notifications/error", "something went wrong")
+       this.makeToast()
       }
     },
     goToCompanyDetailsPage(company) {
@@ -616,20 +619,20 @@ export default {
         this.makeToast();
       }
     },
-    // async updateSector() {
-    //   this.updateSpinner = true;
-    //   try {
-    //     const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
-    //     this.updateSpinner = false;
-    //     swal({
-    //       title: "Success!",
-    //       text: "sector updated!",
-    //       icon: "success",
-    //     });
-    //   } catch (e) {
-    //     alert(e);
-    //   }
-    // },
+    async updateSector2() {
+      this.updateSpinner = true;
+      try {
+        const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
+        this.updateSpinner = false;
+        swal({
+          title: "Success!",
+          text: "sector updated!",
+          icon: "success",
+        });
+      } catch (e) {
+        alert(e);
+      }
+    },
     ratingMethod(value) {
       let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
       return foundEmoji;
