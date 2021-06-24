@@ -17,18 +17,18 @@
           />
         </template>
 
-        <h6 class="pt-3">{{ opinion.Surname }} {{ opinion.Lastname }}</h6>
+        <h6 class="pt-3">{{ opinion.Firstname }} {{ opinion.Surname }}</h6>
         <div class="d-flex">
           <div v-if="ratingMethod(opinion.Rating)">
             {{ ratingMethod(opinion.Rating).emoji }}
           </div>
           <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
           <div>
-            <img src="~/assets/img/Frame20.png" class="img-fluid ml-3" alt="" />
+          <span class="ml-3">{{opinion.SubmittedDate}}</span>
           </div>
         </div>
         <p class="firstp">
-          <span v-for="tag in opinion.Tags" :key="tag.Id">{{ tag.Name }}|</span>
+          <span v-for="tag in opinion.Tags" :key="tag.Id"> {{ tag }} |</span>
         </p>
         <p>
           {{ opinion.Comment }}
@@ -78,7 +78,12 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    ratingMethod(value) {
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      return foundEmoji;
+    },
+  },
 };
 </script>
 

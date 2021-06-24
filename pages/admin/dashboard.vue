@@ -239,7 +239,7 @@
 
                 <div class="second-col px-4 pt-5 mt-5 pb-4">
                   <div>
-                    <div class="d-flex">
+                    <div class="d-flex" v-if="ratingsData.length">
                       <p>Review Update</p>
                       <div
                         v-for="ratingg in ratingsData"
@@ -535,10 +535,9 @@ export default {
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.opinionsSpinner = false;
-        console.log(opinions.data);
       } catch (e) {
-        alert(e);
-        console.log(e);
+        this.$store.commit("notifications/error", "somethin went wrong")
+        this.makeToast()
       }
     },
     async getRatings() {
