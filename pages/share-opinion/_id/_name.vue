@@ -70,6 +70,7 @@
               </div>
             </b-col>
           </div>
+
           <div class="row" v-if="!ratingTags.length && !ratingTagSpinner">
             <b-col md="4">
               <div
@@ -129,11 +130,13 @@
               </b-form-group>
             </div>
           </div>
+
         </div>
 
-        <div class="col-md-7 section_ px-5 pt-5 mt-3">
-          <div class="section__">
-            <div
+          <b-col md="7" class="">
+        <div class="section_ px-5 pt-5 mt-3">
+          <div class="row">
+             <div
               class="second-col px-4 pt-4 pb-4"
               v-if="opinions.length && !spinner"
             >
@@ -198,8 +201,12 @@
               size="sm"
               class="my-0 text-center"
             />
+
           </div>
         </div>
+        </b-col>
+
+
       </div>
     </div>
   </div>
@@ -335,7 +342,7 @@ export default {
 .section_ {
   overflow: hidden;
   overflow-y: scroll;
-  height: 750px;
+  height: 500px;
 }
 .second-col {
   background: #ffffff;
@@ -375,7 +382,8 @@ export default {
 
 @media screen and (min-width: 600px) {
   .section_ {
-    background: #626d73;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
     position: relative;
     left: 100px;
   }
