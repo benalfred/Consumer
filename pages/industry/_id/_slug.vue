@@ -170,7 +170,6 @@ export default {
   },
 
   mounted() {
-    alert("hello");
     this.fetchIndustryDetails();
     AOS.init({
       offset: 100,
@@ -179,11 +178,18 @@ export default {
   },
 
   methods: {
+    makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      });
+    },
     goToCompanyPage(company){
      this.$router.push(`/company/${company.Id}/${company.Name}`)
     },
     async fetchIndustryDetails() {
-      alert("runnig");
       try {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
@@ -200,7 +206,8 @@ export default {
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount
       } catch (e) {
-        alert("error");
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast()
       }
     },
   },

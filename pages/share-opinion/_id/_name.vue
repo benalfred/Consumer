@@ -63,6 +63,7 @@
                   border-radius: 50px;
                   font-size: 14px;
                   color: #81959e;
+                  cursor:pointer;
                 "
               >
                 {{ tag.Name }}
@@ -136,7 +137,7 @@
               class="second-col px-4 pt-4 pb-4"
               v-if="opinions.length && !spinner"
             >
-              <b-media>
+              <b-media v-for="opinion in opinions" :key="opinion.Id">
                 <template #aside>
                   <img
                     src="~/assets/img/vector4.png"
@@ -145,7 +146,7 @@
                   />
                 </template>
 
-                <h6 class="pt-3">User 1</h6>
+                <h6 class="pt-3">{{opinion.Firstname}} {{opinion.Surname}}</h6>
                 <div class="d-flex">
                   <div>
                     <img
@@ -155,22 +156,15 @@
                     />
                   </div>
                   <p class="pt-1 ml-2" style="color: #e57718">
-                    Positive Opinion
+                    Positive opinion
                   </p>
                   <div>
-                    <img
-                      src="~/assets/img/Frame20.png"
-                      class="img-fluid ml-3"
-                      alt=""
-                    />
+                  <span class="ml-3"> {{opinion.SubmittedDate}}</span>
                   </div>
                 </div>
-                <p class="firstp">Giving Great Values | Amazing | Good...</p>
+                <p class="firstp"><span v-for="tag in opinion.Tags" :key="tag.Id"> {{tag}} |</span>...</p>
                 <p>
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat....
+                  {{opinion.Comment}}
                 </p>
 
                 <!-- b-[Optional: add media children here for nesting] -->
@@ -273,7 +267,7 @@ export default {
         const response = await this.$axios.post("/Opinions/SubmitOpinion", {
           companyId: this.$route.params.id,
           rating: this.rating,
-          ratingTagId: this.ratingTagId,
+          RatingTagIds: this.ratingTagId,
           Comment: this.Comment,
         });
         this.Comment = null;
@@ -307,6 +301,7 @@ export default {
         const opinions = await this.$axios.get(
           `Opinions/GetOpinions?companyId=${this.$route.params.id}&&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
+        console.log(opinions.data.Results)
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.spinner = false;

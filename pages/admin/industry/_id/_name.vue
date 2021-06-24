@@ -135,8 +135,6 @@
               </div>
             </b-col>
 
-
-
             <b-col lg="6" xl="6" class="all pl-lg-5">
               <div class="search-wrapper mb-3 mt-5">
                 <div class="wrapper">
@@ -155,18 +153,22 @@
               </div>
 
               <div class="d-flex profile-dropdown mr-5">
-                <div
-                  class="profile-dropdown_"
-                >
-                  <button type="button" @click="setIndustryId"
-                    :class="[industryId != this.$route.params.id ? 'active' : '']" class="btn1">All</button>
+                <div class="profile-dropdown_">
+                  <button
+                    type="button"
+                    @click="setIndustryId"
+                    :class="[industryId != this.$route.params.id ? 'active' : '']"
+                    class="btn1"
+                  >
+                    All
+                  </button>
                 </div>
                 <div
                   class="profile-dropdown_"
                   v-for="company in companies"
                   :key="company.Id"
                   @click="setCompanyId(company.Id)"
-                    :class="[companyId != company.Id ? 'active' : '']"
+                  :class="[companyId != company.Id ? 'active' : '']"
                 >
                   <button type="button" class="btn1">{{ company.Name }}</button>
                 </div>
@@ -261,28 +263,43 @@
       hide-footer
     >
       <div class="item-wrapper one justify-content-center">
+      <div class="row justify-content-center text-center">
+          <div class="col-md-4 justify-content-center text-center mb-3">
+            <b-form-textarea
+              id="textarea"
+              style="font-size: 13px; color: #626d73"
+              v-model="form.Name"
+              placeholder="Name"
+              rows="1"
+            >
+            </b-form-textarea>
+          </div>
+        </div>
         <div class="row justify-content-center text-center">
-           <div class="col-md-4 justify-content-center text-center mb-3">
-          <b-form-textarea
-          id="textarea"
-          style="font-size: 27px; color: #626d73"
-          v-model="text"
-          placeholder="Technology at its very best"
-          rows="2">
-        </b-form-textarea>
-        </div>
+          <div class="col-md-4 justify-content-center text-center mb-3">
+            <b-form-textarea
+              id="textarea"
+              style="font-size: 13px; color: #626d73"
+              v-model="form.Slogan"
+              placeholder="Slogan"
+              rows="1"
+            >
+            </b-form-textarea>
+          </div>
         </div>
         <div class="row justify-content-center text-center">
-             <div class="col-md-4 justify-content-center text-center mb-3">
-          <b-form-textarea
-          id="textarea"
-          style="font-size: 13px; color: #626d73"
-          v-model="text"
-          placeholder="Text......"
-          rows="1">
-        </b-form-textarea>
+          <div class="col-md-4 justify-content-center text-center mb-3">
+            <b-form-textarea
+              id="textarea"
+              style="font-size: 27px; color: #626d73"
+              v-model="form.Description"
+              placeholder="Description"
+              rows="2"
+            >
+            </b-form-textarea>
+          </div>
         </div>
-        </div>
+        
         <div class="item">
           <form
             data-validation="true"
@@ -306,7 +323,8 @@
                     </div>
                     <!--upload-content-->
                     <b-form-file
-                      v-model="form.Banner"
+                     multiple
+                      v-model="form.File"
                       placeholder="Choose a file or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
@@ -348,7 +366,6 @@
         <a href="#close" title="Close" class="close">X</a>
         <div class="pt-5 pb-5">
           <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
-
 
           <div class="d-flex justify-content-center">
             <div>
@@ -396,13 +413,14 @@ export default {
     return {
       logoutMenuState: false,
       threeOpen: false,
+      Banner:null,
       form: {
         Id: this.$route.params.id,
         Name: this.$route.params.name,
         Description: null,
         Slogan: null,
-        Banner: [],
-        Logo: null,
+        File: [],
+        
       },
       fetchCompanySpinner: false,
       Name: null,
@@ -446,8 +464,18 @@ export default {
     this.allOpinions();
   },
   methods: {
+    async updateSector(){
+      try {
+      if (this.form.File) {
+      let banner = await this.$axios.post(`FileUpload/PictureUpload`,this.form)
+        console.log(banner.data)
+      }
+      } catch (e) {
+      
+      }
+    },
     goToCompanyDetailsPage(company) {
-      this.$router.push(`/admin/company/${company.Id}/${company.Name}`)
+      this.$router.push(`/admin/company/${company.Id}/${company.Name}`);
     },
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
@@ -469,16 +497,16 @@ export default {
       this.rating = id;
       this.allOpinions();
     },
-    setIndustryId(){
+    setIndustryId() {
       this.pageForOpinions2 = 1;
-      this.companyId = 0
-     this.industryId = this.$route.params.id
-     this.allOpinions()
+      this.companyId = 0;
+      this.industryId = this.$route.params.id;
+      this.allOpinions();
     },
     setCompanyId(id) {
       this.pageForOpinions2 = 1;
       this.companyId = id;
-      this.industryId = 0
+      this.industryId = 0;
       this.allOpinions();
     },
     async fetchIndustryDetails() {
@@ -490,6 +518,7 @@ export default {
         this.form.Name = response.data.Name;
         this.form.Slogan = response.data.Slogan;
         this.form.Description = response.data.Description;
+        this.Banner = response.data.Banner
         if (response.data.Companies.length) {
           response.data.Companies.filter((company) => {
             if (this.companies.length != 3) {
@@ -505,10 +534,8 @@ export default {
           });
         }
         this.companies2 = response.data.Companies;
-        this.form.Banner = response.data.Banner;
         this.fetchCompanySpinner = false;
       } catch (e) {
-        alert(e);
         console.log(e);
       }
     },
@@ -576,8 +603,8 @@ export default {
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.opinionsSpinner = false;
       } catch (e) {
-        this.$store.commit("notifications/error","something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async getRatings() {
@@ -585,37 +612,37 @@ export default {
         const ratings = await this.$axios.get("settings/GetRatings");
         this.ratingsData = ratings.data;
       } catch (e) {
-        this.$store.commit("notifications/error","something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
-    async updateSector() {
-      this.updateSpinner = true;
-      try {
-        const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
-        this.updateSpinner = false;
-        swal({
-          title: "Success!",
-          text: "sector updated!",
-          icon: "success",
-        });
-      } catch (e) {
-        alert(e);
-      }
-    },
+    // async updateSector() {
+    //   this.updateSpinner = true;
+    //   try {
+    //     const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
+    //     this.updateSpinner = false;
+    //     swal({
+    //       title: "Success!",
+    //       text: "sector updated!",
+    //       icon: "success",
+    //     });
+    //   } catch (e) {
+    //     alert(e);
+    //   }
+    // },
     ratingMethod(value) {
       let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
       return foundEmoji;
     },
   },
-  watch:{
-    keyword(){
-      this.allOpinions()
+  watch: {
+    keyword() {
+      this.allOpinions();
     },
-    pageForOpinions2(){
-     this.allOpinions()
-    }
-  }
+    pageForOpinions2() {
+      this.allOpinions();
+    },
+  },
 };
 </script>
 
@@ -719,8 +746,6 @@ p {
   color: #000000;
 }
 
-
-
 .img1 {
   background: #e57718;
   border-radius: 19.5px;
@@ -751,8 +776,6 @@ p {
   color: #fff;
   opacity: 0.5;
 }
-
-
 
 .btn2_ {
   background: #ffffff;
@@ -960,8 +983,6 @@ li {
 .profile-dropdown {
   overflow: auto;
 }
-
-
 
 .text {
   font-family: Poppins;
