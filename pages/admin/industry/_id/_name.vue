@@ -290,7 +290,7 @@
           <div class="col-md-6 justify-content-center text-center mb-1">
             <b-form-textarea
               id="textarea"
-              style="font-size: 27px; color: #626d73"
+              style=" color: #626d73"
               v-model="form.Description"
               placeholder="Description"
               rows="2"
@@ -654,13 +654,22 @@ export default {
   opacity: 0.3;
 }
 
-input,  textarea,  .form-control:focus {
+input,    .form-control:focus {
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.05);
   color:  #000;
   border-radius: 0;
   border: none;
   padding: 1.5rem 1rem;
+  margin: 0px 0px 8px;
+}
+
+textarea {
+    font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color:  #000;
+  border-radius: 0;
+  border: none;
   margin: 0px 0px 8px;
 }
 
