@@ -130,29 +130,42 @@
     >
       <div class="item-wrapper one justify-content-center">
         <div class="row justify-content-center text-center">
-           <div class="col-md-4 justify-content-center text-center mb-3">
-          <b-form-textarea
-          id="textarea"
-          style="font-size: 27px; color: #626d73"
-          v-model="text"
-          placeholder="Technology at its very best"
-          rows="2">
-        </b-form-textarea>
-        </div>
+          <div class="col-md-4 justify-content-center text-center mb-3">
+            <b-input
+              id="textarea"
+              style="font-size: 27px; color: #626d73"
+              v-model="form.Name"
+              placeholder="Technology at its very best"
+              rows="2"
+            >
+            </b-input>
+          </div>
+          <div class="col-md-4 justify-content-center text-center mb-3">
+            <b-input
+              id="textarea"
+              style="font-size: 27px; color: #626d73"
+              v-model="form.Slogan"
+              placeholder="Technology at its very best"
+              rows="2"
+            >
+            </b-input>
+          </div>
         </div>
         <div class="row justify-content-center text-center">
-             <div class="col-md-4 justify-content-center text-center mb-3">
-          <b-form-textarea
-          id="textarea"
-          style="font-size: 13px; color: #626d73"
-          v-model="text"
-          placeholder="Text......"
-          rows="1">
-        </b-form-textarea>
-        </div>
+          <div class="col-md-4 justify-content-center text-center mb-3">
+            <b-form-textarea
+              id="textarea"
+              style="font-size: 13px; color: #626d73"
+              v-model="form.Description"
+              placeholder="Text......"
+              rows="1"
+            >
+            </b-form-textarea>
+          </div>
         </div>
         <div class="item">
           <form
+            @submit.prevent="updateCompany1"
             data-validation="true"
             action="#"
             method="post"
@@ -174,7 +187,7 @@
                     </div>
                     <!--upload-content-->
                     <b-form-file
-                      v-model="form.Banner"
+                      v-model="File"
                       placeholder="Choose a file or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
@@ -185,29 +198,28 @@
               <!--item-content-->
             </div>
             <!--item-inner-->
+
+            <b-row class="justify-content-center">
+              <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
+                <b-form-group class="newpost">
+                  <button :disabled="!form.Name || !form.Description || !form.Slogan"
+                    class="btn-sacademy"
+                    style="font-size: 16px"
+                    type="submit"
+                    value="Send"
+                  >
+                    Update
+                  </button>
+                </b-form-group>
+              </b-col>
+              <b-spinner
+                v-if="updateSpinner"
+                label="Spinning"
+                style="margin-left: 5%"
+              ></b-spinner>
+            </b-row>
           </form>
         </div>
-
-        <b-row class="justify-content-center">
-          <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
-            <b-form-group class="newpost">
-              <button
-                @click="updateSector"
-                class="btn-sacademy"
-                style="font-size: 16px"
-                type="submit"
-                value="Send"
-              >
-                Update
-              </button>
-            </b-form-group>
-          </b-col>
-          <b-spinner
-            v-if="updateSpinner"
-            label="Spinning"
-            style="margin-left: 5%"
-          ></b-spinner>
-        </b-row>
       </div>
     </b-modal>
   </div>
@@ -223,12 +235,13 @@ export default {
     return {
       logoutMenuState: false,
       threeOpen: false,
+      File:null,
       form: {
         Id: this.$route.params.id,
         Name: this.$route.params.name,
         Description: null,
         Slogan: null,
-        Banner: [],
+        Banner: null,
         Logo: null,
       },
       fetchCompanySpinner: false,
@@ -309,8 +322,8 @@ export default {
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.opinionsSpinner = false;
       } catch (e) {
-        this.$store.commit("notifications/error","something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async getRatings() {
@@ -318,22 +331,41 @@ export default {
         const ratings = await this.$axios.get("settings/GetRatings");
         this.ratingsData = ratings.data;
       } catch (e) {
-        this.$store.commit("notifications/error","something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+    async updateCompany1() {
+      alert("yes");
+      this.updateSpinner = true;
+      let formData = new FormData();
+      try {
+        if (File) {
+          formData.append("File", this.File);
+          let banner = await this.$axios.post(`FileUpload/PictureUpload`, formData);
+          this.form.Banner = banner.data;
+          this.form.Logo = banner.data
+        }
+        await this.updateCompany();
+      } catch (e) {
+        this.updateSpinner = false
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async updateCompany() {
       this.updateSpinner = true;
       try {
-        const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
+        const response = await this.$axios.post("Industries/UpdateCompany", this.form);
         this.updateSpinner = false;
         swal({
           title: "Success!",
-          text: "sector updated!",
+          text: "company updated!",
           icon: "success",
         });
       } catch (e) {
-        alert(e);
+        this.$store.commit("notifications/error", "something went wrong")
+        this.makeToast()
       }
     },
     ratingMethod(value) {
@@ -341,14 +373,14 @@ export default {
       return foundEmoji;
     },
   },
-  watch:{
-    keyword(){
-      this.allOpinions()
+  watch: {
+    keyword() {
+      this.allOpinions();
     },
-    pageForOpinions2(){
-     this.allOpinions()
-    }
-  }
+    pageForOpinions2() {
+      this.allOpinions();
+    },
+  },
 };
 </script>
 

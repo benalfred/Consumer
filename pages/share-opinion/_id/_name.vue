@@ -12,10 +12,9 @@
               />
             </template>
 
-            <h2 class="pt-3">Dell Technology</h2>
+            <h2 class="pt-3">{{Name}} Company</h2>
             <p class="pt-1">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor ut labore et dolore magna aliqua.
+              {{Description}}
             </p>
           </b-media>
 
@@ -244,6 +243,8 @@ export default {
       Comment: null,
       pageSize: 10,
       ratingTagSpinner: false,
+      Name:this.$route.params.name,
+      Description:null,
       companyId: 0,
       ratingTagId: [],
       ratingTags: [],
@@ -308,7 +309,7 @@ export default {
         const opinions = await this.$axios.get(
           `Opinions/GetOpinions?companyId=${this.$route.params.id}&&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
-        console.log(opinions.data.Results)
+        this.Description = "This is a lovely company and its ood for your vote anytime you want it, This is a lovely company and its ood for your vote anytime you want it, This is a lovely company and its ood for your vote anytime you want it"
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.spinner = false;

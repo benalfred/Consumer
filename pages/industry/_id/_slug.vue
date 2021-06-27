@@ -8,24 +8,27 @@
               class="text-center pb-1"
               data-aos="fade-up"
               data-aos-offset="30"
-              data-aos-delay="50">
+              data-aos-delay="50"
+            >
               Here’s what Nigerian’s are saying about the {{ Name }} Industry
             </h4>
           </b-col>
 
-
-          <div class="big-image">
+          <div class="big-image" :style="{ backgroundImage: 'url(' + Banner + ')' }">
             <div class="background-text">
-
-            <div class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
-              <h2 class="h2 pb-3 pt-5">Technology <br> at it very best</h2>
-              <p class="pt-5 ptag">HERE IS WHAT NIGERINS ARE SAYING ABOT DELL TECHNOLOGY</p>
+              <div
+                class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12"
+              >
+                <h2 class="h2 pb-3 pt-5">
+                  {{ Name }} <br />
+                  {{ Slogan }}
+                </h2>
+                <p class="pt-5 ptag">
+                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{ Name }} Industry
+                </p>
+              </div>
             </div>
-
-
-            </div>
-            </div>
-
+          </div>
         </b-row>
 
         <p>ConsumerHalla Overall Ratings (%)</p>
@@ -42,7 +45,7 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">{{PositivePercent}}</h6>
+                <h6 class="pt-2 mt-1">{{ PositivePercent }}</h6>
                 <p class="ml-2 pt-4">
                   Positve <br />
                   Opinion
@@ -62,7 +65,7 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">{{NegativePercent}}</h6>
+                <h6 class="pt-2 mt-1">{{ NegativePercent }}</h6>
                 <p class="ml-1 pt-4">
                   Negative <br />
                   Opinion
@@ -82,7 +85,7 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">{{NeutralPercent}}</h6>
+                <h6 class="pt-2 mt-1">{{ NeutralPercent }}</h6>
                 <p class="ml-1 pt-4">
                   Neutral <br />
                   Opinion
@@ -102,7 +105,7 @@
               </template>
 
               <div class="d-flex b-media">
-                <h6 class="pt-2 mt-1">{{TotalReviewCount}}</h6>
+                <h6 class="pt-2 mt-1">{{ TotalReviewCount }}</h6>
                 <p class="ml-1 pt-4">
                   REVIES <br />
                   SUBMITTED
@@ -121,8 +124,14 @@
         <b-row>
           <b-col md="11" class="dell-card ml-lg-5">
             <div class="d-flex_ row p-5" v-if="companies.length">
-              <div style="cursor:pointer;" @click="goToCompanyPage(company)" class="col-md-2" v-for="company in companies" :key="company.Id">
-                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              <div
+                style="cursor: pointer"
+                @click="goToCompanyPage(company)"
+                class="col-md-2"
+                v-for="company in companies"
+                :key="company.Id"
+              >
+                <img :src="company.Banner" class="img-fluid" alt="" />
               </div>
               <div class="col-md-2 mt-3 pl-1">
                 <button class="btn">
@@ -153,24 +162,26 @@ import agegender from "@/components/agegender.vue";
 import footer from "@/components/footer.vue";
 export default {
   layout: "headerr",
+  async fetch() {
+    await this.fetchIndustryDetails();
+  },
   component: { agegender, footer, SecNav },
   data() {
     return {
       Name: null,
       Slogan: null,
-      Banner: null,
+      Banner: "",
       Logo: null,
       companies: [],
       Description: null,
       PositivePercent: 0,
-    NegativePercent: 0,
-    NeutralPercent: 0,
-    TotalReviewCount: 0,
+      NegativePercent: 0,
+      NeutralPercent: 0,
+      TotalReviewCount: 0,
     };
   },
 
   mounted() {
-    this.fetchIndustryDetails();
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -186,8 +197,8 @@ export default {
         solid: true,
       });
     },
-    goToCompanyPage(company){
-     this.$router.push(`/company/${company.Id}/${company.Name}`)
+    goToCompanyPage(company) {
+      this.$router.push(`/company/${company.Id}/${company.Name}`);
     },
     async fetchIndustryDetails() {
       try {
@@ -199,15 +210,16 @@ export default {
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;
         this.Logo = response.data.Logo;
-        this.Banner = response.data.Banner;
-        this.companies = response.data.Companies
-        this.PositivePercent = response.data.GeneralRating.PositivePercent
-        this.NegativePercent = response.data.GeneralRating.NegativePercent
-        this.NeutralPercent = response.data.GeneralRating.NeutralPercent
-        this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount
+        this.Banner = await response.data.Banner
+        this.companies = response.data.Companies;
+        this.PositivePercent = response.data.GeneralRating.PositivePercent;
+        this.NegativePercent = response.data.GeneralRating.NegativePercent;
+        this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
+        this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
+        //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast()
+        this.makeToast();
       }
     },
   },
@@ -315,12 +327,11 @@ h4 {
   color: #656565;
 }
 
-
 .big-image {
   height: 62vh;
   width: 99vw;
   position: relative;
-   background: url('~assets/img/xsmall.jpg') repeat;
+  background-repeat: repeat;
   background-size: cover;
   background-color: #000;
   background-position: 50% 50%;
@@ -332,7 +343,7 @@ div.background-text {
   background-color: #000;
   font-weight: 600;
   color: #fff;
-   height: 62vh;
+  height: 62vh;
 }
 
 .background-text h2 {
