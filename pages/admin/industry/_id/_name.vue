@@ -264,7 +264,7 @@
     >
       <div class="item-wrapper one justify-content-center">
       <div class="row justify-content-center text-center">
-          <div class="col-md-6 justify-content-center text-center mb-1">
+          <div class="col-md-4 justify-content-center text-center mb-1">
             <b-input
               id="textarea"
               style="font-size: 20px; color: #626d73"
@@ -274,7 +274,7 @@
             >
             </b-input>
           </div>
-          <div class="col-md-6 justify-content-center text-center mb-1">
+          <div class="col-md-4 justify-content-center text-center mb-1">
               <b-input
               id="textarea"
               style="font-size: 13px; color: #626d73"
@@ -286,11 +286,11 @@
           </div>
         </div>
 
-        <div class="row justify-content-center text-center">
+        <div class="row justify-content-center text-center mt-3">
           <div class="col-md-6 justify-content-center text-center mb-1">
             <b-form-textarea
               id="textarea"
-              style="font-size: 27px; color: #626d73"
+              style=" color: #626d73"
               v-model="form.Description"
               placeholder="Description"
               rows="2"
@@ -298,7 +298,7 @@
             </b-form-textarea>
           </div>
         </div>
-        
+
         <div class="item">
           <form @submit.prevent="updateSector"
             data-validation="true"
@@ -333,7 +333,7 @@
               <!--item-content-->
             </div>
             <!--item-inner-->
-            
+
         <b-row class="justify-content-center">
           <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
             <b-form-group class="newpost">
@@ -652,6 +652,25 @@ export default {
 <style scoped>
 .active {
   opacity: 0.3;
+}
+
+input,    .form-control:focus {
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color:  #000;
+  border-radius: 0;
+  border: none;
+  padding: 1.5rem 1rem;
+  margin: 0px 0px 8px;
+}
+
+textarea {
+    font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color:  #000;
+  border-radius: 0;
+  border: none;
+  margin: 0px 0px 8px;
 }
 
 .btn-sacademy1 {

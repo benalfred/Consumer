@@ -78,6 +78,7 @@
                   border: 1px solid #81959e;
                   border-radius: 50px; logo-main
                   font-size: 14px;
+
                   color: #81959e;
                 "
               >
@@ -138,8 +139,10 @@
              <div
               class="second-col px-4 pt-4 pb-4"
               v-if="opinions.length && !spinner"
-            >
-              <b-media v-for="opinion in opinions" :key="opinion.Id">
+            ><span class="text-center pt-1 text-white" style="left: calc(85% - 77.93px/2 - 55.52px);top: 80px;
+                  background: #0083CA; position: absolute; width: 151px;
+height: 32px;">LATEST OPINON</span>
+              <b-media v-for="opinion in opinions" :key="opinion.Id" class="mt-5">
                 <template #aside>
                   <img
                     src="~/assets/img/vector4.png"
@@ -198,7 +201,7 @@
               :per-page="pageSize"
               align="center"
               size="sm"
-              class="my-0 text-center"
+              class="my-0 text-center justify-content-center d-flex"
             />
 
           </div>
@@ -384,7 +387,8 @@ export default {
 @media screen and (min-width: 600px) {
   .section_ {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
+  border-radius: 5px;
+  background: #626d73;
     position: relative;
     left: 100px;
   }
