@@ -133,13 +133,12 @@
 
         </div>
 
-          <b-col md="7" class="">
-        <div class="section_ px-5 pt-5 mt-3">
-          <div class="row">
+          <b-col md="7" class="section_ px-5 pt-5 mt-3">
+          <div>
              <div
               class="second-col px-4 pt-4 pb-4"
               v-if="opinions.length && !spinner"
-            ><span class="text-center pt-1 text-white" style="left: calc(85% - 77.93px/2 - 55.52px);top: 80px;
+            ><span class="text-center pt-1 text-white" style="left: calc(83% - 67.103px/2 - 55.52px);top: 80px;
                   background: #0083CA; position: absolute; width: 151px;
 height: 32px;">LATEST OPINON</span>
               <b-media v-for="opinion in opinions" :key="opinion.Id" class="mt-5">
@@ -180,7 +179,7 @@ height: 32px;">LATEST OPINON</span>
               v-if="!opinions.length && !spinner"
             >
               <div class="row justify-content-center d-flex my-4">
-                <div class="col-4">
+                 <div class="col-4 mt-3">
                   <img
                     src="~/assets/img/comment-icon.png"
                     class="img-fluid no-opinion-img"
@@ -205,7 +204,6 @@ height: 32px;">LATEST OPINON</span>
             />
 
           </div>
-        </div>
         </b-col>
 
 
