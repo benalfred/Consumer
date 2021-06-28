@@ -6,7 +6,7 @@
           <b-media>
             <template #aside>
               <img
-                src="~/assets/img/dellpic.png"
+                :src="Logo"
                 class="img-fluid"
                 alt="Media Aside"
               />
@@ -219,6 +219,7 @@ export default {
   layout: "headerr",
   async fetch() {
     await this.getRatings();
+    await this.fetchCompanyDetails()
   },
   mounted() {
     this.allOpinions();
@@ -227,6 +228,8 @@ export default {
     return {
       opinions: [],
       spinner: false,
+      Logo:null,
+      Description:null,
       rating: null,
       ratingEmoji: [
         { PreferredName: "Very Bad", emoji: "😡" },
@@ -269,8 +272,20 @@ export default {
         this.ratingTags = response.data;
         this.ratingTagSpinner = false;
       } catch (e) {
-        alert(e);
-        console.log(e);
+        this.$store.commit("notifications/error", "something went wrong")
+        this.makeToast()
+      }
+    },
+     async fetchCompanyDetails() {
+      try {
+        const response = await this.$axios.get(
+          `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
+        );
+        this.Description = response.data.Description;
+        this.Logo = response.data.Logo;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong")
+        this.makeToast()
       }
     },
     async createOpinion() {
@@ -312,7 +327,6 @@ export default {
         const opinions = await this.$axios.get(
           `Opinions/GetOpinions?companyId=${this.$route.params.id}&&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
-        this.Description = "This is a lovely company and its ood for your vote anytime you want it, This is a lovely company and its ood for your vote anytime you want it, This is a lovely company and its ood for your vote anytime you want it"
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.spinner = false;
@@ -326,8 +340,8 @@ export default {
         const ratings = await this.$axios.get("settings/GetRatings");
         this.ratingsData = ratings.data;
       } catch (e) {
-        alert("error");
-        console.log(e);
+         this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
   },

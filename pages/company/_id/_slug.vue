@@ -14,19 +14,20 @@
             </h4>
           </b-col>
 
-          <div class="big-image" :style="{ backgroundImage: 'url(' + Banner + ')' }">
+          <div class="big-image" :style="{ backgroundImage: 'url(' + Logo + ')' }">
             <div class="background-text">
               <b-row>
                 <b-col md="8"> </b-col>
                 <b-col md="4" class="newpost_ mt-1 justify-content-end">
                   <b-form-group class="newpost mt-3">
                     <button
+                      @click="shareOpinion"
                       class="mt-2 btn-sacademy"
                       style="font-size: 16px"
                       type="submit"
                       value="Send"
                     >
-                      Update
+                      Share opinion
                     </button>
                   </b-form-group>
                 </b-col>
@@ -34,9 +35,9 @@
               <div
                 class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12"
               >
-                <h2 class="h2 pb-5">{{Name}} Company</h2>
+                <h2 class="h2 pb-5">{{ Name }} Company</h2>
                 <p class="pt-5 ptag">
-                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{Name}} Company
+                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{ Name }} Company
                 </p>
               </div>
 
@@ -148,7 +149,7 @@
             data-aos-offset="30"
             data-aos-delay="200"
           >
-{{Description}}
+            {{ Description }}
           </p>
           <b-form-group
             class="newpost mt-3"
@@ -278,12 +279,12 @@ export default {
       NegativePercent: 0,
       NeutralPercent: 0,
       TotalReviewCount: 0,
-      Description:null
+      Description: null,
     };
   },
 
   methods: {
-      makeToast() {
+    makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
         autoHideDelay: 5000,
@@ -296,12 +297,14 @@ export default {
         `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
       );
     },
+    shareOpinion(){
+     this.$router.push(`/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`)
+    },
     async fetchCompanyDetails() {
       try {
         const response = await this.$axios.get(
           `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
         );
-        console.log(response.data);
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;
@@ -312,8 +315,8 @@ export default {
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
       } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
   },
