@@ -469,7 +469,6 @@ export default {
         formData.append('File',this.File)
       let banner = await this.$axios.post(`FileUpload/PictureUpload`,formData)
       this.form.Banner = banner.data
-        console.log(banner.data)
       }
       await this.updateSector2()
       } catch (e) {
@@ -539,7 +538,8 @@ export default {
         this.companies2 = response.data.Companies;
         this.fetchCompanySpinner = false;
       } catch (e) {
-        console.log(e);
+        this.$store.commit("notifications/error", "something went wrong")
+        this.makeToast()
       }
     },
     async addCompany() {
@@ -587,7 +587,6 @@ export default {
         this.$store.commit("notifications/success", "company deleted");
         this.makeToast();
       } catch (e) {
-        console.log(e);
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }

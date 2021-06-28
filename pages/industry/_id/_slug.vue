@@ -131,9 +131,9 @@
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Banner" class="img-fluid" alt="" />
+                <img :src="company.Logo" class="img-fluid" alt="" />
               </div>
-              <div class="col-md-2 mt-3 pl-1">
+            <div class="col-md-2 mt-3 pl-1">
                 <button class="btn">
                   <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                 </button>
@@ -205,7 +205,6 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
         );
-        console.log(response.data);
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;

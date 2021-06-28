@@ -238,6 +238,7 @@ export default {
       File:null,
       form: {
         Id: this.$route.params.id,
+        IndustryId:null,
         Name: this.$route.params.name,
         Description: null,
         Slogan: null,
@@ -299,13 +300,14 @@ export default {
           `/Industries/GetCompanyDetailsByAdmin?companyId=${this.$route.params.id}`
         );
         this.form.Name = response.data.Name;
+        this.form.IndustryId = response.data.IndustryId
         this.form.Slogan = response.data.Slogan;
         this.form.Description = response.data.Description;
         this.form.Banner = response.data.Banner;
         this.fetchCompanySpinner = false;
       } catch (e) {
-        alert(e);
-        console.log(e);
+        this.$store.commit("notifications/error", "something went wrong")
+        this.makeToast()
       }
     },
     async allOpinions() {
@@ -385,6 +387,25 @@ export default {
 </script>
 
 <style scoped>
+
+input,    .form-control:focus {
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color:  #000;
+  border-radius: 0;
+  border: none;
+  padding: 1.5rem 1rem;
+  margin: 0px 0px 8px;
+}
+
+textarea {
+    font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color:  #000;
+  border-radius: 0;
+  border: none;
+  margin: 0px 0px 8px;
+}
 .active {
   opacity: 0.3;
 }

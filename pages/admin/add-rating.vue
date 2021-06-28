@@ -34,7 +34,43 @@
                     ></v-select>
                   </div>
                 </b-form-group>
+
+                <div>
+                  <div class="d-flex">
+                    <p class="add pb-2">View and Remove Company</p>
+                  </div>
+                  <div
+                    class="mb-2"
+                    style="background: rgba(0, 0, 0, 0.1); height: 1px"
+                  ></div>
+                </div>
+                <div class="d-flex_ row" v-if="features.length && !fetchFeatureSpinner">
+                  <div
+                    class="col-md-4 d-flex"
+                    v-for="company in features"
+                    :key="company.Id"
+                  >
+                    <button type="button" class="btn1">
+                      {{ company.Name }}
+                    </button>
+                    <a href="#openModal-about">
+                      <i
+                        @click="setId(company.Id)"
+                        class="far fa-times-circle"
+                        style="position: absolute; bottom: 20px; cursor: pointer"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
               </div>
+               <div class="" v-if="!features.length && !fetchFeatureSpinner">
+                  <button type="button" class="btn1">No features</button>
+                </div>
+                <b-spinner
+                  v-if="fetchFeatureSpinner"
+                  label="Spinning"
+                  style="margin-left: 5%"
+                ></b-spinner>
 
               <div class="sector p-3 mt-5">
                 <b-row class="my-1">
@@ -68,6 +104,47 @@
         </div>
       </div>
     </div>
+
+    
+    <div id="openModal-about" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <div class="pt-5 pb-5">
+          <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
+
+          <div class="d-flex justify-content-center">
+            <div>
+              <b-form-group class="newpost mt-3">
+                <a href="#close">
+                  <button
+                    class="mt-2 btn-sacademy_"
+                    style="font-size: 16px"
+                    type="submit"
+                    value="Send"
+                  >
+                    cancel
+                  </button>
+                </a>
+              </b-form-group>
+            </div>
+
+            <div>
+              <b-form-group class="newpost mt-3">
+                <button
+                  @click="deleteFeature"
+                  class="mt-2 btn-sacademy1"
+                  style="font-size: 16px"
+                  type="submit"
+                  value="Send"
+                >
+                  okay
+                </button>
+              </b-form-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -84,13 +161,16 @@ export default {
         Name: null,
       },
       filter: "",
+      features: [],
+      fetchFeatureSpinner:false,
       addRateSpinner: false,
       ratingsData: [],
     };
   },
-async fetch(){
- await this.getRatings()
-},
+  async fetch() {
+    await this.getRatings();
+    await this.getFeatures()
+  },
   methods: {
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
@@ -100,10 +180,26 @@ async fetch(){
         solid: true,
       });
     },
+    async deleteFeature(){
+    
+    },
+    async getFeatures(id) {
+      this.fetchFeatureSpinner = true
+      id ? id : id = 5
+      alert(id);
+      try {
+        const response = await this.$axios.get(`/Opinions/GetRatingTags?rating=${id}`);
+        this.features = response.data;
+        this.fetchFeatureSpinner = false
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
     async getRatings() {
       try {
         const ratings = await this.$axios.get("settings/GetRatings");
-        console.log(ratings.data)
+        console.log(ratings.data);
         this.ratingsData = ratings.data;
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -118,7 +214,7 @@ async fetch(){
         this.form.Rating = null;
         this.addRateSpinner = false;
         this.$store.commit("notifications/success", "success");
-        this.makeToast()
+        this.makeToast();
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
@@ -137,6 +233,9 @@ async fetch(){
     bpg() {
       this.fetchSectors();
     },
+    Rating(){
+      this.getFeatures(this.form.Rating)
+    }
   },
 };
 </script>
@@ -174,5 +273,470 @@ async fetch(){
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
+}
+
+btn-sacademy1 {
+  color: #fff !important;
+  background: #18e5b4;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 300%;
+  padding: 9px 0px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
+.btn-sacademy {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 50%;
+  padding: 12px 0px 12px;
+  border: 0;
+  border-radius: 25px;
+  margin-left: 25%;
+}
+
+.btn-sacademy_ {
+  color: #fff !important;
+  background: #d91925;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  position: relative;
+  left: -80px;
+  width: 200%;
+  padding: 9px 5px 9px;
+  border: 0;
+  border-radius: 25px;
+}
+
+.media_ {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 450px;
+}
+
+.media_::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 50px;
+}
+
+.emoji p {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px 7px 0px;
+}
+
+/* Track */
+.media_::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.media_::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.media_::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
+.second-col {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+h2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 60px;
+  color: #656565;
+}
+
+p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.img1 {
+  background: #e57718;
+  border-radius: 19.5px;
+}
+
+.img2 {
+  background: rgba(241, 19, 139, 0.87);
+  border-radius: 19.5px;
+}
+.img3 {
+  background: #18e5b4;
+  border-radius: 19.5px;
+}
+
+.firstp {
+  color: #626d73;
+}
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.btn2_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.2;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.profile-dropdown_ {
+  padding: 0px 5px 0px;
+  margin-left: -5px;
+}
+
+.btn1 {
+  background: #00b5d3;
+  border: none;
+  height: 35px;
+
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.2;
+}
+
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #00b5d3;
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.logout-sub-menu {
+  position: absolute;
+  top: 120px;
+  z-index: 1000;
+  box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media all and (max-width: 1024px) {
+  .user-icon {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+  }
+}
+
+.sub-menu {
+  /*width: 270px;*/
+  display: block;
+  position: absolute;
+  background-color: #fefefe;
+  z-index: 250;
+  opacity: 0;
+  visibility: hidden;
+  width: 390px;
+  right: -20px;
+  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
+  transition: all 650ms ease;
+}
+
+.nav-list li:hover > .sub-menu,
+.nav-list li:active > .sub-menu,
+.nav-list li:focus > .sub-menu {
+  top: 60px;
+  opacity: 1;
+  visibility: visible;
+}
+.submenuthreeopen {
+  opacity: 1;
+  visibility: visible;
+  max-height: initial;
+}
+li a {
+  color: #333 !important;
+  font-size: 14px;
+  line-height: 32px;
+}
+li {
+  padding: 0.5rem 0;
+}
+.logout-sub-menu {
+  right: 0px;
+}
+
+@media screen and (min-width: 750px) {
+  .logout-sub-menu {
+    right: 90px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .logout-sub-menu {
+    right: 90px;
+    margin-top: 50px;
+  }
+}
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  margin: 10% auto;
+  border-radius: 3px;
+  background: #626d73;
+  border-radius: 10px;
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f26d7d;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
+.all {
+  position: relative;
+  bottom: 100px;
+}
+.img1 {
+  background: #e57718;
+  border-radius: 19.5px;
+}
+.profile-dropdown {
+  overflow: auto;
+}
+
+.text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.sidebar {
+  background-color: #f3ceae;
+  color: black !important;
+}
+
+.Opinion {
+  background: #e57718;
+  border-radius: 5px;
+}
+.Opinion1 {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.btn_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+.btn1_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.6;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  color: #000000;
+}
+.btn2_ {
+  background: #ffffff;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  opacity: 0.2;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.btn1 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 5px 20px 5px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  opacity: 0.2;
+}
+
+.add {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #373737;
+}
+
+.button__ {
+  background: #00b5d3;
+  border: none;
+  padding: 8px 32px 8px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  margin: 15px 0px 10px;
+}
+.input-sector {
+  background: #656565;
+  border: 1px solid #a0a0a0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+}
+
+.profile-dropdown {
+  overflow: auto;
+}
+.sector {
+  background: #656565;
+}
+.d-flex_ i {
+  color: red;
 }
 </style>
