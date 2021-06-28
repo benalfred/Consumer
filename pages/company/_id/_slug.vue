@@ -35,7 +35,7 @@
                 class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12"
               >
                 <h2 class="h2 pb-5">{{Name}} Company</h2>
-                <p class="pt-5 ptag">
+                <p class=" ptag">
                   HERE IS WHAT NIGERINS ARE SAYING ABOUT {{Name}} Company
                 </p>
               </div>
