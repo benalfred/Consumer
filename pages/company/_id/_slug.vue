@@ -451,7 +451,7 @@ div.background-text {
     background: #ffdfc4;
   }
   .second-con {
-    margin-top: 320px;
+    margin-top: 220px;
   }
 }
 h4 {

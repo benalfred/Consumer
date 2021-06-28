@@ -131,9 +131,9 @@
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Logo" class="img-fluid" alt="" />
+                <img :src="company.Logo" class="img-fluid logo-img" alt="" />
               </div>
-            <div class="col-md-2 mt-3 pl-1">
+            <div class="col-md-2  pl-1">
                 <button class="btn">
                   <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                 </button>
@@ -229,6 +229,11 @@ export default {
 .bg {
   overflow: hidden;
 }
+
+.logo-img {
+  width: 70px;
+}
+
 .dell-card {
   position: relative;
   bottom: 40px;

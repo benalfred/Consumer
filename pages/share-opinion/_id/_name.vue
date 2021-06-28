@@ -7,7 +7,7 @@
             <template #aside>
               <img
                 :src="Logo"
-                class="img-fluid"
+                class="img-fluid logo-img"
                 alt="Media Aside"
               />
             </template>
@@ -349,6 +349,10 @@ export default {
 <style scoped>
 .active {
   opacity: 0.3;
+}
+
+.logo-img {
+  width: 80px;
 }
 
 .no-opinion-img {
