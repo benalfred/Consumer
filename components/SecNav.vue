@@ -49,6 +49,7 @@ export default {
         //   console.log(this.sectors2)
         // }
         this.sectors2 = response.data.Results
+        this.$store.commit("notifications/setSectors", response.data.Results)
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();

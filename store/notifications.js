@@ -2,7 +2,8 @@ export const state = () => ({
     type: null,
     message: null,
     notification: null,
-    sector2: []
+    sector2: [],
+    sectorsFetched: []
 })
 
 export const mutations = {
@@ -12,6 +13,9 @@ export const mutations = {
     },
     setSector(state, sectors) {
         state.sector2 = sectors
+    },
+    setSectors(state, data) {
+        state.sectorsFetched = data
     },
     error(state, message) {
         state.type = 'error'

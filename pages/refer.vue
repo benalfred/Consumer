@@ -36,7 +36,7 @@
         <b-col md="4" class="newpost_">
           <b-form-group class="newpost mt-1">
             <button
-            @click="referAFriend"
+              @click="referAFriend"
               :disabled="!email || referSpinner"
               class="btn-sacademy_"
               style="font-size: 16px"
@@ -68,14 +68,13 @@
           <p class="mt-2 ml-1">{{ referred }}</p>
         </b-col>
       </b-row>
-      <h5 class="mt-2 ml-1" v-if="!referrals.length && !spinner">None referred yet, please refer someone</h5>
+      <h5 class="mt-2 ml-1" v-if="!referrals.length && !spinner">
+        None referred yet, please refer someone
+      </h5>
       <b-row>
-       <b-col md="3" class="d-flex">
-        <b-spinner
-        v-if="spinner"
-        label="Spinning"
-      ></b-spinner>
-       </b-col>
+        <b-col md="3" class="d-flex">
+          <b-spinner v-if="spinner" label="Spinning"></b-spinner>
+        </b-col>
       </b-row>
     </b-container>
   </div>
@@ -87,14 +86,17 @@ export default {
   data() {
     return {
       email: null,
+      form: {
+        Emails: [],
+      },
       referrals: [],
       spinner: false,
       referSpinner: false,
     };
   },
 
-  async fetch(){
-   await this.getReferrals()
+  async fetch() {
+    await this.getReferrals();
   },
 
   methods: {
@@ -109,7 +111,7 @@ export default {
     async referAFriend() {
       this.referSpinner = true;
       try {
-        await this.$axios.post("/Emails/ReferAFriend", { Email: [this.email] });
+        await this.$axios.post("/Emails/ReferAFriend", this.form);
         this.referSpinner = false;
         swal({
           title: "Success!",
@@ -117,8 +119,14 @@ export default {
           icon: "success",
         });
       } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
+        if (e.response) {
+          this.referSpinner = false;
+          this.$store.commit("notifications/error", e.response.data);
+          this.makeToast();
+        } else {
+          this.$store.commit("notifications/error", "something went wrong");
+          this.makeToast();
+        }
       }
     },
     async getReferrals() {
@@ -128,11 +136,15 @@ export default {
         this.referrals = response.data;
         this.spinner = false;
       } catch (e) {
-        console.log(e)
-        this.spinner = false
+        this.spinner = false;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
+    },
+  },
+  watch: {
+    email() {
+      this.form.Emails = [this.email];
     },
   },
 };
