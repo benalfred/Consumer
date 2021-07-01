@@ -29,15 +29,49 @@
                       placeholder="select rating"
                       v-model="form.Rating"
                       :options="ratingsData"
+                      @input="getFeatures"
                       :reduce="(data) => data.Id"
                       label="PreferredName"
                     ></v-select>
                   </div>
                 </b-form-group>
 
-                <div>
+                <div class="sector p-3 mt-5">
+                  <b-row class="my-1">
+                    <b-col sm="9">
+                      <b-form-input
+                        id="input-large"
+                        v-model="form.Name"
+                        class="input-sector"
+                        size="lg"
+                        placeholder="New Rating Tag"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col sm="3" class="pl-4 pt-0">
+                      <button
+                        v-if="!addRateSpinner"
+                        class="btn outline-none"
+                        @click="addFeatures"
+                        :disabled="!form.Name || !form.Rating"
+                      >
+                        <img src="~assets/img/sectoricon.png" alt="" />
+                      </button>
+                       <b-spinner
+                          v-if="addRateSpinner"
+                          label="Spinning"
+                          style="margin-left: 5%"
+                        ></b-spinner>
+                    </b-col>
+                  </b-row>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="Opinion1 p-5 mt-5">
+                <div class="">
                   <div class="d-flex">
-                    <p class="add pb-2">View and Remove Company</p>
+                    <p class="add pb-2">View and Remove Rating tag</p>
                   </div>
                   <div
                     class="mb-2"
@@ -46,105 +80,35 @@
                 </div>
                 <div class="d-flex_ row" v-if="features.length && !fetchFeatureSpinner">
                   <div
-                    class="col-md-4 d-flex"
-                    v-for="company in features"
-                    :key="company.Id"
+                    class="col-md-4 d-flex pb-3"
+                    v-for="feature in features"
+                    :key="feature.Id"
                   >
-                    <button type="button" class="btn1">
-                      {{ company.Name }}
+                    <button type="button" class="btn1 ">
+                      {{ feature.Name }}
                     </button>
-                    <a href="#openModal-about">
-                      <i
-                        @click="setId(company.Id)"
-                        class="far fa-times-circle"
-                        style="position: absolute; bottom: 20px; cursor: pointer"
-                      ></i
-                    ></a>
+                    <i
+                      @click="deleteFeature(feature.Id)"
+                      class="far fa-times-circle"
+                      style="bottom: 20px; cursor: pointer"
+                    ></i>
                   </div>
                 </div>
-              </div>
-               <div class="" v-if="!features.length && !fetchFeatureSpinner">
-                  <button type="button" class="btn1">No features</button>
+                <div class="" v-if="!features.length && !fetchFeatureSpinner">
+                  <p type="" class="">No rating tag</p>
                 </div>
                 <b-spinner
                   v-if="fetchFeatureSpinner"
                   label="Spinning"
-                  style="margin-left: 5%"
+                  style="margin-left: 45%"
                 ></b-spinner>
-
-              <div class="sector p-3 mt-5">
-                <b-row class="my-1">
-                  <b-col sm="9">
-                    <b-form-input
-                      id="input-large"
-                      v-model="form.Name"
-                      class="input-sector"
-                      size="lg"
-                      placeholder="New Rating"
-                    ></b-form-input>
-                  </b-col>
-                  <b-col sm="3" class="pl-4 pt-0">
-                    <button
-                      v-if="!addRateSpinner"
-                      class="btn outline-none"
-                      @click="addFeatures"
-                      :disabled="!form.Name"
-                    >
-                      <img src="~assets/img/sectoricon.png" alt="" />
-                    </button>
-                  </b-col>
-                </b-row>
               </div>
             </div>
-
-            <div class="col-md-6">
-              <img src="~assets/img/rating.jpg" class="img-fluid" alt="" />
-            </div>
           </div>
         </div>
       </div>
     </div>
-
-    
-    <div id="openModal-about" class="modalDialog">
-      <div>
-        <a href="#close" title="Close" class="close">X</a>
-        <div class="pt-5 pb-5">
-          <h3 class="text-center pb-4 text-white mt-5">Are you sure?</h3>
-
-          <div class="d-flex justify-content-center">
-            <div>
-              <b-form-group class="newpost mt-3">
-                <a href="#close">
-                  <button
-                    class="mt-2 btn-sacademy_"
-                    style="font-size: 16px"
-                    type="submit"
-                    value="Send"
-                  >
-                    cancel
-                  </button>
-                </a>
-              </b-form-group>
-            </div>
-
-            <div>
-              <b-form-group class="newpost mt-3">
-                <button
-                  @click="deleteFeature"
-                  class="mt-2 btn-sacademy1"
-                  style="font-size: 16px"
-                  type="submit"
-                  value="Send"
-                >
-                  okay
-                </button>
-              </b-form-group>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
   </div>
 </template>
 
@@ -160,16 +124,17 @@ export default {
         Rating: null,
         Name: null,
       },
+      Id: null,
       filter: "",
       features: [],
-      fetchFeatureSpinner:false,
+      fetchFeatureSpinner: false,
       addRateSpinner: false,
       ratingsData: [],
     };
   },
   async fetch() {
     await this.getRatings();
-    await this.getFeatures()
+    await this.getFeatures();
   },
   methods: {
     makeToast() {
@@ -180,17 +145,35 @@ export default {
         solid: true,
       });
     },
-    async deleteFeature(){
-    
+    setId(id) {
+      this.Id = id;
+    },
+    async deleteFeature(id) {
+      let r = confirm("proceed to delete");
+      let txt;
+      if (r == true) {
+        txt = "You pressed OK!";
+      } else {
+        return (txt = "You pressed Cancel!");
+      }
+      try {
+        await this.$axios.post("Opinions/DeleteRatingTag", { Id: id });
+        let newFeatures = this.features.filter((feature) => feature.Id != id);
+        this.features = newFeatures;
+        this.$store.commit("notifications/success", "rating tag deleted");
+        this.makeToast();
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
     },
     async getFeatures(id) {
-      this.fetchFeatureSpinner = true
-      id ? id : id = 5
-      alert(id);
+      this.fetchFeatureSpinner = true;
+      id ? id : (id = 5, this.form.Rating = 5);
       try {
         const response = await this.$axios.get(`/Opinions/GetRatingTags?rating=${id}`);
         this.features = response.data;
-        this.fetchFeatureSpinner = false
+        this.fetchFeatureSpinner = false;
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
@@ -210,8 +193,8 @@ export default {
       try {
         this.addRateSpinner = true;
         await this.$axios.post("/Opinions/CreateRatingTag", this.form);
+        await this.getFeatures(this.form.Rating);
         this.form.Name = null;
-        this.form.Rating = null;
         this.addRateSpinner = false;
         this.$store.commit("notifications/success", "success");
         this.makeToast();
@@ -233,9 +216,9 @@ export default {
     bpg() {
       this.fetchSectors();
     },
-    Rating(){
-      this.getFeatures(this.form.Rating)
-    }
+    Rating() {
+      this.getFeatures(this.form.Rating);
+    },
   },
 };
 </script>
@@ -422,6 +405,19 @@ p {
 
 .btn1 {
   background: #00b5d3;
+  border: none;
+
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+
+.btn6 {
+  background: #da4d0c;
   border: none;
   height: 35px;
 
