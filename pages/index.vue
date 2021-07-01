@@ -360,14 +360,14 @@
     <div id="openModal-about" class="modalDialog">
       <div>
         <a href="#close" title="Close" class="close">X</a>
-        <div class="d-flex__ row p-5 dell-card" v-if="fetchedSectors.length">
+        <div class="d-flex__ row dell-card" v-if="fetchedSectors.length">
           <div class="col-md-3" v-for="sector in fetchedSectors" :key="sector.Id">
             <div v-if="sector.Banner" @click="takeToSector(sector)" style="cursor:pointer">
               <img :src="sector.Banner" class="img-fluid" alt="" />
             </div>
             <div v-else @click="takeToSector(sector)" style="cursor:pointer">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-              <p>{{sector.Name}}</p>
+              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
+              <p class="text-center">{{sector.Name}}</p>
             </div>
           </div>
         </div>
@@ -486,25 +486,25 @@ div.background-text {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #373737;
-  border-radius: 10px;
+  background: #fff;
   z-index: 99999;
   opacity: 0;
   -webkit-transition: opacity 100ms ease-in;
   -moz-transition: opacity 100ms ease-in;
   transition: opacity 100ms ease-in;
   pointer-events: none;
+  overflow: auto;
 }
 .modalDialog:target {
   opacity: 1;
   pointer-events: auto;
 }
 .modalDialog > div {
-  max-width: 500px;
+  max-width: 600px;
   width: 60%;
   position: relative;
-  margin: 13% auto;
-  border-radius: 3px;
+  margin: 5% auto;
+  border-radius: 10px;
   background: #626d73;
   border-radius: 10px;
 }
@@ -515,11 +515,10 @@ div.background-text {
   color: #fff;
   line-height: 25px;
   position: absolute;
-  right: 22px;
+  right: 17px;
   text-align: center;
-  top: 25px;
-  width: 30px;
-  height: 32px;
+  top: 15px;
+  padding: 10px 13px 5px;
   text-decoration: none;
   font-weight: bold;
   -webkit-border-radius: 50%;
@@ -603,6 +602,7 @@ h4 {
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px 20px;
 }
 
 .dell-card img {

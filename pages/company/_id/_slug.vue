@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <section class="bg mt-5 pt-5" style="padding-bottpm: 50px">
+    <section class="bg mt-5 pt-lg-5" style="padding-bottpm: 50px">
       <div class="container">
         <b-row>
           <b-col md="12">
@@ -371,6 +371,32 @@ export default {
   background-color: #000;
   background-position: 50% 50%;
   overflow: hidden;
+}
+
+@media screen and (min-width: 750px){
+  .big-image {
+  height: 62vh;
+  width: 99vw;
+  position: relative;
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: #000;
+  background-position: 50% 50%;
+  overflow: hidden;
+}
+}
+
+@media screen and (max-width: 740px){
+   .big-image {
+  height: 62vh;
+  width: 99vw;
+  position: relative;
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: #000;
+  background-position: 50% 50%;
+  overflow: auto;
+}
 }
 
 div.background-text {

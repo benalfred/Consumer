@@ -5,16 +5,12 @@
         <div class="col-md-5">
           <b-media>
             <template #aside>
-              <img
-                :src="Logo"
-                class="img-fluid logo-img"
-                alt="Media Aside"
-              />
+              <img :src="Logo" class="img-fluid logo-img" alt="Media Aside" />
             </template>
 
-            <h2 class="pt-3">{{Name}} Company</h2>
+            <h2 class="pt-3">{{ Name }} Company</h2>
             <p class="pt-1">
-              {{Description}}
+              {{ Description }}
             </p>
           </b-media>
 
@@ -62,7 +58,7 @@
                   border-radius: 50px;
                   font-size: 14px;
                   color: #81959e;
-                  cursor:pointer;
+                  cursor: pointer;
                 "
               >
                 {{ tag.Name }}
@@ -130,18 +126,31 @@
               </b-form-group>
             </div>
           </div>
-
         </div>
 
-          <b-col md="7" class="section_ px-5 pt-5 mt-3">
+        <b-col md="7" class="section_ px-5 pt-5 mt-3">
           <div>
-             <div
+            <div
               class="second-col px-4 pt-4 pb-4"
               v-if="opinions.length && !spinner"
-            ><span class="text-center pt-1 text-white" style="left: calc(83% - 67.103px/2 - 55.52px);top: 80px;
-                  background: #0083CA; position: absolute; width: 151px;
-height: 32px;">LATEST OPINON</span>
-              <b-media v-for="opinion in opinions" :key="opinion.Id" class="mt-5">
+            >
+              <span
+                class="text-center pt-1 text-white"
+                style="
+                  left: calc(83% - 67.103px / 2 - 55.52px);
+                  top: 80px;
+                  background: #0083ca;
+                  position: absolute;
+                  width: 151px;
+                  height: 32px;
+                "
+                >LATEST OPINON</span
+              >
+              <b-media
+                v-for="opinion in opinions"
+                :key="opinion.Id"
+                class="mt-5"
+              >
                 <template #aside>
                   <img
                     src="~/assets/img/vector4.png"
@@ -150,7 +159,9 @@ height: 32px;">LATEST OPINON</span>
                   />
                 </template>
 
-                <h6 class="pt-3">{{opinion.Firstname}} {{opinion.Surname}}</h6>
+                <h6 class="pt-3">
+                  {{ opinion.Firstname }} {{ opinion.Surname }}
+                </h6>
                 <div class="d-flex">
                   <div>
                     <img
@@ -163,12 +174,16 @@ height: 32px;">LATEST OPINON</span>
                     Positive opinion
                   </p>
                   <div>
-                  <span class="ml-3"> {{opinion.SubmittedDate}}</span>
+                    <span class="ml-3"> {{ opinion.SubmittedDate }}</span>
                   </div>
                 </div>
-                <p class="firstp"><span v-for="tag in opinion.Tags" :key="tag.Id"> {{tag}} |</span>...</p>
+                <p class="firstp">
+                  <span v-for="tag in opinion.Tags" :key="tag.Id">
+                    {{ tag }} |</span
+                  >...
+                </p>
                 <p>
-                  {{opinion.Comment}}
+                  {{ opinion.Comment }}
                 </p>
 
                 <!-- b-[Optional: add media children here for nesting] -->
@@ -179,7 +194,7 @@ height: 32px;">LATEST OPINON</span>
               v-if="!opinions.length && !spinner"
             >
               <div class="row justify-content-center d-flex my-4">
-                 <div class="col-4 mt-3">
+                <div class="col-4 mt-3">
                   <img
                     src="~/assets/img/comment-icon.png"
                     class="img-fluid no-opinion-img"
@@ -202,11 +217,8 @@ height: 32px;">LATEST OPINON</span>
               size="sm"
               class="my-0 text-center justify-content-center d-flex"
             />
-
           </div>
         </b-col>
-
-
       </div>
     </div>
   </div>
@@ -217,7 +229,7 @@ export default {
   layout: "headerr",
   async fetch() {
     await this.getRatings();
-    await this.fetchCompanyDetails()
+    await this.fetchCompanyDetails();
   },
   mounted() {
     this.allOpinions();
@@ -226,8 +238,8 @@ export default {
     return {
       opinions: [],
       spinner: false,
-      Logo:null,
-      Description:null,
+      Logo: null,
+      Description: null,
       rating: null,
       ratingEmoji: [
         { PreferredName: "Very Bad", emoji: "😡" },
@@ -247,8 +259,8 @@ export default {
       Comment: null,
       pageSize: 10,
       ratingTagSpinner: false,
-      Name:this.$route.params.name,
-      Description:null,
+      Name: this.$route.params.name,
+      Description: null,
       companyId: 0,
       ratingTagId: [],
       ratingTags: [],
@@ -270,11 +282,11 @@ export default {
         this.ratingTags = response.data;
         this.ratingTagSpinner = false;
       } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
-     async fetchCompanyDetails() {
+    async fetchCompanyDetails() {
       try {
         const response = await this.$axios.get(
           `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
@@ -282,8 +294,8 @@ export default {
         this.Description = response.data.Description;
         this.Logo = response.data.Logo;
       } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong")
-        this.makeToast()
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async createOpinion() {
@@ -338,7 +350,7 @@ export default {
         const ratings = await this.$axios.get("settings/GetRatings");
         this.ratingsData = ratings.data;
       } catch (e) {
-         this.$store.commit("notifications/error", "something went wrong");
+        this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
     },
@@ -355,10 +367,11 @@ export default {
   width: 80px;
 }
 
-.no-opinion-img {
-  margin-left: 50px;
+@media screen and (min-width: 750px) {
+  .no-opinion-img {
+    margin-left: 50px;
+  }
 }
-
 .section_ {
   overflow: hidden;
   overflow-y: scroll;
@@ -403,8 +416,8 @@ export default {
 @media screen and (min-width: 600px) {
   .section_ {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  background: #626d73;
+    border-radius: 5px;
+    background: #626d73;
     position: relative;
     left: 100px;
   }
