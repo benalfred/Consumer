@@ -296,14 +296,15 @@
 
 <script>
 export default {
-  async fetch() {
-      await this.fetchSectors()
+  mounted() {
+    !this.sectors.length ? this.fetchSectors() : "";
   },
   data() {
     return {
       state: false,
       page: 1,
       pageSize: 1,
+      bpg: 1,
     };
   },
   name: "dashlayout",
@@ -321,13 +322,26 @@ export default {
     toggle() {
       this.state = !this.state;
     },
+    async fetchSectors() {
+      this.page = this.bpg;
+      this.page--;
+      try {
+        const sector = await this.$axios.get(
+          `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+        );
+        this.$store.commit("notifications/setSectors", sector.data.Results);
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
   },
 };
 </script>
 
 <style>
-.nuxt-exact-link-active{
- color:#e57718;
+.nuxt-exact-link-active {
+  color: #e57718;
 }
 .img1 {
   background: #e57718;

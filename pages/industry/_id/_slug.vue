@@ -149,7 +149,7 @@
       </b-container>
     </section>
 
-    <agegender />
+    <agegender :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" />
     <Footer />
   </div>
 </template>
@@ -178,6 +178,7 @@ export default {
       NegativePercent: 0,
       NeutralPercent: 0,
       TotalReviewCount: 0,
+      post:null,
     };
   },
 
@@ -215,6 +216,7 @@ export default {
         this.NegativePercent = response.data.GeneralRating.NegativePercent;
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
+        this.post = response.data
         //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");

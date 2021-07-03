@@ -52,9 +52,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Positive Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">50%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">20%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">30%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">{{ MillenialRating.PositivePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating.PositivePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating.PositivePercent}}%</p>
               </div>
 
               <img
@@ -66,9 +66,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Negative Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">50%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">20%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">30%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50"> {{MillenialRating.NegativePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating.NegativePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating.NegativePercent}}%</p>
               </div>
 
               <img
@@ -80,9 +80,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Neutral Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">50%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">20%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">30%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">{{ MillenialRating.NeutralPercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating.NeutralPercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating.NeutralPercent}}%</p>
               </div>
             </div>
           </div>
@@ -115,12 +115,11 @@
 
             <div class="d-lg-flex mt-4">
               <div class="col-md-3 pt-5 mt-4 text-para">
-                <p>mILLENIAL</p>
 
-                <p>GENERATION</p>
+                <p>Female</p>
                 <div>
                   <!-- <img class="ml-4" src="~/assets/img/B.png" width="8" alt=""> -->
-                  <p>BABY BOOMERS</p>
+                  <p>Male</p>
                 </div>
               </div>
 
@@ -133,9 +132,8 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Positive Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">50%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">20%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">30%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{FemaleRating.PositivePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{MaleRating.PositivePercent}}%</p>
               </div>
 
               <img
@@ -147,9 +145,8 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Negative Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">50%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">20%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">30%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{FemaleRating.NegativePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{MaleRating.NegativePercent}}%</p>
               </div>
 
               <img
@@ -161,9 +158,8 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Neutral Opinion</h6>
-                <p>50%</p>
-                <p>20%</p>
-                <p>30%</p>
+                <p>{{FemaleRating.NeutralPercent}}%</p>
+                <p>{{MaleRating.NeutralPercent}}%</p>
               </div>
             </div>
           </div>
@@ -176,6 +172,38 @@
 <script>
 export default {
   name: "agegender",
+  props: {
+    MillenialRating: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+    GenerationXRating: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+     BabyBoomRating: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+     FemaleRating: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+     MaleRating: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+  },
 };
 </script>
 

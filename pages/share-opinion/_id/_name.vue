@@ -335,7 +335,7 @@ export default {
       this.pageForOpinions--;
       try {
         const opinions = await this.$axios.get(
-          `Opinions/GetOpinions?companyId=${this.$route.params.id}&&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
+          `Opinions/GetOpinions?companyId=${this.$route.params.id}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;

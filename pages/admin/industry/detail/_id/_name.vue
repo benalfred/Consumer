@@ -15,7 +15,7 @@
               </b-col>
               <b-col md="6" class="text-end"> </b-col>
 
-              <agegender :data="data"/>
+              <agegender :MillenialRating="data.MillenialRating" :BabyBoomRating="data.BabyBoomRating" :FemaleRating="data.FemaleRating" :MaleRating="data.MaleRating" :GenerationXRating="data.GenerationXRating"/>
             </b-row>
           </div>
         </div>
