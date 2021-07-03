@@ -10,8 +10,35 @@
                  <h1 class="">Technology <span style="font-size: 24px;">at its very best</span></h1>
            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
             </b-col>
-            <b-col md="6" class="text-end">
-
+            <div class=" position-absolute" style="margin-left: 860px;">
+              <nuxt-link to="dashboard" style="font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 27px;
+color: #E57718;">Go back</nuxt-link>
+            </div>
+            <b-col md="2" class="text-end">
+              <b-form-group>
+                    <div class="form-group small-select_">
+                    <label for="">STATS</label>
+                      <v-select
+                        placeholder="All"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
+            </b-col>
+            <b-col md="2" class="text-end ml-4">
+              <b-form-group>
+                    <div class="form-group small-select_">
+                    <label for="">LOCAL GOVERMENT AREA</label>
+                      <v-select
+                        placeholder="All"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
             </b-col>
 
 

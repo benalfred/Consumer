@@ -71,7 +71,7 @@
                         <nuxt-link class="collapse-item" to="/admin/email-setting">email setting</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/review-setting">review-setting</nuxt-link>
                         <nuxt-link class="collapse-item" to="/admin/chartjs">Chart</nuxt-link>
-                        <nuxt-link class="collapse-item" to="/admin/add-rating">Add rating</nuxt-link>
+                        <nuxt-link class="collapse-item" to="/admin/ad,d-rating">Add rating</nuxt-link>
                     </div>
                 </div>
             </li>
