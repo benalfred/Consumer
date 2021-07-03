@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="d-flex_ row" v-if="!sectors.length && !fetchSectorSpinner">
-                  <button type="button" class="button">No sector yet</button>
+                  <h5>No sector yet</h5>
                 </div>
                 <b-spinner
                   v-if="fetchSectorSpinner"
@@ -403,11 +403,10 @@ export default {
       this.$router.push(`/admin/industry/${sector.Id}/${sector.Name}`);
     },
     async deleteSector() {
-      alert(this.id);
       try {
         await this.$axios.post("/Industries/DeleteIndustry", { Id: this.id });
         let newSectors = this.sectors.filter((sector) => sector.Id != this.id);
-        this.sectors = newSectors;
+        await this.fetchSectors()
         this.$router.back();
         this.$store.commit("notifications/success", "sector deleted");
         this.makeToast();
@@ -486,11 +485,11 @@ export default {
         const sector = await this.$axios.get(
           `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
         );
+        this.$store.commit("notifications/setSectors", sector.data.Results)
         this.totalRows = sector.data.TotalCount;
         this.sectors = sector.data.Results;
         this.fetchSectorSpinner = false;
       } catch (e) {
-        console.log(e);
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -545,8 +544,8 @@ export default {
         const ratings = await this.$axios.get("settings/GetRatings");
         this.ratingsData = ratings.data;
       } catch (e) {
-        alert("error");
-        console.log(e);
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     ratingMethod(value) {

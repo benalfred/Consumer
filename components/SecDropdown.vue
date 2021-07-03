@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style scoped>
+
 .btn2 {
   background: #E57718;
   border: none;

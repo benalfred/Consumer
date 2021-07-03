@@ -4,7 +4,7 @@ export default {
         middleware: ['auth']
     },
     loading: {
-        color: '#de115e',
+        color: '#e57718',
         height: '5px',
         failedColor: '#ff3d00',
         throttle: 100,
@@ -81,7 +81,7 @@ export default {
                 src: '/sb-admin-2.js',
             },
             {
-              src: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'
+                src: 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'
             },
             {
                 src: '/sb-admin-2.min.js',

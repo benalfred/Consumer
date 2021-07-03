@@ -96,7 +96,7 @@
                   </div>
                 </div>
                 <div class="" v-if="!companies.length && !fetchCompanySpinner">
-                  <button type="button" class="btn1">No company yet</button>
+                  <p  class="">No company yet</p>
                 </div>
                 <b-spinner
                   v-if="fetchCompanySpinner"
@@ -461,7 +461,6 @@ export default {
   },
   methods: {
     async updateSector(){
-      alert('yes')
       this.updateSpinner = true
       let  formData = new FormData();
       try {
@@ -621,7 +620,7 @@ export default {
     async updateSector2() {
       this.updateSpinner = true;
       try {
-        const response = await this.$axios.post("Industries/UpdateIndustry", this.form);
+         await this.$axios.post("Industries/UpdateIndustry", this.form);
         this.updateSpinner = false;
         swal({
           title: "Success!",
@@ -629,7 +628,8 @@ export default {
           icon: "success",
         });
       } catch (e) {
-        alert(e);
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     ratingMethod(value) {
