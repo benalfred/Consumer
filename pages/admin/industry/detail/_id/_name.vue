@@ -7,13 +7,43 @@
             <b-row>
               <b-col md="6">
                 <h1 class="">
-                  {{post.Name}} <span style="font-size: 24px">{{post.Slogan}}</span>
+                  {{ post.Name }}
+                  <span style="font-size: 24px">{{ post.Slogan }}</span>
                 </h1>
                 <p>
-                 {{post.Description}}
+                  {{ post.Description }}
                 </p>
               </b-col>
-              <b-col md="6" class="text-end"> </b-col>
+              <div class="position-absolute" style="margin-left: 860px">
+                <nuxt-link
+                  to="/admin/dashboard"
+                  style="
+                    font-family: Poppins;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 27px;
+                    color: #e57718;
+                  "
+                  >Go back</nuxt-link
+                >
+              </div>
+              <b-col md="2" class="text-end">
+                <b-form-group>
+                  <div class="form-group small-select_">
+                    <label for="">STATS</label>
+                    <v-select placeholder="All" label="Name"></v-select>
+                  </div>
+                </b-form-group>
+              </b-col>
+              <b-col md="2" class="text-end ml-4">
+                <b-form-group>
+                  <div class="form-group small-select_">
+                    <label for="">LOCAL GOVERMENT AREA</label>
+                    <v-select placeholder="All" label="Name"></v-select>
+                  </div>
+                </b-form-group>
+              </b-col>
 
               <agegender :MillenialRating="data.MillenialRating" :BabyBoomRating="data.BabyBoomRating" :FemaleRating="data.FemaleRating" :MaleRating="data.MaleRating" :GenerationXRating="data.GenerationXRating"/>
             </b-row>
@@ -39,17 +69,19 @@ export default {
     });
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
-   async asyncData({ params, $axios }) {
-      const post = await $axios.$get(`/Industries/GetIndustryDetailsByAdmin?industryId=${params.id} `)
-      const data = await $axios.$get(`/Opinions/GetIndustryOpinionSummaries?industryId=${params.id}`)
-      console.log(data)
-      return { post, data }
-    },
-  methods:{
+  async asyncData({ params, $axios }) {
+    const post = await $axios.$get(
+      `/Industries/GetIndustryDetailsByAdmin?industryId=${params.id} `
+    );
+    const data = await $axios.$get(
+      `/Opinions/GetIndustryOpinionSummaries?industryId=${params.id}`
+    );
+    console.log(data);
+    return { post, data };
+  },
+  methods: {
     //   async fetchIndustryDetails() {
     //   this.fetchCompanySpinner = true;
     //   try {
@@ -67,7 +99,7 @@ export default {
     //     this.makeToast()
     //   }
     // },
-  }
+  },
 };
 </script>
 

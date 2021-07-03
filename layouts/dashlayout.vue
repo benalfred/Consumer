@@ -118,8 +118,23 @@
             </div>
           </li>
 
-          <!-- Divider -->
-          <!-- <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+         
+
+            <!-- Divider -->
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+
+
+            <!-- Divider -->
+            <!-- <hr class="sidebar-divider">
 
 
             <div class="sidebar-heading">
