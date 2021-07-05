@@ -41,7 +41,7 @@
                 </p>
               </div>
 
-              <div class="row pb-1 pl-2 container justify-content-center">
+              <div class="row pb-1 pt-3  pl-2 container justify-content-center">
                 <div class="col-md-2 p-2" style="background: #00b5d3">
                   <b-media>
                     <template #aside>
@@ -375,7 +375,7 @@ export default {
 
 @media screen and (min-width: 750px){
   .big-image {
-  height: 62vh;
+  height: 72vh;
   width: 99vw;
   position: relative;
   background-repeat: repeat;
@@ -404,7 +404,7 @@ div.background-text {
   background-color: #000;
   font-weight: 600;
   color: #fff;
-  height: 72vh;
+  height: 82vh;
 }
 
 .background-text h2 {
