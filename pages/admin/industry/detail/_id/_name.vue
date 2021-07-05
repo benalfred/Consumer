@@ -10,6 +10,7 @@
                   {{ post.Name }}
                   <span style="font-size: 24px">{{ post.Slogan }}</span>
                 </h1>
+                
                 <p>
                   {{ post.Description }}
                 </p>

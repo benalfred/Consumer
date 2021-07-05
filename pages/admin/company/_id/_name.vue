@@ -306,6 +306,7 @@ export default {
         this.form.Banner = response.data.Banner;
         this.fetchCompanySpinner = false;
       } catch (e) {
+        this.fetchCompanySpinner = false
         this.$store.commit("notifications/error", "something went wrong")
         this.makeToast()
       }
@@ -338,7 +339,6 @@ export default {
       }
     },
     async updateCompany1() {
-      alert("yes");
       this.updateSpinner = true;
       let formData = new FormData();
       try {
@@ -366,6 +366,7 @@ export default {
           icon: "success",
         });
       } catch (e) {
+        this.spinner = false
         this.$store.commit("notifications/error", "something went wrong")
         this.makeToast()
       }

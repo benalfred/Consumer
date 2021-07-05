@@ -212,7 +212,7 @@
       </b-row>
     </b-container>
 
-    <agegender />
+    <agegender :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" v-if="post"/>
     <Footer />
 
     <div id="openModal-about" class="modalDialog">
@@ -275,6 +275,7 @@ export default {
       Slogan: null,
       Banner: "",
       Logo: null,
+      post:null,
       PositivePercent: 0,
       NegativePercent: 0,
       NeutralPercent: 0,
@@ -305,6 +306,7 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
         );
+        this.post = response.data
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;

@@ -51,7 +51,8 @@
           <div class="row" v-if="ratingTags.length && !ratingTagSpinner">
             <b-col md="3" v-for="tag in ratingTags" :key="tag.Id">
               <div
-                @click="setRatingTagId(tag)"
+                @click="setRatingTagId(tag.Id)"
+                :class="[colorChecking(tag.Id) ? 'bg-class' : '']"
                 class="card-subtitle mb-2 px-3 text-muted text-center"
                 style="
                   border: 1px solid #81959e;
@@ -130,10 +131,7 @@
 
         <b-col md="7" class="section_ px-5 pt-5 mt-3">
           <div>
-            <div
-              class="second-col px-4 pt-4 pb-4"
-              v-if="opinions.length && !spinner"
-            >
+            <div class="second-col px-4 pt-4 pb-4" v-if="opinions.length && !spinner">
               <span
                 class="text-center pt-1 text-white"
                 style="
@@ -146,11 +144,7 @@
                 "
                 >LATEST OPINON</span
               >
-              <b-media
-                v-for="opinion in opinions"
-                :key="opinion.Id"
-                class="mt-5"
-              >
+              <b-media v-for="opinion in opinions" :key="opinion.Id" class="mt-5">
                 <template #aside>
                   <img
                     src="~/assets/img/vector4.png"
@@ -159,28 +153,18 @@
                   />
                 </template>
 
-                <h6 class="pt-3">
-                  {{ opinion.Firstname }} {{ opinion.Surname }}
-                </h6>
+                <h6 class="pt-3">{{ opinion.Firstname }} {{ opinion.Surname }}</h6>
                 <div class="d-flex">
                   <div>
-                    <img
-                      src="~/assets/img/emoji1.png"
-                      class="img-fluid"
-                      alt=""
-                    />
+                    <img src="~/assets/img/emoji1.png" class="img-fluid" alt="" />
                   </div>
-                  <p class="pt-1 ml-2" style="color: #e57718">
-                    Positive opinion
-                  </p>
+                  <p class="pt-1 ml-2" style="color: #e57718">Positive opinion</p>
                   <div>
                     <span class="ml-3"> {{ opinion.SubmittedDate }}</span>
                   </div>
                 </div>
                 <p class="firstp">
-                  <span v-for="tag in opinion.Tags" :key="tag.Id">
-                    {{ tag }} |</span
-                  >...
+                  <span v-for="tag in opinion.Tags" :key="tag.Id"> {{ tag }} |</span>...
                 </p>
                 <p>
                   {{ opinion.Comment }}
@@ -189,10 +173,7 @@
                 <!-- b-[Optional: add media children here for nesting] -->
               </b-media>
             </div>
-            <div
-              class="second-col px-4 pt-4 pb-4"
-              v-if="!opinions.length && !spinner"
-            >
+            <div class="second-col px-4 pt-4 pb-4" v-if="!opinions.length && !spinner">
               <div class="row justify-content-center d-flex my-4">
                 <div class="col-4 mt-3">
                   <img
@@ -209,14 +190,6 @@
               label="Spinning"
               style="margin-left: 49%"
             ></b-spinner>
-            <b-pagination
-              v-model="pageForOpinions2"
-              :total-rows="totalRowsForOpinion"
-              :per-page="pageSize"
-              align="center"
-              size="sm"
-              class="my-0 text-center justify-content-center d-flex"
-            />
           </div>
         </b-col>
       </div>
@@ -269,8 +242,21 @@ export default {
     };
   },
   methods: {
-    setRatingTagId(tag) {
-      this.ratingTagId.push(tag.Id);
+    colorChecking(value) {
+      let foundEmoji = this.ratingTagId.find((emoji) => emoji === value);
+      return foundEmoji;
+    },
+
+    async setRatingTagId(tag) {
+      let found = this.ratingTagId.find((Id) => Id === tag);
+      if (found) {
+        let newArray = this.ratingTagId.filter((Id) => Id != found);
+        this.ratingTagId = newArray;
+      } else if (this.ratingTagId.length === 3) {
+        return;
+      } else {
+        this.ratingTagId.push(tag);
+      }
     },
     async displayRatingTags(id) {
       this.ratingTagSpinner = true;
@@ -324,9 +310,7 @@ export default {
       }
     },
     ratingMethod(value) {
-      let foundEmoji = this.ratingEmoji.find(
-        (emoji) => emoji.PreferredName === value
-      );
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
       return foundEmoji;
     },
     async allOpinions() {
@@ -365,6 +349,11 @@ export default {
 
 .logo-img {
   width: 80px;
+}
+
+.bg-class {
+color: #fff;
+  background-color: #e57718;
 }
 
 @media screen and (min-width: 750px) {

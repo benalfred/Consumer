@@ -52,9 +52,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Positive Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">{{ MillenialRating.PositivePercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating.PositivePercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating.PositivePercent}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50" >{{ MillenialRating ? MillenialRating.PositivePercent : 0 }}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating ? GenerationXRating.PositivePercent : 0}}%</p>
+                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating ? BabyBoomRating.PositivePercent : 0}}%</p>
               </div>
 
               <img
