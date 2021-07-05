@@ -127,16 +127,18 @@
               <div
                 style="cursor: pointer"
                 @click="goToCompanyPage(company)"
-                class="col-md-2"
+                class="d-flex "
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Logo" class="img-fluid logo-img" alt="" />
+                <img :src="company.Logo" class="img-fluid logo-img ml-4" alt="" />
               </div>
             <div class="col-md-2  pl-1">
+            <a href="#openModal-about">
                 <button class="btn">
                   <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                 </button>
+            </a>
               </div>
             </div>
             <div class="d-flex_ row p-5" v-if="!companies.length">
@@ -151,6 +153,26 @@
 
     <agegender :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" v-if="post"/>
     <Footer />
+
+
+     <div id="openModal-about" class="modalDialog">
+      <div>
+
+        <div class="d-flex__ row ">
+         <a href="#close" title="Close" class="close">X</a>
+          <div class="col-md-3">
+            <div style="cursor:pointer">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div style="cursor:pointer">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -228,6 +250,70 @@ export default {
 </script>
 
 <style scoped>
+.d-flex__ {
+  background: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px 20px;
+  border-radius: 10px;
+}
+
+.dell-card img {
+  margin: 20px 0px 10px;
+}
+.modalDialog {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  opacity: 0;
+  margin-trim: 50px;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+  overflow: auto;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 600px;
+  width: 60%;
+  position: relative;
+  margin: 5% auto;
+  border-radius: 10px;
+  background: #626d73;
+  border-radius: 10px;
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  font-size: 12px;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: 17px;
+  text-align: center;
+  top: 15px;
+  padding: 10px 13px 5px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
+
 .bg {
   overflow: hidden;
 }

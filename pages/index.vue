@@ -357,6 +357,7 @@
         <div class="mt-2 line"></div>
       </div>
     </section>
+    
     <div id="openModal-about" class="modalDialog">
       <div>
         <a href="#close" title="Close" class="close">X</a>
