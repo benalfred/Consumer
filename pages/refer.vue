@@ -1,12 +1,17 @@
 <template>
-  <div class="page">
-    <b-container>
+  <div>
+  <a href="#openModal-about1">Click here</a>
+   <div id="openModal-about1" class="modalDialog">
+      <div>
+
+        <div class="d-flex__ row dell-card">
+           <b-container>
       <b-row>
         <b-col md="6">
           <h4 class="font-weight-bold">Refer a friend</h4>
         </b-col>
         <b-col md="6" class="d-flex justify-content-end">
-          <i style="cursor: pointer" class="fas fa-times-circle fa-2x"></i>
+        <a href="#close" title="Close" class="close">X</a>
         </b-col>
         <b-col md="12">
           <div
@@ -77,6 +82,10 @@
         </b-col>
       </b-row>
     </b-container>
+        </div>
+      </div>
+   </div>
+
   </div>
 </template>
 
@@ -151,6 +160,66 @@ export default {
 </script>
 
 <style scoped>
+.d-flex__ {
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px 20px;
+  border-radius: 3px;
+}
+
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+  overflow: auto;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 600px;
+  width: 60%;
+  position: relative;
+  margin: 5% auto;
+  border-radius: 10px;
+  background: #626d73;
+  border-radius: 10px;
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  font-size: 12px;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: 17px;
+  text-align: center;
+  top: 0px;
+  padding: 10px 13px 5px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
 .page {
   padding-top: 100px;
 }

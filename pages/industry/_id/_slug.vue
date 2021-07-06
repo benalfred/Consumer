@@ -251,11 +251,12 @@ export default {
 
 <style scoped>
 .d-flex__ {
-  background: #ffffff;
+  background: #fff;
   box-sizing: border-box;
   box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
   padding: 40px 30px 20px;
-  border-radius: 10px;
+  border-radius: 3px;
+  margin-top: 50px;
 }
 
 .dell-card img {
@@ -263,8 +264,9 @@ export default {
 }
 .modalDialog {
   position: fixed;
-  top: 100px;
+  top: 0px;
   right: 0;
+  background: white;
   bottom: 0;
   left: 0;
   z-index: 99999;

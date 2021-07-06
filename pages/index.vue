@@ -357,7 +357,7 @@
         <div class="mt-2 line"></div>
       </div>
     </section>
-    
+
     <div id="openModal-about" class="modalDialog">
       <div>
         <a href="#close" title="Close" class="close">X</a>
@@ -374,6 +374,8 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -599,11 +601,11 @@ h4 {
   border-radius: 10px;
 }
 .d-flex__ {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
   box-sizing: border-box;
   box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
   padding: 40px 30px 20px;
+  border-radius: 3px;
 }
 
 .dell-card img {

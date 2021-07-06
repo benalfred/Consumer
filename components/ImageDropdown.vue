@@ -120,10 +120,9 @@
         border: none;
         border-radius: 3px;
         box-shadow: 0 13px 42px 11px rgba(0, 0, 0, .1);
-
         /*top: 65px;*/
         right: -60px;
-        top: 30px;
+        top: 10px;
         max-height: 80vh;
         overflow-y: scroll;
         overflow-x:hidden;

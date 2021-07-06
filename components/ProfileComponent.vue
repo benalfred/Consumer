@@ -3,8 +3,7 @@
     <div
       class="nav-list user-icon text-center justify-content-center align-items-center"
       type="submit"
-      @click="threeMenuOpen"
-    >
+      @click="threeMenuOpen">
       <i class="fas fa-angle-down"></i>
 
     <div  class="logout-sub-menu row sub-menu"
@@ -13,7 +12,7 @@
           <div
             v-for="sector in sectors3"
             :key="sector.Id"
-            class=" col-md-4 px-2 align-items-center justify-content-start"
+            class="col-md-4 px-2 align-items-center justify-content-start"
           >
             <button type="button" class="btn2">{{ sector.Name }}</button>
           </div>
