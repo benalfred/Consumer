@@ -32,14 +32,14 @@
                     <label for="" class="text-dark_" style="font-weight: 700"
                       >Choose email template</label
                     >
-                     <v-select
-                        v-model="templateType"
-                        :options="emailTemplatesTypes"
-                        placeholder="choose email template"
-                        :reduce="(type) => type.Id"
-                        @input="fetchEmailTemplate"
-                        label="Name"
-                      ></v-select>
+                    <v-select
+                      v-model="templateType"
+                      :options="emailTemplatesTypes"
+                      placeholder="choose email template"
+                      :reduce="(type) => type.Id"
+                      @input="fetchEmailTemplate"
+                      label="Name"
+                    ></v-select>
                   </div>
                 </b-form-group>
 
@@ -49,11 +49,10 @@
                       >Choose address format</label
                     >
                     <v-select
-                        v-model="template"
-                        :options="emailTemplates"
-                        placeholder="choose email template"
-                        label="Subject"
-                      ></v-select>
+                      :options="emailTemplates"
+                      placeholder="choose email template"
+                      label="Subject"
+                    ></v-select>
                   </div>
                 </b-form-group>
               </div>
@@ -63,22 +62,35 @@
               <h6 class="pt-4 mt-3" style="color: #000; font-weight: 600">
                 Password generation email
               </h6>
-              <textarea class="mt-3 email-tittle p-3" placeholder="" rows="10">
-               bedbjcensknwsxkxd
-
-              </textarea>
+              <client-only>
+                <quill-editor
+                  ref="editor"
+                  v-model="content"
+                  :options="editorOption"
+                  @blur="onEditorBlur($event)"
+                  @focus="onEditorFocus($event)"
+                  @ready="onEditorReady($event)"
+                />
+              </client-only>
             </b-col>
 
             <b-col md="6"> </b-col>
             <b-col md="4" class="newpost_ mt-1 justify-content-center">
               <b-form-group class="newpost mt-3">
                 <button
+                  :disabled="content === 'choose a template' || !content || !templateType"
+                  @click="updateEmail"
                   class="mt-2 btn-sacademy"
                   style="font-size: 16px"
                   type="submit"
                   value="Send"
                 >
                   Update
+                  <b-spinner
+                    v-if="spinner"
+                    label="Spinning"
+                    style="margin-left: 5%"
+                  ></b-spinner>
                 </button>
               </b-form-group>
             </b-col>
@@ -94,15 +106,30 @@ import UserResponse from "@/components/UserResponse.vue";
 export default {
   layout: "dashlayout",
   component: { UserResponse },
-  async fetch(){
-   await this.fetchEmailTemplatesTypes()
+  async fetch() {
+    await this.fetchEmailTemplatesTypes();
   },
+  // mounted() {
+  //   console.log('App init, this quill insrance object is:', this.$refs.editor)
+  // },
   data() {
     return {
       emailTemplatesTypes: [],
-      templateType:null,
-      emailTemplates:[],
-      template:null,
+      templateType: null,
+      spinner: false,
+      emailTemplates: [],
+      template: null,
+      content: "<p>choose a template type</p>",
+      editorOption: {
+        // Some Quill options...
+        theme: "snow",
+        modules: {
+          toolbar: [
+            ["bold", "italic", "underline", "strike"],
+            ["blockquote", "code-block"],
+          ],
+        },
+      },
     };
   },
   methods: {
@@ -119,28 +146,70 @@ export default {
       try {
         const response = await this.$axios.get("/EmailTemplates/GetEmailTemplateTypes");
         this.emailTemplatesTypes = response.data;
-        console.log(response.data)
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
     },
-    async fetchEmailTemplate(id){
-      alert(id)
+    async fetchEmailTemplate(id) {
       try {
-      const response = await this.$axios.get(`/EmailTemplates/GetEmailTemplate?emailType=${id}`)
-      console.log(response.data)
-      this.emailTemplates = [response.data]
+        const response = await this.$axios.get(
+          `/EmailTemplates/GetEmailTemplate?emailType=${id}`
+        );
+        this.emailTemplates = [response.data];
+        this.template = response.data;
       } catch (e) {
-       this.$store.commit("notifications/error", "something went wrong");
+        this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
-    }
+    },
+    async updateEmail() {
+      this.spinner = true;
+      try {
+        await this.$axios.post(`/EmailTemplates/UpdateEmailTemplate`, {
+          EmailType: this.template.EmailTpye,
+          Subject: this.template.Subject,
+          Template: this.content,
+        });
+        this.spinner = false;
+        this.$store.commit("notifications/success", "updated successfully");
+        this.makeToast();
+      } catch (error) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+        this.spinner = false;
+      }
+    },
+    onEditorBlur(editor) {
+      console.log("editor blur!", editor);
+    },
+    onEditorFocus(editor) {
+      console.log("editor focus!", editor);
+    },
+    onEditorReady(editor) {
+      console.log("editor ready!", editor);
+    },
+  },
+  watch: {
+    template() {
+      this.content = `<p>${this.emailTemplates[0].Template}</p>\n
+    `;
+    },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.quill-editor {
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+}
 .text-dark_ {
   color: #000;
   font-weight: 600;
@@ -184,7 +253,7 @@ export default {
   overflow-y: scroll;
   height: 300px;
   width: 500px;
-  outline: None!important;;
+  outline: None !important;
 }
 
 .email-tittle::-webkit-scrollbar {

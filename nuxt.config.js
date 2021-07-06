@@ -99,6 +99,11 @@ export default {
         '~/assets/css/sb-admin-2.min.css',
         '~/assets/css/sb-admin-2.css',
         'aos/dist/aos.css',
+        'quill/dist/quill.core.css',
+        // for snow theme
+        'quill/dist/quill.snow.css',
+        // for bubble theme
+        'quill/dist/quill.bubble.css'
     ],
 
     axios: {
@@ -139,7 +144,7 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        { src: '~/plugins/main.js', mode: 'client' },
+        { src: '~/plugins/main.js', ssr: false },
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
