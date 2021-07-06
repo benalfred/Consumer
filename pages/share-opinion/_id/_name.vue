@@ -115,7 +115,7 @@
             <div>
               <b-form-group class="newpost mt-3">
                 <button
-                  :disabled="!Comment && !rating && !ratingTagId.length"
+                  :disabled="!Comment || !rating || ratingTagId.length != 3"
                   @click="createOpinion"
                   class="mt-2 btn-sacademy"
                   style="font-size: 16px"
@@ -146,12 +146,12 @@
               >
               <b-media v-for="opinion in opinions" :key="opinion.Id" class="mt-5">
                 <template #aside>
-                  <img v-if="opinion.Picture" 
+                  <img v-if="opinion.Picture"
                     :src="opinion.Picture"
                     class="img-fluid p-2 mt-2 img1"
                     alt="Media Aside"
                   />
-                  <img v-else 
+                  <img v-else
                     src="~/assets/img/vector4.png"
                     class="img-fluid p-2 mt-2 img1"
                     alt="Media Aside"
@@ -160,12 +160,12 @@
 
                 <h6 class="pt-3">{{ opinion.Firstname }} {{ opinion.Surname }}</h6>
                 <div class="d-flex">
-                  <div>
-                    <img src="~/assets/img/emoji1.png" class="img-fluid" alt="" />
+                  <div v-if="ratingMethod2(opinion.Rating)">
+                    {{ratingMethod2(opinion.Rating).emoji}}
                   </div>
-                  <p class="pt-1 ml-2" style="color: #e57718">Positive opinion</p>
+                  <p class="pt-1 ml-2" style="color: #e57718" v-if="ratingMethod2(opinion.Rating)">{{ratingMethod2(opinion.Rating).category}}</p>
                   <div>
-                    <span class="ml-3" v-if="dayjs"> {{ dayjs(opinion.SubmittedDate).fromNow()  }}</span>
+                    <span class="ml-3"> {{ daysjs(opinion.SubmittedDate).fromNow()  }}</span>
                   </div>
                 </div>
                 <p class="firstp">
@@ -212,22 +212,23 @@ export default {
     await this.fetchCompanyDetails();
   },
   mounted() {
+    this.daysjs = dayjs
     this.allOpinions()
   },
   data() {
     return {
       opinions: [],
-      dayjs: dayjs,
+      daysjs: dayjs,
       spinner: false,
       Logo: null,
       Description: null,
       rating: null,
       ratingEmoji: [
-        {Id:1, PreferredName: "Very Bad", emoji: "😡" },
-        {Id:2, PreferredName: "Bad", emoji: "😞" },
-        {Id:3, PreferredName: "Fair", emoji: "😑" },
-        {Id:4, PreferredName: "Good", emoji: "😊" },
-        {Id:5, PreferredName: "Very Good", emoji: "😍" },
+        {Id:1, PreferredName: "Very Bad", emoji: "😡", category:"Negative Opinion" },
+        {Id:2, PreferredName: "Bad", emoji: "😞", category:"Negative Opinion" },
+        {Id:3, PreferredName: "Fair", emoji: "😑", category:"Fair Opinion" },
+        {Id:4, PreferredName: "Good", emoji: "😊",category:"Positive Opinion" },
+        {Id:5, PreferredName: "Very Good", emoji: "😍", category:"Positive Opinion" },
       ],
       ratingsData: [],
       tagsData: [
@@ -293,7 +294,6 @@ export default {
       }
     },
     async createOpinion() {
-      alert(this.Comment)
       try {
         const response = await this.$axios.post("/Opinions/SubmitOpinion", {
           companyId: parseInt(this.$route.params.id),
@@ -320,9 +320,12 @@ export default {
         });
       }
     },
-    ratingMethod(value,id) {
-      alert(value,id)
+    ratingMethod(value) {
       let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      return foundEmoji;
+    },
+    ratingMethod2(value) {
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.Id === value);
       return foundEmoji;
     },
     async allOpinions() {
