@@ -44,3 +44,7 @@ import swal from 'sweetalert';
 import 'vue-select/dist/vue-select.css';
 Vue.component('v-select', vSelect)
 Vue.component('v-calendar', 'v-calendar')
+
+import VueQuillEditor from 'vue-quill-editor'
+
+Vue.use(VueQuillEditor)
