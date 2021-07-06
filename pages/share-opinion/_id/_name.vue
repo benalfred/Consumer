@@ -28,10 +28,10 @@
             <div class="emoji" v-for="ratingg in ratingsData" :key="ratingg.id">
               <p
                 :class="[rating != ratingg.Id ? 'active' : '']"
-                v-if="ratingMethod(ratingg.PreferredName)"
+                v-if="ratingMethod(ratingg.PreferredName,ratingg.Id)"
                 @click="displayRatingTags(ratingg.Id)"
               >
-                {{ ratingMethod(ratingg.PreferredName).emoji }}
+                {{ ratingMethod(ratingg.PreferredName,ratingg.Id).emoji }}
               </p>
             </div>
           </div>
@@ -146,7 +146,12 @@
               >
               <b-media v-for="opinion in opinions" :key="opinion.Id" class="mt-5">
                 <template #aside>
-                  <img
+                  <img v-if="opinion.Picture" 
+                    :src="opinion.Picture"
+                    class="img-fluid p-2 mt-2 img1"
+                    alt="Media Aside"
+                  />
+                  <img v-else 
                     src="~/assets/img/vector4.png"
                     class="img-fluid p-2 mt-2 img1"
                     alt="Media Aside"
@@ -160,7 +165,7 @@
                   </div>
                   <p class="pt-1 ml-2" style="color: #e57718">Positive opinion</p>
                   <div>
-                    <span class="ml-3"> {{ opinion.SubmittedDate }}</span>
+                    <span class="ml-3" v-if="dayjs"> {{ dayjs(opinion.SubmittedDate).fromNow()  }}</span>
                   </div>
                 </div>
                 <p class="firstp">
@@ -169,7 +174,6 @@
                 <p>
                   {{ opinion.Comment }}
                 </p>
-
                 <!-- b-[Optional: add media children here for nesting] -->
               </b-media>
             </div>
@@ -198,6 +202,9 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 export default {
   layout: "headerr",
   async fetch() {
@@ -205,21 +212,22 @@ export default {
     await this.fetchCompanyDetails();
   },
   mounted() {
-    this.allOpinions();
+    this.allOpinions()
   },
   data() {
     return {
       opinions: [],
+      dayjs: dayjs,
       spinner: false,
       Logo: null,
       Description: null,
       rating: null,
       ratingEmoji: [
-        { PreferredName: "Very Bad", emoji: "😡" },
-        { PreferredName: "Bad", emoji: "😞" },
-        { PreferredName: "Fair", emoji: "😑" },
-        { PreferredName: "Good", emoji: "😊" },
-        { PreferredName: "Very Good", emoji: "😍" },
+        {Id:1, PreferredName: "Very Bad", emoji: "😡" },
+        {Id:2, PreferredName: "Bad", emoji: "😞" },
+        {Id:3, PreferredName: "Fair", emoji: "😑" },
+        {Id:4, PreferredName: "Good", emoji: "😊" },
+        {Id:5, PreferredName: "Very Good", emoji: "😍" },
       ],
       ratingsData: [],
       tagsData: [
@@ -246,8 +254,6 @@ export default {
       let foundEmoji = this.ratingTagId.find((emoji) => emoji === value);
       return foundEmoji;
     },
-
-    
 
     async setRatingTagId(tag) {
       let found = this.ratingTagId.find((Id) => Id === tag);
@@ -314,7 +320,8 @@ export default {
         });
       }
     },
-    ratingMethod(value) {
+    ratingMethod(value,id) {
+      alert(value,id)
       let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
       return foundEmoji;
     },
@@ -326,6 +333,7 @@ export default {
         const opinions = await this.$axios.get(
           `Opinions/GetOpinions?companyId=${this.$route.params.id}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
+        console.log(opinions.data.Results)
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.spinner = false;
