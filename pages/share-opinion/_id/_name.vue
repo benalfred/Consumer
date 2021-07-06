@@ -234,7 +234,7 @@ export default {
       ratingTagSpinner: false,
       Name: this.$route.params.name,
       Description: null,
-      companyId: 0,
+      companyId: this.$route.params.id,
       ratingTagId: [],
       ratingTags: [],
       totalRowsForOpinion: 0,
@@ -246,6 +246,8 @@ export default {
       let foundEmoji = this.ratingTagId.find((emoji) => emoji === value);
       return foundEmoji;
     },
+
+    
 
     async setRatingTagId(tag) {
       let found = this.ratingTagId.find((Id) => Id === tag);
@@ -285,13 +287,15 @@ export default {
       }
     },
     async createOpinion() {
+      alert(this.Comment)
       try {
         const response = await this.$axios.post("/Opinions/SubmitOpinion", {
-          companyId: this.$route.params.id,
+          companyId: parseInt(this.$route.params.id),
           rating: this.rating,
           RatingTagIds: this.ratingTagId,
           Comment: this.Comment,
         });
+         await this.allOpinions()
         this.Comment = null;
         this.rating = null;
         this.ratingTagId = [];
@@ -301,6 +305,7 @@ export default {
           icon: "success",
         });
       } catch (e) {
+        console.log(e)
         swal({
           title: "Error!",
           text: "Something went wrong!",

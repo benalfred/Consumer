@@ -10,7 +10,7 @@
                   {{ post.Name }}
                   <span style="font-size: 24px">{{ post.Slogan }}</span>
                 </h1>
-                
+
                 <p>
                   {{ post.Description }}
                 </p>
@@ -46,7 +46,13 @@
                 </b-form-group>
               </b-col>
 
-              <agegender :MillenialRating="data.MillenialRating" :BabyBoomRating="data.BabyBoomRating" :FemaleRating="data.FemaleRating" :MaleRating="data.MaleRating" :GenerationXRating="data.GenerationXRating"/>
+              <agegender
+                :MillenialRating="data.MillenialRating"
+                :BabyBoomRating="data.BabyBoomRating"
+                :FemaleRating="data.FemaleRating"
+                :MaleRating="data.MaleRating"
+                :GenerationXRating="data.GenerationXRating"
+              />
             </b-row>
           </div>
         </div>
@@ -72,17 +78,34 @@ export default {
   data() {
     return {};
   },
-  async asyncData({ params, $axios }) {
-    const post = await $axios.$get(
+  async asyncData({ params, $axios, $bvToast }) {
+    try {
+          const post = await $axios.$get(
       `/Industries/GetIndustryDetailsByAdmin?industryId=${params.id} `
     );
     const data = await $axios.$get(
       `/Opinions/GetIndustryOpinionSummaries?industryId=${params.id}`
     );
-    console.log(data);
     return { post, data };
+    } catch (e) {
+       $bvToast.toast(`something went wrong`, {
+        title: 'error',
+        autoHideDelay: 5000,
+        variant:  "error" ? "danger" : "info",
+        solid: true,
+      }); 
+    }
   },
+
   methods: {
+     makeToast() {
+      $bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      }); 
+    },
     //   async fetchIndustryDetails() {
     //   this.fetchCompanySpinner = true;
     //   try {
