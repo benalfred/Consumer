@@ -19,12 +19,12 @@
 
         <h6 class="pt-3">{{ opinion.Firstname }} {{ opinion.Surname }}</h6>
         <div class="d-flex">
-          <div v-if="ratingMethod(opinion.Rating)">
-            {{ ratingMethod(opinion.Rating).emoji }}
+          <div v-if="ratingMethod2(opinion.Rating)">
+            {{ ratingMethod2(opinion.Rating).emoji }}
           </div>
-          <p class="pt-1 ml-2" style="color: #e57718">Positive Opinion</p>
+          <p class="pt-1 ml-2" style="color: #e57718" v-if="ratingMethod2(opinion.Rating)"> {{ ratingMethod2(opinion.Rating).category }}</p>
           <div>
-          <span class="ml-3">{{opinion.SubmittedDate}}</span>
+          <span class="ml-3">{{daysjs(opinion.SubmittedDate).fromNow()}}</span>
           </div>
         </div>
         <p class="firstp">
@@ -53,8 +53,14 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 export default {
   name: "UserResponse",
+  mounted() {
+ this.daysjs = dayjs
+  },
   props: {
     opinions: {
       type: Array,
@@ -70,17 +76,22 @@ export default {
   data() {
     return {
       ratingEmoji: [
-        { Id: 1, PreferredName: "Very Bad", emoji: "😡" },
-        { Id: 2, PreferredName: "Bad", emoji: "😞" },
-        { Id: 3, PreferredName: "Fair", emoji: "😑" },
-        { Id: 4, PreferredName: "Good", emoji: "😊" },
-        { Id: 5, PreferredName: "Very Good", emoji: "😍" },
+        {Id:1, PreferredName: "Very Bad", emoji: "😡", category:"Negative Opinion" },
+        {Id:2, PreferredName: "Bad", emoji: "😞", category:"Negative Opinion" },
+        {Id:3, PreferredName: "Fair", emoji: "😑", category:"Fair Opinion" },
+        {Id:4, PreferredName: "Good", emoji: "😊",category:"Positive Opinion" },
+        {Id:5, PreferredName: "Very Good", emoji: "😍", category:"Positive Opinion" },
       ],
+      daysjs: dayjs,
     };
   },
   methods: {
     ratingMethod(value) {
       let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      return foundEmoji;
+    },
+    ratingMethod2(value) {
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.Id === value);
       return foundEmoji;
     },
   },
