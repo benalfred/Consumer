@@ -23,7 +23,7 @@
 
 
         <b-navbar-nav class="ml-auto">
-        <SecNav class="mt-4 mr-5" />
+        <SecNav class="mt-4" />
 
  <li class="d-block d-sm-none">
                                <div class="cart_buttons_madesoft col-12 d-flex">
