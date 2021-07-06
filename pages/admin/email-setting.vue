@@ -51,7 +51,7 @@
 
                 <b-col md="6" class="mt-4">
                   <h6 class="pt-4 mt-3" style="color: #000; font-weight: 600">Password generation email</h6>
-                  <b-form-textarea class="mt-3 email-tittle p-3" placeholder="">
+                  <b-form-textarea class="mt-3 email-tittle p-3" placeholder="hello">
                       <h6 class="mt-2 font-weight-bold" style="color: #000;">Email tittle</h6>
                       <p class="pt-3">Dear [[Lastname]] [[Firstname]],</p>
                       <p>Your acccount to Consumerhalla with the email address [[email-address]] has been successfully set up. Please, use the password <span class="font-weight-bold" style="color: #000">XMG_2VxLB</span> to login into your account for the first time.</p>

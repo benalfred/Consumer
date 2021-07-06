@@ -49,11 +49,11 @@
           </b-media>
 
           <div class="row" v-if="ratingTags.length && !ratingTagSpinner">
-            <b-col md="3" v-for="tag in ratingTags" :key="tag.Id">
+            <b-col md="4" v-for="tag in ratingTags" :key="tag.Id">
               <div
                 @click="setRatingTagId(tag.Id)"
                 :class="[colorChecking(tag.Id) ? 'bg-class' : '']"
-                class="card-subtitle mb-2 px-3 text-muted text-center"
+                class="card-subtitle mb-2 px-3 p-2 text-muted text-center"
                 style="
                   border: 1px solid #81959e;
                   border-radius: 50px;
@@ -131,7 +131,7 @@
 
         <b-col md="7" class="section_ px-5 pt-5 mt-3">
           <div>
-            <div class="second-col px-4 pt-4 pb-4" v-if="opinions.length && !spinner">
+            <div class="second-col px-4 mb-5 pt-4 pb-4" v-if="opinions.length && !spinner">
               <span
                 class="text-center pt-1 text-white"
                 style="
@@ -347,12 +347,13 @@ export default {
   opacity: 0.3;
 }
 
+
 .logo-img {
   width: 80px;
 }
 
 .bg-class {
-color: #fff;
+color: #fff!important;
   background-color: #e57718;
 }
 
