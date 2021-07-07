@@ -3,21 +3,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
         <div class="container-fluid">
-          <b-row>
-            <b-col md="6">
-              <div class="email-setting p-3">
-                <p class="pt-2">Email Setting</p>
-              </div>
-            </b-col>
-            <b-col md="6">
-              <nuxt-link to="review-setting">
-                <div class="email-setting1 p-3">
-                  <p class="pt-2">Review Setting</p>
-                </div>
-              </nuxt-link>
-            </b-col>
-          </b-row>
-
+          <Links />
           <b-row class="mt-5">
             <b-col md="6">
               <h3 class="text-dark_">Configure Email Template</h3>
@@ -102,10 +88,11 @@
 </template>
 
 <script>
+import Links from "@/components/Links.vue";
 import UserResponse from "@/components/UserResponse.vue";
 export default {
   layout: "dashlayout",
-  component: { UserResponse },
+  component: { UserResponse,Links },
   async fetch() {
     await this.fetchEmailTemplatesTypes();
   },

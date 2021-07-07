@@ -11,11 +11,11 @@
                   <div class="form-group small-select">
                     <v-select
                       placeholder="select rating"
-                      v-model="form.Rating"
+                      v-model="form.State"
                       :options="ratingsData"
                       @input="getFeatures"
                       :reduce="(data) => data.Id"
-                      label="PreferredName"
+                      label="Name"
                     ></v-select>
                   </div>
                 </b-form-group>
@@ -28,7 +28,7 @@
                         v-model="form.Name"
                         class="input-sector"
                         size="lg"
-                        placeholder="New Rating Tag"
+                        placeholder="Add lga"
                       ></b-form-input>
                     </b-col>
                     <b-col sm="3" class="pl-4 pt-0">
@@ -55,7 +55,7 @@
               <div class="Opinion1 p-5 mt-5">
                 <div class="">
                   <div class="d-flex">
-                    <p class="add pb-2">View and Remove Rating tag</p>
+                    <p class="add pb-2">View and Remove Lga</p>
                   </div>
                   <div
                     class="mb-2"
@@ -79,7 +79,7 @@
                   </div>
                 </div>
                 <div class="" v-if="!features.length && !fetchFeatureSpinner">
-                  <p type="" class="">No rating tag</p>
+                  <p type="" class="">No lga</p>
                 </div>
                 <b-spinner
                   v-if="fetchFeatureSpinner"
@@ -106,7 +106,7 @@ export default {
       logoutMenuState: false,
       threeOpen: false,
       form: {
-        Rating: null,
+        StateId: null,
         Name: null,
       },
       Id: null,
@@ -142,10 +142,10 @@ export default {
         return (txt = "You pressed Cancel!");
       }
       try {
-        await this.$axios.post("Opinions/DeleteRatingTag", { Id: id });
+        await this.$axios.post("/Locations/DeleteLGA", { Id: id });
         let newFeatures = this.features.filter((feature) => feature.Id != id);
         this.features = newFeatures;
-        this.$store.commit("notifications/success", "rating tag deleted");
+        this.$store.commit("notifications/success", "lga deleted");
         this.makeToast();
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -154,9 +154,9 @@ export default {
     },
     async getFeatures(id) {
       this.fetchFeatureSpinner = true;
-      id ? id : (id = 5, this.form.Rating = 5);
+      id ? id : (id = 1, this.form.StateId = 1);
       try {
-        const response = await this.$axios.get(`/Opinions/GetRatingTags?rating=${id}`);
+        const response = await this.$axios.get(`/Locations/GetLGAs?stateId=${id}`);
         this.features = response.data;
         this.fetchFeatureSpinner = false;
       } catch (e) {
@@ -166,8 +166,7 @@ export default {
     },
     async getRatings() {
       try {
-        const ratings = await this.$axios.get("settings/GetRatings");
-        console.log(ratings.data);
+        const ratings = await this.$axios.get("/Locations/GetNigeriaStates");
         this.ratingsData = ratings.data;
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -177,8 +176,8 @@ export default {
     async addFeatures() {
       try {
         this.addRateSpinner = true;
-        await this.$axios.post("/Opinions/CreateRatingTag", this.form);
-        await this.getFeatures(this.form.Rating);
+        await this.$axios.post("/Locations/CreateLGA", this.form);
+        await this.getFeatures(this.form.StateId);
         this.form.Name = null;
         this.addRateSpinner = false;
         this.$store.commit("notifications/success", "success");
