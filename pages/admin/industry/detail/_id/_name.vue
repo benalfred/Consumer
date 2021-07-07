@@ -32,8 +32,15 @@
               <b-col md="2" class="text-end">
                 <b-form-group>
                   <div class="form-group small-select_">
-                    <label for="">STATS</label>
-                    <v-select placeholder="All" label="Name"></v-select>
+                    <label for="">States</label>
+                    <v-select
+                      placeholder="All"
+                      v-model="stateId"
+                      :options="states"
+                      @input="getFeatures"
+                      :reduce="(data) => data.Id"
+                      label="Name"
+                    ></v-select>
                   </div>
                 </b-form-group>
               </b-col>
@@ -41,18 +48,31 @@
                 <b-form-group>
                   <div class="form-group small-select_">
                     <label for="">LOCAL GOVERMENT AREA</label>
-                    <v-select placeholder="All" label="Name"></v-select>
+                    <v-select
+                      placeholder="All"
+                      v-model="cityId"
+                      :options="lgas"
+                      @input="fetchSummary"
+                      :reduce="(data) => data.Id"
+                      label="Name"
+                    ></v-select>
                   </div>
                 </b-form-group>
               </b-col>
 
               <agegender
+                v-if="data && !spinner"
                 :MillenialRating="data.MillenialRating"
                 :BabyBoomRating="data.BabyBoomRating"
                 :FemaleRating="data.FemaleRating"
                 :MaleRating="data.MaleRating"
                 :GenerationXRating="data.GenerationXRating"
               />
+              <b-spinner
+                v-if="spinner"
+                label="Spinning"
+                style="margin-left: 38%; margin-top:18%;"
+              ></b-spinner>
             </b-row>
           </div>
         </div>
@@ -75,36 +95,81 @@ export default {
       duration: 1000,
     });
   },
+  async fetch() {
+    await this.fetchSummary();
+    await this.getStates();
+  },
   data() {
-    return {};
+    return {
+      data: null,
+      cityId: null,
+      stateId: null,
+      lgas: [],
+      states: [],
+      spinner: false,
+    };
   },
   async asyncData({ params, $axios, $bvToast }) {
     try {
-          const post = await $axios.$get(
-      `/Industries/GetIndustryDetailsByAdmin?industryId=${params.id} `
-    );
-    const data = await $axios.$get(
-      `/Opinions/GetIndustryOpinionSummaries?industryId=${params.id}`
-    );
-    return { post, data };
+      const post = await $axios.$get(
+        `/Industries/GetIndustryDetailsByAdmin?industryId=${params.id} `
+      );
+      return { post };
     } catch (e) {
-       $bvToast.toast(`something went wrong`, {
-        title: 'error',
+      $bvToast.toast(`something went wrong`, {
+        title: "error",
         autoHideDelay: 5000,
-        variant:  "error" ? "danger" : "info",
+        variant: "error" ? "danger" : "info",
         solid: true,
-      }); 
+      });
     }
   },
 
   methods: {
-     makeToast() {
-      $bvToast.toast(`${this.$store.state.notifications.message}`, {
+    makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
         autoHideDelay: 5000,
         variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
         solid: true,
-      }); 
+      });
+    },
+    async fetchSummary() {
+      this.spinner = true;
+      this.cityId ? this.cityId : (this.cityId = "");
+      this.stateId ? this.stateId : (this.stateId = "");
+      try {
+        const response = await this.$axios.$get(
+          `/Opinions/GetIndustryOpinionSummaries?industryId=${this.$route.params.id}&cityId=${this.cityId}&stateId=${this.stateId}`
+        );
+        this.data = response;
+        this.spinner = false;
+      } catch (e) {
+        console.log(e)
+        this.spinner = false;
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+    async getStates() {
+      try {
+        const _states = await this.$axios.get("/Locations/GetNigeriaStates");
+        this.states = _states.data;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+    async getFeatures(id) {
+      await this.fetchSummary();
+      this.cityId = null
+      try {
+        const response = await this.$axios.get(`/Locations/GetLGAs?stateId=${id}`);
+        this.lgas = response.data;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
     },
     //   async fetchIndustryDetails() {
     //   this.fetchCompanySpinner = true;

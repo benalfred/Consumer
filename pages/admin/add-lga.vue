@@ -10,7 +10,7 @@
                 <b-form-group>
                   <div class="form-group small-select">
                     <v-select
-                      placeholder="select rating"
+                      placeholder="select state"
                       v-model="form.State"
                       :options="ratingsData"
                       @input="getFeatures"
@@ -36,7 +36,7 @@
                         v-if="!addRateSpinner"
                         class="btn outline-none"
                         @click="addFeatures"
-                        :disabled="!form.Name || !form.Rating"
+                        :disabled="!form.Name || !form.StateId"
                       >
                         <img src="~assets/img/sectoricon.png" alt="" />
                       </button>
@@ -160,6 +160,7 @@ export default {
         this.features = response.data;
         this.fetchFeatureSpinner = false;
       } catch (e) {
+         this.fetchFeatureSpinner = true;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -176,13 +177,14 @@ export default {
     async addFeatures() {
       try {
         this.addRateSpinner = true;
-        await this.$axios.post("/Locations/CreateLGA", this.form);
+        await this.$axios.post("/Locations/CreateLGA", {StateId:this.form.StateId, Name:this.form.Name});
         await this.getFeatures(this.form.StateId);
         this.form.Name = null;
         this.addRateSpinner = false;
         this.$store.commit("notifications/success", "success");
         this.makeToast();
       } catch (e) {
+        this.addRateSpinner = false
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -208,6 +210,85 @@ export default {
 </script>
 
 <style scoped>
+.d-flex__ {
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px 20px;
+  border-radius: 3px;
+}
+
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+  overflow: auto;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  max-width: 600px;
+  width: 60%;
+  position: relative;
+  margin: 5% auto;
+  border-radius: 10px;
+  background: #626d73;
+  border-radius: 10px;
+}
+.close {
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  font-size: 12px;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: 17px;
+  text-align: center;
+  top: 0px;
+  padding: 10px 13px 5px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.close:hover {
+  background: #fa3f6f;
+}
+.page {
+  padding-top: 100px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-sacademy_ {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 100%;
+  padding: 5px 0px 7px;
+  border: 0;
+  border-radius: 25px;
+}
 .sector {
   background: #656565;
 }

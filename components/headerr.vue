@@ -25,11 +25,9 @@
             <SecNav class="mt-4" />
 
             <li class="d-block d-sm-none">
-              <div class="cart_buttons_madesoft col-12 d-flex">
-                <nuxt-link to="/refer" class="dropdown-item text-left_"
-                  >Refer</nuxt-link
-                >
-              </div>
+              <a href="#openModal-about1" class="dropdown-item text-left_">
+                <div class="cart_buttons_madesoft col-12 d-flex">Refer</div></a
+              >
 
               <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
                 <span class="las la-sign-out-alt pt-1"></span>
@@ -38,11 +36,7 @@
             </li>
 
             <li class="cursor-pointer action-btn mr-3 mt-lg-4">
-              <nuxt-link
-                class="sub navigation-link"
-                v-if="!$auth.loggedIn"
-                to="/join"
-              >
+              <nuxt-link class="sub navigation-link" v-if="!$auth.loggedIn" to="/join">
                 <span
                   class="join py-1 px-4 text-white join"
                   style="background-color: #e57718; text-decoration: none"
@@ -67,10 +61,6 @@
                   />
                 </span>
               </nuxt-link>
-              <!-- <nuxt-link class="sub navigation-link" to="/login">
-                                <span class="py-1 px-4 text-white"
-                                      style="background-color: #E57718">Logout <img src="~/assets/img/vector4.png" class="img-fluid pl-2"  width="22" alt="">  </span>
-                            </nuxt-link> -->
             </li>
 
             <li>
@@ -118,10 +108,18 @@ export default {
       page: 1,
       id: this.colorCheckingId,
       pageSize: 1,
+      email: null,
+      form: {
+        Emails: [],
+      },
+      referrals: [],
+      spinner: false,
+      referSpinner: false,
     };
   },
   async fetch() {
     await this.fetchSectors();
+    await this.getReferrals();
   },
   computed: {
     colorCheckingId() {
@@ -130,6 +128,15 @@ export default {
   },
 
   methods: {
+      makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      });
+    },
+
     async fetchSectors() {
       try {
         this.pageSize -= 1;
@@ -155,6 +162,44 @@ export default {
         this.makeToast();
         return;
       }
+    },
+     async referAFriend() {
+      this.referSpinner = true;
+      try {
+        await this.$axios.post("/Emails/ReferAFriend", this.form);
+        this.referSpinner = false;
+        swal({
+          title: "Success!",
+          text: "Thank you, Friend referred!",
+          icon: "success",
+        });
+      } catch (e) {
+        if (e.response) {
+          this.referSpinner = false;
+          this.$store.commit("notifications/error", e.response.data);
+          this.makeToast();
+        } else {
+          this.$store.commit("notifications/error", "something went wrong");
+          this.makeToast();
+        }
+      }
+    },
+    async getReferrals() {
+      try {
+        this.spinner = true;
+        const response = await this.$axios.get("/Emails/GetMyReferredEmails");
+        this.referrals = response.data;
+        this.spinner = false;
+      } catch (e) {
+        this.spinner = false;
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+  },
+  watch: {
+    email() {
+      this.form.Emails = [this.email];
     },
   },
 };
@@ -255,7 +300,3 @@ header {
   transition: all 0.5s ease-in-out;
 }
 </style>
-
-
-
-

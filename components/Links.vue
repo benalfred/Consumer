@@ -2,33 +2,28 @@
   <div>
     <b-row class="mb-2">
       <b-col md="6">
-        <nuxt-link to="email-setting"
-          ><div class="email-setting p-3">
-            <p class="pt-2">Email Setting</p>
-          </div></nuxt-link
+        <nuxt-link to="email-setting"  class="email-setting p-3 d-block">
+            <div class="pt-2"><p class="p-2">Email Setting</p></div>
+      </nuxt-link
         >
       </b-col>
       <b-col md="6">
-        <nuxt-link to="review-setting">
-          <div class="email-setting1 p-3">
-            <p class="pt-2">Review Setting</p>
-          </div>
+        <nuxt-link to="review-setting"  class="email-setting p-3 d-block">
+            <div class="pt-2"><p class="p-2">Review Setting</p></div>
         </nuxt-link>
       </b-col>
     </b-row>
     <b-row>
       <b-col md="6">
         <nuxt-link to="add-rating"
-          ><div class="email-setting p-3">
-            <p class="pt-2">Add rating tag</p>
-          </div></nuxt-link
+           class="email-setting p-3 d-block">
+            <div class="pt-2"><p class="p-2">Add rating tag</p></div>
+          </nuxt-link
         >
       </b-col>
       <b-col md="6">
-        <nuxt-link to="add-lga">
-          <div class="email-setting1 p-3">
-            <p class="pt-2">Add LGA</p>
-          </div>
+        <nuxt-link to="add-lga" class="email-setting p-3 d-block">
+            <div class="pt-2"><p class="p-2">Add LGA</p></div>
         </nuxt-link>
       </b-col>
     </b-row>
@@ -40,6 +35,7 @@ export default {};
 </script>
 
 <style>
+
 .container {
   width: 60%;
   margin: 0 auto;
@@ -67,7 +63,8 @@ export default {};
 }
 
 .email-setting {
-  background: #0083ca;
+  background: #c4c4c4;
+  color: #fff
 }
 .email-setting1 {
   background: #c4c4c4;
@@ -128,5 +125,10 @@ export default {};
   padding: 10px 0px 10px;
   border: 0;
   border-radius: 25px;
+}
+
+.nuxt-link-exact-active.nuxt-link-active.email-setting {
+   background-color: #0083ca !important;
+   color: #fff !important;
 }
 </style>
