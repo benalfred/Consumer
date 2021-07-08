@@ -329,6 +329,7 @@
 import SectorsList from "~/components/SectorsList.vue";
 export default {
   layout: "dashlayout",
+  middleware:'admin',
   component: { SectorsList },
   data() {
     return {

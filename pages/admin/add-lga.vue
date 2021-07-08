@@ -100,7 +100,7 @@
 import Links from "@/components/Links.vue";
 export default {
   layout: "dashlayout",
-
+  middleware:'admin',
   data() {
     return {
       logoutMenuState: false,

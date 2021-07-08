@@ -404,6 +404,7 @@
 import ProfileComponent from "@/components/ProfileComponent.vue";
 import UserResponse from "@/components/UserResponse.vue";
 export default {
+  middleware:'admin',
   layout: "dashlayout",
   component: { UserResponse, ProfileComponent },
   data() {

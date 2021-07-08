@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav-list mr-4" style="cursor: pointer; margin-top: 12px">
-      <div class="notification">
+      <div v-if="$auth.loggedIn" class="notification">
         <img
           src="~/assets/img/user-thumbnail.png"
           width="50"
@@ -19,7 +19,7 @@
           </ul>
           <div class="mt-4">
             <div class="row">
-              <a href="#openModal-about1" class="dropdown-item text-left_">
+              <a v-if="$auth.loggedIn" href="#openModal-about1" class="dropdown-item text-left_">
                 <div class="cart_buttons_madesoft col-12 d-flex">Refer</div>
               </a>
 
@@ -179,6 +179,7 @@ export default {
       try {
         this.spinner = true;
         const response = await this.$axios.get("/Emails/GetMyReferredEmails");
+        console.log('referrals',response.data)
         this.referrals = response.data;
         this.spinner = false;
       } catch (e) {

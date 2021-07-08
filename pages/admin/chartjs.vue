@@ -18,6 +18,7 @@ import BarChart from "~/components/BarChart.vue";
 export default {
   components: { BarChart },
   layout: 'dashlayout',
+  middleware:'admin',
   data() {
     return {
       barChartData: {

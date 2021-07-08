@@ -52,6 +52,7 @@
                         :options="stateOptions"
                         placeholder="select state"
                         :reduce="(state) => state.Id"
+                        @input="getFeatures"
                         label="Name"
                       ></v-select>
                     </div>
@@ -127,7 +128,6 @@
 
                   <div class="d-flex mt-5 pt-5">
                     <button
-                      :disabled="!form.Password || !form.ConfirmPassword"
                       @click.prevent="prev"
                       class="mt-5 btn-sacademy"
                       style="font-size: 16px"
@@ -139,6 +139,7 @@
 
                     <button
                       @click.prevent="createUserAccount"
+                      :disabled="!form.Password || !form.ConfirmPassword"
                       class="next mt-5 btn-sacademy"
                       style="font-size: 16px"
                       type="submit"
@@ -202,6 +203,7 @@ export default {
       stateOptions: [],
       lgaOptions: [],
       spinner:false,
+      fetchFeatureSpinner:false,
       form: {
         Password: null,
         ConfirmPassword: null,
@@ -228,11 +230,21 @@ export default {
         this.stateOptions = locations.data;
         const genders = await this.$axios.get("Account/GetGenders");
         this.genderOptions = genders.data;
-        const lga = await this.$axios.get("Locations/GetLGAs");
-        console.log(lga.data);
-        this.lgaOptions = lga.data;
       } catch {
-        alert("error");
+         this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+     async getFeatures(id) {
+      this.fetchFeatureSpinner = true;
+      try {
+        const response = await this.$axios.get(`/Locations/GetLGAs?stateId=${id}`);
+        this.lgaOptions = response.data;
+        this.fetchFeatureSpinner = false;
+      } catch (e) {
+         this.fetchFeatureSpinner = true;
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async createUserAccount() {

@@ -211,6 +211,7 @@ export default {
     await this.getRatings();
     await this.fetchCompanyDetails();
   },
+  middleware: "account_setup",
   mounted() {
     this.daysjs = dayjs
     this.allOpinions()
@@ -311,7 +312,6 @@ export default {
           icon: "success",
         });
       } catch (e) {
-        console.log(e)
         swal({
           title: "Error!",
           text: "Something went wrong!",
@@ -336,7 +336,6 @@ export default {
         const opinions = await this.$axios.get(
           `Opinions/GetOpinions?companyId=${this.$route.params.id}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
         );
-        console.log(opinions.data.Results)
         this.opinions = opinions.data.Results;
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.spinner = false;

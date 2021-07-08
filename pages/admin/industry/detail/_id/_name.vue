@@ -88,6 +88,7 @@ import agegender from "@/components/agegender.vue";
 import UserResponse from "@/components/UserResponse.vue";
 export default {
   layout: "dashlayout",
+  middleware:'admin',
   component: { UserResponse, agegender },
   mounted() {
     AOS.init({
@@ -145,7 +146,6 @@ export default {
         this.data = response;
         this.spinner = false;
       } catch (e) {
-        console.log(e)
         this.spinner = false;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();

@@ -154,6 +154,7 @@ import UserResponse from "@/components/UserResponse.vue";
 import Links from "@/components/Links.vue";
 export default {
   layout: "dashlayout",
+  middleware:'admin',
   component: { UserResponse,Links },
 };
 </script>

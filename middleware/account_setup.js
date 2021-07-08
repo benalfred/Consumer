@@ -1,6 +1,9 @@
 export default async function({ route, context, redirect, $auth, $axios, store, dispatch }) {
-    if ($auth.user && $auth.user.picture == null) {
+    if ($auth.user && $auth.user.Picture == null) {
         console.log('yes', $auth.user)
-            // return redirect('/setup-account')
+        return redirect('/setup-account')
+    }
+    if ($auth.user.isAdmin) {
+        return redirect('/admin/dashboard')
     }
 }

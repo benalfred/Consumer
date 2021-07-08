@@ -3,7 +3,7 @@
     <div id="" class="d-flex flex-column">
       <div id="content">
         <div class="container-fluid">
-          <Links/>
+          <Links />
           <div class="row mt-3">
             <div class="col-md-6">
               <div class="Opinion1 p-5 mt-5">
@@ -40,11 +40,11 @@
                       >
                         <img src="~assets/img/sectoricon.png" alt="" />
                       </button>
-                       <b-spinner
-                          v-if="addRateSpinner"
-                          label="Spinning"
-                          style="margin-left: 5%"
-                        ></b-spinner>
+                      <b-spinner
+                        v-if="addRateSpinner"
+                        label="Spinning"
+                        style="margin-left: 5%"
+                      ></b-spinner>
                     </b-col>
                   </b-row>
                 </div>
@@ -68,7 +68,7 @@
                     v-for="feature in features"
                     :key="feature.Id"
                   >
-                    <button type="button" class="btn1 ">
+                    <button type="button" class="btn1">
                       {{ feature.Name }}
                     </button>
                     <i
@@ -92,7 +92,6 @@
         </div>
       </div>
     </div>
-   
   </div>
 </template>
 
@@ -100,7 +99,7 @@
 import Links from "@/components/Links.vue";
 export default {
   layout: "dashlayout",
-
+  middleware: "admin",
   data() {
     return {
       logoutMenuState: false,
@@ -154,7 +153,7 @@ export default {
     },
     async getFeatures(id) {
       this.fetchFeatureSpinner = true;
-      id ? id : (id = 5, this.form.Rating = 5);
+      id ? id : ((id = 5), (this.form.Rating = 5));
       try {
         const response = await this.$axios.get(`/Opinions/GetRatingTags?rating=${id}`);
         this.features = response.data;

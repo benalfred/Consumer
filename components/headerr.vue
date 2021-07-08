@@ -9,7 +9,7 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav class="mx-auto display-text">
+          <b-navbar-nav v-if="$auth.loggedIn" class="mx-auto display-text">
             <nuxt-link
               :class="[id == sector.Id ? 'color-orange' : '']"
               :to="`/industry/${sector.Id}/${sector.Name}`"
@@ -25,7 +25,7 @@
             <SecNav class="mt-4" />
 
             <li class="d-block d-sm-none">
-              <a href="#openModal-about1" class="dropdown-item text-left_">
+              <a v-if="$auth.loggedIn" href="#openModal-about1" class="dropdown-item text-left_">
                 <div class="cart_buttons_madesoft col-12 d-flex">Refer</div></a
               >
 

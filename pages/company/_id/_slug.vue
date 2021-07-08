@@ -262,7 +262,7 @@ export default {
   async fetch() {
     await this.fetchCompanyDetails();
   },
-
+middleware: "account_setup",
   mounted() {
     AOS.init({
       offset: 100,

@@ -92,6 +92,7 @@ import Links from "@/components/Links.vue";
 import UserResponse from "@/components/UserResponse.vue";
 export default {
   layout: "dashlayout",
+  middleware:'admin',
   component: { UserResponse,Links },
   async fetch() {
     await this.fetchEmailTemplatesTypes();
