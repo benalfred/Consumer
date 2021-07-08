@@ -359,10 +359,25 @@
     </section>
 
     <div id="openModal-about" class="modalDialog">
-      <div>
+      <div class="d-none d-sm-block">
         <a href="#close" title="Close" class="close">X</a>
         <div class="d-flex__ row dell-card" v-if="fetchedSectors.length">
           <div class="col-md-3" v-for="sector in fetchedSectors" :key="sector.Id">
+            <div v-if="sector.Banner" @click="takeToSector(sector)" style="cursor:pointer">
+              <img :src="sector.Banner" class="img-fluid" alt="" />
+            </div>
+            <div v-else @click="takeToSector(sector)" style="cursor:pointer">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
+              <p class="text-center">{{sector.Name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-block d-sm-none">
+        <a href="#close" title="Close" class="close">X</a>
+        <div class="d-flex__ row dell-card" v-if="fetchedSectors.length">
+          <div class="col-6" v-for="sector in fetchedSectors" :key="sector.Id">
             <div v-if="sector.Banner" @click="takeToSector(sector)" style="cursor:pointer">
               <img :src="sector.Banner" class="img-fluid" alt="" />
             </div>

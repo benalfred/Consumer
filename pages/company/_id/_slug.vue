@@ -173,7 +173,8 @@
 
         <b-col md="5" class="dell-card">
           <p class="pb-2 header-p">OTHER POPULAR TECHNOLOGIES</p>
-          <div class="d-flex_ row p-5" data-aos="flip-right">
+         <div class="d-none d-sm-block">
+             <div class="d-flex_ row p-5 " data-aos="flip-right">
             <div class="col-md-3">
               <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
             </div>
@@ -208,6 +209,46 @@
               ></a>
             </div>
           </div>
+         </div>
+
+          <div class="d-block d-sm-none">
+            <div class="d-flex_ row p-5 " data-aos="flip-right">
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+
+            <div class="col-6">
+              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            </div>
+
+            <div class="col-6">
+              <a href="#openModal-about">
+                <button class="btn">
+                  <img
+                    src="~/assets/img/viewall.png"
+                    class="img-fluid pt-2"
+                    alt=""
+                  /></button
+              ></a>
+            </div>
+          </div>
+          </div>
+
         </b-col>
       </b-row>
     </b-container>
@@ -216,7 +257,7 @@
     <Footer />
 
     <div id="openModal-about" class="modalDialog">
-      <div>
+      <div class="d-none d-sm-block">
         <a href="#close" title="Close" class="close">X</a>
         <div class="d-flex__ row p-5 dell-card">
           <div class="col-md-3">
@@ -241,6 +282,36 @@
             <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
           </div>
           <div class="col-md-3">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="d-block d-sm-none">
+        <a href="#close" title="Close" class="close">X</a>
+        <div class="d-flex__ row p-5 dell-card">
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
+            <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-6">
             <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
           </div>
         </div>
@@ -420,31 +491,44 @@ div.background-text {
   font-size: 20px;
 }
 
+.d-flex__ {
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px 20px;
+  border-radius: 3px;
+  margin-top: 50px;
+}
+
+.dell-card img {
+  margin: 20px 0px 10px;
+}
 .modalDialog {
   position: fixed;
-  top: 0;
+  top: 0px;
   right: 0;
+  background: white;
   bottom: 0;
   left: 0;
-  background: #373737;
-  border-radius: 10px;
   z-index: 99999;
   opacity: 0;
+  margin-trim: 50px;
   -webkit-transition: opacity 100ms ease-in;
   -moz-transition: opacity 100ms ease-in;
   transition: opacity 100ms ease-in;
   pointer-events: none;
+  overflow: auto;
 }
 .modalDialog:target {
   opacity: 1;
   pointer-events: auto;
 }
 .modalDialog > div {
-  max-width: 500px;
+  max-width: 600px;
   width: 60%;
   position: relative;
-  margin: 13% auto;
-  border-radius: 3px;
+  margin: 5% auto;
+  border-radius: 10px;
   background: #626d73;
   border-radius: 10px;
 }
@@ -455,11 +539,10 @@ div.background-text {
   color: #fff;
   line-height: 25px;
   position: absolute;
-  right: 22px;
+  right: 17px;
   text-align: center;
-  top: 25px;
-  width: 30px;
-  height: 32px;
+  top: 15px;
+  padding: 10px 13px 5px;
   text-decoration: none;
   font-weight: bold;
   -webkit-border-radius: 50%;

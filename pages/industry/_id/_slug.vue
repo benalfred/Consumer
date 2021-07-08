@@ -127,11 +127,12 @@
               <div
                 style="cursor: pointer"
                 @click="goToCompanyPage(company)"
-                class="d-flex "
+                class=""
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Logo" class="img-fluid logo-img ml-4" alt="" />
+                <img :src="company.Logo" width="100" class="img-fluid logo-img ml-4" alt="" />
+                
               </div>
             <div class="col-md-2  pl-1">
             <a href="#openModal-about">
