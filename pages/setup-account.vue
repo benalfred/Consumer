@@ -208,6 +208,8 @@ export default {
         Password: null,
         ConfirmPassword: null,
         StateId: null,
+        EmailAddress: this.$auth.user.EmailAddress,
+        PhoneNumber: this.$auth.user.PhoneNumber,
         LGAId: null,
         Sex: null,
         Firstname: this.$auth.user.Firstname,
@@ -256,7 +258,6 @@ export default {
          this.completed()
       } catch (e) {
         if (e.response) {
-          console.log(e.response)
           this.spinner = false;
           swal({
             title: "Oops!",
