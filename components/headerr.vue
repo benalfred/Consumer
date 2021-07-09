@@ -64,7 +64,7 @@
             </li>
 
             <li>
-              <ImageDropdown class="nav-hide-mob d-none d-sm-block" />
+              <ImageDropdown class="nav-hide-mob mt-4 d-none d-sm-block" />
             </li>
           </b-navbar-nav>
         </b-collapse>

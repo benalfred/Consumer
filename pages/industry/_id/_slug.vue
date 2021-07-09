@@ -125,18 +125,20 @@
           <b-col md="11" class="dell-card ml-lg-5">
             <div class="d-flex_ row p-5" v-if="companies.length">
               <div
-                style="cursor: pointer"
+                style="cursor: pointer;"
                 @click="goToCompanyPage(company)"
-                class=""
+                class="company-image"
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Logo" width="100" class="img-fluid logo-img ml-4" alt="" />
-                
+                <img :src="company.Logo"  class="img-fluid logo-img ml-4" alt="" />
+               <div class="company-name mt-2">
+                   <p class=" p-2 pl-4 pr-4">Company</p>
+               </div>
               </div>
             <div class="col-md-2  pl-1">
             <a href="#openModal-about">
-                <button class="btn">
+                <button class="btn ml-2 mt-1">
                   <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                 </button>
             </a>
@@ -452,4 +454,21 @@ div.background-text {
   font-weight: 700;
   font-size: 20px;
 }
+
+
+.company-image {
+
+}
+.company-image img {
+  height: 59px;
+  }
+  .company-name {
+  background: black;
+  color: white;
+  margin: 0px 10px 0px;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  box-shadow: 0px 12px 12px #00000029;
+  }
 </style>

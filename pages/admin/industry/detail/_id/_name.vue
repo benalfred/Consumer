@@ -11,11 +11,13 @@
                   <span style="font-size: 24px">{{ post.Slogan }}</span>
                 </h1>
 
-                <p>
+                <p class="post_description">
                   {{ post.Description }}
                 </p>
               </b-col>
-              <div class="position-absolute" style="margin-left: 860px">
+
+              <b-col md="2" class="text-end">
+              <div class="position-absolute" style="">
                 <nuxt-link
                   to="/admin/dashboard"
                   style="
@@ -29,7 +31,6 @@
                   >Go back</nuxt-link
                 >
               </div>
-              <b-col md="2" class="text-end">
                 <b-form-group>
                   <div class="form-group small-select_">
                     <label for="">States</label>
@@ -44,7 +45,7 @@
                   </div>
                 </b-form-group>
               </b-col>
-              <b-col md="2" class="text-end ml-4">
+              <b-col md="3" class="text-end ml-4">
                 <b-form-group>
                   <div class="form-group small-select_">
                     <label for="">LOCAL GOVERMENT AREA</label>
@@ -194,7 +195,7 @@ export default {
 
 <style scoped>
 .bg {
-  overflow: hidden;
+  overflow: hidden!important;
 }
 
 .container-fluid::-webkit-scrollbar {
@@ -203,7 +204,7 @@ export default {
 }
 
 .container-fluid {
-  overflow-x: hidden;
+  overflow-x: hidden!important;
 }
 
 .container-fluid::-webkit-scrollbar-track {
@@ -218,6 +219,33 @@ export default {
 
 /* Handle on hover */
 .container-fluid::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
+.post_description {
+  overflow: auto;
+  height: 150px;
+}
+
+
+.post_description::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 70px;
+}
+
+.post_description::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50px;
+}
+
+.post_description::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.post_description::-webkit-scrollbar-thumb:hover {
   background: #555;
   border-radius: 50px;
 }

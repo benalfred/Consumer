@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mt-4">
+    <div class="container mt-4" style="overflow-x: hidden!important;">
       <b-row>
         <b-col md="6" class="mt-4">
           <div class="age p-5">
@@ -209,7 +209,7 @@ export default {
 
 <style scoped>
 html {
-  overflow-x: hidden;
+  overflow-x: hidden!important;
 }
 
 .text-head {
