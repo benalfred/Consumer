@@ -203,9 +203,9 @@ a {
 
 .small-select_ .vs--searchable .vs__dropdown-toggle {
     cursor: text;
-    height: calc(1.1em + 0.75rem + 2px) !important;
-    width: 180px;
-    padding: 1.0rem 1rem;
+    height: calc(1.9em + 0.75rem + 2px) !important;
+    padding: 1.3rem 1rem;
+
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     align-items: center !important;

@@ -212,6 +212,8 @@ export default {
         PhoneNumber: this.$auth.user.PhoneNumber,
         LGAId: null,
         Sex: null,
+        PhoneNumber:this.$auth.PhoneNumber,
+        EmailAddress:this.$auth.EmailAddress,
         Firstname: this.$auth.user.Firstname,
         Surname: this.$auth.user.Surname,
       },
