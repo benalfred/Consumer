@@ -74,7 +74,7 @@
                     <i
                       @click="deleteFeature(feature.Id)"
                       class="far fa-times-circle"
-                      style="bottom: 20px; cursor: pointer"
+                      style="bottom: 9px; position: relative; cursor: pointer"
                     ></i>
                   </div>
                 </div>
