@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section class=" min-100">
-      <b-container class="min-100 ">
+    <section class="min-100">
+      <b-container class="min-100">
         <b-row class="mx-0 min-100 align-items-center justify-content-center">
           <b-col md="6" class="mb-5 px-0 min-100 position-relative">
             <div
@@ -73,10 +73,7 @@
                   <b-form-group class="newpost">
                     <button
                       :disabled="
-                        !form.Sex ||
-                        !form.StateId ||
-                        !form.Firstname ||
-                        !form.Surname
+                        !form.Sex || !form.StateId || !form.Firstname || !form.Surname
                       "
                       @click.prevent="next"
                       class="mt-2 btn-sacademy"
@@ -202,18 +199,14 @@ export default {
       genderOptions: [],
       stateOptions: [],
       lgaOptions: [],
-      spinner:false,
-      fetchFeatureSpinner:false,
+      spinner: false,
+      fetchFeatureSpinner: false,
       form: {
         Password: null,
         ConfirmPassword: null,
         StateId: null,
-        EmailAddress: this.$auth.user.EmailAddress,
-        PhoneNumber: this.$auth.user.PhoneNumber,
         LGAId: null,
         Sex: null,
-        PhoneNumber:this.$auth.PhoneNumber,
-        EmailAddress:this.$auth.EmailAddress,
         Firstname: this.$auth.user.Firstname,
         Surname: this.$auth.user.Surname,
       },
@@ -235,29 +228,32 @@ export default {
         const genders = await this.$axios.get("Account/GetGenders");
         this.genderOptions = genders.data;
       } catch {
-         this.$store.commit("notifications/error", "something went wrong");
+        this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
     },
-     async getFeatures(id) {
+    async getFeatures(id) {
       this.fetchFeatureSpinner = true;
       try {
         const response = await this.$axios.get(`/Locations/GetLGAs?stateId=${id}`);
         this.lgaOptions = response.data;
         this.fetchFeatureSpinner = false;
       } catch (e) {
-         this.fetchFeatureSpinner = true;
+        this.fetchFeatureSpinner = true;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
     },
     async createUserAccount() {
-      this.spinner = true
+      this.spinner = true;
       try {
-        const response = await this.$axios.post("/account/CreateUserAccount",this.form);
-        this.spinner = false
+        const response = await this.$axios.post(
+          "/Account/UpdateProfileAndSetPassword",
+          this.form
+        );
+        this.spinner = false;
         console.log(response.data);
-         this.completed()
+        this.completed();
       } catch (e) {
         if (e.response) {
           this.spinner = false;
@@ -313,21 +309,21 @@ export default {
 
 <style scoped>
 .vs--searchable .vs__dropdown-toggle {
-    cursor: text;
-    height: calc(1.5em + 0.75rem + 2px) !important;
-    padding: 1.6rem 1rem !important;
-    font-size: 1rem;
-    align-items: center !important;
-    display: flex !important;
-    font-weight: 400;
-    line-height: 1.5 !important;
-    color: #000;
-    border-radius: 8px;
-    border: 1px solid #a0a0a0;
+  cursor: text;
+  height: calc(1.5em + 0.75rem + 2px) !important;
+  padding: 1.6rem 1rem !important;
+  font-size: 1rem;
+  align-items: center !important;
+  display: flex !important;
+  font-weight: 400;
+  line-height: 1.5 !important;
+  color: #000;
+  border-radius: 8px;
+  border: 1px solid #a0a0a0;
 }
 
 .vs__clear {
-    display: none !important;
+  display: none !important;
 }
 
 .btn-sacademy {

@@ -133,12 +133,12 @@
               >
                 <img :src="company.Logo"  class="img-fluid logo-img ml-4" alt="" />
                <div class="company-name mt-2">
-                   <p class=" p-2 pl-4 pr-4">Company</p>
+                   <p class=" p-2 pl-4 pr-4">{{company.Name}}</p>
                </div>
               </div>
             <div class="col-md-2  pl-1">
             <a href="#openModal-about">
-                <button class="btn ml-2 mt-1">
+                <button class="btn ml-2 mt-2">
                   <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                 </button>
             </a>
@@ -463,7 +463,7 @@ div.background-text {
   height: 59px;
   }
   .company-name {
-  background: black;
+  background: #07072F;
   color: white;
   margin: 0px 10px 0px;
   border-radius: 15px;
