@@ -6,14 +6,19 @@
           <b-row class="overflow_">
             <b-col md="6">
               <div class="d-flex">
-                <h1 class="" v-if="form.Name">
+              <div>
+                <img src="~/assets/img/ellipse.png" width="50" alt="">
+              </div>
+               <div class="pt-2 ml-2">
+                   <h1 class="" v-if="form.Name">
                   {{ form.Name }}
                   <span style="font-size: 24px" v-if="form.Slogan">{{
                     form.Slogan
                   }}</span>
                   <span style="font-size: 24px" v-if="!form.Slogan">No Slogan Yet</span>
                 </h1>
-                <div class="ml-4" style="cursor: pointer">
+               </div>
+                <div class="ml-4 pt-4" style="cursor: pointer">
                   <img v-b-modal.modal-xl src="~assets/img/bx_bxs-edit-alt.png" alt="" />
                 </div>
               </div>
@@ -103,7 +108,7 @@
                   label="Spinning"
                   style="margin-left: 5%"
                 ></b-spinner>
-
+  
                 <div class="sector p-3 mt-5">
                   <b-row class="my-1">
                     <b-col sm="9">

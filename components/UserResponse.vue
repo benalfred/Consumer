@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="media_">
+    <div class="media__">
       <b-spinner
         v-if="spinner"
         label="Spinning"
@@ -105,6 +105,7 @@ export default {
   max-height: 450px;
 
 }
+
 
 .media_::-webkit-scrollbar {
   width: 10px;
