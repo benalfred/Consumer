@@ -103,6 +103,7 @@ export default {
   overflow: hidden;
   overflow-y: scroll;
   max-height: 450px;
+
 }
 
 .media_::-webkit-scrollbar {
@@ -136,7 +137,7 @@ export default {
 
 .second-col {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
   border-radius: 5px;
 }
 

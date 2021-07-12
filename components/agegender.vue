@@ -24,9 +24,7 @@
             </div>
             <p
               class="pb-4"
-              data-aos="fade-right"
-              data-aos-offset="30"
-              data-aos-delay="250"
+
             >
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
@@ -52,9 +50,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Positive Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50" >{{ MillenialRating ? MillenialRating.PositivePercent : 0 }}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating ? GenerationXRating.PositivePercent : 0}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating ? BabyBoomRating.PositivePercent : 0}}%</p>
+                <p >{{ MillenialRating ? MillenialRating.PositivePercent : 0 }}%</p>
+                <p data-aos="fade-up" >{{GenerationXRating ? GenerationXRating.PositivePercent : 0}}%</p>
+                <p >{{BabyBoomRating ? BabyBoomRating.PositivePercent : 0}}%</p>
               </div>
 
               <img
@@ -66,9 +64,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Negative Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50"> {{MillenialRating.NegativePercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating.NegativePercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating.NegativePercent}}%</p>
+                <p > {{MillenialRating.NegativePercent}}%</p>
+                <p >{{GenerationXRating.NegativePercent}}%</p>
+                <p >{{BabyBoomRating.NegativePercent}}%</p>
               </div>
 
               <img
@@ -80,9 +78,9 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Neutral Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="50">{{ MillenialRating.NeutralPercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{GenerationXRating.NeutralPercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{BabyBoomRating.NeutralPercent}}%</p>
+                <p >{{ MillenialRating.NeutralPercent}}%</p>
+                <p >{{GenerationXRating.NeutralPercent}}%</p>
+                <p >{{BabyBoomRating.NeutralPercent}}%</p>
               </div>
             </div>
           </div>
@@ -132,8 +130,8 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Positive Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{FemaleRating.PositivePercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{MaleRating.PositivePercent}}%</p>
+                <p >{{FemaleRating.PositivePercent}}%</p>
+                <p >{{MaleRating.PositivePercent}}%</p>
               </div>
 
               <img
@@ -145,8 +143,8 @@
 
               <div class="col-md-3 text-p">
                 <h6 class="text-center">Negative Opinion</h6>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="150">{{FemaleRating.NegativePercent}}%</p>
-                <p data-aos="fade-up" data-aos-offset="30" data-aos-delay="250">{{MaleRating.NegativePercent}}%</p>
+                <p >{{FemaleRating.NegativePercent}}%</p>
+                <p>{{MaleRating.NegativePercent}}%</p>
               </div>
 
               <img
@@ -222,9 +220,37 @@ html {
 }
 
 .age {
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  background-color: #fefefe;
+    box-shadow: -1px 9px 18px rgb(21 11 35 / 10%);
+    border-radius: 10px;
+
+}
+
+.age  {
+  overflow: auto;
+  height: 500px;
+}
+
+
+.age::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 70px;
+}
+
+.age::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50px;
+}
+
+.age::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.age::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
 }
 
 .text-p p {
