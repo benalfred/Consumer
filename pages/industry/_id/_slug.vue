@@ -381,10 +381,9 @@ h4 {
 
 .d-flex_ {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+  box-shadow: -1px 9px 18px rgb(21 11 35 / 10%);
+  border-radius: 7px;
 }
 
 .img1 {
