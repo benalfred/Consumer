@@ -14,17 +14,17 @@
             We consumerHalla are team of talented people making things easy for you with
             Our ideaz
           </p>
-          <a
+          <nuxt-link
             v-if="$auth.user"
-            href="#openModal-about"
+            to="/take-a-survey-with-industries"
             class="button_ btn-lg text-white mt-md-5 mt-5"
           >
             Get Started
-          </a>
+          </nuxt-link>
           <nuxt-link
             v-else
             class="button_ btn-lg text-white mt-md-5 mt-5"
-            to="/admin/dashboard"
+            to="/login"
             role="button_"
             >Get Started
           </nuxt-link>
@@ -174,7 +174,7 @@
             data-aos-offset="10"
             data-aos-delay="300"
           >
-            <n-link class="button_1 btn-lg mt-md-5 mt-5" to="/join" role="button_"
+            <n-link class="button_1 btn-lg mt-md-5 mt-5" to="/take-a-survey-with-industries" role="button_"
               >Get Started
             </n-link>
           </div>

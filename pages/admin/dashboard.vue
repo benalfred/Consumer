@@ -190,8 +190,7 @@
                     class="profile-dropdown_"
                     v-for="sector in sectors2"
                     :key="sector.Id"
-                    :class="[industryId != sector.Id ? 'active' : '']"
-                  >
+                    :class="[industryId != sector.Id ? 'active' : '']">
                     <button type="button" @click="setIndustryId(sector.Id)" class="btn1">
                       {{ sector.Name }}
                     </button>
