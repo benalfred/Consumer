@@ -23,9 +23,9 @@
                 <div class="cart_buttons_madesoft col-12 d-flex">Refer</div>
               </a>
 
-              <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
+              <div class="cart_buttons_madesoft col-12 mb-3 d-flex" @click="$auth.logout()">
                 <span class="las la-sign-out-alt pt-1"></span>
-                <span class="pr-3 pl-1" @click="$auth.logout()">Logout</span>
+                <span class="pr-3 pl-1">Logout</span>
               </div>
             </div>
           </div>
