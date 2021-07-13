@@ -3,7 +3,7 @@
     <div class="container mt-4" style="overflow-x: hidden!important;">
       <b-row>
         <b-col md="6" class="mt-4">
-          <div class="age p-5">
+          <div class="age p-5 pb-5">
             <span
               class="text-center text-white"
               style="
@@ -99,7 +99,7 @@
             "
             >GENDER</span
           >
-          <div class="age p-5">
+          <div class="age pb-5 p-5">
             <div class="d-flex">
               <div class="pt-4">
                 <img src="~/assets/img/union.jpg" alt="" />
@@ -228,7 +228,7 @@ html {
 
 .age  {
   overflow: auto;
-  height: 600px;
+  height: 500px;
 }
 
 

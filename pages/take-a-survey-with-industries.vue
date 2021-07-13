@@ -1,19 +1,21 @@
 <template>
-  <div>
+  <div class="body">
     <div class="row mb-3">
       <div class="col-12">
         <div class="list-single-main-wrapper fl-wrap" id="sec2">
           <article>
-            <div class="list-single-main-item fl-wrap snippet-items">
+            <div class="container-fluid mt-4">
+              <div class="list-single-main-item fl-wrap snippet-items">
               <div class="row">
-                <div class="col-md-9">
-                  <h3 class="snippet-title">
+                <div class="col-md-12 ">
+                  <h3 class="snippet-title align-items-center">
                     Take a Survey with
-                    <span style="color: #e57718">top Industries</span>
+                    <span style="color: #e57718"> top Industries</span>
                   </h3>
                 </div>
               </div>
               <span class="fw-separator"></span>
+            </div>
             </div>
           </article>
         </div>
@@ -22,9 +24,9 @@
     <div
       class="container-fluid bg-trasparent my-4 p-3"
       style="position: relative"
-    >
+>
       <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2 g-3">
-        <div class="col" v-for="sector in sectors" :key="sector.Id">
+        <div class="col mb-4" v-for="sector in sectors" :key="sector.Id">
           <div class="card h-100 shadow-sm">
             <img
               src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
@@ -135,9 +137,11 @@ nav,
 section {
   display: block;
 }
-body {
+.body {
   font-family: var(--font3);
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  max-height: 100%!important;
+
 }
 article .list-single-main-item {
   margin-bottom: 0;
@@ -149,9 +153,10 @@ article .list-single-main-item {
   padding: 30px;
   border-radius: 100%;
   background: #fff;
-  border-radius: 10px;
-  border: 1px solid #eee;
+  border-radius: 15px;
+
   margin-bottom: 20px;
+
 }
 
 .fl-wrap {
@@ -165,7 +170,7 @@ h2 {
 }
 
 .container-fluid {
-  max-width: 1200px;
+  max-width: 1300px;
 }
 
 .card {

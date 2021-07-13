@@ -6,7 +6,10 @@
           <b-row>
             <b-col md="6">
               <div class="d-flex">
-                <h1 class="" v-if="form.Name">
+              <div>
+                  <img src="~/assets/img/ellipse.png" width="50" alt="">
+               </div>
+                <h1 class="ml-2" v-if="form.Name">
                   {{ form.Name }}
                 </h1>
                 <div class="ml-4" style="cursor: pointer">
