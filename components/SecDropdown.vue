@@ -5,9 +5,9 @@
       type="submit"
       @click="threeMenuOpen">
 
-      <p class="sectors mr-4">Sectors <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
+      <p class="sectors mr-4">Industries <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
 
-      <ul
+      <ul v-if="$auth.loggedIn"
         class="logout-sub-menu sub-menu"
         id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
 

@@ -35,13 +35,13 @@
               <div
                 class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12"
               >
-                <h2 class="h2 pb-5">{{Name}} Company</h2>
-                <p class=" ptag">
-                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{Name}} Company
+                <h2 class="h2 pb-5">{{ Name }} Company</h2>
+                <p class="ptag">
+                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{ Name }} Company
                 </p>
               </div>
 
-              <div class="row pb-1 pt-3  pl-2 container justify-content-center">
+              <div class="row pb-1 pt-3 pl-2 container justify-content-center">
                 <div class="col-md-2 p-2" style="background: #00b5d3">
                   <b-media>
                     <template #aside>
@@ -173,87 +173,73 @@
 
         <b-col md="5" class="dell-card">
           <p class="pb-2 header-p">OTHER POPULAR TECHNOLOGIES</p>
-         <div class="d-none d-sm-block">
-             <div class="d-flex_ row p-5 " data-aos="flip-right">
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-
-            <div class="col-md-3">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-
-            <div class="col-md-3">
-              <a href="#openModal-about">
-                <button class="btn">
-                  <img
-                    src="~/assets/img/viewall.png"
-                    class="img-fluid pt-2"
-                    alt=""
-                  /></button
-              ></a>
+          <div class="d-none d-sm-block">
+            <div class="d-flex_ row p-5" data-aos="flip-right">
+              <div class="col-md-3"  v-for="sector in sectors" :key="sector.Id">
+                <img :src="sector.Logo" class="img-fluid" alt="" />
+              </div>
+              <div class="col-md-3" v-if="sector.length > 10">
+                <a href="#openModal-about">
+                  <button class="btn">
+                    <img
+                      src="~/assets/img/viewall.png"
+                      class="img-fluid pt-2"
+                      alt=""
+                    /></button
+                ></a>
+              </div>
             </div>
           </div>
-         </div>
 
           <div class="d-block d-sm-none">
-            <div class="d-flex_ row p-5 " data-aos="flip-right">
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
+            <div class="d-flex_ row p-5" data-aos="flip-right">
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
 
-            <div class="col-6">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            </div>
+              <div class="col-6">
+                <img src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+              </div>
 
-            <div class="col-6">
-              <a href="#openModal-about">
-                <button class="btn">
-                  <img
-                    src="~/assets/img/viewall.png"
-                    class="img-fluid pt-2"
-                    alt=""
-                  /></button
-              ></a>
+              <div class="col-6">
+                <a href="#openModal-about">
+                  <button class="btn">
+                    <img
+                      src="~/assets/img/viewall.png"
+                      class="img-fluid pt-2"
+                      alt=""
+                    /></button
+                ></a>
+              </div>
             </div>
           </div>
-          </div>
-
         </b-col>
       </b-row>
     </b-container>
 
-    <agegender :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" v-if="post"/>
+    <agegender
+      :MillenialRating="post.MillenialRating"
+      :BabyBoomRating="post.BabyBoomRating"
+      :FemaleRating="post.FemaleRating"
+      :MaleRating="post.MaleRating"
+      :GenerationXRating="post.GenerationXRating"
+      v-if="post"
+    />
     <Footer />
 
     <div id="openModal-about" class="modalDialog">
@@ -332,8 +318,9 @@ export default {
 
   async fetch() {
     await this.fetchCompanyDetails();
+    await this.fetchSectors()
   },
-middleware: "account_setup",
+  middleware: "account_setup",
   mounted() {
     AOS.init({
       offset: 100,
@@ -346,7 +333,13 @@ middleware: "account_setup",
       Slogan: null,
       Banner: "",
       Logo: null,
-      post:null,
+      post: null,
+      page: 1,
+      pageSize: 1,
+      pageForOpinions2: 1,
+      totalRow: 0,
+      bpg: 1,
+      sectors:[],
       PositivePercent: 0,
       NegativePercent: 0,
       NeutralPercent: 0,
@@ -369,15 +362,17 @@ middleware: "account_setup",
         `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
       );
     },
-    shareOpinion(){
-     this.$router.push(`/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`)
+    shareOpinion() {
+      this.$router.push(
+        `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
+      );
     },
     async fetchCompanyDetails() {
       try {
         const response = await this.$axios.get(
           `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
         );
-        this.post = response.data
+        this.post = response.data;
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;
@@ -387,6 +382,20 @@ middleware: "account_setup",
         this.NegativePercent = response.data.GeneralRating.NegativePercent;
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+    async fetchSectors() {
+      this.pageSize -= 1;
+      try {
+        const sector = await this.$axios.get(
+          `Industries/GetSemiLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+        );
+        this.totalRow = sector.data.TotalCount;
+        this.sectors = sector.data.Results;
+        this.$store.commit("notifications/setSectors", sector.data.Results);
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
@@ -446,30 +455,30 @@ middleware: "account_setup",
   overflow: hidden;
 }
 
-@media screen and (min-width: 750px){
+@media screen and (min-width: 750px) {
   .big-image {
-  height: 72vh;
-  width: 99vw;
-  position: relative;
-  background-repeat: repeat;
-  background-size: cover;
-  background-color: #000;
-  background-position: 50% 50%;
-  overflow: hidden;
-}
+    height: 72vh;
+    width: 99vw;
+    position: relative;
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: #000;
+    background-position: 50% 50%;
+    overflow: hidden;
+  }
 }
 
-@media screen and (max-width: 740px){
-   .big-image {
-  height: 62vh;
-  width: 99vw;
-  position: relative;
-  background-repeat: repeat;
-  background-size: cover;
-  background-color: #000;
-  background-position: 50% 50%;
-  overflow: auto;
-}
+@media screen and (max-width: 740px) {
+  .big-image {
+    height: 62vh;
+    width: 99vw;
+    position: relative;
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: #000;
+    background-position: 50% 50%;
+    overflow: auto;
+  }
 }
 
 div.background-text {

@@ -145,17 +145,17 @@
 
           <!-- Nav Item - Charts -->
           <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="#">
               <i class="fas fa-fw fa-chart-area"></i>
               <span>Change Password</span></a
             >
           </li>
 
           <!-- Nav Item - Tables -->
-          <li class="nav-item">
-            <a class="nav-link" href="tables.html">
+          <li class="nav-item" @click="$auth.logout()">
+            <nuxt-link to="#" class="nav-link" >
               <i class="fas fa-fw fa-table"></i>
-              <span>Logout</span></a
+              <span>Logout</span></nuxt-link
             >
           </li>
 

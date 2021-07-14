@@ -158,21 +158,22 @@
                 <b-col md="12" class="text-center mt-5 pt-5">
                   <h2 class="text-white font-weight-bold">Account setup initiated</h2>
                   <p class="pt-5 text-white">
-                    A link has been sent to your registered email address.
+                    Your account setup has been initiated successfully
                     <br class="d-none d-sm-block" />
-                    Please visit to continue with your account setup.
+                    Please Login with your newly created password
                   </p>
                 </b-col>
 
                 <b-col md="4" class="newpost_ pt-3">
                   <b-form-group class="newpost mt-3">
                     <button
+                      @click="routeToLogin"
                       class="mt-2 btn-sacademy"
                       style="font-size: 16px"
                       type="submit"
                       value="Send"
                     >
-                      Explore
+                      Login
                     </button>
                   </b-form-group>
                 </b-col>
@@ -216,10 +217,13 @@ export default {
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
-        autoHideDelay: 5000,
+        autoHideDelay: 7000,
         variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
         solid: true,
       });
+    },
+    routeToLogin() {
+      this.$router.push("/login");
     },
     async getStatesAndLgaAndGenders() {
       try {
@@ -252,25 +256,20 @@ export default {
           this.form
         );
         this.spinner = false;
-        console.log(response.data);
         this.completed();
+        this.$auth.logout();
       } catch (e) {
         if (e.response) {
           this.spinner = false;
-          swal({
-            title: "Oops!",
-            text: "something went wrong",
-            icon: "warning",
-            dangerMode: true,
-          });
+          this.$store.commit(
+            "notifications/error",
+            "Invalid Password!!!, password must have a character,number, capital letter and must be minimum 8 characters"
+          );
+          this.makeToast();
         } else {
           this.spinner = false;
-          swal({
-            title: "Error!",
-            text: "Something went wrong!",
-            icon: "warning",
-            dangerMode: true,
-          });
+          this.$store.commit("notifications/error", "Something went wrong");
+          this.makeToast();
         }
       }
     },

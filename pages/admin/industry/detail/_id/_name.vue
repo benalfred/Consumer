@@ -122,12 +122,14 @@ export default {
       );
       return { post };
     } catch (e) {
-      $bvToast.toast(`something went wrong`, {
+     if(process.client){
+        $bvToast.toast(`something went wrong`, {
         title: "error",
         autoHideDelay: 5000,
         variant: "error" ? "danger" : "info",
         solid: true,
       });
+     }
     }
   },
 
