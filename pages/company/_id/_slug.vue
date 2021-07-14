@@ -175,8 +175,18 @@
           <p class="pb-2 header-p">OTHER POPULAR TECHNOLOGIES</p>
           <div class="d-none d-sm-block">
             <div class="d-flex_ row p-5" data-aos="flip-right">
-              <div class="col-md-3" style="cursor:pointer"  v-for="sector in sectors" :key="sector.Id" @click="linkToIndustries(sector)">
-                <img :src="sector.Logo" class="img-fluid" alt="" />
+              <div
+                class="col-md-3"
+                style="cursor: pointer"
+                v-for="sector in sectors"
+                :key="sector.Id"
+                @click="linkToIndustries(sector)"
+              >
+                <img v-if="sector.Logo" :src="sector.Logo" class="img-fluid" alt="" />
+                <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+                <div class="company-name mt-2">
+                  <p class="p-2 pl-4 pr-4">{{ sector.Name }}</p>
+                </div>
               </div>
               <div class="col-md-3" v-if="sectors2.length">
                 <a href="#openModal-about">
@@ -193,8 +203,18 @@
 
           <div class="d-block d-sm-none">
             <div class="d-flex_ row p-5" data-aos="flip-right">
-              <div class="col-6" style="cursor:pointer" v-for="sector in sectors" :key="sector.Id" @click="linkToIndustries(sector)">
-                <img :src="sector.Logo" class="img-fluid" alt="" />
+              <div
+                class="col-6"
+                style="cursor: pointer"
+                v-for="sector in sectors"
+                :key="sector.Id"
+                @click="linkToIndustries(sector)"
+              >
+                <img v-if="sector.Logo" :src="sector.Logo" class="img-fluid" alt="" />
+                <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+                <div class="company-name mt-2">
+                  <p class="p-2 pl-4 pr-4">{{ sector.Name }}</p>
+                </div>
               </div>
 
               <div class="col-6" v-if="sectors2.length">
@@ -227,30 +247,41 @@
       <div class="d-none d-sm-block">
         <a href="#close" title="Close" class="close">X</a>
         <div class="d-flex__ row p-5 dell-card">
-          <div class="col-md-3" v-for="sector in sectors2" :key="sector.Id" style="cursor:pointer" @click="linkToIndustries(sector)">
+          <div
+            class="col-md-3"
+            v-for="sector in sectors2"
+            :key="sector.Id"
+            style="cursor: pointer"
+            @click="linkToIndustries(sector)"
+          >
             <img v-if="sector.Logo" :src="sector.Logo" class="img-fluid" alt="" />
-             <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-             <div class="company-name mt-2">
-                   <p class=" p-2 pl-4 pr-4">{{sector.Name}}</p>
-               </div>
+            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            <div class="company-name mt-2">
+              <p class="p-2 pl-4 pr-4">{{ sector.Name }}</p>
+            </div>
           </div>
         </div>
       </div>
 
-       <div class="d-block d-sm-none">
+      <div class="d-block d-sm-none">
         <a href="#close" title="Close" class="close">X</a>
         <div class="d-flex__ row p-5 dell-card">
-          <div class="col-md-3" v-for="sector in sectors2" :key="sector.Id" style="cursor:pointer" @click="linkToIndustries(sector)">
+          <div
+            class="col-md-3"
+            v-for="sector in sectors2"
+            :key="sector.Id"
+            style="cursor: pointer"
+            @click="linkToIndustries(sector)"
+          >
             <img v-if="sector.Logo" :src="sector.Logo" class="img-fluid" alt="" />
-             <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-              <div class="company-name mt-2">
-                   <p class=" p-2 pl-4 pr-4">{{sector.Name}}</p>
-               </div>
+            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            <div class="company-name mt-2">
+              <p class="p-2 pl-4 pr-4">{{ sector.Name }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -266,7 +297,7 @@ export default {
 
   async fetch() {
     await this.fetchCompanyDetails();
-    await this.fetchSectors()
+    await this.fetchSectors();
   },
   middleware: "account_setup",
   mounted() {
@@ -283,12 +314,12 @@ export default {
       Logo: null,
       post: null,
       page: 1,
-      pageSize: 30,
+      pageSize: 1,
       pageForOpinions2: 1,
       totalRow: 0,
       bpg: 1,
-      sectors:[],
-      sectors2:[],
+      sectors: [],
+      sectors2: [],
       PositivePercent: 0,
       NegativePercent: 0,
       NeutralPercent: 0,
@@ -298,8 +329,8 @@ export default {
   },
 
   methods: {
-    linkToIndustries(sector){
-      this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
+    linkToIndustries(sector) {
+      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
     },
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
@@ -345,8 +376,9 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetSemiLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
         );
+        console.log(response.data);
         this.totalRow = response.data.TotalCount;
-          if (response.data.Results.length) {
+        if (response.data.Results.length) {
           response.data.Results.filter((sec) => {
             if (this.sectors.length != 10) {
               this.sectors.push(sec);
@@ -420,14 +452,14 @@ export default {
 }
 
 .company-name {
-  background: #07072F;
+  background: #07072f;
   color: white;
   margin: 0px 10px 0px;
   border-radius: 15px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   box-shadow: 0px 12px 12px #00000029;
-  }
+}
 
 @media screen and (min-width: 750px) {
   .big-image {
