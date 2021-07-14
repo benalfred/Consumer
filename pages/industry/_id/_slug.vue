@@ -123,26 +123,26 @@
         <div style="background: #07072f" class="p-5"></div>
 
         <b-row>
-          <b-col md="12" class="dell-card ">
+          <b-col md="12" class="dell-card">
             <div class="d-flex_ row p-5" v-if="companies.length">
               <div
-                style="cursor: pointer;"
+                style="cursor: pointer"
                 @click="goToCompanyPage(company)"
                 class="company-image"
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Logo"  class="img-fluid logo-img ml-4" alt="" />
-               <div class="company-name mt-2">
-                   <p class=" p-2 pl-4 pr-4">{{company.Name}}</p>
-               </div>
+                <img :src="company.Logo" class="img-fluid logo-img ml-4" alt="" />
+                <div class="company-name mt-2">
+                  <p class="p-2 pl-4 pr-4">{{ company.Name }}</p>
+                </div>
               </div>
-            <div class="col-md-2  pl-1">
-            <a href="#openModal-about">
-                <button class="btn ml-2 mt-2">
-                  <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
-                </button>
-            </a>
+              <div class="col-md-2 pl-1" v-if="companies2.length">
+                <a href="#openModal-about">
+                  <button class="btn ml-2 mt-2">
+                    <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
+                  </button>
+                </a>
               </div>
             </div>
             <div class="d-flex_ row p-5" v-if="!companies.length">
@@ -155,50 +155,62 @@
       </b-container>
     </section>
 
-    <agegender data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" v-if="post"/>
+    <agegender
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      :MillenialRating="post.MillenialRating"
+      :BabyBoomRating="post.BabyBoomRating"
+      :FemaleRating="post.FemaleRating"
+      :MaleRating="post.MaleRating"
+      :GenerationXRating="post.GenerationXRating"
+      v-if="post"
+    />
 
-    <section class="container d-flex justify-content-center  pt-5 mt-5">
-        <div class="row mx-0 bar-section mt-5">
-            <div class="col-md-6 bg-red px-4 py-5" >
-                <h6>The ConsumerHalla Way</h6>
-                <h4 class="pb-3 pt-2">An Immersive Experience</h4>
-                <p style="line-height: 1.7" class="text-white" data-aos="fade-up"
-              data-aos-anchor-placement="center-bottom">Starting from scratch or you are already in the industry
-                    but want to hit the
-                    elite
-                    stage? No issues, we’ll help you get the skill and experience you need to stand out and get
-                    recruited! and we also give you 1-on-1 hands-on assistance
-                    to get to the top level in the industry! Our one-of-a-kind and foundational teaching approach
-                    enables students to thrive. In all Programs, we provide our students with the tools they need to
-                    launch their careers in the engineering
-                    and tech space.
-                </p>
-                <div class="text-center text-md-left">
-                    <button class="btn apply-now mt-4 mb-3">Apply now</button>
-                </div>
-            </div>
-            <div class="col-md-6 img-side">
-            </div>
+    <section class="container d-flex justify-content-center pt-5 mt-5">
+      <div class="row mx-0 bar-section mt-5">
+        <div class="col-md-6 bg-red px-4 py-5">
+          <h6>The ConsumerHalla Way</h6>
+          <h4 class="pb-3 pt-2">An Immersive Experience</h4>
+          <p
+            style="line-height: 1.7"
+            class="text-white"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+          >
+            Starting from scratch or you are already in the industry but want to hit the
+            elite stage? No issues, we’ll help you get the skill and experience you need
+            to stand out and get recruited! and we also give you 1-on-1 hands-on
+            assistance to get to the top level in the industry! Our one-of-a-kind and
+            foundational teaching approach enables students to thrive. In all Programs, we
+            provide our students with the tools they need to launch their careers in the
+            engineering and tech space.
+          </p>
+          <div class="text-center text-md-left">
+            <button class="btn apply-now mt-4 mb-3">Apply now</button>
+          </div>
         </div>
+        <div class="col-md-6 img-side"></div>
+      </div>
     </section>
 
     <Footer />
 
-
-     <div id="openModal-about" class="modalDialog">
+    <div id="openModal-about" class="modalDialog">
       <div>
-
-        <div class="d-flex__ row ">
-         <a href="#close" title="Close" class="close">X</a>
-          <div class="col-md-3">
-            <div style="cursor:pointer">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div style="cursor:pointer">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
+        <div class="d-flex__ row">
+          <a href="#close" title="Close" class="close">X</a>
+          <div class="d-flex_ row p-5" v-if="companies2.length">
+            <div
+              style="cursor: pointer"
+              @click="goToCompanyPage(company)"
+              class="company-image"
+              v-for="company in companies2"
+              :key="company.Id"
+            >
+              <img :src="company.Logo" class="img-fluid logo-img ml-4" alt="" />
+              <div class="company-name mt-2">
+                <p class="p-2 pl-4 pr-4">{{ company.Name }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -226,13 +238,14 @@ export default {
       Slogan: null,
       Banner: "",
       Logo: null,
+      companies2: [],
       companies: [],
       Description: null,
       PositivePercent: 0,
       NegativePercent: 0,
       NeutralPercent: 0,
       TotalReviewCount: 0,
-      post:null,
+      post: null,
     };
   },
 
@@ -264,13 +277,26 @@ export default {
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;
         this.Logo = response.data.Logo;
-        this.Banner = await response.data.Banner
+        this.Banner = await response.data.Banner;
         this.companies = response.data.Companies;
+        if (response.data.Companies.length) {
+          response.data.Companies.filter((sec) => {
+            if (this.companies.length != 6) {
+              this.companies.push(sec);
+            }
+          });
+          let ctx = this;
+          response.data.Companies.filter((com, index) => {
+            if (index > 5) {
+              ctx.companies2.push(com);
+            }
+          });
+        }
         this.PositivePercent = response.data.GeneralRating.PositivePercent;
         this.NegativePercent = response.data.GeneralRating.NegativePercent;
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
-        this.post = response.data
+        this.post = response.data;
         //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -283,51 +309,50 @@ export default {
 
 <style scoped>
 .bg-red p {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .bg-red h4 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 32px;
-    font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .bg-red h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 }
 
 .bg-red .apply-now {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border-radius: 5px;
-    opacity: 1;
-    text-align: center;
-    letter-spacing: 0px;
-    color: #202020;
-    font-size: 16px;
-    font-weight: normal;
-    padding: 10px 40px 10px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 1;
+  text-align: center;
+  letter-spacing: 0px;
+  color: #202020;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 10px 40px 10px;
 }
 
 .bg-red {
-    color: #fff;
-    background: #626d73;
-    opacity: 1;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+  color: #fff;
+  background: #626d73;
+  opacity: 1;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
 .bar-section {
-    max-width: 1200px;
-
+  max-width: 1200px;
 }
 
 .bar-section .img-side {
-    background: url('~assets/img/the immersive experience 1.png');
-    background-size: cover;
-    background-position: center;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+  background: url("~assets/img/the immersive experience 1.png");
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .d-flex__ {
@@ -417,8 +442,6 @@ h4 {
   font-weight: 600;
   font-size: 30px;
   line-height: 44px;
-
-
 }
 
 .header-p {
@@ -530,20 +553,18 @@ div.background-text {
   font-size: 20px;
 }
 
-
 .company-image {
-
 }
 .company-image img {
   height: 59px;
-  }
-  .company-name {
-  background: #07072F;
+}
+.company-name {
+  background: #07072f;
   color: white;
   margin: 0px 10px 0px;
   border-radius: 15px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   box-shadow: 0px 12px 12px #00000029;
-  }
+}
 </style>
