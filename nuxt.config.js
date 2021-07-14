@@ -153,6 +153,10 @@ export default {
         // }
     },
 
+    transition: {
+        name: 'home',
+        mode: 'out-in'
+        },
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
