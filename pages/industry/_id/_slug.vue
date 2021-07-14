@@ -164,7 +164,7 @@
                 <h6>The ConsumerHalla Way</h6>
                 <h4 class="pb-3 pt-2">An Immersive Experience</h4>
                 <p style="line-height: 1.7" class="text-white" data-aos="fade-up"
-                data-aos-anchor-placement="center-bottom">Starting from scratch or you are already in the industry
+              data-aos-anchor-placement="center-bottom">Starting from scratch or you are already in the industry
                     but want to hit the
                     elite
                     stage? No issues, we’ll help you get the skill and experience you need to stand out and get
