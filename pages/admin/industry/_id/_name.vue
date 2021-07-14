@@ -6,14 +6,19 @@
           <b-row class="overflow_">
             <b-col md="6">
               <div class="d-flex">
-                <h1 class="" v-if="form.Name">
+              <div>
+                <img src="~/assets/img/ellipse.png" width="50" alt="">
+              </div>
+               <div class="pt-2 ml-2">
+                   <h1 class="" v-if="form.Name">
                   {{ form.Name }}
                   <span style="font-size: 24px" v-if="form.Slogan">{{
                     form.Slogan
                   }}</span>
                   <span style="font-size: 24px" v-if="!form.Slogan">No Slogan Yet</span>
                 </h1>
-                <div class="ml-4" style="cursor: pointer">
+               </div>
+                <div class="ml-4 pt-4" style="cursor: pointer">
                   <img v-b-modal.modal-xl src="~assets/img/bx_bxs-edit-alt.png" alt="" />
                 </div>
               </div>
@@ -309,33 +314,24 @@
             <div class="item-inner">
               <div class="item-content">
                 <div class="image-upload">
-                  <label style="cursor: pointer" for="file_upload">
-                    <img src="" alt="" class="uploaded-image" />
-                    <div class="h-100">
-                      <div class="dplay-tbl">
-                        <div class="dplay-tbl-cell">
-                          <i class="fa fa-cloud-upload"></i>
-                          <h5><b>Choose Your Image to Upload</b></h5>
-                          <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <!--upload-content-->
-                    <b-form-file
+                <i class="fa fa-cloud-upload mt-4 mb-2"></i>
+                  <div class="col-6 mx-auto mt-2">
+                     <b-form-file
                       v-model="File"
                       placeholder="Choose a file or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
-                  </label>
+                  </div>
                 </div>
+
               </div>
               <!--item-content-->
             </div>
             <!--item-inner-->
 
         <b-row class="justify-content-center">
-          <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
+          <b-col md="6 " class="newpost_ justify-content-center" v-if="!updateSpinner">
             <b-form-group class="newpost">
               <button
                 class="btn-sacademy"
@@ -658,19 +654,21 @@ input,    .form-control:focus {
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.05);
   color:  #000;
-  border-radius: 0;
+  border-radius: 0px;
   border: none;
-  padding: 1.5rem 1rem;
+  padding: 1.9rem 1rem;
   margin: 0px 0px 8px;
+  
 }
 
 textarea {
     font-size: 15px;
   background-color: rgba(0, 0, 0, 0.05);
   color:  #000;
-  border-radius: 0;
+  border-radius: 0px;
   border: none;
   margin: 0px 0px 8px;
+   box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
 }
 
 .btn-sacademy1 {
@@ -746,7 +744,7 @@ textarea {
 
 .second-col {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 9px 18px rgb(21 11 35 / 10%);
   border-radius: 5px;
 }
 
@@ -1027,7 +1025,7 @@ li {
 }
 .Opinion1 {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
   border-radius: 5px;
 }
 

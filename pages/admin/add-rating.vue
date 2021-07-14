@@ -237,8 +237,9 @@ export default {
 }
 
 .Opinion1 {
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: #fefefe;
+    box-shadow: -1px 9px 18px rgb(21 11 35 / 10%);
+    border-radius: 10px;
   border-radius: 5px;
 }
 
@@ -442,88 +443,7 @@ p {
   opacity: 0.5;
 }
 
-.user-icon {
-  width: 30px;
-  height: 30px;
-  background-color: #00b5d3;
-  border: none;
-  color: white;
-  font-family: sans-serif;
-  font-size: 18px;
-  border-radius: 50%;
-  display: inline-block;
-}
 
-.logout-sub-menu {
-  position: absolute;
-  top: 120px;
-  z-index: 1000;
-  box-shadow: 0 13px 42px 11px rgba(0, 0, 0, 0.05);
-  background-color: white;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-@media all and (max-width: 1024px) {
-  .user-icon {
-    height: 30px;
-    width: 30px;
-    font-size: 14px;
-  }
-}
-
-.sub-menu {
-  /*width: 270px;*/
-  display: block;
-  position: absolute;
-  background-color: #fefefe;
-  z-index: 250;
-  opacity: 0;
-  visibility: hidden;
-  width: 390px;
-  right: -20px;
-  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
-    0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
-  transition: all 650ms ease;
-}
-
-.nav-list li:hover > .sub-menu,
-.nav-list li:active > .sub-menu,
-.nav-list li:focus > .sub-menu {
-  top: 60px;
-  opacity: 1;
-  visibility: visible;
-}
-.submenuthreeopen {
-  opacity: 1;
-  visibility: visible;
-  max-height: initial;
-}
-li a {
-  color: #333 !important;
-  font-size: 14px;
-  line-height: 32px;
-}
-li {
-  padding: 0.5rem 0;
-}
-.logout-sub-menu {
-  right: 0px;
-}
-
-@media screen and (min-width: 750px) {
-  .logout-sub-menu {
-    right: 90px;
-  }
-}
-
-@media screen and (min-width: 750px) {
-  .logout-sub-menu {
-    right: 90px;
-    margin-top: 50px;
-  }
-}
 .modalDialog {
   position: fixed;
   top: 0;
@@ -609,7 +529,7 @@ li {
 }
 .Opinion1 {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
   border-radius: 5px;
 }
 

@@ -224,7 +224,14 @@ a {
 .small-select_ {
   position: relative;
   top: 70px;
-  left: 40px;
+}
+
+@media screen and (min-width: 750px){
+  .small-select_ {
+    position: relative;
+    top: 70px;
+    left: 40px;
+  }
 }
 
 .selectdate .vs--searchable .vs__dropdown-toggle {

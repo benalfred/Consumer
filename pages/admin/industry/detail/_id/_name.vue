@@ -6,12 +6,16 @@
           <div class="container-fluid">
             <b-row>
               <b-col md="6">
-                <h1 class="">
+               <div class="d-flex">
+               <div>
+                  <img src="~/assets/img/ellipse.png" width="50" alt="">
+               </div>
+                   <h1 class="ml-2 pt-2">
                   {{ post.Name }}
                   <span style="font-size: 24px">{{ post.Slogan }}</span>
                 </h1>
-
-                <p class="post_description">
+               </div>
+               <p class="post_description">
                   {{ post.Description }}
                 </p>
               </b-col>
@@ -45,7 +49,7 @@
                   </div>
                 </b-form-group>
               </b-col>
-              <b-col md="3" class="text-end ml-4">
+              <b-col md="3" class="text-end ml-lg-4">
                 <b-form-group>
                   <div class="form-group small-select_">
                     <label for="">LOCAL GOVERMENT AREA</label>

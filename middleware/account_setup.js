@@ -2,7 +2,7 @@ export default async function({ route, context, redirect, $auth, $axios, store, 
     if ($auth.user && $auth.user.RequireNewPassword) {
         return redirect('/setup-account')
     }
-    // if ($auth.user.IsAdmin) {
-    //     return redirect('/admin/dashboard')
-    // }
+    if ($auth.user.IsAdmin) {
+        // return redirect('/admin/dashboard')
+    }
 }

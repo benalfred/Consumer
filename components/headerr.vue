@@ -1,6 +1,6 @@
 <template>
   <header>
-    <b-navbar toggleable="lg">
+    <b-navbar toggleable="lg" class="shadow-sm p-3  mb-5 bg-white">
       <div class="container">
         <b-navbar-brand to="/">
           <img src="~/assets/img/logo.png" class="img-fluid" alt="" />

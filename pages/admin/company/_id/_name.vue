@@ -6,7 +6,10 @@
           <b-row>
             <b-col md="6">
               <div class="d-flex">
-                <h1 class="" v-if="form.Name">
+              <div>
+                  <img src="~/assets/img/ellipse.png" width="50" alt="">
+               </div>
+                <h1 class="ml-2" v-if="form.Name">
                   {{ form.Name }}
                 </h1>
                 <div class="ml-4" style="cursor: pointer">
@@ -123,49 +126,50 @@
       class="popup"
       centered
       scrollable
-      title="Technology"
+      title="Update Sector"
       body-bg-variant="light"
       header-bg-variant="light"
       hide-footer
     >
       <div class="item-wrapper one justify-content-center">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-4 justify-content-center text-center mb-3">
+      <div class="row justify-content-center text-center">
+          <div class="col-md-4 justify-content-center text-center mb-1">
             <b-input
               id="textarea"
-              style="font-size: 27px; color: #626d73"
+              style="font-size: 20px; color: #626d73"
               v-model="form.Name"
-              placeholder="Technology at its very best"
-              rows="2"
+              placeholder="Name"
+              rows=""
             >
             </b-input>
           </div>
-          <div class="col-md-4 justify-content-center text-center mb-3">
-            <b-input
+          <div class="col-md-4 justify-content-center text-center mb-1">
+              <b-input
               id="textarea"
-              style="font-size: 27px; color: #626d73"
+              style="font-size: 13px; color: #626d73"
               v-model="form.Slogan"
-              placeholder="Technology at its very best"
-              rows="2"
+              placeholder="Slogan"
+              rows="1"
             >
             </b-input>
           </div>
         </div>
-        <div class="row justify-content-center text-center">
-          <div class="col-md-4 justify-content-center text-center mb-3">
+
+        <div class="row justify-content-center text-center mt-3">
+          <div class="col-md-6 justify-content-center text-center mb-1">
             <b-form-textarea
               id="textarea"
-              style="font-size: 13px; color: #626d73"
+              style=" color: #626d73"
               v-model="form.Description"
-              placeholder="Text......"
-              rows="1"
+              placeholder="Description"
+              rows="2"
             >
             </b-form-textarea>
           </div>
         </div>
+
         <div class="item">
-          <form
-            @submit.prevent="updateCompany1"
+          <form @submit.prevent="updateSector"
             data-validation="true"
             action="#"
             method="post"
@@ -174,50 +178,41 @@
             <div class="item-inner">
               <div class="item-content">
                 <div class="image-upload">
-                  <label style="cursor: pointer" for="file_upload">
-                    <img src="" alt="" class="uploaded-image" />
-                    <div class="h-100">
-                      <div class="dplay-tbl">
-                        <div class="dplay-tbl-cell">
-                          <i class="fa fa-cloud-upload"></i>
-                          <h5><b>Choose Your Image to Upload</b></h5>
-                          <h6 class="mt-10 mb-70">Or Drop Your Image Here</h6>
-                        </div>
-                      </div>
-                    </div>
-                    <!--upload-content-->
-                    <b-form-file
+                <i class="fa fa-cloud-upload mt-4 mb-2"></i>
+                  <div class="col-6 mx-auto mt-2">
+                     <b-form-file
                       v-model="File"
                       placeholder="Choose a file or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
-                  </label>
+                  </div>
                 </div>
+
               </div>
               <!--item-content-->
             </div>
             <!--item-inner-->
 
-            <b-row class="justify-content-center">
-              <b-col md="4" class="newpost_ justify-content-center" v-if="!updateSpinner">
-                <b-form-group class="newpost">
-                  <button :disabled="!form.Name || !form.Description || !form.Slogan"
-                    class="btn-sacademy"
-                    style="font-size: 16px"
-                    type="submit"
-                    value="Send"
-                  >
-                    Update
-                  </button>
-                </b-form-group>
-              </b-col>
-              <b-spinner
-                v-if="updateSpinner"
-                label="Spinning"
-                style="margin-left: 5%"
-              ></b-spinner>
-            </b-row>
+        <b-row class="justify-content-center">
+          <b-col md="6 " class="newpost_ justify-content-center" v-if="!updateSpinner">
+            <b-form-group class="newpost">
+              <button
+                class="btn-sacademy"
+                style="font-size: 16px"
+                type="submit"
+                value="Send"
+              >
+                Update
+              </button>
+            </b-form-group>
+          </b-col>
+          <b-spinner
+            v-if="updateSpinner"
+            label="Spinning"
+            style="margin-left: 5%"
+          ></b-spinner>
+        </b-row>
           </form>
         </div>
       </div>

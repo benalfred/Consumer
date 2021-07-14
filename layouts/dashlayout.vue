@@ -122,7 +122,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-         
+
 
             <!-- Divider -->
 
@@ -334,12 +334,19 @@ export default {
     };
   },
   methods: {
+      makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      });
+    },
     toggle() {
       this.state = !this.state;
     },
     async fetchSectors() {
-      this.page = this.bpg;
-      this.page--;
+     this.pageSize -= 1;
       try {
         const sector = await this.$axios.get(
           `Industries/GetLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`

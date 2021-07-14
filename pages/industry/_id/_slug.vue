@@ -119,10 +119,11 @@
             </p>
           </div>
         </div>
+
         <div style="background: #07072f" class="p-5"></div>
 
         <b-row>
-          <b-col md="11" class="dell-card ml-lg-5">
+          <b-col md="12" class="dell-card ">
             <div class="d-flex_ row p-5" v-if="companies.length">
               <div
                 style="cursor: pointer;"
@@ -154,7 +155,34 @@
       </b-container>
     </section>
 
-    <agegender :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" v-if="post"/>
+    <agegender data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom" :MillenialRating="post.MillenialRating" :BabyBoomRating="post.BabyBoomRating" :FemaleRating="post.FemaleRating" :MaleRating="post.MaleRating" :GenerationXRating="post.GenerationXRating" v-if="post"/>
+
+    <section class="container d-flex justify-content-center  pt-5 mt-5">
+        <div class="row mx-0 bar-section mt-5">
+            <div class="col-md-6 bg-red px-4 py-5" >
+                <h6>The ConsumerHalla Way</h6>
+                <h4 class="pb-3 pt-2">An Immersive Experience</h4>
+                <p style="line-height: 1.7" class="text-white" data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom">Starting from scratch or you are already in the industry
+                    but want to hit the
+                    elite
+                    stage? No issues, we’ll help you get the skill and experience you need to stand out and get
+                    recruited! and we also give you 1-on-1 hands-on assistance
+                    to get to the top level in the industry! Our one-of-a-kind and foundational teaching approach
+                    enables students to thrive. In all Programs, we provide our students with the tools they need to
+                    launch their careers in the engineering
+                    and tech space.
+                </p>
+                <div class="text-center text-md-left">
+                    <button class="btn apply-now mt-4 mb-3">Apply now</button>
+                </div>
+            </div>
+            <div class="col-md-6 img-side">
+            </div>
+        </div>
+    </section>
+
     <Footer />
 
 
@@ -254,6 +282,54 @@ export default {
 </script>
 
 <style scoped>
+.bg-red p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-red h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.bg-red h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.bg-red .apply-now {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #202020;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 40px 10px;
+}
+
+.bg-red {
+    color: #fff;
+    background: #626d73;
+    opacity: 1;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.bar-section {
+    max-width: 1200px;
+
+}
+
+.bar-section .img-side {
+    background: url('~assets/img/the immersive experience 1.png');
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 .d-flex__ {
   background: #fff;
   box-sizing: border-box;
@@ -341,8 +417,8 @@ h4 {
   font-weight: 600;
   font-size: 30px;
   line-height: 44px;
-  text-align: center;
-  color: #373737;
+
+
 }
 
 .header-p {
@@ -381,10 +457,9 @@ h4 {
 
 .d-flex_ {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+  box-shadow: -1px 9px 18px rgb(21 11 35 / 10%);
+  border-radius: 7px;
 }
 
 .img1 {

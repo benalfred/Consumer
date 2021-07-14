@@ -190,8 +190,7 @@
                     class="profile-dropdown_"
                     v-for="sector in sectors2"
                     :key="sector.Id"
-                    :class="[industryId != sector.Id ? 'active' : '']"
-                  >
+                    :class="[industryId != sector.Id ? 'active' : '']">
                     <button type="button" @click="setIndustryId(sector.Id)" class="btn1">
                       {{ sector.Name }}
                     </button>
@@ -395,7 +394,7 @@ export default {
         autoHideDelay: 5000,
         variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
         solid: true,
-      }); 
+      });
     },
     setId(id) {
       this.id = id;
@@ -609,8 +608,8 @@ export default {
 
 .second-col {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
+  border-radius: 6px;
 }
 
 h2 {
@@ -896,10 +895,11 @@ li {
 .Opinion {
   background: #e57718;
   border-radius: 5px;
+  box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
 }
 .Opinion1 {
   background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 9px 18px rgba(21, 11, 35, 0.1);
   border-radius: 5px;
 }
 
