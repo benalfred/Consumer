@@ -25,7 +25,7 @@
                       placeholder="Password"
                       v-model="login.Password"
                       name="user_password"
-                      type="text"
+                      type="password"
                       id="password"
                     >
                     </b-form-input>
@@ -101,7 +101,6 @@ export default {
       try {
         this.spinner = true
         let response = await this.$auth.loginWith("local", { data: this.login });
-        console.log(response.data)
         // this.$store.state.auth.loggedIn = true
         this.spinner = false
         await this.$router.push("/");

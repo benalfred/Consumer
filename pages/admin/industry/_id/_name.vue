@@ -7,7 +7,7 @@
             <b-col md="6">
               <div class="d-flex">
               <div>
-                <img src="~/assets/img/ellipse.png" width="50" alt="">
+                <img :src="Logo1" width="50" alt="">
               </div>
                <div class="pt-2 ml-2">
                    <h1 class="" v-if="form.Name">
@@ -322,6 +322,13 @@
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
+                    <label for="Logo">Logo</label>
+                     <b-form-file
+                      v-model="Logo"
+                      placeholder="Choose a file or drop it here..."
+                      drop-placeholder="Drop file here..."
+                      name="image"
+                    ></b-form-file>
                   </div>
                 </div>
 
@@ -408,14 +415,17 @@ export default {
       logoutMenuState: false,
       threeOpen: false,
       Banner:null,
+      Logo1:null,
       form: {
         Id: this.$route.params.id,
         Name: this.$route.params.name,
         Description: null,
         Slogan: null,
         Banner:null,
+        Logo: null,
       },
       File:null,
+      Logo:null,
       fetchCompanySpinner: false,
       Name: null,
       ratingEmoji: [
@@ -461,10 +471,15 @@ export default {
       this.updateSpinner = true
       let  formData = new FormData();
       try {
-      if (File) {
+      if (this.File) {
         formData.append('File',this.File)
       let banner = await this.$axios.post(`FileUpload/PictureUpload`,formData)
       this.form.Banner = banner.data
+      }
+       if (this.Logo) {
+        formData.append('File',this.Logo)
+      let banner = await this.$axios.post(`FileUpload/PictureUpload`,formData)
+      this.form.Logo = banner.data
       }
       await this.updateSector2()
       } catch (e) {
@@ -516,6 +531,7 @@ export default {
         this.form.Name = response.data.Name;
         this.form.Slogan = response.data.Slogan;
         this.form.Description = response.data.Description;
+        this.Logo1 = response.data.Logo
         this.Banner = response.data.Banner
         if (response.data.Companies.length) {
           response.data.Companies.filter((company) => {
