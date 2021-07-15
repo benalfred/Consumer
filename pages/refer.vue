@@ -1,9 +1,8 @@
 <template>
   <div>
-  <a href="#openModal-about1">Click here</a>
+  
    <div id="openModal-about1" class="modalDialog">
       <div>
-
         <div class="d-flex__ row dell-card">
            <b-container>
       <b-row>

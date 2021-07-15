@@ -8,7 +8,7 @@
       <p class="sectors mr-4">Industries <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
 
       <ul v-if="$auth.loggedIn"
-        class="logout-sub-menu sub-menu"
+        class="logout-sub-menu sub-menu mt-4 mr-4"
         id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
 
         <li>
@@ -164,7 +164,7 @@ li {
 
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
-    right: 300px;
+    right: 200px;
 
   }
 }

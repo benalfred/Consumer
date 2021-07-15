@@ -64,7 +64,7 @@
                 </div>
                 <div class="d-flex_ row" v-if="features.length && !fetchFeatureSpinner">
                   <div
-                    class="col-md-4 d-flex pb-3"
+                    class="col-md-6 d-flex pb-3"
                     v-for="feature in features"
                     :key="feature.Id"
                   >
@@ -74,7 +74,7 @@
                     <i
                       @click="deleteFeature(feature.Id)"
                       class="far fa-times-circle"
-                      style="bottom: 20px; cursor: pointer"
+                      style="bottom: 10px; position: relative; cursor: pointer"
                     ></i>
                   </div>
                 </div>
