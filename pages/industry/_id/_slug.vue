@@ -278,7 +278,6 @@ export default {
         this.Description = response.data.Description;
         this.Logo = response.data.Logo;
         this.Banner = await response.data.Banner;
-        this.companies = response.data.Companies;
         if (response.data.Companies.length) {
           response.data.Companies.filter((sec) => {
             if (this.companies.length != 6) {

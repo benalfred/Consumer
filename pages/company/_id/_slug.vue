@@ -173,7 +173,7 @@
 
         <b-col md="5" class="dell-card">
           <p class="pb-2 header-p">OTHER POPULAR TECHNOLOGIES</p>
-          <div class="d-none d-sm-block">
+          <div class="d-none d-sm-block" v-if="!spinner">
             <div class="d-flex_ row p-5" data-aos="flip-right">
               <div
                 class="col-md-3"
@@ -200,8 +200,13 @@
               </div>
             </div>
           </div>
+          <b-spinner
+            v-if="spinner"
+            label="Spinning"
+            style="margin-left: 50%"
+          ></b-spinner>
 
-          <div class="d-block d-sm-none">
+          <div class="d-block d-sm-none" v-if="!spinner">
             <div class="d-flex_ row p-5" data-aos="flip-right">
               <div
                 class="col-6"
@@ -313,6 +318,7 @@ export default {
       Banner: "",
       Logo: null,
       post: null,
+      spinner:false,
       page: 1,
       pageSize: 1,
       pageForOpinions2: 1,
@@ -371,6 +377,7 @@ export default {
       }
     },
     async fetchSectors() {
+      this.spinner = true
       this.pageSize -= 1;
       try {
         const response = await this.$axios.get(
@@ -391,8 +398,10 @@ export default {
             }
           });
         }
+        this.spinner = false
         this.$store.commit("notifications/setSectors", response.data.Results);
       } catch (e) {
+        this.spinner = false
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
