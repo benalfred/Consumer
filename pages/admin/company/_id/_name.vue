@@ -6,9 +6,9 @@
           <b-row>
             <b-col md="6">
               <div class="d-flex">
-              <div>
-                  <img src="~/assets/img/ellipse.png" width="50" alt="">
-               </div>
+                <div>
+                  <img :src="Logo1" width="50" alt="" />
+                </div>
                 <h1 class="ml-2" v-if="form.Name">
                   {{ form.Name }}
                 </h1>
@@ -132,7 +132,7 @@
       hide-footer
     >
       <div class="item-wrapper one justify-content-center">
-      <div class="row justify-content-center text-center">
+        <div class="row justify-content-center text-center">
           <div class="col-md-4 justify-content-center text-center mb-1">
             <b-input
               id="textarea"
@@ -144,7 +144,7 @@
             </b-input>
           </div>
           <div class="col-md-4 justify-content-center text-center mb-1">
-              <b-input
+            <b-input
               id="textarea"
               style="font-size: 13px; color: #626d73"
               v-model="form.Slogan"
@@ -159,7 +159,7 @@
           <div class="col-md-6 justify-content-center text-center mb-1">
             <b-form-textarea
               id="textarea"
-              style=" color: #626d73"
+              style="color: #626d73"
               v-model="form.Description"
               placeholder="Description"
               rows="2"
@@ -169,7 +169,8 @@
         </div>
 
         <div class="item">
-          <form @submit.prevent="updateSector"
+          <form
+            @submit.prevent="updateSector"
             data-validation="true"
             action="#"
             method="post"
@@ -178,41 +179,50 @@
             <div class="item-inner">
               <div class="item-content">
                 <div class="image-upload">
-                <i class="fa fa-cloud-upload mt-4 mb-2"></i>
-                  <div class="col-6 mx-auto mt-2">
-                     <b-form-file
+                  <div class="col-6 mx-auto mt-5">
+                    <b-form-file
+                      class="mt-3 mb-3"
                       v-model="File"
-                      placeholder="Choose a file or drop it here..."
+                      placeholder="Choose a Banner or drop it here..."
+                      drop-placeholder="Drop file here..."
+                      name="image"
+                    ></b-form-file>
+                    <b-form-file
+                      v-model="Logo"
+                      placeholder="Choose your logo...."
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
                   </div>
                 </div>
-
               </div>
               <!--item-content-->
             </div>
             <!--item-inner-->
 
-        <b-row class="justify-content-center">
-          <b-col md="6 " class="newpost_ justify-content-center" v-if="!updateSpinner">
-            <b-form-group class="newpost">
-              <button
-                class="btn-sacademy"
-                style="font-size: 16px"
-                type="submit"
-                value="Send"
+            <b-row class="justify-content-center">
+              <b-col
+                md="6 "
+                class="newpost_ justify-content-center"
+                v-if="!updateSpinner"
               >
-                Update
-              </button>
-            </b-form-group>
-          </b-col>
-          <b-spinner
-            v-if="updateSpinner"
-            label="Spinning"
-            style="margin-left: 5%"
-          ></b-spinner>
-        </b-row>
+                <b-form-group class="newpost">
+                  <button
+                    class="btn-sacademy"
+                    style="font-size: 16px"
+                    type="submit"
+                    value="Send"
+                  >
+                    Update
+                  </button>
+                </b-form-group>
+              </b-col>
+              <b-spinner
+                v-if="updateSpinner"
+                label="Spinning"
+                style="margin-left: 5%"
+              ></b-spinner>
+            </b-row>
           </form>
         </div>
       </div>
@@ -225,16 +235,18 @@ import ProfileComponent from "@/components/ProfileComponent.vue";
 import UserResponse from "@/components/UserResponse.vue";
 export default {
   layout: "dashlayout",
-  middleware:'admin',
+  middleware: "admin",
   component: { UserResponse, ProfileComponent },
   data() {
     return {
       logoutMenuState: false,
       threeOpen: false,
-      File:null,
+      File: null,
+      Logo: null,
+      Logo1: null,
       form: {
         Id: this.$route.params.id,
-        IndustryId:null,
+        IndustryId: null,
         Name: this.$route.params.name,
         Description: null,
         Slogan: null,
@@ -296,15 +308,16 @@ export default {
           `/Industries/GetCompanyDetailsByAdmin?companyId=${this.$route.params.id}`
         );
         this.form.Name = response.data.Name;
-        this.form.IndustryId = response.data.IndustryId
+        this.form.IndustryId = response.data.IndustryId;
         this.form.Slogan = response.data.Slogan;
         this.form.Description = response.data.Description;
         this.form.Banner = response.data.Banner;
+        this.Logo1 = response.data.Logo;
         this.fetchCompanySpinner = false;
       } catch (e) {
-        this.fetchCompanySpinner = false
-        this.$store.commit("notifications/error", "something went wrong")
-        this.makeToast()
+        this.fetchCompanySpinner = false;
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async allOpinions() {
@@ -338,15 +351,21 @@ export default {
       this.updateSpinner = true;
       let formData = new FormData();
       try {
-        if (File) {
+        if (this.File) {
           formData.append("File", this.File);
           let banner = await this.$axios.post(`FileUpload/PictureUpload`, formData);
           this.form.Banner = banner.data;
-          this.form.Logo = banner.data
+          this.form.Logo = banner.data;
+        }
+        if (this.Logo) {
+          formData.append("File", this.Logo);
+          let banner = await this.$axios.post(`FileUpload/PictureUpload`, formData);
+          this.form.Logo = banner.data;
+          this.Logo1 = banner.data;
         }
         await this.updateCompany();
       } catch (e) {
-        this.updateSpinner = false
+        this.updateSpinner = false;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -362,9 +381,9 @@ export default {
           icon: "success",
         });
       } catch (e) {
-        this.spinner = false
-        this.$store.commit("notifications/error", "something went wrong")
-        this.makeToast()
+        this.spinner = false;
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     ratingMethod(value) {
@@ -384,11 +403,11 @@ export default {
 </script>
 
 <style scoped>
-
-input,    .form-control:focus {
+input,
+.form-control:focus {
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.05);
-  color:  #000;
+  color: #000;
   border-radius: 0;
   border: none;
   padding: 1.5rem 1rem;
@@ -396,9 +415,9 @@ input,    .form-control:focus {
 }
 
 textarea {
-    font-size: 15px;
+  font-size: 15px;
   background-color: rgba(0, 0, 0, 0.05);
-  color:  #000;
+  color: #000;
   border-radius: 0;
   border: none;
   margin: 0px 0px 8px;

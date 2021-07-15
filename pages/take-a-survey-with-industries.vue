@@ -6,36 +6,35 @@
           <article>
             <div class="container-fluid mt-4">
               <div class="list-single-main-item fl-wrap snippet-items">
-              <div class="row">
-                <div class="col-md-12 ">
-                  <h3 class="snippet-title align-items-center">
-                    Take a Survey with
-                    <span style="color: #e57718"> top Industries</span>
-                  </h3>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3 class="snippet-title align-items-center">
+                      Take a Survey with
+                      <span style="color: #e57718"> top Industries</span>
+                    </h3>
+                  </div>
                 </div>
+                <span class="fw-separator"></span>
               </div>
-              <span class="fw-separator"></span>
-            </div>
             </div>
           </article>
         </div>
       </div>
     </div>
-    <div
-      class="container-fluid bg-trasparent my-4 p-3"
-      style="position: relative"
->
-      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2 g-3">
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative">
+      <div
+        class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-2 g-3"
+        v-if="!spinner"
+      >
         <div class="col mb-4" v-for="sector in sectors" :key="sector.Id">
           <div class="card h-100 shadow-sm">
-            <img v-if="sector.Logo"
-              :src="sector.Logo"
+            <img v-if="sector.Logo" :src="sector.Logo" class="card-img-top" alt="..." />
+            <img
+              v-else
+              src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
               class="card-img-top"
               alt="..."
             />
-             <img v-else src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
-              class="card-img-top"
-              alt="..."/>
             <div class="card-body">
               <div class="clearfix mb-3">
                 <span class="float-start badge rounded-pill bg-primary">{{
@@ -44,7 +43,7 @@
                 <span class="float-end price-hp">12354.00€</span>
               </div>
               <h5 class="card-title">
-               {{sector.Description}}
+                {{ sector.Description }}
               </h5>
               <div class="text-center my-4">
                 <nuxt-link
@@ -57,7 +56,9 @@
           </div>
         </div>
       </div>
+      <b-spinner v-if="spinner" label="Spinning" style="margin-left: 49%"></b-spinner>
       <b-pagination
+        v-if="!spinner"
         v-model="pageForOpinions2"
         :total-rows="totalRow"
         :per-page="pageSize"
@@ -80,6 +81,7 @@ export default {
       pageForOpinions2: 1,
       totalRow: 0,
       bpg: 1,
+      spinner: false,
     };
   },
   async fetch() {
@@ -90,12 +92,12 @@ export default {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
         autoHideDelay: 5000,
-        variant:
-          this.$store.state.notifications.type === "error" ? "danger" : "info",
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
         solid: true,
       });
     },
     async fetchSectors() {
+      this.spinner = true;
       this.pageSize -= 1;
       try {
         const sector = await this.$axios.get(
@@ -103,6 +105,7 @@ export default {
         );
         this.totalRow = sector.data.TotalCount;
         this.sectors = sector.data.Results;
+        this.spinner = false;
         this.$store.commit("notifications/setSectors", sector.data.Results);
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -140,8 +143,7 @@ section {
 .body {
   font-family: var(--font3);
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  max-height: 100%!important;
-
+  max-height: 100% !important;
 }
 article .list-single-main-item {
   margin-bottom: 0;
@@ -156,7 +158,6 @@ article .list-single-main-item {
   border-radius: 15px;
 
   margin-bottom: 20px;
-
 }
 
 .fl-wrap {
@@ -176,8 +177,7 @@ h2 {
 .card {
   background: #fff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-    0.3s box-shadow,
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
   border: 0;
   border-radius: 1rem;
@@ -332,8 +332,7 @@ h2 {
   border-radius: 1rem;
   background: #fff;
   box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
-  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-    0.3s box-shadow,
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
 }
 

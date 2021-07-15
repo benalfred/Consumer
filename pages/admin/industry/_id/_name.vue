@@ -316,13 +316,12 @@
                 <div class="image-upload">
                 <!-- <i class="fa fa-cloud-upload mt-4 mb-2"></i> -->
                   <div class="col-6 mx-auto mt-5">
-                     <b-form-file class="mt-3"
+                     <b-form-file class="mt-3 mb-3"
                       v-model="File"
-                      placeholder="Choose a file or drop it here..."
+                      placeholder="Choose a Banner or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
-                    <label for="Logo" class="my-2 mr-3" style="font-size: 25px;">Logo</label>
                      <b-form-file
                       v-model="Logo"
                       placeholder="Choose your logo...."
@@ -480,6 +479,7 @@ export default {
         formData.append('File',this.Logo)
       let banner = await this.$axios.post(`FileUpload/PictureUpload`,formData)
       this.form.Logo = banner.data
+      this.Logo1 = banner.data
       }
       await this.updateSector2()
       } catch (e) {

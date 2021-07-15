@@ -8,7 +8,7 @@
               <b-col md="6">
                <div class="d-flex">
                <div>
-                  <img src="~/assets/img/ellipse.png" width="50" alt="">
+                  <img :src="post.Logo" width="50" alt="">
                </div>
                    <h1 class="ml-2 pt-2">
                   {{ post.Name }}
@@ -112,6 +112,7 @@ export default {
       stateId: null,
       lgas: [],
       states: [],
+      Logo: null,
       spinner: false,
     };
   },

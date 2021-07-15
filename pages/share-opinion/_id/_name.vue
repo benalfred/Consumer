@@ -340,6 +340,7 @@ export default {
         this.totalRowsForOpinion = opinions.data.TotalCount;
         this.spinner = false;
       } catch (e) {
+        console.log(e)
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }

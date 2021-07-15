@@ -177,17 +177,8 @@
             data-aos="fade-up"
             data-aos-anchor-placement="center-bottom"
           >
-            Starting from scratch or you are already in the industry but want to hit the
-            elite stage? No issues, we’ll help you get the skill and experience you need
-            to stand out and get recruited! and we also give you 1-on-1 hands-on
-            assistance to get to the top level in the industry! Our one-of-a-kind and
-            foundational teaching approach enables students to thrive. In all Programs, we
-            provide our students with the tools they need to launch their careers in the
-            engineering and tech space.
+          {{Description}}
           </p>
-          <div class="text-center text-md-left">
-            <button class="btn apply-now mt-4 mb-3">Apply now</button>
-          </div>
         </div>
         <div class="col-md-6 img-side"></div>
       </div>
