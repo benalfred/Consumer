@@ -182,11 +182,13 @@
                 :key="sector.Id"
                 @click="linkToIndustries(sector)"
               >
-                <img v-if="sector.Logo" :src="sector.Logo" class="img-fluid" alt="" />
+               <div class="company-image">
+                   <img v-if="sector.Logo" :src="sector.Logo" class="img-fluid" alt="" />
                 <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
                 <div class="company-name mt-2">
-                  <p class="p-2 pl-4 pr-4">{{ sector.Name }}</p>
+                  <p class="p-2 text-center">{{ sector.Name }}</p>
                 </div>
+               </div>
               </div>
               <div class="col-md-3" v-if="sectors2.length">
                 <a href="#openModal-about">
@@ -462,12 +464,17 @@ export default {
 
 .company-name {
   background: #07072f;
+  width: 82px;
   color: white;
-  margin: 0px 10px 0px;
+  margin: 0px 0px 0px;
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   box-shadow: 0px 12px 12px #00000029;
+}
+
+.company-image img {
+  height: 59px;
 }
 
 @media screen and (min-width: 750px) {
@@ -641,17 +648,12 @@ h4 {
 
 .d-flex_ {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+
   box-sizing: border-box;
   box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
 }
-.d-flex__ {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  box-shadow: 0px -1px 37px rgba(0, 0, 0, 0.05);
-}
+
 
 .dell-card img {
   margin: 20px 0px 10px;
