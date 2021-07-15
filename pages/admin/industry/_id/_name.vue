@@ -314,18 +314,18 @@
             <div class="item-inner">
               <div class="item-content">
                 <div class="image-upload">
-                <i class="fa fa-cloud-upload mt-4 mb-2"></i>
-                  <div class="col-6 mx-auto mt-2">
-                     <b-form-file
+                <!-- <i class="fa fa-cloud-upload mt-4 mb-2"></i> -->
+                  <div class="col-6 mx-auto mt-5">
+                     <b-form-file class="mt-3"
                       v-model="File"
                       placeholder="Choose a file or drop it here..."
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
-                    <label for="Logo">Logo</label>
+                    <label for="Logo" class="my-2 mr-3" style="font-size: 25px;">Logo</label>
                      <b-form-file
                       v-model="Logo"
-                      placeholder="Choose a file or drop it here..."
+                      placeholder="Choose your logo...."
                       drop-placeholder="Drop file here..."
                       name="image"
                     ></b-form-file>
@@ -674,7 +674,7 @@ input,    .form-control:focus {
   border: none;
   padding: 1.9rem 1rem;
   margin: 0px 0px 8px;
-  
+
 }
 
 textarea {
