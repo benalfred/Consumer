@@ -5,59 +5,15 @@
         <div class="container-fluid">
         <Links/>
           <b-row class="mt-5">
-            <b-col md="3">
-              <div class="d-flex">
-                <div class="emoji">
-                  <p>😡</p>
+            <b-col md="3" v-if="settings">
+              <div class="d-flex" v-for="rate in settings.Ratings" :key="rate.Id">
+                <div class="emoji" v-if="ratingMethod(rate.PreferredName)">
+                  <p>{{ratingMethod(rate.PreferredName).emoji}}</p>
                 </div>
                 <b-form-input
                   class="mt-2 ml-4"
                   v-model="text"
-                  placeholder="Very bad"
-                ></b-form-input>
-              </div>
-
-              <div class="d-flex">
-                <div class="emoji">
-                  <p>😞</p>
-                </div>
-                <b-form-input
-                  class="mt-2 ml-4"
-                  v-model="text"
-                  placeholder="Bad"
-                ></b-form-input>
-              </div>
-
-              <div class="d-flex">
-                <div class="emoji">
-                  <p>😑</p>
-                </div>
-                <b-form-input
-                  class="mt-2 ml-4"
-                  v-model="text"
-                  placeholder="Fair"
-                ></b-form-input>
-              </div>
-
-              <div class="d-flex">
-                <div class="emoji">
-                  <p>😊</p>
-                </div>
-                <b-form-input
-                  class="mt-2 ml-4"
-                  v-model="text"
-                  placeholder="Good"
-                ></b-form-input>
-              </div>
-
-              <div class="d-flex">
-                <div class="emoji">
-                  <p>😍</p>
-                </div>
-                <b-form-input
-                  class="mt-2 ml-4"
-                  v-model="text"
-                  placeholder="Very Good"
+                  :placeholder="rate.PreferredName"
                 ></b-form-input>
               </div>
             </b-col>
@@ -72,25 +28,25 @@
             <b-col md="2" style="position: relative; left: 20px">
               <b-form-group class="mb-2 selectdate">
                 <div class="form-group">
-                  <v-select placeholder="3" label="Name"></v-select>
+                 <input class="form-control" type="number" name="" :value="settings.NumberOfOpinionToDisplay">
                 </div>
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
                 <div class="form-group">
-                  <v-select placeholder="Data Created" label="Name"></v-select>
+                  <input class="form-control" type="number" name="" :value="settings.DisplayBy">
                 </div>
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
                 <div class="form-group">
-                  <v-select placeholder="Day Month Year" label="Name"></v-select>
+                 <input class="form-control" type="number" name="" :value="settings.DateFormat">
                 </div>
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
                 <div class="form-group">
-                  <v-select placeholder="Yes" label="Name"></v-select>
+                  <input class="form-control" type="" name="" :value="settings.ViewAdditionalOpinion">
                 </div>
               </b-form-group>
             </b-col>
@@ -156,6 +112,73 @@ export default {
   layout: "dashlayout",
   middleware:'admin',
   component: { UserResponse,Links },
+ data() {
+   return {
+     settings:null,
+     dates:[],
+     text:null,
+     displayBy:[],
+      ratingEmoji: [
+        { PreferredName: "Very Bad", emoji: "😡" },
+        { PreferredName: "Bad", emoji: "😞" },
+        { PreferredName: "Fair", emoji: "😑" },
+        { PreferredName: "Good", emoji: "😊" },
+        { PreferredName: "Very Good", emoji: "😍" },
+      ],
+   }
+ },
+ async fetch() {
+  await this.getSetting()
+  await this.getDisplayBy()
+  await this.getDates()
+ }, 
+  methods: {
+     makeToast() {
+      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+        title: this.$store.state.notifications.type,
+        autoHideDelay: 5000,
+        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        solid: true,
+      });
+    },
+
+    async getSetting(){
+      try {
+      const response = await this.$axios.get('/Settings/GetSettings')
+      console.log(response.data)
+      this.settings = response.data
+      } catch (e){
+      this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+
+    async getDisplayBy(){
+      try {
+      const response = await this.$axios.get('/Settings/GetDisplayBys')
+      console.log(response.data)
+      this.displayBy = response.data
+      } catch (e){
+      this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+
+    async getDates(){
+      try {
+      const response = await this.$axios.get('/Settings/GetDateFormats')
+      console.log(response.data)
+      this.dates = response.data
+      } catch (e){
+      this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+     ratingMethod(value) {
+      let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
+      return foundEmoji;
+    },
+  },
 };
 </script>
 

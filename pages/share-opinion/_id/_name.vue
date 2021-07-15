@@ -330,14 +330,11 @@ export default {
     },
     async allOpinions() {
       this.spinner = true;
-      this.pageForOpinions = this.pageForOpinions2;
-      this.pageForOpinions--;
       try {
         const opinions = await this.$axios.get(
-          `/GetPublicOpinions?companyId=${this.$route.params.id}&page=${this.pageForOpinions}&pageSize=${this.pageSize}`
+          `/Opinions/GetPublicOpinions?companyId=${this.$route.params.id}`
         );
-        this.opinions = opinions.data.Results;
-        this.totalRowsForOpinion = opinions.data.TotalCount;
+        this.opinions = opinions.data;
         this.spinner = false;
       } catch (e) {
         console.log(e)
