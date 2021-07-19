@@ -211,7 +211,7 @@ export default {
     await this.getRatings();
     await this.fetchCompanyDetails();
   },
-  middleware: "account_setup",
+  middleware: ['auth','account_setup'],
   mounted() {
     this.daysjs = dayjs
     this.allOpinions()

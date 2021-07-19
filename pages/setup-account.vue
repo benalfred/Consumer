@@ -190,6 +190,7 @@
 export default {
   components: {},
   layout: "headerr",
+  middleware: ['auth'],
   async fetch() {
     await this.getStatesAndLgaAndGenders();
   },

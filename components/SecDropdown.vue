@@ -7,7 +7,7 @@
 
       <p class="sectors mr-4">Industries <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
 
-      <ul v-if="$auth.loggedIn"
+      <ul
         class="logout-sub-menu sub-menu mt-4 mr-4"
         id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
 

@@ -15,18 +15,10 @@
             Our ideaz
           </p>
           <nuxt-link
-            v-if="$auth.user"
             to="/take-a-survey-with-industries"
             class="button_ btn-lg text-white mt-md-5 mt-5"
           >
             Get Started
-          </nuxt-link>
-          <nuxt-link
-            v-else
-            class="button_ btn-lg text-white mt-md-5 mt-5"
-            to="/login"
-            role="button_"
-            >Get Started
           </nuxt-link>
         </b-col>
 
@@ -415,7 +407,7 @@ export default {
       duration: 1000,
     });
   },
-  middleware: "account_setup",
+  // middleware: "account_setup",
   computed: {
     fetchedSectors() {
       return this.$store ? this.$store.state.notifications.sectorsFetched : [];

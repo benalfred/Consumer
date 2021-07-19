@@ -1,8 +1,8 @@
 export default {
     ssr: true,
-    router: {
-        middleware: ['auth']
-    },
+    // router: {
+    //     middleware: ['auth']
+    // },
     loading: {
         color: '#e57718',
         height: '5px',
@@ -67,9 +67,9 @@ export default {
                 href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'
             },
             {
-              rel: 'stylesheet',
-              href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
-          },
+                rel: 'stylesheet',
+                href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
+            },
         ],
         script: [{
                 src: 'https://kit.fontawesome.com/802d49fc10.js',
@@ -79,13 +79,13 @@ export default {
 
             },
             {
-              src: ' https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css',
+                src: ' https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css',
 
-          },
-          {
-            src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js',
+            },
+            {
+                src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js',
 
-        },
+            },
             {
                 src: '/bootstrap/js/bootstrap.bundle.min.js',
             },
@@ -156,7 +156,7 @@ export default {
     transition: {
         name: 'home',
         mode: 'out-in'
-        },
+    },
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [

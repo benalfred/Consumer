@@ -192,8 +192,6 @@ export default {
         this.spinner = false;
       } catch (e) {
         this.spinner = false;
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
       }
     },
   },

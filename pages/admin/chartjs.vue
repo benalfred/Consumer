@@ -1,13 +1,13 @@
 <template>
   <section style="">
     <div class="chart">
-    <div class="container">
-    <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
-      <BarChart :data="barChartData" :options="barChartOptions" :height="400" />
-    </div>
-    </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-8" style="height:100%">
+            <BarChart :data="barChartData" :options="barChartOptions" :height="350" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -17,30 +17,37 @@
 import BarChart from "~/components/BarChart.vue";
 export default {
   components: { BarChart },
-  layout: 'dashlayout',
-  middleware:'admin',
+  layout: "dashlayout",
+  middleware: "admin",
   data() {
     return {
       barChartData: {
-        labels: [
-          "2019-06",
-          "2019-07",
-          "2019-08",
-          "2019-09",
-          "2019-10",
-          "2019-11",
-          "2019-12",
-          "2020-01",
-          "2020-02",
-          "2020-03",
-        ],
+        labels: ["Millenial", "Generation X", "Baby Boomers"],
         datasets: [
           {
-            label: "Visualizaciones",
-            data: [2, 1, 16, 3, 4, 5, 0, 0, 4, 12, 2],
-            backgroundColor: "rgba(20, 255, 0, 0.3)",
-            borderColor: "rgba(100, 255, 0, 1)",
-            borderWidth: 2,
+            label: "Visits",
+            data: [10, 15, 20, 30, 40, 50, 60, 70, 34, 45, 11, 78, 45],
+            backgroundColor: "#003f5c",
+          },
+          {
+            label: "Positive",
+            data: [65, 65, 65,],
+            backgroundColor: "#f50915",
+          },
+          {
+            label: "Negative",
+            data: [80, 80, 80,],
+            backgroundColor: "#ec6e0e",
+          },
+          {
+            label: "Pages Views",
+            data: [100, 110, 90],
+            backgroundColor: "#0dbfcc",
+          },
+          {
+            label: "Users",
+            data: [150, 200, 160],
+            backgroundColor: "#665191",
           },
         ],
       },
@@ -51,8 +58,8 @@ export default {
         },
         title: {
           display: true,
-          text: "Google analytics data",
-          fontSize: 24,
+          text: "",
+          fontSize: 40,
           fontColor: "#6b7280",
         },
         tooltips: {
@@ -70,12 +77,9 @@ export default {
             {
               ticks: {
                 beginAtZero: true,
-                max: 7,
-                min: 0,
-                stepSize: 1,
               },
               gridLines: {
-                display: true,
+                display: false,
               },
             },
           ],
@@ -98,7 +102,7 @@ export default {
   font-size: 6em;
 }
 .green {
-  color: #00C48D;
+  color: #0dbfcc;
 }
 
 .subtitle {
@@ -112,4 +116,5 @@ export default {
 .links {
   padding-top: 15px;
 }
+
 </style>

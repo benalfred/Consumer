@@ -221,7 +221,6 @@ export default {
   async fetch() {
     await this.fetchIndustryDetails();
   },
-  middleware: "account_setup",
   component: { agegender, footer, SecNav },
   data() {
     return {

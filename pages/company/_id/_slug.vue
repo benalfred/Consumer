@@ -306,7 +306,7 @@ export default {
     await this.fetchCompanyDetails();
     await this.fetchSectors();
   },
-  middleware: "account_setup",
+  // middleware: "account_setup",
   mounted() {
     AOS.init({
       offset: 100,
