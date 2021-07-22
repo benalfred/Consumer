@@ -1,11 +1,32 @@
 <template>
   <section style="">
-    <div class="chart">
-      <div class="container-fluid">
+   <div class="chart">
+      <div class="">
         <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-8" style="height:100%">
-            <BarChart :data="barChartData" :options="barChartOptions" :height="350" />
+           <div class="col-md-4 mt-lg-5 container-fluid" style="height:100%">
+            <div class="row">
+            <div class="col-md-12 pl-4">
+              <ChartSideBar />
+            </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-8 chart-wrap pl-5" style="">
+          <div class=" mt-5 d-lg-flex">
+               <button type="button" class="btn2">GRAPHICAL REPORT</button>
+               <button type="button" class="btn3 ml-3">GRAPHICAL REPORT</button>
+
+               <div class="ml-auto mr-5 pr-4">
+                  <img src="~/assets/img/downloadicon.png" style="cursor: pointer" alt="">
+                  <img src="~/assets/img/printicon.png" class="ml-4" style="cursor: pointer" alt="">
+               </div>
+          </div>
+            <div class="row chart-wrap pb-5">
+            <div class="col-md-10 ml-lg-5 pt-5 ">
+              <BarChart class="bg-white p-2" :data="barChartData" :options="barChartOptions" :height="350" />
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -15,9 +36,10 @@
 
 <script>
 import BarChart from "~/components/BarChart.vue";
+import ChartSideBar from "~/components/ChartSideBar.vue"
 export default {
-  components: { BarChart },
-  layout: "dashlayout",
+  components: { BarChart, ChartSideBar },
+  layout: "dashlayout2",
   middleware: "admin",
   data() {
     return {
@@ -115,6 +137,35 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+
+.chart-wrap {
+background: #F4F4F4;
+}
+.btn2 {
+  background: #00b5d3;
+  border: none;
+  padding: 9px 20px 9px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+}
+.btn3 {
+  background: #626D73;
+  border: none;
+  padding: 9px 20px 9px;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
 }
 
 </style>
