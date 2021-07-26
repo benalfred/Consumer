@@ -103,7 +103,7 @@ export default {
         let response = await this.$auth.loginWith("local", { data: this.login });
         // this.$store.state.auth.loggedIn = true
         this.spinner = false
-        await this.$router.push("/");
+        await this.$router.back()
       } catch (err) {
         if (err.response) {
           this.$store.commit("notifications/error", err.response.data);

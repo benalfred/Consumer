@@ -211,14 +211,14 @@
                           <div
                             v-for="sector in sectors3"
                             :key="sector.Id"
-                            class="px-3 pt-4 align-items-center justify-content-start"
-                          >
+                            class="px-3 pt-4 align-items-center justify-content-start">
                             <button
                               @click="setIndustryId(sector.Id)"
                               type="button"
                               class="btn2"
                             >
-                              {{ sector.Name }}
+                              {{ sector.name }}
+
                             </button>
                           </div>
                           <b-pagination

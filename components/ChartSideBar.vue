@@ -1,5 +1,5 @@
 <template>
-<div class="mt-5">
+      <div class="mt-5 ChartSideBar">
             <div class="d-flex">
                 <div>
                 <b-form-checkbox size="lg" style="border-radius: 0px!important" ></b-form-checkbox>
@@ -88,13 +88,54 @@
                 </b-form-group>
               </div>
              </div>
-</div>
+
+
+        <div>
+            <ChartSideBarPeriod />
+        </div>
+
+      </div>
 </template>
 
 
 <script>
+import ChartSideBarPeriod from './ChartSideBarPreiod.vue'
 export default {
-  name: "ChartSideBar"
+  name: "ChartSideBar",
+  components: { ChartSideBarPeriod }
 }
 </script>
+
+<style>
+.ChartSideBar {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 650px;
+
+}
+
+.ChartSideBar::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 50px;
+}
+
+/* Track */
+.ChartSideBar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 50px;
+}
+
+/* Handle */
+.ChartSideBar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.ChartSideBar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 50px;
+}
+
+</style>
 
