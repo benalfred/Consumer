@@ -304,7 +304,7 @@ export default {
 
   async fetch() {
     await this.fetchCompanyDetails();
-    await this.fetchSectors();
+    await this.fetchIndustryDetails();
   },
   // middleware: "account_setup",
   mounted() {
@@ -338,7 +338,7 @@ export default {
 
   methods: {
     linkToIndustries(sector) {
-      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
+      this.$router.push(`/company/${sector.Id}/${sector.Name}`);
     },
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
@@ -378,32 +378,29 @@ export default {
         this.makeToast();
       }
     },
-    async fetchSectors() {
+    async fetchIndustryDetails() {
       this.spinner = true
-      this.pageSize -= 1;
+     let sec_id = localStorage.getItem('sec_id')
       try {
         const response = await this.$axios.get(
-          `Industries/GetSemiLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+          `Industries/GetPublicIndustryDetails?industryId=${sec_id}`
         );
-        console.log(response.data);
-        this.totalRow = response.data.TotalCount;
-        if (response.data.Results.length) {
-          response.data.Results.filter((sec) => {
-            if (this.sectors.length != 10) {
+        if (response.data.Companies.length) {
+          response.data.Companies.filter((sec) => {
+            if (this.sectors.length != 6) {
               this.sectors.push(sec);
             }
           });
           let ctx = this;
-          response.data.Results.filter((com, index) => {
-            if (index > 9) {
+          response.data.Companies.filter((com, index) => {
+            if (index > 5) {
               ctx.sectors2.push(com);
             }
           });
         }
         this.spinner = false
-        this.$store.commit("notifications/setSectors", response.data.Results);
+        //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
-        this.spinner = false
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }

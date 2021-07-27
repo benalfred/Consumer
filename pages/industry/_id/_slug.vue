@@ -286,6 +286,7 @@ export default {
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
         this.post = response.data;
+        localStorage.setItem('sec_id', response.data.Id)
         //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");

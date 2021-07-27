@@ -40,7 +40,7 @@
 
                 <div class="d-flex_ row">
                   <div class="col-md-12">
-                    <button type="button" class="button__">
+                    <button type="button" class="button__" @click="viewFullChart">
                       VIEW FULL REVIEW CHARTS
                     </button>
                   </div>
@@ -60,7 +60,7 @@
 
                 <div class="d-flex_ row">
                   <div class="col-md-12">
-                    <button type="button" class="button__">
+                    <button type="button" class="button__" @click="linkToChart">
                       CLICK TO DOWNLOAD REPORT
                       <img class="pl-2" src="~/assets/img/Group.png" alt="" />
                     </button>
@@ -487,6 +487,9 @@ export default {
        this.makeToast()
       }
     },
+    linkToChart(){
+     this.$router.push(`/admin/chartjs`);
+    },
     goToCompanyDetailsPage(company) {
       this.$router.push(`/admin/company/${company.Id}/${company.Name}`);
     },
@@ -553,6 +556,9 @@ export default {
         this.$store.commit("notifications/error", "something went wrong")
         this.makeToast()
       }
+    },
+    viewFullChart(){
+     this.$router.push(`/admin/industry/detail/${this.$route.params.id}/${this.$route.params.name}`)
     },
     async addCompany() {
       this.addCompanySpinner = true;

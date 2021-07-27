@@ -156,7 +156,7 @@ export default {
     async getDisplayBy(){
       try {
       const response = await this.$axios.get('/Settings/GetDisplayBys')
-      console.log(response.data)
+      // console.log(response.data)
       this.displayBy = response.data
       } catch (e){
       this.$store.commit("notifications/error", "something went wrong");
@@ -167,7 +167,7 @@ export default {
     async getDates(){
       try {
       const response = await this.$axios.get('/Settings/GetDateFormats')
-      console.log(response.data)
+      // console.log(response.data)
       this.dates = response.data
       } catch (e){
       this.$store.commit("notifications/error", "something went wrong");
