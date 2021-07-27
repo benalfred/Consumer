@@ -88,8 +88,6 @@
                 </b-form-group>
               </div>
              </div>
-
-
         <div>
             <ChartSideBarPeriod />
         </div>
