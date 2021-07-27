@@ -198,6 +198,24 @@
         </b-col>
       </div>
     </div>
+    <b-modal id="explore" title="Consumerhalla">
+    <p class="my-4">Take a survey with other sectors!</p>
+     <div class="d-flex__ row p-5 dell-card">
+          <div
+            class="col-md-4"
+            v-for="sector in industries"
+            :key="sector.Id"
+            style="cursor: pointer"
+            @click="linkToIndustries(sector)"
+          >
+            <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
+            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            <div class="company-name mt-2" style="margin-left:30px;">
+              <p class="p-2 pl-4 pr-4" style="color:#fff">{{ sector.Name }}</p>
+            </div>
+          </div>
+        </div>
+  </b-modal>
   </div>
 </template>
 
@@ -215,6 +233,8 @@ export default {
   mounted() {
     this.daysjs = dayjs
     this.allOpinions()
+    this.fetchSectors()
+    this.$bvModal.show('explore')
   },
   data() {
     return {
@@ -241,10 +261,13 @@ export default {
       pageForOpinions2: 1,
       Comment: null,
       pageSize: 10,
+      industries:[],
       ratingTagSpinner: false,
       Name: this.$route.params.name,
       Description: null,
       companyId: this.$route.params.id,
+      pageSize:1,
+      page:1,
       ratingTagId: [],
       ratingTags: [],
       totalRowsForOpinion: 0,
@@ -266,6 +289,22 @@ export default {
         return;
       } else {
         this.ratingTagId.push(tag);
+      }
+    },
+     linkToIndustries(sector) {
+      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
+    },
+     async fetchSectors() {
+      this.pageSize -= 1;
+      try {
+        const response = await this.$axios.get(
+          `Industries/GetSemiLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+        );
+       this.industries = response.data.Results
+      } catch (e) {
+        this.spinner = false
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
       }
     },
     async displayRatingTags(id) {
@@ -306,11 +345,11 @@ export default {
         this.Comment = null;
         this.rating = null;
         this.ratingTagId = [];
-        swal({
-          title: "Success!",
-          text: "Opinion Submitted thank you!",
-          icon: "success",
-        });
+        this.$store.commit("notifications/success", "opinion submitted successfully, Thank you!!");
+        this.makeToast()
+       setTimeout(() => {
+        this.$bvModal.show('explore')
+       }, 2000);
       } catch (e) {
         swal({
           title: "Error!",
@@ -376,6 +415,21 @@ export default {
 .bg-class {
 color: #fff!important;
   background-color: #e57718;
+}
+
+.company-name {
+  background: #07072f;
+  width: 100px;
+  color: white;
+  margin: 0px 0px 0px;
+  border-radius: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  box-shadow: 0px 12px 12px #00000029;
+}
+
+.company-image img {
+  height: 59px;
 }
 
 @media screen and (min-width: 750px) {

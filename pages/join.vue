@@ -170,7 +170,7 @@ import AOS from "aos";
 import "aos/dist/aos.css"
 export default {
    auth: 'guest',
-   
+
   data() {
     return {
       spinner: false,
@@ -189,9 +189,9 @@ export default {
       duration: 1000,
     });
   },
-  
 
-   
+
+
 
   methods: {
     async registerUser() {
@@ -224,9 +224,9 @@ export default {
         }
       }
     },
-    
+
   },
-  
+
 };
 </script>
 
