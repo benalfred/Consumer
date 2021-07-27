@@ -61,7 +61,7 @@
 
               <b-col md="8">
                 <div>
-                  <div class="mt-1">
+                  <div class="mt-">
                     <div>
                       <b-form-input
                         v-model="email"
@@ -69,10 +69,26 @@
                       ></b-form-input>
                     </div>
                   </div>
+                   <div class="mt-2" v-if="email2">
+                    <div>
+                      <b-form-input
+                        v-model="email2Value"
+                        placeholder="Enter email"
+                      ></b-form-input>
+                    </div>
+                  </div>
+                  <div class="mt-2" v-if="email3">
+                    <div>
+                      <b-form-input
+                        v-model="email3Value"
+                        placeholder="Enter email"
+                      ></b-form-input>
+                    </div>
+                  </div>
                 </div>
               </b-col>
               <b-col md="4" class="newpost_">
-                <b-form-group class="newpost mt-1">
+                <b-form-group class="newpost mt-">
                   <button
                     @click="referAFriend"
                     :disabled="!email || referSpinner"
@@ -137,9 +153,14 @@ export default {
       showCart: false,
       cartOpen: false,
       email: null,
+      email2:false,
+      email3:false,
+      email2Value:null,
+      email3Value:null,
       form: {
         Emails: [],
       },
+      
       referrals: [],
       spinner: false,
       referSpinner: false,
@@ -155,10 +176,18 @@ export default {
       });
     },
     async referAFriend() {
+      this.form.Emails.push(this.email3Value)
+      this.form.Emails.push(this.email2Value)
       this.referSpinner = true;
       try {
         await this.$axios.post("/Emails/ReferAFriend", this.form);
         this.referSpinner = false;
+        this.form.Email = []
+        this.email = null,
+        this.email2 = false,
+        this.email3 = false,
+        this.email2Value = null,
+        this.email3Value = null
         swal({
           title: "Success!",
           text: "Thank you, Friend referred!",
@@ -190,7 +219,14 @@ export default {
    watch: {
     email() {
       this.form.Emails = [this.email];
+      this.email2 = true
     },
+    email2Value(){
+      this.email3 = true
+    },
+    // email3Value(){
+    //   this.form.Emails.push(this.email2Value)
+    // }
   },
 };
 //TODO test mobile responsiveness of menu and dropdowns

@@ -111,7 +111,6 @@ export default {
           return;
         } else {
           this.spinner = false
-          console.log(err)
           this.$store.commit("notifications/error", "Something went wrong");
           this.makeToast();
         }

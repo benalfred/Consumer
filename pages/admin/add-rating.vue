@@ -166,7 +166,6 @@ export default {
     async getRatings() {
       try {
         const ratings = await this.$axios.get("settings/GetRatings");
-        console.log(ratings.data);
         this.ratingsData = ratings.data;
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");

@@ -155,7 +155,6 @@ export default {
               ctx.sectors2.push(com);
             }
           });
-          console.log(this.sectors2);
         }
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
