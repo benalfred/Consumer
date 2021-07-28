@@ -10,10 +10,10 @@
             <div class="number mb-4 ml-4 pl-3">
               <span>1st</span>
               <span>2st</span>
-              <span>3st</span>
-              <span>4st</span>
-              <span>5st</span>
-              <span>6st</span>
+              <span class="span" >3st</span>
+              <span class="span">4st</span>
+              <span class="span">5st</span>
+              <span class="span">6st</span>
             </div>
            </div>
 
@@ -24,9 +24,9 @@
             </div>
             <div class="number mb-4 ml-4 pl-3">
               <span>1st</span>
-              <span>2st</span>
-              <span>3st</span>
-              <span>4st</span>
+              <span class="span">2st</span>
+              <span class="span">3st</span>
+              <span class="span">4st</span>
             </div>
            </div>
 
@@ -37,7 +37,7 @@
             </div>
             <div class="number mb-4 ml-4 pl-3">
               <span>1st</span>
-              <span>2st</span>
+              <span class="span">2st</span>
             </div>
            </div>
 
@@ -67,7 +67,7 @@
                     ></v-select>
                   </div>
                 </b-form-group>
-                
+
               </div>
                   <div class=" " style="width: 140px; position: relative; left: 55px">
                   <b-form-group>
@@ -100,6 +100,11 @@ export default {
   font-size: 6px;
   padding: 0px 5px 0px;
   cursor: pointer;
+
+}
+
+.number .span {
+  opacity: 0.5;
 }
 
 h6 {
