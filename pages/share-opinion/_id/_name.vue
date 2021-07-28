@@ -198,6 +198,7 @@
         </b-col>
       </div>
     </div>
+
     <b-modal id="explore" title="Consumerhalla">
     <p class="my-4">Take a survey with other sectors!</p>
      <div class="d-flex__ row p-5 dell-card">
@@ -210,8 +211,8 @@
           >
             <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
             <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            <div class="company-name mt-2" style="margin-left:30px;">
-              <p class="p-2 pl-4 pr-4" style="color:#fff">{{ sector.Name }}</p>
+            <div class="company-name mt-2" style="">
+              <p class="p-2 text-center" style="color:#fff">{{ sector.Name }}</p>
             </div>
           </div>
         </div>
@@ -547,5 +548,10 @@ p {
 .emoji p {
   font-size: 34px;
   cursor: pointer;
+}
+
+.rounded {
+  height: 70px;
+  width: 100px
 }
 </style>

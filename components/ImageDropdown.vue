@@ -32,6 +32,8 @@
         </div>
       </div>
     </div>
+
+
     <div id="openModal-about1" class="modalDialog">
       <div>
         <div class="d-flex__ row dell-card">
@@ -118,7 +120,7 @@
           <b-container class="mt-5">
             <b-row class="d-flex" v-if="referrals.length && !spinner">
               <b-col
-                md="3"
+                md="6"
                 class="d-flex"
                 v-for="referred in referrals"
                 :key="referred.Id"
@@ -160,7 +162,7 @@ export default {
       form: {
         Emails: [],
       },
-      
+
       referrals: [],
       spinner: false,
       referSpinner: false,

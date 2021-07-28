@@ -1,6 +1,6 @@
 <template>
   <div>
-  
+
    <div id="openModal-about1" class="modalDialog">
       <div>
         <div class="d-flex__ row dell-card">
@@ -37,6 +37,7 @@
             </div>
           </div>
         </b-col>
+
         <b-col md="4" class="newpost_">
           <b-form-group class="newpost mt-1">
             <button
