@@ -53,6 +53,37 @@
             <b-form-checkbox size="lg"  style="border-radius: 0px!important" ></b-form-checkbox>
                 <h6 class="pt-1 mb-4 pl-3">Date Range</h6>
             </div>
+               <div class="row d-flex">
+                  <div class=" " style="width: 130px; position: relative; left: 50px">
+                  <b-form-group>
+                  <div class="form-group small-select2">
+                    <v-select
+                      v-model="templateType"
+                      :options="emailTemplatesTypes"
+                      placeholder="Start Date"
+                      :reduce="(type) => type.Id"
+                      @input="fetchEmailTemplate"
+                      label="Name"
+                    ></v-select>
+                  </div>
+                </b-form-group>
+                
+              </div>
+                  <div class=" " style="width: 140px; position: relative; left: 55px">
+                  <b-form-group>
+                  <div class="form-group small-select2">
+                    <v-select
+                      v-model="templateType"
+                      :options="emailTemplatesTypes"
+                      placeholder="End Date"
+                      :reduce="(type) => type.Id"
+                      @input="fetchEmailTemplate"
+                      label="Name"
+                    ></v-select>
+                  </div>
+                </b-form-group>
+              </div>
+               </div>
            </div>
           </div>
 </template>
