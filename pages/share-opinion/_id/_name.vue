@@ -49,7 +49,7 @@
           </b-media>
 
           <div class="row" v-if="ratingTags.length && !ratingTagSpinner">
-            <b-col md="4" v-for="tag in ratingTags" :key="tag.Id">
+            <b-col md="4" v-for="tag in ratingTags" :key="tag.Id" class="mb-2">
               <div
                 @click="setRatingTagId(tag.Id)"
                 :class="[colorChecking(tag.Id) ? 'bg-class' : '']"

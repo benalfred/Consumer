@@ -170,7 +170,7 @@
 
         <div class="item">
           <form
-            @submit.prevent="updateSector"
+            @submit.prevent="updateCompany1"
             data-validation="true"
             action="#"
             method="post"
