@@ -146,6 +146,7 @@
 export default {
   name: "ImageDropdown",
   async fetch() {
+     if(process.client)  alert('runn')
     await this.getReferrals();
   },
   data() {
@@ -205,6 +206,7 @@ export default {
       }
     },
     async getReferrals() {
+      if(process.client)  alert('runn')
       try {
         this.spinner = true;
         const response = await this.$axios.get("/Emails/GetMyReferredEmails");

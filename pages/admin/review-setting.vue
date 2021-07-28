@@ -27,26 +27,26 @@
 
             <b-col md="2" style="position: relative; left: 20px">
               <b-form-group class="mb-2 selectdate">
-                <div class="form-group">
-                 <input class="form-control" type="number" name="" :value="settings.NumberOfOpinionToDisplay">
+                <div class="form-group" v-if="settings">
+                 <input class="form-control" type="number" name="" v-model="settings.NumberOfOpinionToDisplay">
                 </div>
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
-                <div class="form-group">
-                  <input class="form-control" type="number" name="" :value="settings.DisplayBy">
+                <div class="form-group" v-if="settings">
+                  <input class="form-control8 " type="number" name="" v-model="settings.DisplayBy">
                 </div>
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
-                <div class="form-group">
-                 <input class="form-control" type="number" name="" :value="settings.DateFormat">
+                <div class="form-group" v-if="settings">
+                 <input class="form-control" type="number" name="" v-model="settings.DateFormat">
                 </div>
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
-                <div class="form-group">
-                  <input class="form-control" type="" name="" :value="settings.ViewAdditionalOpinion">
+                <div class="form-group" v-if="settings">
+                  <input class="form-control" type="" name="" v-model="settings.ViewAdditionalOpinion">
                 </div>
               </b-form-group>
             </b-col>

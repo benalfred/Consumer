@@ -102,7 +102,30 @@
 import ChartSideBarPeriod from './ChartSideBarPreiod.vue'
 export default {
   name: "ChartSideBar",
-  components: { ChartSideBarPeriod }
+  components: { ChartSideBarPeriod },
+  data() {
+    return {
+       emailTemplatesTypes: [],
+      templateType: null,
+      spinner: false,
+      emailTemplates: [],
+      template: null,
+    }
+  },
+  methods: {
+     async fetchEmailTemplate(id) {
+      try {
+        const response = await this.$axios.get(
+          `/EmailTemplates/GetEmailTemplate?emailType=${id}`
+        );
+        this.emailTemplates = [response.data];
+        this.template = response.data;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
+  }
 }
 </script>
 
