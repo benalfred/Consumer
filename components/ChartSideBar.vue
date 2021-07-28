@@ -88,8 +88,6 @@
                 </b-form-group>
               </div>
              </div>
-
-
         <div>
             <ChartSideBarPeriod />
         </div>
@@ -134,11 +132,10 @@ export default {
   overflow: hidden;
   overflow-y: scroll;
   max-height: 650px;
-
 }
 
 .ChartSideBar::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
   border-radius: 50px;
 }
 
