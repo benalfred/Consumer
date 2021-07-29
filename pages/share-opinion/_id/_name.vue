@@ -200,7 +200,7 @@
     </div>
 
     <b-modal id="explore" title="Consumerhalla">
-    <p class="my-4">Take a survey with other sectors!</p>
+    <h5 class="my-4">Take a survey with other sectors!</h5>
      <div class="d-flex__ row p-5 dell-card">
           <div
             class="col-md-4"
