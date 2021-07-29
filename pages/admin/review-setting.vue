@@ -108,6 +108,7 @@
                   </div>
                 </div>
               </b-form-group>
+              </b-col>
           </b-row>
 
           <b-row class="justify-content-center">
