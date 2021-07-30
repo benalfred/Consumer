@@ -79,10 +79,10 @@
                 <div class="" v-for="range in ranges" :key="range.Id">
                   <div class="w-100">{{ range.Name }}</div>
                   <div class="row">
-                    <b-col md="2" class="pl-lg-5 mt-5 pt-4">
+                    <b-col md="6" class="">
                       <b-form-group class="">
                         <div class="form-group">
-                          <label for="">from</label>
+                          <!-- <label for="">from</label> -->
                           <input
                             class="form-control"
                             type=""
@@ -92,10 +92,10 @@
                         </div>
                       </b-form-group>
                     </b-col>
-                    <b-col md="2" class="pl-lg-5 mt-5 pt-4">
-                      <b-form-group class="pt-1">
+                    <b-col md="6" class="">
+                      <b-form-group class="">
                         <div class="form-group">
-                          <label for="">to</label>
+                          <!-- <label for="">to</label> -->
                           <input
                             class="form-control"
                             type=""
@@ -113,7 +113,7 @@
 
           <b-row class="justify-content-center">
             <b-col md="4" class="newpost_ mt-1 justify-content-center">
-              <b-form-group class="newpost mt-3">
+              <b-form-group class="newpost mt-1">
                 <button
                   class="mt-2 btn-sacademy"
                   style="font-size: 16px"
