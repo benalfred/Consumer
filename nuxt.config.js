@@ -1,8 +1,8 @@
 export default {
     ssr: true,
-    // router: {
-    //     middleware: ['auth']
-    // },
+    router: {
+        middleware: ['auth']
+    },
     loading: {
         color: '#e57718',
         height: '5px',
