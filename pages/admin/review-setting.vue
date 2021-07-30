@@ -12,7 +12,7 @@
                 </div>
                 <b-form-input
                   class="mt-2 ml-4"
-                  v-model="text"
+                  v-model="rate.PreferredName"
                   :placeholder="rate.PreferredName"
                 ></b-form-input>
               </div>
@@ -76,7 +76,7 @@
             <b-col md="4" class="pl-lg-5 form-select">
               <h6 style="font-weight: 600; color: #626d73" class="pb-4">Set Age range</h6>
               <b-form-group class="">
-                <div class="" v-for="range in ranges" :key="range.Id">
+                <div class="" v-for="range in settings.AgeRanges" :key="range.Id">
                   <div class="w-100">{{ range.Name }}</div>
                   <div class="row">
                     <b-col md="2" class="pl-lg-5 mt-5 pt-4">
@@ -108,19 +108,31 @@
                   </div>
                 </div>
               </b-form-group>
-              </b-col>
+            </b-col>
           </b-row>
 
           <b-row class="justify-content-center">
             <b-col md="4" class="newpost_ mt-1 justify-content-center">
               <b-form-group class="newpost mt-3">
                 <button
+                  @click="updateSetting"
+                  :disabled="
+                    !form.DisplayBy ||
+                    !form.DateFormat ||
+                    !form.NumberOfOpinionToDisplay ||
+                    !form.ViewAdditionalOpinion
+                  "
                   class="mt-2 btn-sacademy"
                   style="font-size: 16px"
                   type="submit"
                   value="Send"
                 >
                   Update
+                  <b-spinner
+                    v-if="spinner"
+                    label="Spinning"
+                    style="margin-left: 5%"
+                  ></b-spinner>
                 </button>
               </b-form-group>
             </b-col>
@@ -142,12 +154,17 @@ export default {
     return {
       settings: null,
       dates: [],
+      spinner: false,
       text: null,
       displayBy: [],
       dateFormats: [],
       form: {
         DisplayBy: null,
         DateFormat: null,
+        ViewAdditionalOpinion: this.settings.ViewAdditionalOpinion,
+        NumberOfOpinionToDisplay: this.settings.NumberOfOpinionToDisplay,
+        RatingPreferredName: this.settings.Rating,
+        AgeRanges: this.settings.AgeRanges,
       },
       ranges: [],
       ratingEmoji: [
@@ -163,7 +180,7 @@ export default {
     await this.getSetting();
     await this.getDisplayBy();
     await this.getDates();
-    await this.getAgeRanges()
+    // await this.getAgeRanges()
   },
   methods: {
     makeToast() {
@@ -174,11 +191,21 @@ export default {
         solid: true,
       });
     },
-
+    async updateSetting() {
+      try {
+        this.spinner = true;
+        await this.$axios.get("Update/Settings", this.form);
+        this.spinner = false;
+        this.$store.commit("notifications/success", "settings updated successfully");
+        this.makeToast();
+      } catch (error) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
     async getSetting() {
       try {
         const response = await this.$axios.get("/Settings/GetSettings");
-        console.log(response.data);
         this.settings = response.data;
         this.form.DisplayBy = response.data.DisplayBy;
         this.form.DateFormat = response.data.DateFormat;
@@ -209,16 +236,16 @@ export default {
         this.makeToast();
       }
     },
-    async getAgeRanges() {
-      try {
-        const response = await this.$axios.get("/Settings/GetAgeRanges");
-        // console.log(response.data)
-        this.ranges = response.data;
-      } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
-      }
-    },
+    // async getAgeRanges() {
+    //   try {
+    //     const response = await this.$axios.get("/Settings/GetAgeRanges");
+    //     // console.log(response.data)
+    //     this.ranges = response.data;
+    //   } catch (e) {
+    //     this.$store.commit("notifications/error", "something went wrong");
+    //     this.makeToast();
+    //   }
+    // },
     ratingMethod(value) {
       let foundEmoji = this.ratingEmoji.find((emoji) => emoji.PreferredName === value);
       return foundEmoji;
