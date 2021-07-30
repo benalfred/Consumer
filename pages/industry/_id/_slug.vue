@@ -190,7 +190,7 @@
       <div>
         <div class="d-flex__ row">
           <a href="#close" title="Close" class="close">X</a>
-          <div class="d-flex_ row p-5" v-if="companies2.length">
+          <div class="p-5" v-if="companies2.length">
             <div
               style="cursor: pointer"
               @click="goToCompanyPage(company)"
