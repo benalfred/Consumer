@@ -425,3 +425,12 @@
 <style scoped>
 
 </style>
+
+
+ <nuxt-link class="sub navigation-link" v-if="!$auth.loggedIn" to="/join">
+                <span
+                  class="join py-1 p-2 px-4 text-white join"
+                  style="background-color: #e57718; text-decoration: none"
+                  >Join</span
+                >
+              </nuxt-link>

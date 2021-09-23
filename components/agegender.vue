@@ -229,6 +229,7 @@ html {
 .age  {
   overflow: auto;
   height: 500px;
+  margin-bottom: 60px;
 }
 
 

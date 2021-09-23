@@ -254,7 +254,7 @@ export default {
 section {
   /* background: #373737; */
   background: #e48c3e;
-  padding: 7rem 1.5rem;
+  padding: 3rem 1.5rem;
   min-height: (100vh - 0);
 }
 .contact-form input,

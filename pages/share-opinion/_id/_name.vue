@@ -199,19 +199,18 @@
       </div>
     </div>
 
-    <b-modal id="explore" title="Consumerhalla">
-    <h5 class="my-4">Take a survey with other sectors!</h5>
-     <div class="d-flex__ row p-5 dell-card">
+    <b-modal id="explore" size="lg" hide-footer scrollable centered  title="Take a survey with other sectors!">
+     <div class="d row ">
           <div
-            class="col-md-4"
+            class="col-md-3"
             v-for="sector in industries"
             :key="sector.Id"
             style="cursor: pointer"
             @click="linkToIndustries(sector)"
           >
-            <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
-            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-            <div class="company-name mt-2" style="">
+            <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid d-flex justify-content-center mx-auto" alt="" />
+            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid d-flex justify-content-center mx-auto" alt="" />
+            <div class="company-name text-center  mt-2" style="">
               <p class="p-2 text-center" style="color:#fff">{{ sector.Name }}</p>
             </div>
           </div>
@@ -420,7 +419,7 @@ color: #fff!important;
 
 .company-name {
   background: #07072f;
-  width: 100px;
+  width: 170px;
   color: white;
   margin: 0px 0px 0px;
   border-radius: 15px;

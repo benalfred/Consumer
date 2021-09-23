@@ -1,25 +1,13 @@
 <template>
   <div class="">
-    <section class="bg mt-5 pt-lg-5" style="padding-bottpm: 50px">
-      <div class="container">
+    <section class="bg mt-5 px-lg-2" style="padding-bottpm: 50px">
+      <div class="container-fluid">
         <b-row>
-          <b-col md="12">
-            <h4
-              class="text-center pb-4"
-              data-aos="fade-up"
-              data-aos-offset="30"
-              data-aos-delay="50"
-            >
-              Here’s what Nigerian’s are saying about the {{ Name }} Industry
-            </h4>
-          </b-col>
+         <b-col md="5" class="pt-5 px-lg-4 mt-lg-5 mb-5 order-sm-1 order-2 pr-md-0" >
+              <h1 style="line-height: 65px;">{{ Name }} <br> Company.</h1>
+              <p class="pt-4 lead-text">HERE IS WHAT NIGERINS ARE SAYING <br> ABOUT {{ Name }} Company</p>
 
-          <div class="big-image" :style="{ backgroundImage: 'url(' + Logo + ')' }">
-            <div class="background-text">
-              <b-row>
-                <b-col md="8"> </b-col>
-                <b-col md="4" class="newpost_ mt-1 justify-content-end">
-                  <b-form-group class="newpost mt-3">
+           <b-form-group class="newpost mt-3">
                     <button
                       @click="shareOpinion"
                       class="mt-2 btn-sacademy"
@@ -29,19 +17,23 @@
                     >
                       Share opinion
                     </button>
-                  </b-form-group>
-                </b-col>
-              </b-row>
-              <div
-                class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12"
-              >
-                <h2 class="h2 pb-5">{{ Name }} Company</h2>
-                <p class="ptag">
-                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{ Name }} Company
-                </p>
-              </div>
+            </b-form-group>
+        </b-col>
 
-              <div class="row pb-1 pt-3 pl-2 container justify-content-center">
+
+
+        <b-col md="6" class=" order-sm-2 ml-llg-5 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
+              <img
+                   src="~/assets/img/happy-girls.png"
+                        class="img-fluid ml-lg-3 "
+                        alt=""
+                      />
+        </b-col>
+
+        </b-row>
+           <div class="col-md-12">
+
+              <div class="row pb-1 pt-3 pl-2 pt-2 pb-3 justify-content-center" style="background: black">
                 <div class="col-md-2 p-2" style="background: #00b5d3">
                   <b-media>
                     <template #aside>
@@ -122,33 +114,19 @@
                   </b-media>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div class="col-md-12">
-            <div style="background: #0083ca" class="p-2 mt-1 mb-5"></div>
           </div>
-        </b-row>
       </div>
     </section>
 
     <b-container class="mb-5 second-con">
-      <b-row class="mt-5 d-lg-flex">
+      <b-row class=" d-lg-flex">
         <b-col md="5">
           <p
-            class="header-p"
-            data-aos="fade-right"
-            data-aos-offset="30"
-            data-aos-delay="50"
-          >
+            class="header-p">
             {{ Name }}
           </p>
-          <p
-            class="pt-3 dell-p"
-            data-aos="fade-right"
-            data-aos-offset="30"
-            data-aos-delay="200"
-          >
+          <p class="pt-3 dell-p">
             {{ Description }}
           </p>
           <b-form-group
@@ -174,7 +152,7 @@
         <b-col md="5" class="dell-card">
           <p class="pb-2 header-p">OTHER POPULAR TECHNOLOGIES</p>
           <div class="d-none d-sm-block" v-if="!spinner">
-            <div class="d-flex_ row p-5" data-aos="flip-right">
+            <div class="d-flex_ row p-5" data-aos="fade-up">
               <div
                 class="col-md-4"
                 style="cursor: pointer"
@@ -186,16 +164,16 @@
                    <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
                 <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
                 <div class="company-name mt-2">
-                  <p class="p-2 text-center">{{ sector.Name }}</p>
+
                 </div>
                </div>
               </div>
               <div class="col-md-4" v-if="sectors2.length">
-                <a href="#openModal-about">
-                  <button class="btn">
+                <a >
+                  <button class="btn"  @click="modalShow = !modalShow">
                     <img
                       src="~/assets/img/viewall.png"
-                      class="img-fluid pt-2"
+                      class="img-fluid ml-n3"
                       alt=""
                     /></button
                 ></a>
@@ -208,8 +186,10 @@
             style="margin-left: 50%"
           ></b-spinner>
 
+
+
           <div class="d-block d-sm-none" v-if="!spinner">
-            <div class="d-flex_ row p-5" data-aos="flip-right">
+            <div class="d-flex_ row p-5" data-aos="fade-up">
               <div
                 class="col-6"
                 style="cursor: pointer"
@@ -217,19 +197,19 @@
                 :key="sector.Id"
                 @click="linkToIndustries(sector)"
               >
-                <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
+                <img v-if="sector.Logo" :src="sector.Logo" class="rounded_ img-fluid" alt="" />
                 <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
                 <div class="company-name mt-2">
-                  <p class="p-2">{{ sector.Name }}</p>
+
                 </div>
               </div>
 
               <div class="col-6" v-if="sectors2.length">
-                <a href="#openModal-about">
-                  <button class="btn">
+                <a>
+                  <button class="btn"  @click="modalShow = !modalShow">
                     <img
                       src="~/assets/img/viewall.png"
-                      class="img-fluid pt-2"
+                      class="img-fluid ml-n3"
                       alt=""
                     /></button
                 ></a>
@@ -248,12 +228,13 @@
       :GenerationXRating="post.GenerationXRating"
       v-if="post"
     />
+
     <Footer />
 
-    <div id="openModal-about" class="modalDialog">
-      <div class="d-none d-sm-block">
-        <a href="#close" title="Close" class="close">X</a>
-        <div class="d-flex__ row p-5 dell-card">
+  <b-modal v-model="modalShow" size="lg" hide-header header-bg-variant="white" hide-footer header-class="border-0" scrollable centered body-bg-variant="white">
+
+  <div class="d-none d-sm-block">
+        <div class=" row ">
           <div
             class="col-md-3"
             v-for="sector in sectors2"
@@ -261,18 +242,17 @@
             style="cursor: pointer"
             @click="linkToIndustries(sector)"
           >
-            <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
+            <img v-if="sector.Logo" :src="sector.Logo" class="rounded_ d-flex mx-auto justify-content-center img-fluid" alt="" />
             <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
             <div class="company-name mt-2">
-              <p class="p-2 text-center">{{ sector.Name }}</p>
+              <p class="p-2 text-center" style="font-size: 12px!important">{{ sector.Name }}</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="d-block d-sm-none">
-        <a href="#close" title="Close" class="close">X</a>
-        <div class="d-flex__ row p-5 dell-card">
+        <div class=" row ">
           <div
             class="col-md-3"
             v-for="sector in sectors2"
@@ -280,15 +260,17 @@
             style="cursor: pointer"
             @click="linkToIndustries(sector)"
           >
-            <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
-            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+            <img v-if="sector.Logo" :src="sector.Logo" class="rounded_ img-fluid d-flex mx-auto justify-content-center" alt="" />
+            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid  d-flex mx-auto justify-content-center" alt="" />
             <div class="company-name mt-2">
               <p class="p-2 text-center">{{ sector.Name }}</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+  </b-modal>
+
   </div>
 </template>
 
@@ -315,6 +297,7 @@ export default {
   },
   data() {
     return {
+      modalShow: false,
       Name: null,
       Slogan: null,
       Banner: "",
@@ -410,6 +393,21 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  color: #241d36;
+  font-family: 'Rawline Bold';
+  font-size: 37px;
+  font-weight: bolder;
+}
+
+.lead-text {
+  color: #241d36;
+  font-size: 19px;
+  font-weight: 500;
+  font-family: 'Rawline Medium';
+}
+
 .img1 {
   background: #fff;
   border-radius: 19.5px;
@@ -461,7 +459,6 @@ export default {
 
 .company-name {
   background: #07072f;
-
   color: white;
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
@@ -488,7 +485,7 @@ export default {
 
 @media screen and (max-width: 740px) {
   .big-image {
-    height: 62vh;
+    height: 120vh;
     width: 99vw;
     position: relative;
     background-repeat: repeat;
@@ -497,25 +494,6 @@ export default {
     background-position: 50% 50%;
     overflow: auto;
   }
-}
-
-div.background-text {
-  opacity: 0.7;
-  background-color: #000;
-  font-weight: 600;
-  color: #fff;
-  height: 82vh;
-}
-
-.background-text h2 {
-  color: white;
-  font-weight: 700;
-  font-size: 45px;
-}
-.background-text .ptag {
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
 }
 
 .d-flex__ {
@@ -530,68 +508,13 @@ div.background-text {
 .dell-card img {
   margin: 20px 0px 10px;
 }
-.modalDialog {
-  position: fixed;
-  top: 0px;
-  right: 0;
-  background: white;
-  bottom: 0;
-  left: 0;
-  z-index: 99999;
-  opacity: 0;
-  margin-trim: 50px;
-  -webkit-transition: opacity 100ms ease-in;
-  -moz-transition: opacity 100ms ease-in;
-  transition: opacity 100ms ease-in;
-  pointer-events: none;
-  overflow: auto;
-}
-.modalDialog:target {
-  opacity: 1;
-  pointer-events: auto;
-}
-.modalDialog > div {
-  max-width: 600px;
-  width: 60%;
-  position: relative;
-  margin: 5% auto;
-  border-radius: 10px;
-  background: #626d73;
-  border-radius: 10px;
-}
-.close {
-  font-family: Arial, Helvetica, sans-serif;
-  background: black;
-  font-size: 12px;
-  color: #fff;
-  line-height: 25px;
-  position: absolute;
-  right: 17px;
-  text-align: center;
-  top: 15px;
-  padding: 10px 13px 5px;
-  text-decoration: none;
-  font-weight: bold;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  -moz-box-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 1px 1px 3px #000;
-  box-shadow: 1px 1px 3px #000;
-  padding-top: 5px;
-}
-.close:hover {
-  background: #fa3f6f;
-}
+
 @media screen and (min-width: 720px) {
-  .bg {
-    height: 65vh;
-    background: #ffdfc4;
-  }
   .second-con {
-    margin-top: 220px;
+    margin-top: 120px;
   }
 }
+
 h4 {
   font-family: Poppins;
   font-style: normal;
@@ -603,12 +526,12 @@ h4 {
 }
 
 .header-p {
-  font-family: Poppins;
+  color: #241d36;
+  font-family: 'Rawline Bold';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 60px;
-  color: #626d73;
 }
 
 .dell-p {
@@ -656,7 +579,15 @@ h4 {
 }
 
 .rounded {
-  height: 70px;
+  height: 100px;
+  width: 70px
+}
+
+.rounded_ {
+  height: 100px;
   width: 100px
 }
 </style>
+
+
+ <p class="p-2 text-center">{{ sector.Name }}</p>
