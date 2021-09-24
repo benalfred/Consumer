@@ -65,17 +65,13 @@
                 <div class="d-flex_ row" v-if="features.length && !fetchFeatureSpinner">
                   <div
                     class="col-md-6 d-flex pb-3"
-                    v-for="feature in features"
-                    :key="feature.Id"
+                    v-for="feature in features" :key="feature.Id"
                   >
-                    <button type="button" class="btn1 ">
+                    <button type="button" class="btn1">
                       {{ feature.Name }}
                     </button>
-                    <i
-                      @click="deleteFeature(feature.Id)"
-                      class="far fa-times-circle"
-                      style="bottom: 10px; position: relative; cursor: pointer"
-                    ></i>
+                    <i  @click="deleteFeature(feature.Id)" class="far fa-times-circle"
+                      style="bottom: 10px; position: relative; cursor: pointer"></i@click=>
                   </div>
                 </div>
                 <div class="" v-if="!features.length && !fetchFeatureSpinner">
