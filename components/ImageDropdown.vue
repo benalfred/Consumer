@@ -43,7 +43,7 @@
                 <h4 class="font-weight-bold">Refer a friend</h4>
               </b-col>
               <b-col md="6" class="d-flex justify-content-end">
-                <a href="#close" title="Close" class="close">X</a>
+                <a href="#close" title="Close" class="close" @click="setFalse">X</a>
               </b-col>
               <b-col md="12">
                 <div
@@ -148,7 +148,6 @@
 export default {
   name: "ImageDropdown",
   async fetch() {
-     if(process.client)  alert('runn')
     await this.getReferrals();
   },
   data() {
@@ -178,9 +177,17 @@ export default {
         solid: true,
       });
     },
+    setFalse(){
+     this.form.Email = []
+        this.email = null,
+        this.email2 = false,
+        this.email3 = false,
+        this.email2Value = null,
+        this.email3Value = null
+    },
     async referAFriend() {
-      this.form.Emails.push(this.email3Value)
-      this.form.Emails.push(this.email2Value)
+      this.email3Value ? this.form.Emails.push(this.email3Value) : ''
+       this.email2Value ? this.form.Emails.push(this.email2Value) : ''
       this.referSpinner = true;
       try {
         await this.$axios.post("/Emails/ReferAFriend", this.form);
@@ -196,6 +203,7 @@ export default {
           text: "Thank you, Friend referred!",
           icon: "success",
         });
+         await this.getReferrals()
       } catch (e) {
         if (e.response) {
           this.referSpinner = false;
@@ -208,11 +216,9 @@ export default {
       }
     },
     async getReferrals() {
-      if(process.client)  alert('runn')
       try {
         this.spinner = true;
         const response = await this.$axios.get("/Emails/GetMyReferredEmails");
-        console.log('referrals',response.data)
         this.referrals = response.data;
         this.spinner = false;
       } catch (e) {

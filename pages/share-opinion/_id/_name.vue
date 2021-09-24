@@ -230,6 +230,11 @@ export default {
     await this.getRatings();
     await this.fetchCompanyDetails();
   },
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   middleware: ['auth','account_setup'],
   mounted() {
     this.daysjs = dayjs
@@ -261,6 +266,7 @@ export default {
       pageForOpinions: 1,
       pageForOpinions2: 1,
       Comment: null,
+      title:'Share Opinion',
       pageSize: 10,
       industries:[],
       ratingTagSpinner: false,

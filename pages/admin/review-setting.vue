@@ -62,20 +62,35 @@
               </b-form-group>
 
               <b-form-group class="mb-2 selectdate">
-                <div class="form-group" v-if="settings">
+                <div class="form-check form-check-inline">
                   <input
-                    class="form-control"
-                    type=""
-                    name=""
-                    v-model="settings.ViewAdditionalOpinion"
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="inlineRadio1"
+                    v-model="form.ViewAdditionalOpinion"
+                    value="false"
                   />
+                  <label class="form-check-label" for="inlineRadio1">No</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    v-model="form.ViewAdditionalOpinion"
+                    id="inlineRadio2"
+                    value="true"
+                  />
+                  <label class="form-check-label" for="inlineRadio2">Yes</label>
                 </div>
               </b-form-group>
             </b-col>
 
             <b-col md="4" class="pl-lg-5 form-select">
               <h6 style="font-weight: 600; color: #626d73" class="pb-4">Set Age range</h6>
-              <b-form-group class="">
+              <b-form-group class="" v-if="settings">
                 <div class="" v-for="range in settings.AgeRanges" :key="range.Id">
                   <div class="w-100">{{ range.Name }}</div>
                   <div class="row">
@@ -116,12 +131,6 @@
               <b-form-group class="newpost mt-1">
                 <button
                   @click="updateSetting"
-                  :disabled="
-                    !form.DisplayBy ||
-                    !form.DateFormat ||
-                    !form.NumberOfOpinionToDisplay ||
-                    !form.ViewAdditionalOpinion
-                  "
                   class="mt-2 btn-sacademy"
                   style="font-size: 16px"
                   type="submit"
@@ -150,21 +159,27 @@ export default {
   layout: "dashlayout",
   middleware: "admin",
   component: { UserResponse, Links },
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   data() {
     return {
       settings: null,
       dates: [],
       spinner: false,
+      title: "Review Setting",
       text: null,
       displayBy: [],
       dateFormats: [],
       form: {
         DisplayBy: null,
         DateFormat: null,
-        ViewAdditionalOpinion: this.settings.ViewAdditionalOpinion,
-        NumberOfOpinionToDisplay: this.settings.NumberOfOpinionToDisplay,
-        RatingPreferredName: this.settings.Rating,
-        AgeRanges: this.settings.AgeRanges,
+        ViewAdditionalOpinion: true ? "true" : "false",
+        NumberOfOpinionToDisplay: null,
+        Ratings: [],
+        AgeRanges: [],
       },
       ranges: [],
       ratingEmoji: [
@@ -192,13 +207,23 @@ export default {
       });
     },
     async updateSetting() {
+      this.form.DisplayBy = this.settings.DisplayBy;
+      this.form.DateFormat = this.settings.DateFormat;
+      this.form.AgeRanges = this.settings.AgeRanges;
+      this.form.RatingPreferredNames = this.settings.Ratings;
+      this.form.ViewAdditionalOpinion =
+        this.form.ViewAdditionalOpinion === "true"
+          ? (this.form.ViewAdditionalOpinion = true)
+          : (this.form.ViewAdditionalOpinion = false);
+      this.form.NumberOfOpinionToDisplay = this.settings.NumberOfOpinionToDisplay;
       try {
         this.spinner = true;
-        await this.$axios.get("Update/Settings", this.form);
+        await this.$axios.post("Settings/UpdateSettings", this.form);
         this.spinner = false;
         this.$store.commit("notifications/success", "settings updated successfully");
         this.makeToast();
       } catch (error) {
+        this.spinner = false;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -209,6 +234,10 @@ export default {
         this.settings = response.data;
         this.form.DisplayBy = response.data.DisplayBy;
         this.form.DateFormat = response.data.DateFormat;
+        this.form.AgeRanges = response.data.AgeRanges;
+        this.form.RatingPreferredNames = response.data.Ratings;
+        this.form.ViewAdditionalOpinion = response.data.ViewAdditionalOpinion;
+        this.form.NumberOfOpinionToDisplay = response.data.NumberOfOpinionToDisplay;
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();

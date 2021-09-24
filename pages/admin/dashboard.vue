@@ -330,9 +330,15 @@ export default {
   layout: "dashlayout",
   middleware:'admin',
   component: { SectorsList },
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey Admin`,
+    };
+  },
   data() {
     return {
       logoutMenuState: false,
+      title:'Admin Dashboard',
       threeOpen: false,
       positiveRatings: [],
       isFetchingSectors: false,

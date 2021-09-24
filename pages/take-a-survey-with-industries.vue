@@ -73,9 +73,15 @@
 <script>
 export default {
   layout: "headerr",
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   data() {
     return {
       sectors: [],
+      title:'Take a Survey with Industries',
       page: 1,
       pageSize: 1,
       pageForOpinions2: 1,

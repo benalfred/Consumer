@@ -164,7 +164,10 @@
             data-aos-offset="10"
             data-aos-delay="300"
           >
-            <n-link class="button_1 btn-lg mt-md-5 mt-5" to="/take-a-survey-with-industries" role="button_"
+            <n-link
+              class="button_1 btn-lg mt-md-5 mt-5"
+              to="/take-a-survey-with-industries"
+              role="button_"
               >Get Started
             </n-link>
           </div>
@@ -355,12 +358,21 @@
         <a href="#close" title="Close" class="close">X</a>
         <div class="d-flex__ row dell-card" v-if="fetchedSectors.length">
           <div class="col-md-3" v-for="sector in fetchedSectors" :key="sector.Id">
-            <div v-if="sector.Banner" @click="takeToSector(sector)" style="cursor:pointer">
+            <div
+              v-if="sector.Banner"
+              @click="takeToSector(sector)"
+              style="cursor: pointer"
+            >
               <img :src="sector.Banner" class="img-fluid" alt="" />
             </div>
-            <div v-else @click="takeToSector(sector)" style="cursor:pointer">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
-              <p class="text-center">{{sector.Name}}</p>
+            <div v-else @click="takeToSector(sector)" style="cursor: pointer">
+              <img
+                src="~/assets/img/dell-icon.png"
+                class="img-fluid pl-2"
+                width="100"
+                alt=""
+              />
+              <p class="text-center">{{ sector.Name }}</p>
             </div>
           </div>
         </div>
@@ -370,19 +382,26 @@
         <a href="#close" title="Close" class="close">X</a>
         <div class="d-flex__ row dell-card" v-if="fetchedSectors.length">
           <div class="col-6" v-for="sector in fetchedSectors" :key="sector.Id">
-            <div v-if="sector.Banner" @click="takeToSector(sector)" style="cursor:pointer">
+            <div
+              v-if="sector.Banner"
+              @click="takeToSector(sector)"
+              style="cursor: pointer"
+            >
               <img :src="sector.Banner" class="img-fluid" alt="" />
             </div>
-            <div v-else @click="takeToSector(sector)" style="cursor:pointer">
-              <img src="~/assets/img/dell-icon.png" class="img-fluid pl-2" width="100" alt="" />
-              <p class="text-center">{{sector.Name}}</p>
+            <div v-else @click="takeToSector(sector)" style="cursor: pointer">
+              <img
+                src="~/assets/img/dell-icon.png"
+                class="img-fluid pl-2"
+                width="100"
+                alt=""
+              />
+              <p class="text-center">{{ sector.Name }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -393,7 +412,11 @@ import "remixicon/fonts/remixicon.css";
 import footer from "~/components/footer";
 export default {
   layout: "headerr",
-
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   components: {
     carousel: () =>
       process.client
@@ -407,6 +430,11 @@ export default {
       duration: 1000,
     });
   },
+  data() {
+    return {
+      title: "Home",
+    };
+  },
   // middleware: "account_setup",
   computed: {
     fetchedSectors() {
@@ -414,8 +442,8 @@ export default {
     },
   },
   methods: {
-    takeToSector(sector){
-      this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
+    takeToSector(sector) {
+      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
     },
     onSlideStart(slide) {
       this.sliding = true;

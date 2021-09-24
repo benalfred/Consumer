@@ -54,9 +54,8 @@
 
                   <div class="text-center pt-2">
                     <p class="terms">
-                      Dont have an account? <router-link to="/join">
-                       Join here
-                      </router-link>
+                      Dont have an account?
+                      <router-link to="/join"> Join here </router-link>
                     </p>
                   </div>
 
@@ -78,10 +77,16 @@
 <script>
 export default {
   layout: "headerr",
-   auth: 'guest',
+  auth: "guest",
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   data() {
     return {
       spinner: false,
+      title: "Login",
       login: {
         Username: "samuel@igunleinnovations.com",
         Password: "Password1.,",
@@ -89,7 +94,7 @@ export default {
     };
   },
   methods: {
-     makeToast() {
+    makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
         autoHideDelay: 5000,
@@ -99,18 +104,18 @@ export default {
     },
     async userLogin() {
       try {
-        this.spinner = true
+        this.spinner = true;
         let response = await this.$auth.loginWith("local", { data: this.login });
         // this.$store.state.auth.loggedIn = true
-        this.spinner = false
-        await this.$router.back()
+        this.spinner = false;
+        await this.$router.back();
       } catch (err) {
         if (err.response) {
           this.$store.commit("notifications/error", err.response.data);
           this.makeToast();
           return;
         } else {
-          this.spinner = false
+          this.spinner = false;
           this.$store.commit("notifications/error", "Something went wrong");
           this.makeToast();
         }

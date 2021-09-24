@@ -90,9 +90,7 @@
                   <div class="text-center pt-2">
                     <p class="terms">
                       Already have an account?
-                      <router-link to="/login">
-                       Login in
-                      </router-link>
+                      <router-link to="/login"> Login in </router-link>
                     </p>
                   </div>
 
@@ -167,13 +165,14 @@
 
 <script>
 import AOS from "aos";
-import "aos/dist/aos.css"
+import "aos/dist/aos.css";
 export default {
-   auth: 'guest',
+  auth: "guest",
 
   data() {
     return {
       spinner: false,
+      title:'Join',
       form: {
         Surname: "benalfred",
         FirstName: "ebho",
@@ -183,6 +182,11 @@ export default {
       },
     };
   },
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   mounted() {
     AOS.init({
       offset: 100,
@@ -190,14 +194,11 @@ export default {
     });
   },
 
-
-
-
   methods: {
     async registerUser() {
       this.spinner = true;
       try {
-         await this.$axios.post("/account/register", this.form);
+        await this.$axios.post("/account/register", this.form);
         this.spinner = false;
         swal({
           title: "Success!",
@@ -224,9 +225,7 @@ export default {
         }
       }
     },
-
   },
-
 };
 </script>
 

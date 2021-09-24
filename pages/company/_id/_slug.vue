@@ -182,13 +182,18 @@
                 :key="sector.Id"
                 @click="linkToIndustries(sector)"
               >
-               <div class="company-image">
-                   <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
-                <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
-                <div class="company-name mt-2">
-                  <p class="p-2 text-center">{{ sector.Name }}</p>
+                <div class="company-image">
+                  <img
+                    v-if="sector.Logo"
+                    :src="sector.Logo"
+                    class="rounded img-fluid"
+                    alt=""
+                  />
+                  <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
+                  <div class="company-name mt-2">
+                    <p class="p-2 text-center">{{ sector.Name }}</p>
+                  </div>
                 </div>
-               </div>
               </div>
               <div class="col-md-4" v-if="sectors2.length">
                 <a href="#openModal-about">
@@ -202,11 +207,7 @@
               </div>
             </div>
           </div>
-          <b-spinner
-            v-if="spinner"
-            label="Spinning"
-            style="margin-left: 50%"
-          ></b-spinner>
+          <b-spinner v-if="spinner" label="Spinning" style="margin-left: 50%"></b-spinner>
 
           <div class="d-block d-sm-none" v-if="!spinner">
             <div class="d-flex_ row p-5" data-aos="flip-right">
@@ -217,7 +218,12 @@
                 :key="sector.Id"
                 @click="linkToIndustries(sector)"
               >
-                <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid" alt="" />
+                <img
+                  v-if="sector.Logo"
+                  :src="sector.Logo"
+                  class="rounded img-fluid"
+                  alt=""
+                />
                 <img v-else src="~/assets/img/dell-icon.png" class="img-fluid" alt="" />
                 <div class="company-name mt-2">
                   <p class="p-2">{{ sector.Name }}</p>
@@ -313,14 +319,20 @@ export default {
       duration: 1000,
     });
   },
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   data() {
     return {
       Name: null,
       Slogan: null,
+      title: "View Company",
       Banner: "",
       Logo: null,
       post: null,
-      spinner:false,
+      spinner: false,
       page: 1,
       pageSize: 1,
       pageForOpinions2: 1,
@@ -379,26 +391,26 @@ export default {
       }
     },
     async fetchIndustryDetails() {
-      this.spinner = true
-     let sec_id = localStorage.getItem('sec_id')
+      this.spinner = true;
+      let sec_id = localStorage.getItem("sec_id");
       try {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${sec_id}`
         );
         if (response.data.Companies.length) {
           response.data.Companies.filter((sec) => {
-            if (this.sectors.length != 6) {
+            if (this.sectors.length != 6 && sec.Id != this.$route.params.id) {
               this.sectors.push(sec);
             }
           });
           let ctx = this;
           response.data.Companies.filter((com, index) => {
-            if (index > 5) {
+            if (index > 5 ) {
               ctx.sectors2.push(com);
             }
           });
         }
-        this.spinner = false
+        this.spinner = false;
         //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
@@ -650,13 +662,12 @@ h4 {
   border-radius: 10px;
 }
 
-
 .dell-card img {
   margin: 20px 0px 10px;
 }
 
 .rounded {
   height: 70px;
-  width: 100px
+  width: 100px;
 }
 </style>

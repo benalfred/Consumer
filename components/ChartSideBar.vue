@@ -10,8 +10,8 @@
                     <label for="" class="text-dark_" style=""
                       >Gender</label>
                     <v-select
-                      v-model="templateType"
-                      :options="emailTemplatesTypes"
+                      v-model="selected_gender"
+                      :options="genderOptions"
                       placeholder="All"
                       :reduce="(type) => type.Id"
                       @input="fetchEmailTemplate"
@@ -33,11 +33,10 @@
                     <label for="" class="text-dark_" style=""
                       >Age</label>
                     <v-select
-                      v-model="templateType"
-                      :options="emailTemplatesTypes"
+                      v-model="selectedAge"
+                      :options="ageOptions"
                       placeholder="All"
                       :reduce="(type) => type.Id"
-                      @input="fetchEmailTemplate"
                       label="Name"
                     ></v-select>
                   </div>
@@ -53,13 +52,13 @@
                   <b-form-group>
                   <div class="form-group small-select2">
                     <label for="" class="text-dark_" style=""
-                      >States</label>
+                      >Scd desktoptates</label>
                     <v-select
-                      v-model="templateType"
-                      :options="emailTemplatesTypes"
+                      v-model="selectedState"
+                      :options="stateOptions"
                       placeholder="All"
                       :reduce="(type) => type.Id"
-                      @input="fetchEmailTemplate"
+                      @input="getFeatures"
                       label="Name"
                     ></v-select>
                   </div>
@@ -77,8 +76,8 @@
                     <label for="" class="text-dark_" style=""
                       >Local Gov’t Area</label>
                     <v-select
-                      v-model="templateType"
-                      :options="emailTemplatesTypes"
+                      v-model="selected_lga"
+                      :options="lgaOptions"
                       placeholder="All"
                       :reduce="(type) => type.Id"
                       @input="fetchEmailTemplate"
@@ -109,6 +108,14 @@ export default {
       emailTemplates: [],
       template: null,
     }
+  },
+props:{
+ genderOptions: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
   },
   methods: {
      async fetchEmailTemplate(id) {

@@ -177,7 +177,7 @@
             data-aos="fade-up"
             data-aos-anchor-placement="center-bottom"
           >
-          {{Description}}
+            {{ Description }}
           </p>
         </div>
         <div class="col-md-6 img-side"></div>
@@ -222,9 +222,15 @@ export default {
     await this.fetchIndustryDetails();
   },
   component: { agegender, footer, SecNav },
+  head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
   data() {
     return {
       Name: null,
+      title: "View Sector",
       Slogan: null,
       Banner: "",
       Logo: null,
@@ -263,13 +269,12 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
         );
-        localStorage.setItem('sec_Id', response.data.Id)
+        if(process.client) localStorage.setItem("sec_Id", response.data.Id);
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;
         this.Logo = response.data.Logo;
-        this.Banner = await response.data.Banner;
-        console.log(response.data.Companies)
+        this.Banner =  response.data.Banner;
         if (response.data.Companies.length) {
           response.data.Companies.filter((sec) => {
             if (this.companies.length != 6) {
@@ -288,7 +293,6 @@ export default {
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
         this.post = response.data;
-        localStorage.setItem('sec_id', response.data.Id)
         //  document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
