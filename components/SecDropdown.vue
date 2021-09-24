@@ -1,26 +1,50 @@
 <template>
-  <div class="">
+  <div class="d-flex">
+
+       <ul class="navbar-nav ml-auto align-items-lg-center d-none d-sm-block">
+                <li class="m-mega-menu m-dropdown">
+                  <nuxt-link style="font-size: 19px;" class="nav-link" to="/products"
+                  >Services <i class="fa fa-angle-down m-dropdown-toggle ml-2"></i>
+                  </nuxt-link>
+
+
+                  <div class="m-dropdown-menu m-dropdown-mega-menu">
+                    <div class="container-fliud">
+                      <div class="row">
+                        <div class="col-md-6 col-lg-3"  v-for="sector in sectors2" :key="sector.Id">
+                          <ul class="mm-link">
+                            <li>
+                              <nuxt-link class="" :to="`/industry/${sector.Id}/${sector.Name}`"
+                              >{{ sector.Name }}</nuxt-link>
+                            </li>
+
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
     <div
-      class="nav-list  text-center d-flex justify-content-center align-items-center"
+      class="nav-list justify-content-center align-items-center d-block d-sm-none"
       type="submit"
       @click="threeMenuOpen">
 
-      <p class="sectors mr-4">Industries <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
+      <p class=" mr-4">Industries <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
+
 
       <ul
         class="logout-sub-menu sub-menu mt-4 mr-4"
         id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
 
-        <li>
-          <div
-            v-for="sector in sectors2"
+        <li  v-for="sector in sectors2"
             :key="sector.Id"
-            class="d-flex  align-items-start justify-content-start">
+            class="">
+
              <nuxt-link
             :to="`/industry/${sector.Id}/${sector.Name}`"
-            > <p>{{ sector.Name }}</p> </nuxt-link
-          >
-          </div>
+            > {{ sector.Name }} </nuxt-link>
         </li>
       </ul>
     </div>
@@ -75,6 +99,113 @@ export default {
 </script>
 
 <style scoped>
+
+@media (min-width: 992px) {
+  .m-dropdown .m-dropdown-toggle {
+    vertical-align: middle; }
+  .m-dropdown .m-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0px 26px 21px 0px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eee;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    pointer-events: none;
+    -moz-transition: ease all 0.55s;
+    -o-transition: ease all 0.55s;
+    -webkit-transition: ease all 0.55s;
+    transition: ease all 0.55s;
+    opacity: 0; }
+    .m-dropdown .m-dropdown-menu > li > a {
+      color: #233D63;
+      padding: 10px 15px;
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      border-left: 3px solid transparent; }
+    .m-dropdown .m-dropdown-menu > li:hover > a {
+      background: rgba(38, 92, 220, 0.08);
+      color: #1181dd;
+      border-left: 3px solid #1181dd; }
+  .m-dropdown:hover .m-dropdown-menu {
+    opacity: 1;
+    top: 100%;
+    pointer-events: auto; }
+
+  .m-mega-menu {
+    position: static !important; }
+    .m-mega-menu .m-dropdown-mega-menu {
+      width: 100%;
+      padding: 10px 25px; }
+    .m-mega-menu .mm-link {
+      margin: 0;
+      padding: 15px 0; }
+      .m-mega-menu .mm-link li {
+        list-style: none;
+        position: relative;
+        padding: 6px 0; }
+        .m-mega-menu .mm-link li a {
+          color: #233D63;
+          display: block;
+          position: relative;
+          padding-left: 25px; }
+          .m-mega-menu .mm-link li a i {
+            position: absolute;
+            top: 7px;
+            left: 0;
+            font-size: 13px;
+            opacity: 0.6; }
+        .m-mega-menu .mm-link li:hover a {
+          color: #1181dd; } }
+/* Mobile
+--------------------*/
+@media (max-width: 991px) {
+  .m-dropdown .m-dropdown-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    background: #252525;
+    padding: 10px 15px; }
+    .m-dropdown .m-dropdown-menu > li:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .m-dropdown .m-dropdown-menu > li > a {
+      display: block;
+      padding: 10px 0;
+      font-size: 15px;
+      color: #9d9d9d;
+      vertical-align: top; }
+      .m-dropdown .m-dropdown-menu > li > a.active {
+        color: #ffffff; }
+  .m-dropdown .m-dropdown-menu .container {
+    padding: 0; }
+  .m-dropdown .m-dropdown-menu .mm-link {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .m-dropdown .m-dropdown-menu .mm-link > li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .m-dropdown .m-dropdown-menu .mm-link > li > a {
+        display: block;
+        padding: 10px 0 10px 25px;
+        font-size: 15px;
+        color: #9d9d9d;
+        vertical-align: top;
+        position: relative; }
+        .m-dropdown .m-dropdown-menu .mm-link > li > a i {
+          position: absolute;
+          top: 15px;
+          left: 0;
+          font-size: 13px;
+          opacity: 0.6; }
+        .m-dropdown .m-dropdown-menu .mm-link > li > a.active {
+          color: #ffffff; }
+  .m-dropdown.open-menu-parent .m-dropdown-menu {
+    display: block; } }
 
 .btn2 {
   background: #E57718;
@@ -148,16 +279,7 @@ export default {
   visibility: visible;
   max-height: initial;
 }
-li a {
-  color: #333 !important;
-  font-size: 14px;
-  line-height: 32px;
-  font-weight: 500;
-  font-family: Poppins;
-}
-li {
-  padding: 0.5rem 0;
-}
+
 .logout-sub-menu {
   right: 0px;
 }

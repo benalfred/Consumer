@@ -2,7 +2,7 @@
   <div>
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-        <div class="container-fluid">
+        <div class="container-fluid-lg">
           <b-row class="overflow_">
             <b-col md="6">
               <div class="d-flex">
@@ -78,16 +78,19 @@
                     style="background: rgba(0, 0, 0, 0.1); height: 1px"
                   ></div>
                 </div>
+
+
                 <div class="d-flex_ row" v-if="companies.length">
                   <div
-                    class="col-md-4 d-flex"
+                    class="col-sm-6 col-lg-4 	d-none d-sm-block"
                     v-for="company in companies2"
                     :key="company.id"
                   >
+               <div>
                     <button
                       @click="goToCompanyDetailsPage(company)"
                       type="button"
-                      class="btn1"
+                      class="button"
                     >
                       {{ company.Name }}
                     </button>
@@ -98,8 +101,34 @@
                         style="position: absolute; bottom: 20px; cursor: pointer"
                       ></i
                     ></a>
+               </div>
+                  </div>
+
+                   <div
+                    class="col-6 d-block d-sm-none"
+                    v-for="company in companies2"
+                    :key="company.id"
+                  >
+               <div>
+                    <button
+                      @click="goToCompanyDetailsPage(company)"
+                      type="button"
+                      class="button"
+                    >
+                      {{ company.Name }}
+                    </button>
+                    <a href="#openModal-about">
+                      <i
+                        @click="setId(company.Id)"
+                        class="far fa-times-circle"
+                        style="position: absolute; cursor: pointer; top: 5px; left: 5px"
+                      ></i
+                    ></a>
+               </div>
                   </div>
                 </div>
+
+
                 <div class="" v-if="!companies.length && !fetchCompanySpinner">
                   <p  class="">No company yet</p>
                 </div>
@@ -187,29 +216,23 @@
                   >
                     <i class="fas fa-angle-down"></i>
 
-                    <ul
-                      class="logout-sub-menu sub-menu"
+                    <div
+                      class="logout-sub-menu row sub-menu"
                       id="logout-sub-menu"
                       :class="{ submenuthreeopen: threeOpen }"
                     >
-                      <li>
-                        <n-link
-                          to="/dashboard"
-                          class="d-flex align-items-center px-2 justify-content-start"
-                        >
-                          Others
-                        </n-link>
-                      </li>
-                      <li>
+
                         <div
                           v-for="sector in sectors3"
                           :key="sector.Id"
-                          class="d-flex px-2 align-items-center justify-content-start"
+                          class="px-3 pt-4 align-items-center justify-content-start row"
                         >
-                          <button type="button" class="btn2">{{ sector.Name }}</button>
+                          <div class="col-md-3">
+                            <button type="button" class="btn2">{{ sector.Name }}</button>
+                          </div>
                         </div>
-                      </li>
-                    </ul>
+
+                    </div>
                   </div>
                 </div>
                 <!--end of dropdown-->
@@ -672,6 +695,21 @@ export default {
   opacity: 0.3;
 }
 
+.button {
+  background: #00b5d3;
+  border: none;
+  padding: 8px 32px 8px;
+  color: black;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  margin: 15px 0px 10px;
+}
+
 input,    .form-control:focus {
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0.05);
@@ -816,7 +854,7 @@ p {
   font-size: 12px;
   line-height: 18px;
   color: #fff;
-  opacity: 0.5;
+
 }
 
 .btn2_ {
@@ -834,8 +872,12 @@ p {
 }
 
 .profile-dropdown_ {
-  padding: 0px 5px 0px;
+  padding: 0px 7px 0px;
   margin-left: -5px;
+}
+
+.profile-dropdown button{
+  height: 45px;
 }
 
 .btn1 {
@@ -852,33 +894,7 @@ p {
   color: #fff;
 }
 
-.btn2 {
-  background: #00b5d3;
-  border: none;
-  padding: 5px 20px 5px;
-  color: black;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: #fff;
-  opacity: 0.2;
-}
 
-.btn2 {
-  background: #00b5d3;
-  border: none;
-  padding: 5px 20px 5px;
-  color: black;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  color: #fff;
-  opacity: 0.5;
-}
 
 .user-icon {
   width: 30px;
@@ -962,6 +978,11 @@ li {
     margin-top: 50px;
   }
 }
+@media screen and (max-width: 750px) {
+  .profile-dropdown {
+  overflow: auto;
+}
+}
 .modalDialog {
   position: fixed;
   top: 0;
@@ -1022,9 +1043,7 @@ li {
   background: #e57718;
   border-radius: 19.5px;
 }
-.profile-dropdown {
-  overflow: auto;
-}
+
 
 .text {
   font-family: Poppins;
@@ -1115,7 +1134,7 @@ li {
   font-size: 12px;
   line-height: 18px;
   color: #fff;
-  opacity: 0.2;
+
 }
 
 .add {
@@ -1148,9 +1167,7 @@ li {
   color: white;
 }
 
-.profile-dropdown {
-  overflow: auto;
-}
+
 .sector {
   background: #656565;
 }

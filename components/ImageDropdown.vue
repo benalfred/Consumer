@@ -17,11 +17,13 @@
               <div class="d-flex"></div>
             </li>
           </ul>
+
           <div class="mt-4">
             <div class="row">
-              <a v-if="$auth.loggedIn" href="#openModal-about1" class="dropdown-item text-left_">
+              <a v-if="$auth.loggedIn" @click="modalShow = !modalShow" class="dropdown-item text-left_">
                 <div class="cart_buttons_madesoft col-12 d-flex">Refer</div>
               </a>
+
 
               <div class="cart_buttons_madesoft col-12 mb-3 d-flex" @click="$auth.logout()">
                 <span class="las la-sign-out-alt pt-1"></span>
@@ -34,16 +36,15 @@
     </div>
 
 
-    <div id="openModal-about1" class="modalDialog">
-      <div>
-        <div class="d-flex__ row dell-card">
-          <b-container>
+
+    <b-modal v-model="modalShow" size="lg" header-bg-variant="white" hide-footer header-class="border-0" scrollable centered body-bg-variant="white">
+
+     <b-container class="px-4">
             <b-row>
               <b-col md="6">
                 <h4 class="font-weight-bold">Refer a friend</h4>
               </b-col>
               <b-col md="6" class="d-flex justify-content-end">
-                <a href="#close" title="Close" class="close" @click="setFalse">X</a>
               </b-col>
               <b-col md="12">
                 <div
@@ -117,7 +118,7 @@
             </b-row>
           </b-container>
 
-          <b-container class="mt-5">
+          <b-container class="mt-3 p-4">
             <b-row class="d-flex" v-if="referrals.length && !spinner">
               <b-col
                 md="6"
@@ -138,9 +139,8 @@
               </b-col>
             </b-row>
           </b-container>
-        </div>
-      </div>
-    </div>
+
+  </b-modal>
   </div>
 </template>
 
@@ -152,6 +152,7 @@ export default {
   },
   data() {
     return {
+       modalShow: false,
       showCart: false,
       cartOpen: false,
       email: null,

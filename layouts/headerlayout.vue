@@ -1,7 +1,7 @@
 <template>
-<div>
-  <header>
-    <b-navbar toggleable="lg" class="d-flex pt-4 mb-5 bg-white" >
+  <div>
+    <header>
+    <b-navbar toggleable="lg" class="d-flex pt-4 mb-5 " style="  background: #f7f6fa!important;">
       <div class="container-fluid">
         <b-navbar-brand to="/">
           <img src="~/assets/img/logo.png"  width="180" class="img-fluid" alt="" />
@@ -10,20 +10,10 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav v-if="$auth.loggedIn" class="mx-auto display-text">
-            <nuxt-link
-              :class="[id == sector.Id ? 'color-orange' : '']"
-              :to="`/industry/${sector.Id}/${sector.Name}`"
-              v-for="sector in sectors"
-              :key="sector.Id"
-              class="d-block d-sm-none"
-              >{{ sector.Name }}
-            </nuxt-link>
 
-          </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
-            <SecNav class="mt-2" />
+            <SecNav class="mt-1" />
 
             <li class="d-block d-sm-none">
               <a v-if="$auth.loggedIn" @click="modalShow = !modalShow" class="dropdown-item text-left_">
@@ -59,7 +49,7 @@
             </li>
 
             <li>
-              <ImageDropdown class="nav-hide-mob mt-3 d-none d-sm-block" />
+              <ImageDropdown class="nav-hide-mob mt-2 d-none d-sm-block" />
             </li>
           </b-navbar-nav>
         </b-collapse>
@@ -67,7 +57,7 @@
     </b-navbar>
   </header>
 
- <b-modal v-model="modalShow" size="lg" header-bg-variant="white" hide-footer header-class="border-0" scrollable centered body-bg-variant="white">
+   <b-modal v-model="modalShow" size="lg" header-bg-variant="white" hide-footer header-class="border-0" scrollable centered body-bg-variant="white">
 
      <b-container class="px-4">
             <b-row>
@@ -172,16 +162,19 @@
           </b-container>
 
   </b-modal>
-</div>
+
+  <Nuxt />
+  </div>
+
 </template>
 
 <script>
-import CartComponent from "./CartComponent";
-import SecDropdown from "./SecDropdown.vue";
-import ImageDropdown from "./ImageDropdown";
-import SecNav from "./SecNav";
+import CartComponent from "@/components/CartComponent";
+import SecDropdown from "@/components/SecDropdown.vue";
+import ImageDropdown from "@/components/ImageDropdown";
+import SecNav from "@/components/SecNav";
 export default {
-  name: "headerComponent",
+  name: "headerlayout",
   component: { CartComponent, ImageDropdown, SecNav, SecDropdown },
   mounted() {
     if (process.client) {
@@ -331,7 +324,7 @@ header {
 .navbar-light .navbar-nav .nav-link {
   color: #000;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .active {
@@ -347,6 +340,17 @@ header {
   -webkit-transition: color 650ms;
   -o-transition: color 650ms;
   transition: color 650ms;
+}
+
+.btn-sacademy_ {
+  color: #fff !important;
+  background: #e57718;
+  box-shadow: 0px 20px 20px #00000026;
+  opacity: 1;
+  width: 100%;
+  padding: 5px 0px 7px;
+  border: 0;
+  border-radius: 25px;
 }
 
 .action-btn span {
@@ -399,6 +403,19 @@ header {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+
+
+
 </style>
 
-<SecDropdown :sectors2="sectors2" class="d-none" />
+        <b-navbar-nav v-if="$auth.loggedIn" class="mx-auto display-text">
+            <nuxt-link
+              :class="[id == sector.Id ? 'color-orange' : '']"
+              :to="`/industry/${sector.Id}/${sector.Name}`"
+              v-for="sector in sectors"
+              :key="sector.Id"
+              class="d-block d-sm-none"
+              >{{ sector.Name }}
+            </nuxt-link>
+            <SecDropdown :sectors2="sectors2" class="d-none" />
+          </b-navbar-nav>

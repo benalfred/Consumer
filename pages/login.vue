@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <section class="bg">
-      <b-container class="mt-3">
+      <b-container class="">
         <b-row class="mx-0 justify-content-center">
           <b-col md="5" class="mb-5">
             <div class="login-form login-form_" data-aos="fade-up">
@@ -83,6 +83,8 @@ export default {
       title: `${this.title} | ConsumerHalla Survey`,
     };
   },
+  // layout: "headerr",
+   auth: 'guest',
   data() {
     return {
       spinner: false,
@@ -171,6 +173,13 @@ section {
     width: 135%;
     padding: 10px 43px 20px;
     margin-left: -45px;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .login-form_ {
+   position: relative;
+   bottom: 15px;
   }
 }
 

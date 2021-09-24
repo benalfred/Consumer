@@ -1,8 +1,8 @@
 export default {
     ssr: true,
-    router: {
-        middleware: ['auth']
-    },
+    // router: {
+    //     middleware: ['auth']
+    // },
     loading: {
         color: '#e57718',
         height: '5px',
@@ -65,6 +65,14 @@ export default {
             {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap'
+            },
+            {
+                rel: 'stylesheet',
+                href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css'
+            },
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
             },
             {
                 rel: 'stylesheet',

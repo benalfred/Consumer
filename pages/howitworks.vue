@@ -3,22 +3,14 @@
     <div class="line_ container-fluid px-lg-5">
       <b-row class="">
         <div class="spacer"></div>
-        <b-col md="6" class="my-sm-5 mt-lg-5 pt-5 order-sm-1 order-2 pr-md-0" >
-              <h1 style="line-height: 65px;">Share your opinion. <br class="d-none d-sm-block"> Earn money. <br class="d-none d-sm-block"> Shape the news.</h1>
-              <p class="pt-4 lead-text">Join millions of others in sharing your opinion on <br> politics, sport, entertainment and more</p>
-              <a  class="prl-btn action-button " href="/intro">Start</a>
+        <b-col md="6" class="my-sm-5 mt-3 pt-5 order-sm-1 order-2 pr-md-0" >
+         <nuxt-link to="/news">
+            <i class="material-icons mb-3">keyboard_backspace</i>
+        </nuxt-link>
+              <h1 style="line-height: 65px;">How does YouGov work?</h1>
+              <p class="pt-5 mt-1 lead-text col-md-11 ml-n2">You'll be invited to answer questions on a wide range of topics, by email or in the YouGov app. You'll earn points every time you answer a survey. The longer the survey, the more points you'll earn.</p>
+              <a  class="prl-btn action-button " href="#">Start</a>
 
-              <div class=" under">
-              <p>
-              <nuxt-link to="/earn">What will I earn?</nuxt-link>
-              </p>
-              <p>
-              <nuxt-link to="/news">How will I shape the news?</nuxt-link>
-              </p>
-              <p>
-              <nuxt-link to="/howitworks">How does YouGov work?</nuxt-link>
-              </p>
-              </div>
         </b-col>
 
         <b-col
@@ -52,11 +44,6 @@ export default {
       duration: 1000,
     });
   },
-  data() {
-    return {
-      title: "Home",
-    };
-  },
   // middleware: "account_setup",
   computed: {
     fetchedSectors() {
@@ -64,8 +51,8 @@ export default {
     },
   },
   methods: {
-    takeToSector(sector) {
-      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
+    takeToSector(sector){
+      this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
     },
     onSlideStart(slide) {
       this.sliding = true;
@@ -131,5 +118,14 @@ a{
 
 .under a:hover{
   text-decoration: underline!important;
+}
+
+i{
+  font-weight: bold;
+   color: #241d36;
+  font-size: 29px;
+  position: relative;
+  bottom: 30px;
+  cursor: pointer;
 }
 </style>

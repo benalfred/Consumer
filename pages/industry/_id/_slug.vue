@@ -1,24 +1,12 @@
 <template>
   <div class="">
-    <section class="bg mt-5">
-      <b-container>
+    <section class="bg">
+      <div>
         <b-row class="mb-3">
-          <b-col md="12">
-            <h4
-              class="text-center pb-1"
-              data-aos="fade-up"
-              data-aos-offset="30"
-              data-aos-delay="50"
-            >
-              Here’s what Nigerian’s are saying about the {{ Name }} Industry
-            </h4>
-          </b-col>
 
           <div class="big-image" :style="{ backgroundImage: 'url(' + Banner + ')' }">
             <div class="background-text">
-              <div
-                class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12"
-              >
+              <div class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="h2 pb-3 pt-5">
                   {{ Name }} <br />
                   {{ Slogan }}
@@ -132,7 +120,7 @@
                 v-for="company in companies"
                 :key="company.Id"
               >
-                <img :src="company.Logo" class="img-fluid logo-img ml-4" alt="" />
+                <img :src="company.Logo" class="img-fluid logo-img d-flex justify-content-center mx-auto" alt="" />
                 <div class="company-name mt-2">
                   <p class="p-2 pl-4 pr-4">{{ company.Name }}</p>
                 </div>
@@ -152,7 +140,7 @@
             </div>
           </b-col>
         </b-row>
-      </b-container>
+      </div>
     </section>
 
     <agegender
@@ -166,9 +154,9 @@
       v-if="post"
     />
 
-    <section class="container d-flex justify-content-center pt-5 mt-5">
+    <section class="container d-flex justify-content-center">
       <div class="row mx-0 bar-section mt-5">
-        <div class="col-md-6 bg-red px-4 py-5">
+        <div class="col-md-6 bg-red  px-4 py-5">
           <h6>The ConsumerHalla Way</h6>
           <h4 class="pb-3 pt-2">An Immersive Experience</h4>
           <p
@@ -177,7 +165,7 @@
             data-aos="fade-up"
             data-aos-anchor-placement="center-bottom"
           >
-            {{ Description }}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam esse iusto aliquam eveniet laboriosam rem. Voluptate aliquid ipsa quidem molestiae, eius voluptatum, beatae similique fuga labore perferendis vitae, molestias quibusdam repudiandae. Perspiciatis explicabo dicta alias quos vel consectetur in dolore.
           </p>
         </div>
         <div class="col-md-6 img-side"></div>
@@ -193,12 +181,11 @@
           <div class="p-5" v-if="companies2.length">
             <div
               style="cursor: pointer"
-              @click="goToCompanyPage(company)"
-              class="company-image"
+              @click="goToCompanyPage(company)" class="company-image col-md-4"
               v-for="company in companies2"
               :key="company.Id"
             >
-              <img :src="company.Logo" class="img-fluid logo-img ml-4" alt="" />
+              <img :src="company.Logo" class="img-fluid logo-img d-flex justify-content-center mx-auto" alt="" />
               <div class="company-name mt-2">
                 <p class="p-2 pl-4 pr-4">{{ company.Name }}</p>
               </div>
@@ -363,6 +350,7 @@ export default {
 .dell-card img {
   margin: 20px 0px 10px;
 }
+
 .modalDialog {
   position: fixed;
   top: 0px;
@@ -521,7 +509,7 @@ h4 {
 
 .big-image {
   height: 62vh;
-  width: 99vw;
+  width: 110vw;
   position: relative;
   background-repeat: repeat;
   background-size: cover;
@@ -531,10 +519,10 @@ h4 {
 }
 
 div.background-text {
-  opacity: 0.7;
+
   background-color: #000;
   font-weight: 600;
-  color: #fff;
+  color: #ffff;
   height: 62vh;
 }
 

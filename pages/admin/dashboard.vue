@@ -2,7 +2,7 @@
   <div>
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-        <div class="container-fluid">
+        <div class="container-fluid-lg">
           <div class="d-flex" style="cursor: pointer">
           <h1 class="mb-5">Welcome Back!</h1>
           </div>
@@ -62,7 +62,9 @@
                     style="background: rgba(0, 0, 0, 0.1); height: 1px"
                   ></div>
                 </div>
+
                 <div class="d-flex_ row" v-if="sectors.length">
+
                   <div
                     class="col-sm-6 col-lg-4 	d-none d-sm-block"
                     v-for="sector in sectors"
@@ -85,6 +87,7 @@
                       ></a>
                     </div>
                   </div>
+                  
                   <div
                     class="col-6 d-block d-sm-none"
                     v-for="sector in sectors"
@@ -180,8 +183,7 @@
                 <div class="d-flex profile-dropdown mr-5">
                   <div
                     class="profile-dropdown_"
-                    :class="[industryId != 0 ? 'active' : '']"
-                  >
+                    :class="[industryId != 0 ? 'active' : '']">
                     <button type="button" @click="setIndustryIdToZero" class="btn1">
                       All
                     </button>
@@ -618,6 +620,10 @@ export default {
   border-radius: 6px;
 }
 
+.profile-dropdown button{
+  height: 45px;
+}
+
 h2 {
   font-family: Poppins;
   font-style: normal;
@@ -963,28 +969,7 @@ li {
   color: #fff;
 }
 
-.profile-dropdown_::-webkit-scrollbar {
-  width: 5px;
-  border-radius: 50px;
-}
 
-/* Track */
-.profile-dropdown_::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 50px;
-}
-
-/* Handle */
-.profile-dropdown_::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 50px;
-}
-
-/* Handle on hover */
-.profile-dropdown_::-webkit-scrollbar-thumb:hover {
-  background: #555;
-  border-radius: 50px;
-}
 
 .btn2 {
   background: #00b5d3;
@@ -1036,14 +1021,15 @@ li {
   color: white;
 }
 
-.profile-dropdown {
-  overflow: auto;
-}
 
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 750px) {
   .btn2_ {
     margin-top: 10px;
   }
+  .profile-dropdown {
+  overflow: auto;
+}
 }
 
 .d-flex_ i {
