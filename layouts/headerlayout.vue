@@ -408,14 +408,3 @@ header {
 
 </style>
 
-        <b-navbar-nav v-if="$auth.loggedIn" class="mx-auto display-text">
-            <nuxt-link
-              :class="[id == sector.Id ? 'color-orange' : '']"
-              :to="`/industry/${sector.Id}/${sector.Name}`"
-              v-for="sector in sectors"
-              :key="sector.Id"
-              class="d-block d-sm-none"
-              >{{ sector.Name }}
-            </nuxt-link>
-            <SecDropdown :sectors2="sectors2" class="d-none" />
-          </b-navbar-nav>
