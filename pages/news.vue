@@ -94,7 +94,7 @@ h1 {
     width: fit-content;
     border: unset;
     border-radius: 50px;
-    background-color: #ff6352;
+    background: #e57718;
     color: #fff;
     font-weight: 700;
     font-size: 17px;

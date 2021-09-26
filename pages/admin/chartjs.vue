@@ -1,7 +1,6 @@
 <template>
   <section style="">
     <div class="chart">
-<<<<<<< Updated upstream
       <div class="">
         <div class="row">
           <div class="col-md-4 mt-lg-5 container-fluid" style="height: 100%">
@@ -245,17 +244,6 @@
                 />
               </div>
             </div>
-=======
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="col-md-8">
-            <bar-chart />
-          </div>
-
-          <div class="col-md-4">
-           <canvas id="myChart" width="400" height="400"></canvas>
->>>>>>> Stashed changes
           </div>
         </div>
       </div>
@@ -269,7 +257,6 @@
 import BarChart from "~/components/BarChart.vue";
 import ChartSideBar from "~/components/ChartSideBar.vue";
 export default {
-<<<<<<< Updated upstream
   components: { BarChart, ChartSideBar },
   layout: "dashlayout2",
   middleware: "admin",
@@ -316,61 +303,6 @@ export default {
           },
         ],
       },
-=======
-  components: {  "bar-chart": BarChart, },
-  layout: "dashlayout",
-  middleware: "admin",
-  data() {
-    return {
-    		datacollection: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-				datasets: [
-					{
-						label: 'Data One',
-						backgroundColor: '#f87979',
-						pointBackgroundColor: 'white',
-						borderWidth: 1,
-						pointBorderColor: '#249EBF',
-						data: [40, 20, 30, 50, 90, 10, 20, 40, 50, 70, 90, 100]
-					}
-]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero: true
-						},
-						gridLines: {
-							display: true
-						}
-					}],
-					xAxes: [{
-						ticks: {
-							beginAtZero: true
-						},
-						gridLines: {
-							display: false
-						}
-					}]
-				},
-				legend: {
-					display: false
-				},
-				tooltips: {
-					enabled: true,
-					mode: 'single',
-					callbacks: {
-						label: function(tooltipItems, data) {
-							return '$' + tooltipItems.yLabel;
-						}
-					}
-				},
-				responsive: true,
-				maintainAspectRatio: false,
-				height: 200
-},
->>>>>>> Stashed changes
       barChartOptions: {
         responsive: true,
         legend: {
@@ -407,7 +339,6 @@ export default {
       },
     };
   },
-<<<<<<< Updated upstream
   methods: {
 
     async getPeriods(){
@@ -453,54 +384,6 @@ export default {
       }
     },
   },
-=======
-
-  // mounted() {
-  //   this.chart()
-  // },
-
-  // methods: {
-  //   Chart() {
-  //     var ctx = document.getElementById("myChart").getContext("2d");
-  //     var myChart = new Chart(ctx, {
-  //       type: "bar",
-  //       data: {
-  //         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-  //         datasets: [
-  //           {
-  //             label: "# of Votes",
-  //             data: [12, 19, 3, 5, 2, 3],
-  //             backgroundColor: [
-  //               "rgba(255, 99, 132, 0.2)",
-  //               "rgba(54, 162, 235, 0.2)",
-  //               "rgba(255, 206, 86, 0.2)",
-  //               "rgba(75, 192, 192, 0.2)",
-  //               "rgba(153, 102, 255, 0.2)",
-  //               "rgba(255, 159, 64, 0.2)",
-  //             ],
-  //             borderColor: [
-  //               "rgba(255, 99, 132, 1)",
-  //               "rgba(54, 162, 235, 1)",
-  //               "rgba(255, 206, 86, 1)",
-  //               "rgba(75, 192, 192, 1)",
-  //               "rgba(153, 102, 255, 1)",
-  //               "rgba(255, 159, 64, 1)",
-  //             ],
-  //             borderWidth: 1,
-  //           },
-  //         ],
-  //       },
-  //       options: {
-  //         scales: {
-  //           y: {
-  //             beginAtZero: true,
-  //           },
-  //         },
-  //       },
-  //     });
-  //   },
-  // },
->>>>>>> Stashed changes
 };
 </script>
 
@@ -564,11 +447,7 @@ h6 {
   font-size: 6em;
 }
 .green {
-<<<<<<< Updated upstream
   color: #0dbfcc;
-=======
-  color: #00c48d;
->>>>>>> Stashed changes
 }
 
 .subtitle {

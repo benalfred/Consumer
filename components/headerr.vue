@@ -10,25 +10,14 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav v-if="$auth.loggedIn" class="mx-auto display-text">
-            <nuxt-link
-              :class="[id == sector.Id ? 'color-orange' : '']"
-              :to="`/industry/${sector.Id}/${sector.Name}`"
-              v-for="sector in sectors"
-              :key="sector.Id"
-              class="d-block d-sm-none"
-              >{{ sector.Name }}
-            </nuxt-link>
 
-          </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
-            <SecNav class="mt-2" />
+            <SecNav class="mt-1" />
 
             <li class="d-block d-sm-none">
               <a v-if="$auth.loggedIn" @click="modalShow = !modalShow" class="dropdown-item text-left_">
-                <div class="cart_buttons_madesoft col-12 d-flex">Refer</div></a
-              >
+                <div class="cart_buttons_madesoft col-12 d-flex">Refer</div></a>
 
               <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
                 <span class="las la-sign-out-alt pt-1"></span>
@@ -59,7 +48,7 @@
             </li>
 
             <li>
-              <ImageDropdown class="nav-hide-mob mt-3 d-none d-sm-block" />
+              <ImageDropdown class="nav-hide-mob mt-2 d-none d-sm-block" />
             </li>
           </b-navbar-nav>
         </b-collapse>

@@ -112,21 +112,21 @@
 
         <b-row>
           <b-col md="12" class="dell-card">
-            <div class="d-flex_ row p-5" v-if="companies.length">
+            <div class="d-flex_ row p-5 " v-if="companies.length">
               <div
                 style="cursor: pointer"
                 @click="goToCompanyPage(company)"
-                class="company-image"
+                class="company-image col-md-2"
                 v-for="company in companies"
                 :key="company.Id"
               >
                 <img :src="company.Logo" class="img-fluid logo-img d-flex justify-content-center mx-auto" alt="" />
                 <div class="company-name mt-2">
-                  <p class="p-2 pl-4 pr-4">{{ company.Name }}</p>
+                  <p class="p-2 text-center">{{ company.Name }}</p>
                 </div>
               </div>
-              <div class="col-md-2 pl-1" v-if="companies2.length">
-                <a href="#openModal-about">
+              <div class="col-md-2 pl-lg-4" v-if="companies2.length">
+                <a  @click="modalShow = !modalShow">
                   <button class="btn ml-2 mt-2">
                     <img src="~/assets/img/viewall.png" class="img-fluid" alt="" />
                   </button>
@@ -174,26 +174,26 @@
 
     <Footer />
 
-    <div id="openModal-about" class="modalDialog">
-      <div>
-        <div class="d-flex__ row">
-          <a href="#close" title="Close" class="close">X</a>
-          <div class="p-5" v-if="companies2.length">
+     <b-modal v-model="modalShow" size="lg" hide-header header-bg-variant="white" hide-footer header-class="border-0" scrollable centered body-bg-variant="white">
+
+    <div class="">
+       <div class="p-5 row" v-if="companies2.length">
             <div
               style="cursor: pointer"
-              @click="goToCompanyPage(company)" class="company-image col-md-4"
+              @click="goToCompanyPage(company)" class="company-image  col-md-4 "
               v-for="company in companies2"
               :key="company.Id"
             >
               <img :src="company.Logo" class="img-fluid logo-img d-flex justify-content-center mx-auto" alt="" />
               <div class="company-name mt-2">
-                <p class="p-2 pl-4 pr-4">{{ company.Name }}</p>
+                <p class="p-2 text-center">{{ company.Name }}</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
     </div>
+
+  </b-modal>
+
   </div>
 </template>
 
@@ -216,6 +216,7 @@ export default {
   },
   data() {
     return {
+       modalShow: false,
       Name: null,
       title: "View Sector",
       Slogan: null,
@@ -537,11 +538,7 @@ div.background-text {
   font-size: 20px;
 }
 
-.company-image {
-}
-.company-image img {
-  height: 59px;
-}
+
 .company-name {
   background: #07072f;
   color: white;

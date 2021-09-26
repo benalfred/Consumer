@@ -32,7 +32,6 @@
 
         </b-row>
            <div class="col-md-12">
-
               <div class="row pb-1 pt-3 pl-2 pt-2 pb-3 justify-content-center" style="background: black">
                 <div class="col-md-2 p-2" style="background: #00b5d3">
                   <b-media>

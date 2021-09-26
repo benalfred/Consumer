@@ -16,7 +16,7 @@
               <nuxt-link to="/news">How will I shape the news?</nuxt-link>
               </p>
               <p>
-              <nuxt-link to="/howitworks">How does YouGov work?</nuxt-link>
+              <nuxt-link to="/howitworks">How does Consumer work?</nuxt-link>
               </p>
               </div>
         </b-col>
@@ -107,7 +107,7 @@ h1 {
     width: fit-content;
     border: unset;
     border-radius: 50px;
-    background-color: #ff6352;
+    background: #e57718;
     color: #fff;
     font-weight: 700;
     font-size: 17px;
