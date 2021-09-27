@@ -1,6 +1,5 @@
 <template>
   <div class="d-flex">
-
        <ul class="navbar-nav ml-auto align-items-lg-center d-none d-sm-block">
                 <li class="m-mega-menu m-dropdown">
                   <nuxt-link style="font-size: 19px;" class="nav-link" to="/products"
@@ -24,24 +23,16 @@
                     </div>
                   </div>
                 </li>
+            </ul>
 
-              </ul>
-    <div
-      class="nav-list justify-content-center align-items-center d-block d-sm-none"
-      type="submit"
-      @click="threeMenuOpen">
 
+    <div class="nav-list justify-content-center align-items-center d-block d-sm-none" type="submit" @click="threeMenuOpen">
       <p class=" mr-4">Industries <i class="fas fa-angle-down pl-2 pt-1"></i> </p>
-
-
-      <ul
-        class="logout-sub-menu sub-menu mt-4 mr-4"
+      <ul class="logout-sub-menu sub-menu "
         id="logout-sub-menu" :class="{ submenuthreeopen: threeOpen }">
-
         <li  v-for="sector in sectors2"
             :key="sector.Id"
             class="">
-
              <nuxt-link
             :to="`/industry/${sector.Id}/${sector.Name}`"
             > {{ sector.Name }} </nuxt-link>
@@ -260,8 +251,9 @@ export default {
   z-index: 250;
   opacity: 0;
   visibility: hidden;
-  width: 190px;
-  right: -20px;
+  width: 230px;
+  left: -10px;
+  top: 150px;
   box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
     0 30px 60px -30px rgba(0, 0, 0, 0.3), 0 -18px 60px -10px rgba(0, 0, 0, 0.025);
   transition: all 650ms ease;
@@ -287,7 +279,6 @@ export default {
 @media screen and (min-width: 750px) {
   .logout-sub-menu {
     right: 200px;
-
   }
 }
 
@@ -296,5 +287,12 @@ export default {
   font-size: 600;
   color: #000;
   font-family: Poppins;
+}
+
+.nav-list a{
+  color: black;
+}
+.nav-list li {
+  list-style: none;
 }
 </style>

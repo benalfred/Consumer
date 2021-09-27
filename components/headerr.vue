@@ -12,12 +12,13 @@
         <b-collapse id="nav-collapse" is-nav>
 
 
-          <b-navbar-nav class="ml-auto">
+          <b-navbar-nav class="ml-auto login___">
             <SecNav class="mt-1" />
 
             <li class="d-block d-sm-none">
               <a v-if="$auth.loggedIn" @click="modalShow = !modalShow" class="dropdown-item text-left_">
-                <div class="cart_buttons_madesoft col-12 d-flex">Refer</div></a>
+                <div class="cart_buttons_madesoft col-12 d-flex">Refer</div>
+              </a>
 
               <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
                 <span class="las la-sign-out-alt pt-1"></span>
@@ -298,6 +299,17 @@ export default {
 header {
   width: 100%;
   height: 100px;
+}
+
+@media screen and (max-width: 740px) {
+.login___ {
+  margin-bottom: 40px!important;
+}
+}
+
+.cart_buttons_madesoft {
+  position: relative;
+  left: -30px;
 }
 
 .display-text a {

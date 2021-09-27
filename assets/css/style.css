@@ -672,7 +672,9 @@ body {
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
   }
+
 }
+
 
 
 
@@ -701,6 +703,33 @@ body {
   cursor: pointer;
   text-decoration: none!important;
 
+}
+.action-button_{
+  padding: 16px 34px;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 320px;
+  border: unset;
+  border-radius: 50px;
+  background: #e57718;
+  color: #fff!important;
+  font-weight: 700;
+  font-size: 17px;
+  font-family: 'Rawline Medium';
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none!important;
+
+}
+
+@media screen and (max-width: 750px) {
+  .content-card {
+    margin-top: 25px;
+  }
 }
 
 .zero{

@@ -12,7 +12,7 @@
         <b-collapse id="nav-collapse" is-nav>
 
 
-          <b-navbar-nav class="ml-auto">
+          <b-navbar-nav class="ml-auto login___">
             <SecNav class="mt-1" />
 
             <li class="d-block d-sm-none">
@@ -302,6 +302,15 @@ export default {
 header {
   width: 100%;
   height: 100px;
+}
+
+@media screen and (max-width: 740px) {
+.login___ {
+  margin-bottom: 40px!important;
+}
+.action-btn {
+  margin-top: 15px;
+}
 }
 
 .display-text a {
