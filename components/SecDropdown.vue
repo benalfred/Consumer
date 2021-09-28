@@ -2,7 +2,7 @@
   <div class="d-flex">
        <ul class="navbar-nav ml-auto align-items-lg-center d-none d-sm-block">
                 <li class="m-mega-menu m-dropdown">
-                  <nuxt-link style="font-size: 19px;" class="nav-link" to="/products"
+                  <nuxt-link style="font-size: 19px;" class="nav-link" to="#"
                   >Services <i class="fa fa-angle-down m-dropdown-toggle ml-2"></i>
                   </nuxt-link>
 

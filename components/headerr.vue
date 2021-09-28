@@ -20,7 +20,7 @@
                 <div class="cart_buttons_madesoft col-12 d-flex">Refer</div>
               </a>
 
-              <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
+              <div class="cart_buttons_madesoft col-12 mb-3 d-flex ml-3">
                 <span class="las la-sign-out-alt pt-1"></span>
                 <span class="pr-3 pl-1" @click="$auth.logout()">Logout</span>
               </div>
