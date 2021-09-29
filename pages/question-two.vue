@@ -2,7 +2,7 @@
   <div style="background: #f7f6fa!important;">
     <div class="line_ container-fluid px-lg-5">
       <b-row class="">
-        <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-3 pt-4" alt="" />
+           <nuxt-link to="/"> <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-2 pt-3" alt="" /></nuxt-link>
         <div class="spacer"></div>
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card">
