@@ -7,7 +7,7 @@
         <nuxt-link to="/earn">
             <i class="material-icons mb-3">keyboard_backspace</i>
         </nuxt-link>
-              <h1 style="line-height: 65px;">YouGov surveys make <br class="d-none d-sm-block"> the headlines every day</h1>
+              <h1 style="line-height: 55px;">ConsumerHalla surveys <br class="d-none d-sm-block "> make  the headlines every day</h1>
               <p class="pt-5 mt-1 lead-text col-md-10 ml-n2">YouGov is trusted by brands and the media to accurately measure opinion. The results of surveys you take will feature in the news, and be used by organisations all over the world to make better decisions.</p>
               <a  class="prl-btn action-button " href="#">Start</a>
 

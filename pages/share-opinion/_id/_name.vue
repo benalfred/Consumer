@@ -210,8 +210,8 @@
           >
             <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid d-flex justify-content-center mx-auto" alt="" />
             <img v-else src="~/assets/img/dell-icon.png" class="img-fluid d-flex justify-content-center mx-auto" alt="" />
-            <div class="company-name text-center  mt-2" style="">
-              <p class="p-2 text-center" style="color:#fff">{{ sector.Name }}</p>
+            <div class="company-name mt-2" style="">
+              <p class="p-2 text-center text-center d-flex justify-content-center mx-auto" style="color:#fff">{{ sector.Name }}</p>
             </div>
           </div>
         </div>
