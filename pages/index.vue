@@ -1,5 +1,8 @@
 <template>
   <div style="background: #f7f6fa!important;">
+    <div class="loader_bg">
+      <div class="loader"></div>
+    </div>
     <div class="line_ container-fluid px-lg-5">
       <b-row class="">
         <div class="spacer"></div>
@@ -32,6 +35,8 @@
 </template>
 
 <script>
+
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
@@ -47,6 +52,7 @@ export default {
     footer,
   },
   mounted() {
+    this.load()
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -64,6 +70,11 @@ export default {
     },
   },
   methods: {
+    load(){
+      setTimeout(function() {
+        $('.loader_bg').fadeToggle();
+      }, 1000);
+    },
     takeToSector(sector) {
       this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
     },

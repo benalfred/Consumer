@@ -1,5 +1,8 @@
 <template>
   <div class="">
+    <div class="loader_bg">
+      <div class="loader"></div>
+    </div>
     <section class="bg">
       <div>
         <b-row class="mb-3">
@@ -234,6 +237,7 @@ export default {
   },
 
   mounted() {
+    this.load()
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -241,6 +245,11 @@ export default {
   },
 
   methods: {
+    load(){
+      setTimeout(function() {
+        $('.loader_bg').fadeToggle();
+      }, 3000);
+    },
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
@@ -257,7 +266,7 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
         );
-        if(process.client) localStorage.setItem("sec_Id", response.data.Id);
+        localStorage.setItem("sec_Id", response.data.Id);
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
         this.Description = response.data.Description;
