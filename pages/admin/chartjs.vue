@@ -177,7 +177,7 @@
                         </div>
                         <div class="row d-flex">
                           <div
-                            class=" "
+                            class=""
                             style="width: 130px; position: relative; left: 50px"
                           >
                             <b-form-group>
