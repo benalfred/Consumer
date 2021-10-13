@@ -45,15 +45,15 @@ export default {
     });
   },
   // middleware: "account_setup",
-  computed: {
-    fetchedSectors() {
-      return this.$store ? this.$store.state.notifications.sectorsFetched : [];
-    },
-  },
+  // computed: {
+  //   fetchedSectors() {
+  //     return this.$store ? this.$store.state.notifications.sectorsFetched : [];
+  //   },
+  // },
   methods: {
-    takeToSector(sector){
-      this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
-    },
+    // takeToSector(sector){
+    //   this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
+    // },
     onSlideStart(slide) {
       this.sliding = true;
     },

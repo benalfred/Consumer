@@ -266,11 +266,10 @@ export default {
       pageForOpinions2: 1,
       Comment: null,
       title:'Share Opinion',
-      pageSize: 10,
+
       industries:[],
       ratingTagSpinner: false,
       Name: this.$route.params.name,
-      Description: null,
       companyId: this.$route.params.id,
       pageSize:1,
       page:1,

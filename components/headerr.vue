@@ -202,6 +202,10 @@ export default {
       id: this.colorCheckingId,
       pageSize: 1,
       email: null,
+      email2:null,
+      email2Value:null,
+      email3:null,
+      email3Value:null,
       form: {
         Emails: [],
       },

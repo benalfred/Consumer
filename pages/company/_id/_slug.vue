@@ -1,5 +1,8 @@
 <template>
   <div class="">
+    <div class="loader_bg">
+      <div class="loader"></div>
+    </div>
     <section class="bg mt-5 px-lg-2" style="padding-bottpm: 50px">
       <div class="container-fluid">
         <b-row>
@@ -24,7 +27,7 @@
 
         <b-col md="6" class=" order-sm-2 ml-llg-5 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
               <img
-                   src="~/assets/img/happy-girls.png"
+                   src="~/assets/img/people.jpg"
                         class="img-fluid ml-lg-3 "
                         alt=""
                       />
@@ -285,6 +288,7 @@ export default {
   },
   // middleware: "account_setup",
   mounted() {
+    this.load()
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -321,6 +325,11 @@ export default {
   },
 
   methods: {
+    load(){
+      setTimeout(function() {
+        $('.loader_bg').fadeToggle();
+      }, 2000);
+    },
     linkToIndustries(sector) {
       this.$router.push(`/company/${sector.Id}/${sector.Name}`);
     },
@@ -364,7 +373,7 @@ export default {
     },
     async fetchIndustryDetails() {
       this.spinner = true;
-      let sec_id = localStorage.getItem("sec_id");
+      let sec_id = localStorage.getItem("sec_Id");
       try {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${sec_id}`
