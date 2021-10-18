@@ -7,7 +7,7 @@
       <div>
         <b-row class="mb-3">
 
-          <div class="big-image" :style="{ backgroundImage: 'url(' + Banner + ')' }">
+          <div class="big-image" >
             <div class="background-text">
               <div class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="h2 pb-3 pt-5">
@@ -290,7 +290,7 @@ export default {
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
         this.post = response.data;
-        //  document.getElementsByClassName('.big-image').style.background = this.Banner
+        document.getElementsByClassName('.big-image').style.background = this.Banner
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
