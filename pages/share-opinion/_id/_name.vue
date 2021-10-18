@@ -209,9 +209,12 @@
             @click="linkToIndustries(sector)"
           >
             <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid d-flex justify-content-center mx-auto" alt="" />
-            <img v-else src="~/assets/img/dell-icon.png" class="img-fluid d-flex justify-content-center mx-auto" alt="" />
-            <div class="company-name mt-2" style="">
-              <p class="p-2 text-center text-center d-flex justify-content-center mx-auto" style="color:#fff">{{ sector.Name }}</p>
+            <img v-else src="~/assets/img/share720.png" class="rounded img-fluid d-flex justify-content-center mx-auto" alt="" />
+            <div class="company-name d-none d-sm-block mt-2" style="">
+              <p class="p-2 text-center d-none d-sm-block d-flex justify-content-center mx-auto" style="color:#fff">{{ sector.Name }}</p>
+            </div>
+             <div class="company-name mb-3 d-flex justify-content-center mx-auto d-block d-sm-none mt-2" style="">
+              <p class="pt-3 text-center d-block d-sm-none d-flex justify-content-center mx-auto" style="color:#fff">{{ sector.Name }}</p>
             </div>
           </div>
         </div>

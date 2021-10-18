@@ -6,7 +6,7 @@
 /**
 * Template Name: Mentor - v2.2.1
 * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-* Author: BootstrapMade.com
+* Author: BootstrapMade.com     
 * License: https://bootstrapmade.com/license/
 */
 
@@ -31,7 +31,7 @@
   width: 150px;
   height: 150px;
   position: absolute;
-  top: calc(50vh - 75px);
+  top: calc(30vh - 75px);
   left: calc(50vw - 75px);
 }
 .loader:before, .loader:after{
