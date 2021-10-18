@@ -96,9 +96,9 @@ export default {
     vertical-align: middle; }
   .m-dropdown .m-dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 10%;
     right: 0;
-    background: #ffffff;
+    background: #f7f6fa;
     box-shadow: 0px 26px 21px 0px rgba(0, 0, 0, 0.1);
     border-top: 1px solid #eee;
     width: 200px;
