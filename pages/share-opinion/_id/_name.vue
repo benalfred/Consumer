@@ -241,7 +241,6 @@ export default {
     this.daysjs = dayjs
     this.allOpinions()
     this.fetchSectors()
-    this.$bvModal.show('explore')
   },
   data() {
     return {

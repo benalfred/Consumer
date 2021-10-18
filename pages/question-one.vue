@@ -25,7 +25,7 @@
             </div>
 
              <div class=" my-5 pt-5 d-block d-sm-none ">
-                <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">0</span> </h4>
+                <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">5</span> </h4>
                 <div class="mt-3">
                   <nuxt-link  class="prl-btn action-button action-button_  text-white" to="/question-two">Next</nuxt-link>
                 </div>

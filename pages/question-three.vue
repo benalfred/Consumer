@@ -7,18 +7,27 @@
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card">
            <Back/>
-                <h5>Postcode</h5>
+                <h5>Where Do You Hail From</h5>
 
-                <div class="mt-5 pt-3">
-                 <input _ngcontent-fvr-c48="" autocomplete="off" type="text" yougovworkspaceinputfix="" class="prl-input question__input ng-star-inserted" id="birth_year" name="birth_year" placeholder="Postcode" data-cy="birth_yearInput">
-                </div>
+                  <b-form-group>
+                    <div class="form-group">
+                      <v-select
+                        v-model="form.StateId"
+                        :options="stateOptions"
+                        placeholder="select state"
+                        :reduce="(state) => state.Id"
+                        @input="getFeatures"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
 
 
               <p class="terms pt-3">This information helps us to ensure that responses to our surveys reflect the population as a whole. Find out more</p>
 
 
                 <div class="d-lg-flex my-5 pt-5  d-none d-sm-block">
-                <h4 class="align-items-center d-flex  d-none d-sm-block">POINTS &nbsp; <span class="zero">10</span>
+                <h4 class="align-items-center d-flex  d-none d-sm-block">POINTS &nbsp; <span class="zero">15</span>
                 </h4>
                 <div class="d-flex justify-content-end ml-auto  ">
                   <nuxt-link  class="prl-btn action-button text-white d-none d-sm-block" to="/question-two">Next</nuxt-link>
@@ -47,6 +56,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
 import footer from "~/components/footer";
+import {mapActions,mapState} from 'vuex'
 export default {
 //   layout: "headerr",
 
@@ -58,7 +68,15 @@ export default {
     footer,
     Back
   },
+  data() {
+    return{
+      
+    }
+  },
   mounted() {
+    if (!state) {
+      
+    }
     AOS.init({
       offset: 100,
       duration: 1000,
@@ -66,11 +84,15 @@ export default {
   },
   // middleware: "account_setup",
   computed: {
-    fetchedSectors() {
-      return this.$store ? this.$store.state.notifications.sectorsFetched : [];
-    },
+     ...mapState("data-fetching", ["stateOptions","form.StateId"]),
+    // fetchedSectors() {
+    //   return this.$store ? this.$store.state.notifications.sectorsFetched : [];
+    // },
   },
   methods: {
+      ...mapActions('data-fetching', [
+      'getFeatures',
+    ]),
     takeToSector(sector){
       this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
     },

@@ -9,7 +9,7 @@
         <b-col md="6" class="my-sm-5 mt-lg-5 pt-5 order-sm-1 order-2 pr-md-0" >
               <h1 style="line-height: 65px;">Share your opinion. <br class="d-none d-sm-block"> Earn money. <br class="d-none d-sm-block"> Shape the news.</h1>
               <p class="pt-4 lead-text">Join millions of others in sharing your opinion on <br> politics, sport, entertainment and more</p>
-              <a  class="prl-btn action-button " href="/intro">Start</a>
+              <nuxt-link to="/intro"  class="prl-btn action-button">Start</nuxt-link>
 
               <div class=" under">
               <p>
@@ -19,7 +19,7 @@
               <nuxt-link to="/news">How will I shape the news?</nuxt-link>
               </p>
               <p>
-              <nuxt-link to="/howitworks">How does Consumer work?</nuxt-link>
+              <nuxt-link to="/how-it-works">How does Consumer work?</nuxt-link>
               </p>
               </div>
         </b-col>

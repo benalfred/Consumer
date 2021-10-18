@@ -7,7 +7,7 @@
       <div>
         <b-row class="mb-3">
 
-          <div class="big-image" >
+          <div class="big-image" :style="{ backgroundImage: `url(${Logo})`}">
             <div class="background-text">
               <div class="overlay text-center pt-5 col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 class="h2 pb-3 pt-5">
@@ -266,6 +266,7 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
         );
+        console.log(response.data)
         localStorage.setItem("sec_Id", response.data.Id);
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;
@@ -290,7 +291,8 @@ export default {
         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
         this.post = response.data;
-        document.getElementsByClassName('.big-image').style.background = this.Banner
+      //  let testing = document.getElementsByClassName('big-image')[0].style.background="url('https://media.gettyimages.com/photos/high-angle-view-of-buildings-in-city-picture-id997757812?s=612x612')";
+      //   console.log(testing)
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();

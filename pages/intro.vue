@@ -8,7 +8,7 @@
             <div class="content-card p-lg-5 p-3">
                 <h1>Welcome to ConsmerHalla</h1>
               <p class="lead-text pb-3 pt-4">Let's get started with some basic questions. Please confirm that you live
-                in the United Kingdom.</p>
+                in Nigeria.</p>
               <a href="#" clas="font-weight-bold" style="text-decoration: underline!important;">Wrong country or language?</a>
               <p class="terms">I agree to the <a  href="#">Terms and Conditions</a>, and acknowledge the <a href="#">privacy notice</a>.</p>
 

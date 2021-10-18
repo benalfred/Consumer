@@ -32,7 +32,7 @@
 
             <div class="d-lg-flex mt-4">
               <div class="col-md-3 pt-5 mt-4 text-para">
-                <p>mILLENIAL</p>
+                <p>MILLENIAL</p>
 
                 <p>GENERATION</p>
                 <div>

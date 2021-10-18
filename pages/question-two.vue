@@ -7,12 +7,18 @@
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card">
            <Back/>
-                <h5>Are you...?</h5>
-
-                 <div _ngcontent-fvr-c48="" class="single-select-wrapper mt-5 pt-4 ng-star-inserted">
-                 <button _ngcontent-fvr-c48="" class="prl-input question__input question__input--single-select-binary ng-star-inserted" data-cy="genderInput2"> Female </button>
-               <button _ngcontent-fvr-c48="" class="prl-input ml-3 question__input question__input--single-select-binary btn2 ng-star-inserted" disabled="" data-cy="genderInput1"> Male </button><!---->
-               </div>
+                <h5>Are you Male Or female?</h5>
+  <b-form-group>
+                    <div class="form-group">
+                      <v-select
+                        v-model="form.Sex"
+                        :options="genderOptions"
+                        placeholder="select gender"
+                        :reduce="(gender) => gender.Id"
+                        label="Name"
+                      ></v-select>
+                    </div>
+                  </b-form-group>
 
 
               <p class="terms pt-3">This information helps us to ensure that responses to our surveys reflect the population as a whole. Find out more</p>
@@ -26,7 +32,7 @@
             </div>
 
              <div class=" my-5 pt-5 d-block d-sm-none ">
-                <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">5</span> </h4>
+                <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">10</span> </h4>
                 <div class="mt-3">
                   <nuxt-link  class="prl-btn action-button action-button_  text-white" to="/question-three">Next</nuxt-link>
                 </div>
@@ -57,6 +63,17 @@ export default {
         : Promise.resolve({ render: (h) => h("div") }),
     footer,
     Back
+  },
+  data(){
+    return {
+      form:{
+        Sex:null
+      },
+      genderOptions: [
+        {Name: 'Male', Id:1},
+        {Name: 'Female', Id:2}
+      ]
+    }
   },
   mounted() {
     AOS.init({
