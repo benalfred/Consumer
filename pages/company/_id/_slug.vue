@@ -5,135 +5,135 @@
 </template>
 
 <script>
-import AOS from "aos";
-import "aos/dist/aos.css";
-import SecNav from "@/components/SecNav.vue";
-import agegender from "@/components/agegender.vue";
-import Footer from "@/components/footer.vue";
-export default {
-  layout: "headerr",
-  component: { agegender, Footer, SecNav },
+// import AOS from "aos";
+// import "aos/dist/aos.css";
+// import SecNav from "@/components/SecNav.vue";
+// import agegender from "@/components/agegender.vue";
+// import Footer from "@/components/footer.vue";
+// export default {
+//   layout: "headerr",
+//   component: { agegender, Footer, SecNav },
 
-  // async fetch() {
-  //   await this.fetchCompanyDetails();
-  //   await this.fetchIndustryDetails();
-  // },
-  // middleware: "account_setup",
- async mounted() {
-     await this.fetchCompanyDetails();
-    await this.fetchIndustryDetails();
-    this.load()
-    AOS.init({
-      offset: 100,
-      duration: 1000,
-    });
-  },
-  head() {
-    return {
-      title: `${this.title} | ConsumerHalla Survey`,
-    };
-  },
-  data() {
-    return {
-      modalShow: false,
-      Name: null,
-      Slogan: null,
-      title: "View Company",
-      Banner: "",
-      Logo: null,
-      post: null,
-      spinner: false,
-      page: 1,
-      pageSize: 1,
-      pageForOpinions2: 1,
-      totalRow: 0,
-      bpg: 1,
-      sectors: [],
-      sectors2: [],
-      PositivePercent: 0,
-      NegativePercent: 0,
-      NeutralPercent: 0,
-      TotalReviewCount: 0,
-      Description: null,
-    };
-  },
+//   // async fetch() {
+//   //   await this.fetchCompanyDetails();
+//   //   await this.fetchIndustryDetails();
+//   // },
+//   // middleware: "account_setup",
+//  async mounted() {
+//      await this.fetchCompanyDetails();
+//     await this.fetchIndustryDetails();
+//     this.load()
+//     AOS.init({
+//       offset: 100,
+//       duration: 1000,
+//     });
+//   },
+//   head() {
+//     return {
+//       title: `${this.title} | ConsumerHalla Survey`,
+//     };
+//   },
+//   data() {
+//     return {
+//       modalShow: false,
+//       Name: null,
+//       Slogan: null,
+//       title: "View Company",
+//       Banner: "",
+//       Logo: null,
+//       post: null,
+//       spinner: false,
+//       page: 1,
+//       pageSize: 1,
+//       pageForOpinions2: 1,
+//       totalRow: 0,
+//       bpg: 1,
+//       sectors: [],
+//       sectors2: [],
+//       PositivePercent: 0,
+//       NegativePercent: 0,
+//       NeutralPercent: 0,
+//       TotalReviewCount: 0,
+//       Description: null,
+//     };
+//   },
 
-  methods: {
-    load(){
-      setTimeout(function() {
-        $('.loader_bg').fadeToggle();
-      }, 2000);
-    },
-    linkToIndustries(sector) {
-      this.$router.push(`/company/${sector.Id}/${sector.Name}`);
-    },
-    makeToast() {
-      this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
-        title: this.$store.state.notifications.type,
-        autoHideDelay: 5000,
-        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
-        solid: true,
-      });
-    },
-    goToShareOpinionPage() {
-      this.$router.push(
-        `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
-      );
-    },
-    shareOpinion() {
-      this.$router.push(
-        `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
-      );
-    },
-    async fetchCompanyDetails() {
-      try {
-        const response = await this.$axios.get(
-          `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
-        );
-        this.post = response.data;
-        this.Name = response.data.Name;
-        this.Slogan = response.data.Slogan;
-        this.Description = response.data.Description;
-        this.Logo = response.data.Logo;
-        this.Banner = response.data.Banner;
-        this.PositivePercent = response.data.GeneralRating.PositivePercent;
-        this.NegativePercent = response.data.GeneralRating.NegativePercent;
-        this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
-        this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
-      } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
-      }
-    },
-    async fetchIndustryDetails() {
-      this.spinner = true;
-      let sec_id = localStorage.getItem("sec_Id");
-      try {
-        const response = await this.$axios.get(
-          `Industries/GetPublicIndustryDetails?industryId=${sec_id}`
-        );
-        if (response.data.Companies.length) {
-          response.data.Companies.filter((sec) => {
-            if (this.sectors.length != 6 && sec.Id != this.$route.params.id) {
-              this.sectors.push(sec);
-            }
-          });
-          let ctx = this;
-          response.data.Companies.filter((com, index) => {
-            if (index > 5 ) {
-              ctx.sectors2.push(com);
-            }
-          });
-        }
-        this.spinner = false;
-        //  document.getElementsByClassName('.big-image').style.background = this.Banner
-      } catch (e) {
-        this.$store.commit("notifications/error", "something went wrong");
-        this.makeToast();
-      }
-    },
-  },
-};
+//   methods: {
+//     load(){
+//       setTimeout(function() {
+//         $('.loader_bg').fadeToggle();
+//       }, 2000);
+//     },
+//     linkToIndustries(sector) {
+//       this.$router.push(`/company/${sector.Id}/${sector.Name}`);
+//     },
+//     makeToast() {
+//       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
+//         title: this.$store.state.notifications.type,
+//         autoHideDelay: 5000,
+//         variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+//         solid: true,
+//       });
+//     },
+//     goToShareOpinionPage() {
+//       this.$router.push(
+//         `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
+//       );
+//     },
+//     shareOpinion() {
+//       this.$router.push(
+//         `/share-opinion/${this.$route.params.id}/${this.$route.params.slug}`
+//       );
+//     },
+//     async fetchCompanyDetails() {
+//       try {
+//         const response = await this.$axios.get(
+//           `Industries/GetPublicCompanyDetails?companyId=${this.$route.params.id}`
+//         );
+//         this.post = response.data;
+//         this.Name = response.data.Name;
+//         this.Slogan = response.data.Slogan;
+//         this.Description = response.data.Description;
+//         this.Logo = response.data.Logo;
+//         this.Banner = response.data.Banner;
+//         this.PositivePercent = response.data.GeneralRating.PositivePercent;
+//         this.NegativePercent = response.data.GeneralRating.NegativePercent;
+//         this.NeutralPercent = response.data.GeneralRating.NeutralPercent;
+//         this.TotalReviewCount = response.data.GeneralRating.TotalReviewCount;
+//       } catch (e) {
+//         this.$store.commit("notifications/error", "something went wrong");
+//         this.makeToast();
+//       }
+//     },
+//     async fetchIndustryDetails() {
+//       this.spinner = true;
+//       let sec_id = localStorage.getItem("sec_Id");
+//       try {
+//         const response = await this.$axios.get(
+//           `Industries/GetPublicIndustryDetails?industryId=${sec_id}`
+//         );
+//         if (response.data.Companies.length) {
+//           response.data.Companies.filter((sec) => {
+//             if (this.sectors.length != 6 && sec.Id != this.$route.params.id) {
+//               this.sectors.push(sec);
+//             }
+//           });
+//           let ctx = this;
+//           response.data.Companies.filter((com, index) => {
+//             if (index > 5 ) {
+//               ctx.sectors2.push(com);
+//             }
+//           });
+//         }
+//         this.spinner = false;
+//         //  document.getElementsByClassName('.big-image').style.background = this.Banner
+//       } catch (e) {
+//         this.$store.commit("notifications/error", "something went wrong");
+//         this.makeToast();
+//       }
+//     },
+//   },
+// };
 </script>
 
 <style scoped>
