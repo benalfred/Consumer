@@ -14,8 +14,13 @@
         </b-col>
 
         <b-col
-          md="6" class="my-sm-4 pl-lg-5 order-sm-2 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
-          <div _ngcontent-ekb-c38="" class="layout-container__right-section"><div _ngcontent-ekb-c44="" class="right-section" style="background-image: url(&quot;https://d2jfd73ua7gtz4.cloudfront.net/registration/static/faces/gb.png&quot;);"><div _ngcontent-ekb-c44="" class="right-section__card"><mat-icon _ngcontent-ekb-c44="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">format_quote</mat-icon><h4 _ngcontent-ekb-c44="" class="quote">Excellent - interesting surveys and good points and reward system. Definitely the best survey company I've used. wgjahdbsqwigSPJXHAJKciabxkW JHJJh Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia pariatur quidem perspiciatis! Corrupti eos dolores, est, vel autem cupiditate vitae et voluptate facilis unde nesciunt maxime possimus quis quam veniam eveniet tenetur accusantium delectus laborum quia libero iure! Vero, illum.</h4><p _ngcontent-ekb-c44="" class="credit">App Store review Jan '21</p></div></div></div>
+          md="6" class="my-sm-4  order-sm-2 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
+           <img
+          src="~/assets/img/earnimage.png"
+          width="700"
+          class="image___"
+          alt=""
+        />
         </b-col>
       </b-row>
     </div>
