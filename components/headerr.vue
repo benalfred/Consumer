@@ -406,4 +406,4 @@ header {
 }
 </style>
 
-<SecDropdown :sectors2="sectors2" class="d-none" />
+

@@ -599,4 +599,3 @@ h4 {
 </style>
 
 
- <p class="p-2 text-center">{{ sector.Name }}</p>

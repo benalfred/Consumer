@@ -200,14 +200,13 @@
     </div>
 
     <b-modal id="explore" size="lg" hide-footer scrollable centered  title="Take a survey with other sectors!">
-     <div class="d row ">
+     <div class="d row">
           <div
             class="col-md-3"
             v-for="sector in industries"
             :key="sector.Id"
             style="cursor: pointer"
-            @click="linkToIndustries(sector)"
-          >
+            @click="linkToIndustries(sector)">
             <img v-if="sector.Logo" :src="sector.Logo" class="rounded img-fluid d-flex justify-content-center mx-auto" alt="" />
             <img v-else src="~/assets/img/share720.png" class="rounded img-fluid d-flex justify-content-center mx-auto" alt="" />
             <div class="company-name d-none d-sm-block mt-2" style="">
