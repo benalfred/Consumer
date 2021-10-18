@@ -6,7 +6,7 @@
     <section class="bg mt-5 px-lg-2" style="padding-bottpm: 50px">
       <div class="container-fluid">
         <b-row>
-         <b-col md="5" class="pt-5 px-lg-4 mt-lg-5 mb-5 order-sm-1 order-2 pr-md-0" >
+         <b-col md="5" class="pt-4 px-lg-4 mt-lg-5 mb-5 order-sm-1 order-2 pr-md-0" >
               <h1 style="line-height: 65px;">{{ Name }} <br> Company.</h1>
               <p class="pt-4 lead-text">HERE IS WHAT NIGERINS ARE SAYING <br> ABOUT {{ Name }} Company</p>
 
@@ -182,7 +182,7 @@
             </div>
           </div>
           <b-spinner v-if="spinner" label="Spinning" style="margin-left: 50%"></b-spinner>
-
+          </div>
 
 
           <div class="d-block d-sm-none" v-if="!spinner">
@@ -212,7 +212,7 @@
                 ></a>
               </div>
             </div>
-          </div>
+              <b-spinner v-if="spinner" label="Spinning" style="margin-left: 50%"></b-spinner>
           </div>
         </b-col>
       </b-row>
