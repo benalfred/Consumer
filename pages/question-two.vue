@@ -6,7 +6,7 @@
         <div class="spacer"></div>
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card">
-            <nuxt-link to="/question-one"><i class="material-icons mb-2 mt-5 text-block">arrow_upward</i></nuxt-link>
+           <Back/>
                 <h5>Are you...?</h5>
 
                  <div _ngcontent-fvr-c48="" class="single-select-wrapper mt-5 pt-4 ng-star-inserted">
@@ -26,7 +26,7 @@
             </div>
 
              <div class=" my-5 pt-5 d-block d-sm-none ">
-                <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">0</span> </h4>
+                <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">5</span> </h4>
                 <div class="mt-3">
                   <nuxt-link  class="prl-btn action-button action-button_  text-white" to="/question-three">Next</nuxt-link>
                 </div>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import Back from "~/components/Back";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
@@ -55,6 +56,7 @@ export default {
         ? import("vue-owl-carousel")
         : Promise.resolve({ render: (h) => h("div") }),
     footer,
+    Back
   },
   mounted() {
     AOS.init({

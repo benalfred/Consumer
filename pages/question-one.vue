@@ -6,7 +6,7 @@
         <div class="spacer"></div>
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card ">
-            <nuxt-link to="/intro"><i class="material-icons mb-2 mt-5 text-block">arrow_upward</i></nuxt-link>
+           <Back/>
                 <h5>In what year were you born?</h5>
 
                 <div class="mt-5 pt-5">
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import Back from "~/components/Back";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
@@ -54,6 +55,7 @@ export default {
         ? import("vue-owl-carousel")
         : Promise.resolve({ render: (h) => h("div") }),
     footer,
+    Back
   },
   mounted() {
     AOS.init({

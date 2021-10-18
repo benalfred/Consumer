@@ -1,12 +1,12 @@
 <template>
-  <div class="">
+  <div>
     <div class="loader_bg">
       <div class="loader"></div>
     </div>
     <section class="bg mt-5 px-lg-2" style="padding-bottpm: 50px">
       <div class="container-fluid">
         <b-row>
-         <b-col md="6" class=" px-lg-4 mt-lg-5 mb-5 order-sm-1 order-2 pr-md-0" >
+         <b-col md="5" class="pt-5 px-lg-4 mt-lg-5 mb-5 order-sm-1 order-2 pr-md-0" >
               <h1 style="line-height: 65px;">{{ Name }} <br> Company.</h1>
               <p class="pt-4 lead-text">HERE IS WHAT NIGERINS ARE SAYING <br> ABOUT {{ Name }} Company</p>
 
@@ -231,7 +231,7 @@
 
   <b-modal v-model="modalShow" size="lg" hide-header header-bg-variant="white" hide-footer header-class="border-0" scrollable centered body-bg-variant="white">
 
-  <div class="d-none d-sm-block">
+  <div class="d-none d-sm-block" v-if="sectors2">
         <div class=" row ">
           <div
             class="col-md-3"
@@ -249,7 +249,7 @@
         </div>
       </div>
 
-      <div class="d-block d-sm-none">
+      <div class="d-block d-sm-none" v-if="sectors2">
         <div class=" row ">
           <div
             class="col-md-3"
@@ -277,17 +277,19 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SecNav from "@/components/SecNav.vue";
 import agegender from "@/components/agegender.vue";
-import footer from "@/components/footer.vue";
+import Footer from "@/components/footer.vue";
 export default {
   layout: "headerr",
-  component: { agegender, footer, SecNav },
+  component: { agegender, Footer, SecNav },
 
-  async fetch() {
-    await this.fetchCompanyDetails();
-    await this.fetchIndustryDetails();
-  },
+  // async fetch() {
+  //   await this.fetchCompanyDetails();
+  //   await this.fetchIndustryDetails();
+  // },
   // middleware: "account_setup",
-  mounted() {
+ async mounted() {
+     await this.fetchCompanyDetails();
+    await this.fetchIndustryDetails();
     this.load()
     AOS.init({
       offset: 100,

@@ -6,7 +6,7 @@
         <div class="spacer"></div>
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card">
-            <nuxt-link to="/question-two"><i class="material-icons mb-2 mt-5 text-block">arrow_upward</i></nuxt-link>
+           <Back/>
                 <h5>Postcode</h5>
 
                 <div class="mt-5 pt-3">
@@ -18,7 +18,8 @@
 
 
                 <div class="d-lg-flex my-5 pt-5  d-none d-sm-block">
-                <h4 class="align-items-center d-flex  d-none d-sm-block">POINTS &nbsp; <span class="zero">0</span> </h4>
+                <h4 class="align-items-center d-flex  d-none d-sm-block">POINTS &nbsp; <span class="zero">10</span>
+                </h4>
                 <div class="d-flex justify-content-end ml-auto  ">
                   <nuxt-link  class="prl-btn action-button text-white d-none d-sm-block" to="/question-two">Next</nuxt-link>
                 </div>
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import Back from "~/components/Back";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
@@ -54,6 +56,7 @@ export default {
         ? import("vue-owl-carousel")
         : Promise.resolve({ render: (h) => h("div") }),
     footer,
+    Back
   },
   mounted() {
     AOS.init({
