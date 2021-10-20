@@ -15,7 +15,7 @@
             <Back />
             <h5>Are you Male Or female?</h5>
             <b-form-group>
-              <div class="form-group col-md-6 mt-3">
+              <div class="form-group col-md-5 mt-5 ml-n2">
                 <v-select
                   v-model="Sex"
                   :options="genderOptions"
