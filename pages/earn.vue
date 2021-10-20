@@ -1,30 +1,54 @@
 <template>
-  <div style="background: #f7f6fa!important;">
+  <div style="background: #f7f6fa !important">
     <div class="line_ container-fluid px-lg-5">
       <b-row class="">
         <div class="spacer"></div>
-        <b-col md="6" class="my-sm-5 mt-3 pt-5 order-sm-1 order-2 pr-md-0" >
+        <b-col md="6" class="my-sm-5 mt-3 pt-5 order-sm-1 order-2 pr-md-0">
           <nuxt-link to="/">
             <i class="material-icons mb-3">keyboard_backspace</i>
-        </nuxt-link>
-              <h1 style="line-height: 65px;">Get cash for taking <br class="d-none d-sm-block"> surveys</h1>
-              <p class="pt-5 mt-1 lead-text col-md-10 ml-n2">There's no small print, you've earned those points by taking YouGov surveys! Choose your reward, we'll process it immediately. We add new rewards all the time, based on your feedback.</p>
-              <a  class="prl-btn action-button " href="#">Start</a>
-
+          </nuxt-link>
+          <h1 style="line-height: 65px">
+            Get cash for taking <br class="d-none d-sm-block" />
+            surveys
+          </h1>
+          <p class="pt-5 mt-1 lead-text col-md-10 ml-n2">
+            There's no small print, you've earned those points by taking YouGov
+            surveys! Choose your reward, we'll process it immediately. We add
+            new rewards all the time, based on your feedback.
+          </p>
+          <nuxt-link v-if="$auth.user.RequireNewPassword"
+            class="prl-btn action-button"
+            to="/intro"
+            >Start</nuxt-link
+          >
+           <nuxt-link v-else
+            class="prl-btn action-button"
+            to="/industry/32/Technology"
+            >Start</nuxt-link
+          >
         </b-col>
 
         <b-col
-          md="6" class="my-sm-4  order-sm-2 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
-           <img
-          src="~/assets/img/earnimage.png"
-          width="700"
-          class="image___"
-          alt=""
-        />
+          md="6"
+          class="
+            my-sm-4
+            order-sm-2 order-1
+            mb-0
+            pb-0
+            ml-0
+            px-0
+            offset-sm-1 offset-md-1 offset-0
+          "
+        >
+          <img
+            src="~/assets/img/earnimage.png"
+            width="700"
+            class="image___"
+            alt=""
+          />
         </b-col>
       </b-row>
     </div>
-
   </div>
 </template>
 
@@ -59,6 +83,9 @@ export default {
     // takeToSector(sector){
     //   this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
     // },
+    introLink() {
+      this.$router.push(`/industry/37/Technology`);
+    },
     onSlideStart(slide) {
       this.sliding = true;
     },
@@ -71,12 +98,12 @@ export default {
 
 <style scoped>
 body,
-html{
-     background: #f7f6fa!important;
+html {
+  background: #f7f6fa !important;
 }
 h1 {
   color: #241d36;
-  font-family: 'Rawline Bold';
+  font-family: "Rawline Bold";
   font-size: 46px;
   font-weight: bolder;
 }
@@ -85,49 +112,49 @@ h1 {
   color: #241d36;
   font-size: 23px;
   font-weight: 500;
-  font-family: 'Rawline Medium';
+  font-family: "Rawline Medium";
 }
 
-.prl-btn{
-    padding: 26px 74px;
-    position: relative;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    border: unset;
-    border-radius: 50px;
-    background: #e57718;
-    color: #fff;
-    font-weight: 700;
-    font-size: 17px;
-    font-family: 'Rawline Medium';
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    cursor: pointer;
-    margin-top: 65px!important;
+.prl-btn {
+  padding: 26px 74px;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: unset;
+  border-radius: 50px;
+  background: #e57718;
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  font-family: "Rawline Medium";
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 65px !important;
 }
 
-a{
-   font-family: 'Rawline SemiBold';
-   color: #241d36;
-   font-size: 19px;
+a {
+  font-family: "Rawline SemiBold";
+  color: #241d36;
+  font-size: 19px;
 }
 
 .under {
-  margin-top: 35px!important;
+  margin-top: 35px !important;
 }
 
-.under a:hover{
-  text-decoration: underline!important;
+.under a:hover {
+  text-decoration: underline !important;
 }
 
-i{
+i {
   font-weight: bold;
-   color: #241d36;
+  color: #241d36;
   font-size: 29px;
   position: relative;
   bottom: 30px;

@@ -266,7 +266,6 @@ export default {
         const response = await this.$axios.get(
           `Industries/GetPublicIndustryDetails?industryId=${this.$route.params.id}`
         );
-        console.log(response.data)
         localStorage.setItem("sec_Id", response.data.Id);
         this.Name = response.data.Name;
         this.Slogan = response.data.Slogan;

@@ -1,6 +1,9 @@
 <template>
   <div style="background: #f7f6fa!important;">
     <div class="line_  px-lg-5 px-3">
+       <div class="loader_bg">
+      <div class="loader"></div>
+    </div>
       <b-row class="">
        <nuxt-link to="/"> <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-2 pt-3" alt="" /></nuxt-link>
         <div class="spacer"></div>
@@ -41,6 +44,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
 import footer from "~/components/footer";
+import {mapActions,mapState} from 'vuex'
 export default {
 //   layout: "headerr",
 
@@ -56,16 +60,28 @@ export default {
       offset: 100,
       duration: 1000,
     });
+    if (!this.genderOptions.length || this.stateOptions.length) {
+      this.load()
+    this.getGenders(),
+    this.getStates()
+    }
   },
-  // middleware: "account_setup",
+  middleware: ['auth','account_setup'],
   computed: {
+    ...mapState("data-fetching", ["genderOptions", "stateOptions"]),
     fetchedSectors() {
       return this.$store ? this.$store.state.notifications.sectorsFetched : [];
     },
   },
   methods: {
+    ...mapActions("data-fetching", ['getGenders', 'getStates']),
     takeToSector(sector){
       this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
+    },
+    load(){
+      setTimeout(function() {
+        $('.loader_bg').fadeToggle();
+      }, 2000);
     },
     onSlideStart(slide) {
       this.sliding = true;

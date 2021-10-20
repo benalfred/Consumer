@@ -100,7 +100,7 @@ export default {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
         title: this.$store.state.notifications.type,
         autoHideDelay: 5000,
-        variant: this.$store.state.notifications.type === "error" ? "danger" : "info",
+        variant: this.$store.state.notifications.type === "error" ?  "danger" : "info",
         solid: true,
       });
     },

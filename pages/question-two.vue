@@ -2,19 +2,21 @@
   <div style="background: #f7f6fa!important;">
     <div class="line_ container-fluid px-lg-5">
       <b-row class="">
-           <nuxt-link to="/"> <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-2 pt-3" alt="" /></nuxt-link>
+          <nuxt-link to="/"> <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-2 pt-3" alt="" /></nuxt-link>
         <div class="spacer"></div>
         <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
             <div class="content-card">
            <Back/>
-                <h5>Are you Male Or female?</h5>
-  <b-form-group>
+                <h5>Where Do You Hail From</h5>
+
+                  <b-form-group>
                     <div class="form-group">
                       <v-select
-                        v-model="form.Sex"
-                        :options="genderOptions"
-                        placeholder="select gender"
-                        :reduce="(gender) => gender.Id"
+                        v-model="StateId"
+                        :options="stateOptions"
+                        placeholder="select state"
+                        :reduce="(state) => state.Id"
+                        @input="getFeatures"
                         label="Name"
                       ></v-select>
                     </div>
@@ -24,17 +26,20 @@
               <p class="terms pt-3">This information helps us to ensure that responses to our surveys reflect the population as a whole. Find out more</p>
 
 
-               <div class="d-lg-flex my-5 pt-5  d-none d-sm-block">
-                <h4 class="align-items-center d-flex  d-none d-sm-block">POINTS &nbsp; <span class="zero">0</span> </h4>
+                <div class="d-lg-flex my-5 pt-5  d-none d-sm-block">
+                <h4 class="align-items-center d-flex  d-none d-sm-block">POINTS &nbsp; <span class="zero">10</span>
+                </h4>
                 <div class="d-flex justify-content-end ml-auto  ">
-                  <nuxt-link  class="prl-btn action-button text-white d-none d-sm-block" to="/question-three">Next</nuxt-link>
+                  <nuxt-link :event="disabled ? '' : 'click'"
+      to="/question-three"  class="prl-btn action-button text-white d-none d-sm-block" >Next</nuxt-link>
                 </div>
             </div>
 
              <div class=" my-5 pt-5 d-block d-sm-none ">
                 <h4 class="align-items-center d-flex">POINTS &nbsp; <span class="zero d-flex ml-auto">10</span> </h4>
                 <div class="mt-3">
-                  <nuxt-link  class="prl-btn action-button action-button_  text-white" to="/question-three">Next</nuxt-link>
+                  <nuxt-link :event="disabled ? '' : 'click'"
+      to="/question-three" class="prl-btn action-button action-button_  text-white" >Next</nuxt-link>
                 </div>
             </div>
           </div>
@@ -53,6 +58,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
 import footer from "~/components/footer";
+import {mapActions,mapState,mapMutations} from 'vuex'
 export default {
 //   layout: "headerr",
 
@@ -64,32 +70,40 @@ export default {
     footer,
     Back
   },
-  data(){
-    return {
-      form:{
-        Sex:null
-      },
-      genderOptions: [
-        {Name: 'Male', Id:1},
-        {Name: 'Female', Id:2}
-      ]
+  data() {
+    return{
+      disabled:true
     }
   },
   mounted() {
+    if (!this.stateOptions.length) {
+      this.$router.push('/intro')
+    }
     AOS.init({
       offset: 100,
       duration: 1000,
     });
   },
-  // middleware: "account_setup",
+  middleware: ['auth','account_setup'],
   computed: {
-    fetchedSectors() {
-      return this.$store ? this.$store.state.notifications.sectorsFetched : [];
-    },
+     ...mapState("data-fetching", ["stateOptions","StateId"]),
+    // fetchedSectors() {
+    //   return this.$store ? this.$store.state.notifications.sectorsFetched : [];
+    // },
   },
   methods: {
+     ...mapMutations('data-fetching',["SetStateId"]),
+      ...mapActions('data-fetching', [
+      'getFeatures',
+      'getStates'
+    ]),
     takeToSector(sector){
       this.$router.push(`/industry/${sector.Id}/${sector.Name}`)
+    },
+     load(){
+      setTimeout(function() {
+        $('.loader_bg').fadeToggle();
+      }, 1000);
     },
     onSlideStart(slide) {
       this.sliding = true;
@@ -98,6 +112,11 @@ export default {
       this.sliding = false;
     },
   },
+  watch: {
+    StateId(){
+      !this.StateId ? this.disabled = true : this.disabled = false
+    }
+  }
 };
 </script>
 
@@ -152,42 +171,6 @@ i{
 }
 
 
-[_nghost-fvr-c48] .question__input--single-select-binary[_ngcontent-fvr-c48] {
-    margin: 56px 16px 0 0;
-    display: inline-block;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-
-[_nghost-fvr-c48] .question__input[_ngcontent-fvr-c48] {
-    margin: 56px 0 0;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-}
-
-.prl-input[_ngcontent-fvr-c48] {
-    padding: 22px 25px 22px ;
-    border: 2px solid #433c54;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 20px;
-     font-family: 'Rawline SemiBold';
-}
-.prl-input {
-    padding: 16px;
-    border: 2px solid #433c54;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 16px;
-     font-family: 'Rawline SemiBold';
-}
-
-.btn2 {
-    background-color: #241d36;
-    color: #fff;
-}
 
 
 </style>
