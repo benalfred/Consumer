@@ -9,7 +9,7 @@
         <b-col md="6" class="my-sm-5 mt-lg-5 pt-5 order-sm-1 order-2 pr-md-0" >
               <h1 style="line-height: 65px;">Share your opinion. <br class="d-none d-sm-block"> Earn money. <br class="d-none d-sm-block"> Shape the news.</h1>
               <p class="pt-4 lead-text">Join millions of others in sharing your opinion on <br> politics, sport, entertainment and more</p>
-               <nuxt-link v-if="$auth.user.RequireNewPassword"
+               <nuxt-link v-if="$auth.user && $auth.user.RequireNewPassword"
             class="prl-btn action-button"
             to="/intro"
             >Start</nuxt-link

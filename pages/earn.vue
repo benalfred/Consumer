@@ -16,7 +16,7 @@
             surveys! Choose your reward, we'll process it immediately. We add
             new rewards all the time, based on your feedback.
           </p>
-          <nuxt-link v-if="$auth.user.RequireNewPassword"
+          <nuxt-link v-if="$auth.user && $auth.user.RequireNewPassword"
             class="prl-btn action-button"
             to="/intro"
             >Start</nuxt-link

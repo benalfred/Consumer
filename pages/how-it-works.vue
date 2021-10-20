@@ -15,7 +15,7 @@
           </p>
 
           <nuxt-link
-            v-if="$auth.user.RequireNewPassword"
+            v-if="$auth.user && $auth.user.RequireNewPassword"
             class="prl-btn action-button"
             to="/intro"
             >Start</nuxt-link
