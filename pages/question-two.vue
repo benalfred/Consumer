@@ -10,7 +10,7 @@
                 <h5>Where Do You Hail From</h5>
 
                   <b-form-group>
-                    <div class="form-group">
+                    <div class="form-group col-md-5 ml-n2 mt-4">
                       <v-select
                         v-model="StateId"
                         :options="stateOptions"

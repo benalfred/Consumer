@@ -115,9 +115,13 @@
 
         <b-row>
           <b-col md="12" class="dell-card">
+          
             <div class="d-flex_ row p-5 " v-if="companies.length">
+            <div class="position-absolute text-black ml-4">
+              <h3>Companies Under {{ Name }} </h3>
+            </div>
               <div
-                style="cursor: pointer"
+                style="cursor: pointer; margin-top: 29px;"
                 @click="goToCompanyPage(company)"
                 class="company-image col-md-2"
                 v-for="company in companies"

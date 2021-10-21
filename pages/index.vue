@@ -34,7 +34,7 @@
         </b-col>
 
         <b-col
-          md="6" class="my-sm-4  order-sm-2 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
+          md="6" class="my-sm-4 order-sm-2 order-1 mb-0 pb-0 ml-0 px-0 offset-sm-1 offset-md-1 offset-0">
            <img
           src="~/assets/img/homeimage.png"
           width="700"

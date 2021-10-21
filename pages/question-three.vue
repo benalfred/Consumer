@@ -10,7 +10,7 @@
                 <h5>Your Local Government Area</h5>
 
                   <b-form-group>
-                    <div class="form-group">
+                    <div class="form-group col-md-5 mt-4 ml-n2">
                       <v-select
                         v-model="LGAId"
                         :options="lgaOptions"
