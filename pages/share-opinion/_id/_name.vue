@@ -350,12 +350,13 @@ export default {
          await this.allOpinions()
         this.Comment = null;
         this.rating = null;
-        this.ratingTagId = [];
-        this.$store.commit("notifications/success", "opinion submitted successfully, Thank you!!");
-        this.makeToast()
-       setTimeout(() => {
-        this.$bvModal.show('explore')
-       }, 2000);
+        swal({
+          title: "Success!",
+          text: "Opinion Submitted Successfully, Thank you!!",
+          icon: "success",
+        }).then(() =>{
+          this.$bvModal.show('explore')
+        })
       } catch (e) {
         swal({
           title: "Error!",
