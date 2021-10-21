@@ -15,7 +15,7 @@
                   {{ Slogan }}
                 </h2>
                 <p class="pt-5 px-3 ptag">
-                  HERE IS WHAT NIGERINS ARE SAYING ABOUT {{ Name }} Industry
+                  HERE IS WHAT NIGERIANS ARE SAYING ABOUT {{ Name }} INDUSTRY
                 </p>
               </div>
             </div>

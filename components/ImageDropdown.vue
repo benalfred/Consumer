@@ -56,7 +56,7 @@
                   "
                   class="mt-3"
                 ></div>
-                <p>For every friend reffered, you gain an additional 10 points</p>
+                <p>For every friend referred, you gain an additional 10 points</p>
                 <p style="font-size: 13px">
                   Insert email address in field below to refer a friend
                 </p>
