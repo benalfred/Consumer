@@ -100,7 +100,7 @@ this.$router.push('/intro')
   },
   middleware: ["auth", "account_setup"],
   computed: {
-    ...mapState("data-fetching", ["genderOptions", "Sex"]),
+    ...mapState("data-fetching", ["genderOptions"]),
     fetchedSectors() {
       return this.$store ? this.$store.state.notifications.sectorsFetched : [];
     },

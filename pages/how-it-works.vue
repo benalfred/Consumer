@@ -10,7 +10,7 @@
           <h1 style="line-height: 65px">How does Consumer work?</h1>
           <p class="pt-5 mt-1 lead-text col-md-11 ml-n2">
             You'll be invited to answer questions on a wide range of topics, by
-            email or in the YouGov app. You'll earn points every time you answer
+            email or in the ConsumerHalla app. You'll earn points every time you answer
             a survey. The longer the survey, the more points you'll earn.
           </p>
 

@@ -113,6 +113,7 @@ export default {
         await this.$router.back();
       } catch (err) {
         if (err.response) {
+          this.spinner = false;
           this.$store.commit("notifications/error", err.response.data);
           this.makeToast();
           return;

@@ -8,7 +8,7 @@
             <i class="material-icons mb-3">keyboard_backspace</i>
         </nuxt-link>
               <h1 style="line-height: 55px;">ConsumerHalla surveys <br class="d-none d-sm-block "> make  the headlines every day</h1>
-              <p class="pt-5 mt-1 lead-text col-md-10 ml-n2">YouGov is trusted by brands and the media to accurately measure opinion. The results of surveys you take will feature in the news, and be used by organisations all over the world to make better decisions.</p>
+              <p class="pt-5 mt-1 lead-text col-md-10 ml-n2">ConsumerHalla is trusted by brands and the media to accurately measure opinion. The results of surveys you take will feature in the news, and be used by organisations all over the world to make better decisions.</p>
                 <nuxt-link v-if="$auth.user && $auth.user.RequireNewPassword"
             class="prl-btn action-button"
             to="/intro"

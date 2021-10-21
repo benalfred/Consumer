@@ -12,7 +12,7 @@
             surveys
           </h1>
           <p class="pt-5 mt-1 lead-text col-md-10 ml-n2">
-            There's no small print, you've earned those points by taking YouGov
+            There's no small print, you've earned those points by taking ConsumerHalla
             surveys! Choose your reward, we'll process it immediately. We add
             new rewards all the time, based on your feedback.
           </p>
