@@ -199,7 +199,7 @@
       </div>
     </div>
 
-    <b-modal id="explore" size="lg" hide-footer scrollable centered  title="Take survey with other sectors!">
+    <b-modal id="explore" size="lg" hide-footer scrollable centered  title="Take a survey with other sectors!">
      <div class="d row">
           <div
             class="col-md-3"
