@@ -129,9 +129,9 @@
           </div>
         </div>
 
-        <b-col md="7" class="section_ px-5 pt-5 mt-3">
+        <b-col md="7" class="section_ px-lg-5 pt-5 mt-3">
           <div>
-            <div class="second-col px-4 mb-5 pt-4 pb-4" v-if="opinions.length && !spinner">
+            <div class="second-col px-lg-4 mb-5 pt-4 pb-4" v-if="opinions.length && !spinner">
               <span
                 class="text-center pt-1 text-white"
                 style="
