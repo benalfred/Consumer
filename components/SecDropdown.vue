@@ -169,7 +169,7 @@ export default {
       padding: 10px 0;
       font-size: 15px;
       color: #9d9d9d;
-      vertical-align: top; }
+   }
       .m-dropdown .m-dropdown-menu > li > a.active {
         color: #ffffff; }
   .m-dropdown .m-dropdown-menu .container {

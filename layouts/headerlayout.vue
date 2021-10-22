@@ -20,7 +20,7 @@
                 <div class="cart_buttons_madesoft col-12 d-flex">Refer</div></a
               >
 
-              <div class="cart_buttons_madesoft col-12 mb-3 d-flex">
+              <div class="cart_buttons_madesoft col-12 mb-3 d-flex" v-if="$auth.loggedIn">
                 <span class="las la-sign-out-alt pt-1"></span>
                 <span class="pr-3 pl-1" @click="$auth.logout()">Logout</span>
               </div>
@@ -77,7 +77,7 @@
                   "
                   class="mt-3"
                 ></div>
-                <p>For every friend reffered, you gain an additional 10 points</p>
+                <p>For every friend referred, you gain an additional 10 points</p>
                 <p style="font-size: 13px">
                   Insert email address in field below to refer a friend
                 </p>
