@@ -7,7 +7,7 @@
       <b-row class="">
        <nuxt-link to="/"> <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-2 pt-3" alt="" /></nuxt-link>
         <div class="spacer"></div>
-        <b-col md="12" class="mt-sm-5 p-2" >
+        <b-col md="12" class="mt-sm-3 p-2" >
             <div class="content-card p-lg-5 p-3">
                 <h1>Welcome to ConsmerHalla</h1>
               <p class="lead-text pb-3 pt-4">Let's get started with some basic questions. Please confirm that you live
