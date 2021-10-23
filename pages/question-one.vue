@@ -10,7 +10,7 @@
             alt=""
         /></nuxt-link>
         <div class="spacer"></div>
-        <b-col md="12" class="mt-sm-4 p-lg-3 p-1">
+        <b-col md="12" class="mt-sm-3 p-lg-3 p-1">
           <div class="content-card">
             <Back />
             <h5>Are you Male Or female?</h5>

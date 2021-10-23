@@ -4,7 +4,7 @@
       <b-row class="">
           <nuxt-link to="/"> <img src="~/assets/img/logo.png"  width="180" class="img-fluid mt-4 ml-2 pt-3" alt="" /></nuxt-link>
         <div class="spacer"></div>
-        <b-col md="12" class="mt-sm-4 p-lg-3 p-1" >
+        <b-col md="12" class="mt-sm-3 p-lg-3 p-1" >
             <div class="content-card">
            <Back/>
                 <h5>Where Do You Hail From</h5>
