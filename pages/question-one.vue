@@ -39,7 +39,7 @@
                 <nuxt-link
                   class="prl-btn action-button text-white d-none d-sm-block"
                   :event="disabled ? '' : 'click'"
-                  to="/question-three"
+                  to="/question-two"
                   >Next</nuxt-link
                 >
               </div>

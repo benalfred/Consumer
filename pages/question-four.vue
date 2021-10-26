@@ -92,6 +92,76 @@
         </b-col>
       </b-row>
     </div>
+    <b-modal
+      id="explore"
+      size="lg"
+      hide-footer
+      scrollable
+      centered
+      title="Take a Survey With Sectors!"
+    >
+      <div class="d row">
+        <div
+          class="col-md-3"
+          v-for="sector in industries"
+          :key="sector.Id"
+          style="cursor: pointer"
+          @click="linkToIndustries(sector)"
+        >
+          <img
+            v-if="sector.Logo"
+            :src="sector.Logo"
+            class="rounded img-fluid d-flex justify-content-center mx-auto"
+            alt=""
+          />
+          <img
+            v-else
+            src="~/assets/img/share720.png"
+            class="rounded img-fluid d-flex justify-content-center mx-auto"
+            alt=""
+          />
+          <div class="company-name d-none d-sm-block mt-2" style="">
+            <p
+              class="
+                p-2
+                text-center
+                d-none d-sm-block d-flex
+                justify-content-center
+                mx-auto
+              "
+              style="color: #fff"
+            >
+              {{ sector.Name }}
+            </p>
+          </div>
+          <div
+            class="
+              company-name
+              mb-3
+              d-flex
+              justify-content-center
+              mx-auto
+              d-block d-sm-none
+              mt-2
+            "
+            style=""
+          >
+            <p
+              class="
+                pt-3
+                text-center
+                d-block d-sm-none d-flex
+                justify-content-center
+                mx-auto
+              "
+              style="color: #fff"
+            >
+              {{ sector.Name }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -101,7 +171,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "remixicon/fonts/remixicon.css";
 import footer from "~/components/footer";
-import {mapActions,mapState} from "vuex"
+import { mapActions, mapState } from "vuex";
 export default {
   //   layout: "headerr",
 
@@ -120,8 +190,9 @@ export default {
       passwordValid: true,
       confirm_password_valid: true,
       passwordDontMatch: false,
-      firstname:this.$auth.user.firstname,
-      surname:this.$auth.user.surname,
+      industries:[],
+      firstname: this.$auth.user.firstname,
+      surname: this.$auth.user.surname,
       spinner: false,
     };
   },
@@ -131,36 +202,55 @@ export default {
       duration: 1000,
     });
     if (!this.stateOptions.length) {
-      this.$router.push('/intro')
+      return this.$router.push("/intro");
     }
+     this.fetchSectors()
   },
-  middleware: ['auth','account_setup'],
+  middleware: ["auth", "account_setup"],
   computed: {
-     ...mapState("data-fetching", ["stateOptions",]),
+    ...mapState("data-fetching", ["stateOptions"]),
   },
   methods: {
-    ...mapActions('data-fetching', ["createUserAccount"]),
+    ...mapActions("data-fetching", ["createUserAccount"]),
     async submitDetails() {
       if (this.password != this.confirm_password) {
         return (this.passwordDontMatch = true);
       }
       this.spinner = true;
-     let response = await this.createUserAccount(this.password, this.confirm_password);
-     if (response) {
-       this.spinner = false;
-       this.password = null
-       this.confirm_password = null
+      let response = await this.createUserAccount(
+        this.password,
+        this.confirm_password
+      );
+      if (response) {
+        this.spinner = false;
+        this.password = null;
+        this.confirm_password = null;
         swal({
           title: "Success!",
           text: "You have Successfully completed your first survey with consumerhalla, To earn more points take more surveys with industries",
           icon: "success",
-        }).then(() =>{
-          this.$router.push('/industry/32/Technology')
-        })
-        
-     }
+        }).then(() => {
+          this.$bvModal.show("explore");
+        });
+      }
       this.spinner = false;
-     return
+      return;
+    },
+     linkToIndustries(sector) {
+      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
+    },
+    async fetchSectors() {
+      this.pageSize -= 1;
+      try {
+        const response = await this.$axios.get(
+          `Industries/GetSemiLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+        );
+        this.industries = response.data.Results;
+      } catch (e) {
+        this.spinner = false;
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
     },
     takeToSector(sector) {
       this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
@@ -174,7 +264,9 @@ export default {
   },
   watch: {
     password() {
-      !this.password ? (this.passwordValid = false) : (this.passwordValid = true);
+      !this.password
+        ? (this.passwordValid = false)
+        : (this.passwordValid = true);
     },
     confirm_password() {
       !this.confirm_password

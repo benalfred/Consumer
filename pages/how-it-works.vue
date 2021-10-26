@@ -20,12 +20,15 @@
             to="/intro"
             >Start</nuxt-link
           >
-          <nuxt-link
+          <!-- <nuxt-link
             v-else
             class="prl-btn action-button"
             to="/industry/32/Technology"
             >Start</nuxt-link
-          >
+          > -->
+            <button v-else @click="showModal" class="prl-btn action-button">
+            Start
+          </button>
         </b-col>
 
         <b-col
@@ -49,6 +52,76 @@
         </b-col>
       </b-row>
     </div>
+     <b-modal
+      id="explore"
+      size="lg"
+      hide-footer
+      scrollable
+      centered
+      title="Take a Survey With Sectors!"
+    >
+      <div class="d row">
+        <div
+          class="col-md-3"
+          v-for="sector in industries"
+          :key="sector.Id"
+          style="cursor: pointer"
+          @click="linkToIndustries(sector)"
+        >
+          <img
+            v-if="sector.Logo"
+            :src="sector.Logo"
+            class="rounded img-fluid d-flex justify-content-center mx-auto"
+            alt=""
+          />
+          <img
+            v-else
+            src="~/assets/img/share720.png"
+            class="rounded img-fluid d-flex justify-content-center mx-auto"
+            alt=""
+          />
+          <div class="company-name d-none d-sm-block mt-2" style="">
+            <p
+              class="
+                p-2
+                text-center
+                d-none d-sm-block d-flex
+                justify-content-center
+                mx-auto
+              "
+              style="color: #fff"
+            >
+              {{ sector.Name }}
+            </p>
+          </div>
+          <div
+            class="
+              company-name
+              mb-3
+              d-flex
+              justify-content-center
+              mx-auto
+              d-block d-sm-none
+              mt-2
+            "
+            style=""
+          >
+            <p
+              class="
+                pt-3
+                text-center
+                d-block d-sm-none d-flex
+                justify-content-center
+                mx-auto
+              "
+              style="color: #fff"
+            >
+              {{ sector.Name }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -67,19 +140,51 @@ export default {
         : Promise.resolve({ render: (h) => h("div") }),
     footer,
   },
+   head() {
+    return {
+      title: `${this.title} | ConsumerHalla Survey`,
+    };
+  },
+   data() {
+    return {
+      title: "How it works",
+      pageSize: 1,
+      page: 1,
+      industries: [],
+    };
+  },
   mounted() {
     AOS.init({
       offset: 100,
       duration: 1000,
     });
+    this.fetchSectors()
   },
   // middleware: "account_setup",
   computed: {
+      async fetchSectors() {
+      this.pageSize -= 1;
+      try {
+        const response = await this.$axios.get(
+          `Industries/GetSemiLiteIndustries?page=${this.page}&pageSize=${this.pageSize}`
+        );
+        this.industries = response.data.Results;
+      } catch (e) {
+        this.$store.commit("notifications/error", "something went wrong");
+        this.makeToast();
+      }
+    },
     fetchedSectors() {
       return this.$store ? this.$store.state.notifications.sectorsFetched : [];
     },
   },
   methods: {
+      showModal() {
+      this.$bvModal.show("explore");
+    },
+    linkToIndustries(sector) {
+      this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
+    },
     takeToSector(sector) {
       this.$router.push(`/industry/${sector.Id}/${sector.Name}`);
     },
@@ -104,6 +209,46 @@ h1 {
   font-size: 46px;
   font-weight: bolder;
 }
+.active {
+  opacity: 0.3;
+}
+
+
+.logo-img {
+  width: 80px;
+}
+
+.bg-class {
+color: #fff!important;
+  background-color: #e57718;
+}
+.company-name {
+  background: #07072f;
+  width: 170px;
+  color: white;
+  margin: 0px 0px 0px;
+  border-radius: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  box-shadow: 0px 12px 12px #00000029;
+}
+
+.company-image img {
+  height: 59px;
+}
+
+@media screen and (min-width: 750px) {
+  .no-opinion-img {
+    margin-left: 50px;
+  }
+}
+.lead-text {
+  color: #241d36;
+  font-size: 23px;
+  font-weight: 500;
+  font-family: "Rawline Medium";
+}
+
 
 .lead-text {
   color: #241d36;

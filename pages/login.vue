@@ -77,7 +77,6 @@
 <script>
 export default {
   layout: "headerr",
-  auth: "guest",
   head() {
     return {
       title: `${this.title} | ConsumerHalla Survey`,
@@ -95,6 +94,7 @@ export default {
       },
     };
   },
+  auth: 'guest',
   methods: {
     makeToast() {
       this.$bvToast.toast(`${this.$store.state.notifications.message}`, {
@@ -104,12 +104,16 @@ export default {
         solid: true,
       });
     },
-    async userLogin() {
+    async userLogin(to,from,next) {
+     let name = this.$nuxt.context.from.name
       try {
         this.spinner = true;
         let response = await this.$auth.loginWith("local", { data: this.login });
         // this.$store.state.auth.loggedIn = true
         this.spinner = false;
+        if (name == 'join') {
+          return this.$router.go(-3)
+        }
         await this.$router.back();
       } catch (err) {
         if (err.response) {

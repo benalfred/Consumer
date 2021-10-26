@@ -247,6 +247,7 @@ export default {
       opinions: [],
       daysjs: dayjs,
       spinner: false,
+      title: 'Share Opinion',
       Logo: null,
       Description: null,
       rating: null,

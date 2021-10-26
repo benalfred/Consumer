@@ -118,7 +118,7 @@
           
             <div class="d-flex_ row p-5 " v-if="companies.length">
             <div class="position-absolute text-black ml-4">
-              <h3>Companies Under {{ Name }} </h3>
+              <h3>Take Survey with companies Under {{ Name }} </h3>
             </div>
               <div
                 style="cursor: pointer; margin-top: 29px;"
@@ -523,7 +523,7 @@ h4 {
 }
 
 .big-image {
-  height: 62vh;
+  height: 50vh;
   width: 110vw;
   position: relative;
   background-repeat: repeat;
