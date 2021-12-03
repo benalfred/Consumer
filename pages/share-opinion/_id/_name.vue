@@ -267,8 +267,6 @@ export default {
       pageForOpinions: 1,
       pageForOpinions2: 1,
       Comment: null,
-      title:'Share Opinion',
-
       industries:[],
       ratingTagSpinner: false,
       Name: this.$route.params.name,
@@ -324,6 +322,7 @@ export default {
         this.ratingTags = response.data;
         this.ratingTagSpinner = false;
       } catch (e) {
+        this.ratingTagSpinner = false;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }
@@ -384,7 +383,7 @@ export default {
         this.opinions = opinions.data;
         this.spinner = false;
       } catch (e) {
-        console.log(e)
+        this.spinner = false;
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
       }

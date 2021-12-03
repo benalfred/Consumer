@@ -163,7 +163,7 @@ export default {
       try {
         const _states = await this.$axios.get("/Locations/GetNigeriaStates");
         this.states = _states.data;
-        window.location.reload()
+        // window.location.reload()
       } catch (e) {
         this.$store.commit("notifications/error", "something went wrong");
         this.makeToast();
